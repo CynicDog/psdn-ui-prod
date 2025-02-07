@@ -5,7 +5,7 @@ import {createContext, useContext, useState} from "react";
 const BaseDBContext = createContext();
 
 export const BaseDBProvider = ({ children }) => {
-    const [BaseDB, setBaseDB] = useState(data);
+    const [BaseDB] = useState(data);
 
     return (
         <BaseDBContext.Provider value={{ BaseDB }}>

@@ -1,7 +1,7 @@
 const Button = ({
                     children,
                     onClick,
-                    variant = "primary",
+                    variant = "",
                     size = "",
                     outline = false,
                     block = false,

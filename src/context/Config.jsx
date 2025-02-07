@@ -49,6 +49,12 @@ export const ConfigProvider = ({ children }) => {
         if (currentPage > totalPages) setCurrentPage(totalPages);
     }, [filteredRows, currentPage, totalPages]);
 
+    const handleDeleteRule = (ruleId) => {
+        // Define your deletion logic here
+        console.log("Deleted rule with ID:", ruleId);
+    };
+
+
     return (
         <ConfigContext.Provider
             value={{

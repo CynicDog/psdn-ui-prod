@@ -6,6 +6,7 @@ import ConfigTableHeader from "../module/ConfigTableHeader";
 import PaginationControl from "../module/PaginationControl";
 import ConfigTableColumn from "../module/ConfigTableColumn";
 import ConfigPopup from "../layout/ConfigPopup";
+import ConfigTableBody from "../module/ConfigTableBody";
 
 const ConfigurationView = () => {
 
@@ -26,7 +27,7 @@ const ConfigurationView = () => {
                     </Row>
                 </Area>
 
-                {/* Data Table */}
+                {/* Configuration Data Table */}
                 <Table>
                     <ConfigTableHeader>
                         <ConfigTableColumn name="APPT_YN" applyFilter width="8%" />
@@ -36,6 +37,8 @@ const ConfigurationView = () => {
                         <ConfigTableColumn name="RULES" applyFilter width="20%" />
                         <ConfigTableColumn name="DESC" width="30%" />
                     </ConfigTableHeader>
+
+                    <ConfigTableBody />
                 </Table>
             </Area>
 
