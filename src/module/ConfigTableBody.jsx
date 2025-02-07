@@ -1,12 +1,10 @@
-import { useConfig } from "../context/Config"; // Assuming you're using context for config
-import { useBaseDB } from "../context/BaseDB"; // Import BaseDB context
+import { useConfig } from "../context/Config";
+import { useBaseDB } from "../context/BaseDB";
 import ConfigTableRow from "./ConfigTableRow";
-import TableRow from "../component/TableRow";
-import TableRowCell from "../component/TableRowCell";
 import TableBody from "../component/TableBody";
 
 const FilteredTableBody = () => {
-    const { paginatedRows, selectedRow, toggleRowSelection } = useConfig();
+    const { paginatedRows } = useConfig();
     const { BaseDB } = useBaseDB();
 
     // Get column names from BaseDB.columns
@@ -14,20 +12,10 @@ const FilteredTableBody = () => {
 
     return (
         <TableBody>
-            {paginatedRows.length > 0 ? (
+            {paginatedRows.length > 0 && (
                 paginatedRows.map((row) => (
-                    <ConfigTableRow key={row.COL_NAME} row={row}
-                        columnNames={columnNames}
-                        selectedRowNames={selectedRow}
-                        toggleRowSelection={toggleRowSelection}
-                    />
+                    <ConfigTableRow key={row.COL_NAME} row={row} columnNames={columnNames}/>
                 ))
-            ) : (
-                <TableRow>
-                    <TableRowCell colSpan={columnNames.length + 1} className="text-center">
-                        No records found
-                    </TableRowCell>
-                </TableRow>
             )}
         </TableBody>
     );

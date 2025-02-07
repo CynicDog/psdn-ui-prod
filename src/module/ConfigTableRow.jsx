@@ -4,25 +4,27 @@ import Area from "../component/Area";
 import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
+import {useConfig} from "../context/Config";
 
-const ConfigTableRow = ({ row, columnNames, selectedRowNames, toggleRowSelection, handleDeleteRule }) => {
+const ConfigTableRow = ({ row, columnNames }) => {
+
+    const { selectedRow, toggleRowSelection, handleDeleteRule } = useConfig();
 
     return (
         <TableRow
-            className={selectedRowNames.includes(row.COL_NAME) ? "table-active" : ""}
-            onClick={() => toggleRowSelection(row, !selectedRowNames.includes(row.COL_NAME))}
+            className={selectedRow.includes(row.COL_NAME) ? "table-active" : ""}
             style={{ cursor: "pointer", verticalAlign: row.RULES.length > 0 ? "" : "middle" }}
+            onClick={() => toggleRowSelection(row, !selectedRow.includes(row.COL_NAME))}
         >
             <TableRowCell>
                 <Area flex justifyContent="center" >
                     <CheckBox
                         type="checkbox"
-                        checked={selectedRowNames.includes(row.COL_NAME)}
+                        checked={selectedRow.includes(row.COL_NAME)}
                         onChange={(e) => toggleRowSelection(row, e.target.checked)}
                     />
                 </Area>
             </TableRowCell>
-
             {columnNames.map((colKey) => (
                 <TableRowCell key={colKey}>
                     {colKey === "APPT_YN" ? (
@@ -55,10 +57,13 @@ const ConfigTableRow = ({ row, columnNames, selectedRowNames, toggleRowSelection
                     )}
                 </TableRowCell>
             ))}
-
             <TableRowCell>
                 <Area flex justifyContent="center">
-                    <Button size="sm">
+                    <Button size="sm"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                // open up ConfigPopup
+                            }}>
                         <i className="bi bi-box-arrow-up-right"></i>
                     </Button>
                 </Area>

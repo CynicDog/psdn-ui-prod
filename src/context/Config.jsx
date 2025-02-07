@@ -69,6 +69,7 @@ export const ConfigProvider = ({ children }) => {
                 toggleRowSelection,
                 toggleSelectAllRows,
                 allSelected,
+                handleDeleteRule
             }}
         >
             {children}
