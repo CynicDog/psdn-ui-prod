@@ -1,4 +1,4 @@
-// import FilteredTableRow from "./FilteredTableRow";
+// import ConfigTableRow from "./ConfigTableRow";
 // import TableRow from "../component/TableRow";
 // import TableRowCell from "../component/TableRowCell";
 //
@@ -8,7 +8,7 @@
 //         <>
 //             {data.length > 0 ? (
 //                 data.map((row) => (
-//                     <FilteredTableRow
+//                     <ConfigTableRow
 //                         key={row.COL_NAME}
 //                         row={row}
 //                         columnNames={columnNames}

@@ -5,7 +5,7 @@ import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
 
-const FilteredTableRow = ({ row, columnNames, selectedRowNames, toggleRowSelection }) => {
+const ConfigTableRow = ({ row, columnNames, selectedRowNames, toggleRowSelection }) => {
     return (
         <TableRow
             className={selectedRowNames.includes(row.COL_NAME) ? "table-active" : ""}
@@ -66,4 +66,4 @@ const FilteredTableRow = ({ row, columnNames, selectedRowNames, toggleRowSelecti
     );
 };
 
-export default FilteredTableRow;
+export default ConfigTableRow;

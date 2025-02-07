@@ -60,7 +60,7 @@ const PaginationControl = ({ currentPage, totalPages, rowsPerPage, setRowsPerPag
 
     return (
         <Area flex justifyContent="start" alignItems="center">
-            <Span >
+            <Span me="3">
                 {t('components.rows_per_page')}:
             </Span>
             <select
@@ -70,7 +70,7 @@ const PaginationControl = ({ currentPage, totalPages, rowsPerPage, setRowsPerPag
                 value={rowsPerPage}
                 onChange={(e) => {
                     setRowsPerPage(Number(e.target.value));
-                    handlePageChange(1); // Reset to first page when rows per page changes
+                    handlePageChange(1);
                 }}
             >
                 <option value={10}>10</option>

@@ -1,22 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, {useState, useEffect} from "react";
 import Area from "../component/Area";
-import { Col, Row } from "../component/Grid";
+import {Col, Row} from "../component/Grid";
 import Table from "../component/Table";
-import FilteredTableHeader from "../module/FilteredTableHeader";
+import ConfigTableHeader from "../module/ConfigTableHeader";
 import ConfigPopup from "../layout/ConfigPopup";
-import FilteredTableBody from "../module/FilteredTableBody";
+import FilteredTableBody from "../module/ConfigTableBody";
 import PaginationControl from "../module/PaginationControl";
 import {useTranslation} from "../context/Translation";
 import {useBaseDB} from "../context/BaseDB";
-import ConfigTableFilters from "../module/ConfigTableFilters";
+import ConfigTableFilters from "../module/ConfigTableHeader";
+import ConfigTableColumn from "../module/ConfigTableColumn";
 
 const ConfigurationView = () => {
 
-    const { t } = useTranslation();
+    const {t} = useTranslation();
 
-    const { BaseDB } = useBaseDB();
+    const {BaseDB} = useBaseDB();
     const [rows, setRows] = useState(BaseDB.rows);
-    const columnNames = BaseDB.columns;
 
     const [filters, setFilters] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
@@ -64,7 +64,7 @@ const ConfigurationView = () => {
 
     return (
         <>
-            <Area style={{ fontSize: "smaller" }}>
+            <Area style={{fontSize: "smaller"}}>
                 {/* Control Panel */}
                 <Area className="control-panel" bg="body">
                     <Row p="2">
@@ -84,18 +84,49 @@ const ConfigurationView = () => {
                         </Col>
                     </Row>
                 </Area>
-
                 {/* Data Table */}
                 <Table>
-                    <FilteredTableHeader>
-                        <ConfigTableFilters
-                            filterNames={columnNames}
+                    <ConfigTableHeader>
+                        {/* TODO: move the logic of filtering and pagination over BaseDB data into context */}
+                        <ConfigTableColumn
+                            name="APPT_YN"
                             filters={filters}
                             setFilters={setFilters}
-                            allSelected={allSelected}
-                            toggleSelectAllRows={toggleSelectAllRows}
+                            applyFilter
+                            width="8%"
                         />
-                    </FilteredTableHeader>
+                        <ConfigTableColumn
+                            name="COL_NAME"
+                            filters={filters}
+                            setFilters={setFilters}
+                            width="15%"
+                        />
+                        <ConfigTableColumn
+                            name="COL_NAME_LGCL"
+                            filters={filters}
+                            setFilters={setFilters}
+                            width="15%"
+                        />
+                        <ConfigTableColumn
+                            name="COL_TYPE"
+                            filters={filters}
+                            setFilters={setFilters}
+                            applyFilter
+                        />
+                        <ConfigTableColumn
+                            name="RULES"
+                            filters={filters}
+                            setFilters={setFilters}
+                            applyFilter
+                            width="20%"
+                        />
+                        <ConfigTableColumn
+                            name="DESC"
+                            filters={filters}
+                            setFilters={setFilters}
+                            width="30%"
+                        />
+                    </ConfigTableHeader>
                     {/*<FilteredTableBody*/}
                     {/*    columnNames={Object.keys(rows[0] || {})}*/}
                     {/*    selectedRow={selectedRow}*/}
@@ -105,7 +136,7 @@ const ConfigurationView = () => {
             </Area>
 
             {/* Configuration Popup */}
-            <ConfigPopup />
+            <ConfigPopup/>
         </>
     );
 };
