@@ -9,7 +9,6 @@ import ConfigPopup from "../layout/ConfigPopup";
 
 const ConfigurationView = () => {
 
-
     return (
         <>
             <Area style={{ fontSize: "smaller" }}>
@@ -30,7 +29,6 @@ const ConfigurationView = () => {
                 {/* Data Table */}
                 <Table>
                     <ConfigTableHeader>
-                        {/* Columns no longer need `filters` & `setFilters` props */}
                         <ConfigTableColumn name="APPT_YN" applyFilter width="8%" />
                         <ConfigTableColumn name="COL_NAME" width="15%" />
                         <ConfigTableColumn name="COL_NAME_LGCL" width="15%" />

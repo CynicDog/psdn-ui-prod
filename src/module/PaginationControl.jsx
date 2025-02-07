@@ -96,7 +96,9 @@ const PaginationControl = () => {
             >
                 {t('components.pagination_button_previous')}
             </Button>
-            <div className="d-flex gap-2">{renderPageNumbers()}</div>
+            <Area flex gap="2">
+                {renderPageNumbers()}
+            </Area>
             <Button
                 variant="light"
                 size="sm"
