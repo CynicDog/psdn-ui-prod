@@ -2,11 +2,13 @@ import {useTranslation} from "../context/Translation";
 import TableHeaderCell from "../component/TableHeaderCell";
 import Area from "../component/Area";
 import {useBaseDB} from "../context/BaseDB";
+import {useConfig} from "../context/Config";
 
-const ConfigTableColumn = ({ name, filters, setFilters, applyFilter, width }) => {
+const ConfigTableColumn = ({ name, applyFilter, width }) => {
 
     const { t } = useTranslation();
     const { BaseDB } = useBaseDB();
+    const { filters, setFilters, configRows } = useConfig();
 
     // Get predefined domains from the imported JSON
     const getDomains = (columnName) => {

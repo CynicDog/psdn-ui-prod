@@ -9,6 +9,7 @@ import {MenuProvider} from "./context/Menu";
 
 import {QueryClient, QueryClientProvider} from "react-query";
 import {BaseDBProvider} from "./context/BaseDB";
+import {ConfigProvider} from "./context/Config";
 
 const queryClient = new QueryClient();
 
@@ -18,9 +19,11 @@ ReactDOM.render(
             <TranslationProvider>
                 <MenuProvider>
                     <BaseDBProvider>
-                        <QueryClientProvider client={queryClient}>
-                            <App />
-                        </QueryClientProvider>
+                        <ConfigProvider>
+                            <QueryClientProvider client={queryClient}>
+                                <App/>
+                            </QueryClientProvider>
+                        </ConfigProvider>
                     </BaseDBProvider>
                 </MenuProvider>
             </TranslationProvider>

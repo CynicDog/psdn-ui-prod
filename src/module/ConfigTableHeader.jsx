@@ -5,10 +5,12 @@ import Span from "../component/Span";
 import CheckBox from "../component/CheckBox";
 import {useTranslation} from "../context/Translation";
 import TableHeader from "../component/TableHeader";
+import {useConfig} from "../context/Config";
 
-const ConfigTableHeader = ({ children, allSelected, toggleSelectAllRows }) => {
+const ConfigTableHeader = ({ children }) => {
 
     const { t } = useTranslation();
+    const { allSelected, toggleSelectAllRows } = useConfig();
 
     return (
         <TableHeader>
