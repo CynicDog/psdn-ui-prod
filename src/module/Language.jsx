@@ -1,7 +1,13 @@
-import { useAuth } from "../Context";
+import {useAuth} from "../context/Auth";
+import Select from "../component/Select";
 
 const Language = () => {
     const { auth, setAuth } = useAuth();
+
+    const languageOptions = [
+        { label : "🇰🇷", value: "ko" },
+        { label : "🇺🇸", value: "en" },
+    ]
 
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
@@ -12,17 +18,14 @@ const Language = () => {
     };
 
     return (
-        <div className="language-selector">
-            <select
-                className="border-0 bg-body"
+        <>
+            <Select
+                options={languageOptions}
                 id="language-select"
                 value={auth.language}
                 onChange={handleLanguageChange}
-            >
-                <option value="ko">🇰🇷</option>
-                <option value="en">🇺🇸</option>
-            </select>
-        </div>
+            />
+        </>
     );
 };
 

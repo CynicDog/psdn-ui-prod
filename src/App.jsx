@@ -1,16 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
-
-import { useMenu } from './Context';
-
+import {useMenu} from "./context/Menu";
 import { Col, Row } from './component/Grid';
 import Container from './component/Container';
-
+import SideMenu from './layout/SideMenu';
+import MainView from "./layout/MainView";
 import ConfigurationView from './view/ConfigurationView';
 import DefinitionView from './view/DefinitionView';
 import HistoryView from './view/HistoryView';
-import SideMenu from './layout/SideMenu';
-import MainView from "./layout/MainView";
 
 const App = () => {
 

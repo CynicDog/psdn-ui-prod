@@ -1,25 +1,25 @@
 const Area = ({
                   children,
                   onClick,
-                  border = false, borderWidth = '',
-                  rounded = false, roundedSize = '',
-                  shadow = false, shadowSize = '',
                   flex = false,
+                  border = '',
+                  rounded = '',
+                  shadow = '',
+                  bg = '',
                   justifyContent = '',
                   alignItems = '',
                   gap = '',
                   p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                   className = '',
+                  style = {}
 }) => {
     const classes = [
-        border ? 'border' : '',
-        borderWidth ? `border-${borderWidth}` : '',
-        rounded ? 'rounded' : '',
-        roundedSize ? `rounded-${roundedSize}` : '',
-        shadow ? 'shadow' : '',
-        shadowSize ? `shadow-${shadowSize}` : '',
         flex ? 'd-flex' : '',
+        border ? `border border-${border}` : '',
+        rounded ? `rounded rounded-${rounded}` : '',
+        shadow ? `shadow shadow-${shadow}` : '',
+        bg ? `bg-${bg}` : '',
         justifyContent ? `justify-content-${justifyContent}` : '',
         alignItems ? `align-items-${alignItems}` : '',
         gap ? `gap-${gap}` : '',
@@ -41,7 +41,7 @@ const Area = ({
     ].filter(Boolean).join(' ');
 
     return (
-        <div className={classes} onClick={onClick}>
+        <div className={classes} onClick={onClick} style={style}>
             {children}
         </div>
     );

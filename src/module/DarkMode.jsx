@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useTheme} from "../Context.jsx";
+import {useTheme} from "../context/Theme";
 import Switch from "../component/Switch";
 
 const DarkMode = () => {
@@ -26,11 +26,13 @@ const DarkMode = () => {
     };
 
     return (
-        <Switch
-            id="dark-mode-switch"
-            isChecked={isDarkMode}
-            onChange={handleToggleTheme}
-        />
+        <>
+            <Switch
+                id="dark-mode-switch"
+                isChecked={isDarkMode}
+                onChange={handleToggleTheme}
+            />
+        </>
     );
 };
 

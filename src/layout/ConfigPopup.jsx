@@ -1,4 +1,5 @@
-import {useTheme, useTranslation} from "../Context";
+import {useTheme} from "../context/Theme";
+import {useTranslation} from "../context/Translation";
 import {useQuery} from "react-query";
 import {fetchColumnData} from "../data/APIs";
 import {useCallback, useEffect} from "react";

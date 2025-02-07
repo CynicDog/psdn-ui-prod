@@ -1,9 +1,9 @@
-import { useMenu, useTranslation } from "../Context";
-
+import {useTranslation} from "../context/Translation";
+import {useMenu} from "../context/Menu";
 import Area from "../component/Area";
-import OrderedList from "../component/OrderedList";
 import Span from "../component/Span";
 import Anchor from "../component/Anchor";
+import OrderedList from "../component/OrderedList";
 import DarkMode from "../module/DarkMode";
 import Language from "../module/Language";
 
@@ -29,8 +29,8 @@ const SideMenu = () => {
 
     return (
         <>
-            <Area rounded roundedSize="3" shadow p="3" mb="3">
-                <Area flex justifyContent="between">
+            <Area border rounded="3" shadow p="3" mb="3">
+                <Area flex justifyContent="between" mb="2">
                     <Span fontSize="5" fontWeight="lighter">{t('components.menu_title')}</Span>
                     <Area flex gap="2">
                         <Language />

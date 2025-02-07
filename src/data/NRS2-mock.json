@@ -8,16 +8,36 @@
     "VRBLs": "VRBLs",
     "DESC": "DESC"
   },
+  "domains": {
+    "APPT_YN": [
+      {"value": 1, "label": "True"},
+      {"value": 0, "label": "False"}
+    ],
+    "COL_TYPE": [
+      {"value": "DECIMAL", "label": "DECIMAL"},
+      {"value": "VARCHAR", "label": "VARCHAR"}
+    ],
+    "RULES": [
+      {"value": "R4", "label": "R4"},
+      {"value": "R9", "label": "R9"}
+    ]
+  },
   "rows": [
     {
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -25,12 +45,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_2",
       "COL_NAME_LGCL": "Logical Name 2",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -38,12 +67,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_3",
       "COL_NAME_LGCL": "Logical Name 3",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -51,11 +89,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_4",
       "COL_NAME_LGCL": "Logical Name 4",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -63,11 +107,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_5",
       "COL_NAME_LGCL": "Logical Name 5",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -75,11 +125,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_6",
       "COL_NAME_LGCL": "Logical Name 6",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -89,9 +145,15 @@
       "COL_NAME_LGCL": "Logical Name 7",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -99,11 +161,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_8",
       "COL_NAME_LGCL": "Logical Name 8",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -111,11 +179,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_9",
       "COL_NAME_LGCL": "Logical Name 9",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -125,9 +199,15 @@
       "COL_NAME_LGCL": "Logical Name 10",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -135,11 +215,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_11",
       "COL_NAME_LGCL": "Logical Name 11",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -147,11 +233,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_12",
       "COL_NAME_LGCL": "Logical Name 12",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -159,11 +251,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_13",
       "COL_NAME_LGCL": "Logical Name 13",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -171,11 +269,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_14",
       "COL_NAME_LGCL": "Logical Name 14",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -183,11 +287,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_15",
       "COL_NAME_LGCL": "Logical Name 15",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -197,9 +307,15 @@
       "COL_NAME_LGCL": "Logical Name 16",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -209,9 +325,15 @@
       "COL_NAME_LGCL": "Logical Name 17",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -221,9 +343,15 @@
       "COL_NAME_LGCL": "Logical Name 18",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -231,12 +359,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_19",
       "COL_NAME_LGCL": "Logical Name 19",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -244,11 +381,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_20",
       "COL_NAME_LGCL": "Logical Name 20",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -256,11 +399,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_21",
       "COL_NAME_LGCL": "Logical Name 21",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -268,11 +417,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_22",
       "COL_NAME_LGCL": "Logical Name 22",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -282,9 +437,15 @@
       "COL_NAME_LGCL": "Logical Name 23",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -292,12 +453,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_24",
       "COL_NAME_LGCL": "Logical Name 24",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -305,11 +475,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_25",
       "COL_NAME_LGCL": "Logical Name 25",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -317,11 +493,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_26",
       "COL_NAME_LGCL": "Logical Name 26",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -331,9 +513,15 @@
       "COL_NAME_LGCL": "Logical Name 27",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -343,9 +531,15 @@
       "COL_NAME_LGCL": "Logical Name 28",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -353,12 +547,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_29",
       "COL_NAME_LGCL": "Logical Name 29",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -366,11 +569,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_30",
       "COL_NAME_LGCL": "Logical Name 30",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -378,11 +587,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_31",
       "COL_NAME_LGCL": "Logical Name 31",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -390,12 +605,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_32",
       "COL_NAME_LGCL": "Logical Name 32",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -405,9 +629,15 @@
       "COL_NAME_LGCL": "Logical Name 33",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -415,11 +645,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_34",
       "COL_NAME_LGCL": "Logical Name 34",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -427,11 +663,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_35",
       "COL_NAME_LGCL": "Logical Name 35",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -439,11 +681,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_36",
       "COL_NAME_LGCL": "Logical Name 36",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -453,9 +701,15 @@
       "COL_NAME_LGCL": "Logical Name 37",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -463,12 +717,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_38",
       "COL_NAME_LGCL": "Logical Name 38",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -476,12 +739,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_39",
       "COL_NAME_LGCL": "Logical Name 39",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -489,12 +761,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_40",
       "COL_NAME_LGCL": "Logical Name 40",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -502,11 +783,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_41",
       "COL_NAME_LGCL": "Logical Name 41",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -516,9 +803,15 @@
       "COL_NAME_LGCL": "Logical Name 42",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -526,11 +819,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_43",
       "COL_NAME_LGCL": "Logical Name 43",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -538,11 +837,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_44",
       "COL_NAME_LGCL": "Logical Name 44",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -550,11 +855,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_45",
       "COL_NAME_LGCL": "Logical Name 45",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -562,12 +873,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_46",
       "COL_NAME_LGCL": "Logical Name 46",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -575,12 +895,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_47",
       "COL_NAME_LGCL": "Logical Name 47",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -590,9 +919,15 @@
       "COL_NAME_LGCL": "Logical Name 48",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -600,11 +935,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_49",
       "COL_NAME_LGCL": "Logical Name 49",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -612,11 +953,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_50",
       "COL_NAME_LGCL": "Logical Name 50",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -624,12 +971,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_51",
       "COL_NAME_LGCL": "Logical Name 51",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -637,12 +993,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_52",
       "COL_NAME_LGCL": "Logical Name 52",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -650,11 +1015,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_53",
       "COL_NAME_LGCL": "Logical Name 53",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -662,11 +1033,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_54",
       "COL_NAME_LGCL": "Logical Name 54",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -674,11 +1051,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_55",
       "COL_NAME_LGCL": "Logical Name 55",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -686,12 +1069,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_56",
       "COL_NAME_LGCL": "Logical Name 56",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -699,11 +1091,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_57",
       "COL_NAME_LGCL": "Logical Name 57",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -711,12 +1109,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_58",
       "COL_NAME_LGCL": "Logical Name 58",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -726,9 +1133,15 @@
       "COL_NAME_LGCL": "Logical Name 59",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -736,12 +1149,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_60",
       "COL_NAME_LGCL": "Logical Name 60",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -749,12 +1171,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_61",
       "COL_NAME_LGCL": "Logical Name 61",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -764,9 +1195,15 @@
       "COL_NAME_LGCL": "Logical Name 62",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -776,9 +1213,15 @@
       "COL_NAME_LGCL": "Logical Name 63",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -786,11 +1229,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_64",
       "COL_NAME_LGCL": "Logical Name 64",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -798,12 +1247,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_65",
       "COL_NAME_LGCL": "Logical Name 65",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -813,9 +1271,15 @@
       "COL_NAME_LGCL": "Logical Name 66",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -823,11 +1287,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_67",
       "COL_NAME_LGCL": "Logical Name 67",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -835,11 +1305,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_68",
       "COL_NAME_LGCL": "Logical Name 68",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -849,9 +1325,15 @@
       "COL_NAME_LGCL": "Logical Name 69",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -859,12 +1341,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_70",
       "COL_NAME_LGCL": "Logical Name 70",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -872,11 +1363,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_71",
       "COL_NAME_LGCL": "Logical Name 71",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -884,12 +1381,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_72",
       "COL_NAME_LGCL": "Logical Name 72",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -897,11 +1403,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_73",
       "COL_NAME_LGCL": "Logical Name 73",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -909,12 +1421,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_74",
       "COL_NAME_LGCL": "Logical Name 74",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -922,12 +1443,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_75",
       "COL_NAME_LGCL": "Logical Name 75",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -935,11 +1465,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_76",
       "COL_NAME_LGCL": "Logical Name 76",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -947,11 +1483,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_77",
       "COL_NAME_LGCL": "Logical Name 77",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -961,9 +1503,15 @@
       "COL_NAME_LGCL": "Logical Name 78",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -973,9 +1521,15 @@
       "COL_NAME_LGCL": "Logical Name 79",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -983,11 +1537,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_80",
       "COL_NAME_LGCL": "Logical Name 80",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -997,9 +1557,15 @@
       "COL_NAME_LGCL": "Logical Name 81",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1007,11 +1573,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_82",
       "COL_NAME_LGCL": "Logical Name 82",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1019,12 +1591,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_83",
       "COL_NAME_LGCL": "Logical Name 83",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1032,12 +1613,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_84",
       "COL_NAME_LGCL": "Logical Name 84",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1045,11 +1635,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_85",
       "COL_NAME_LGCL": "Logical Name 85",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1057,11 +1653,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_86",
       "COL_NAME_LGCL": "Logical Name 86",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1069,11 +1671,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_87",
       "COL_NAME_LGCL": "Logical Name 87",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1083,9 +1691,15 @@
       "COL_NAME_LGCL": "Logical Name 88",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1093,11 +1707,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_89",
       "COL_NAME_LGCL": "Logical Name 89",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1105,11 +1725,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_90",
       "COL_NAME_LGCL": "Logical Name 90",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1117,11 +1743,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_91",
       "COL_NAME_LGCL": "Logical Name 91",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1129,11 +1761,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_92",
       "COL_NAME_LGCL": "Logical Name 92",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1141,12 +1779,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_93",
       "COL_NAME_LGCL": "Logical Name 93",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1154,12 +1801,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_94",
       "COL_NAME_LGCL": "Logical Name 94",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1167,11 +1823,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_95",
       "COL_NAME_LGCL": "Logical Name 95",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1179,12 +1841,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_96",
       "COL_NAME_LGCL": "Logical Name 96",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1192,11 +1863,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_97",
       "COL_NAME_LGCL": "Logical Name 97",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1206,9 +1883,15 @@
       "COL_NAME_LGCL": "Logical Name 98",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1216,11 +1899,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_99",
       "COL_NAME_LGCL": "Logical Name 99",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1228,11 +1917,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_100",
       "COL_NAME_LGCL": "Logical Name 100",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1242,9 +1937,15 @@
       "COL_NAME_LGCL": "Logical Name 101",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1252,11 +1953,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_102",
       "COL_NAME_LGCL": "Logical Name 102",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1266,9 +1973,15 @@
       "COL_NAME_LGCL": "Logical Name 103",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1276,11 +1989,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_104",
       "COL_NAME_LGCL": "Logical Name 104",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1288,11 +2007,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_105",
       "COL_NAME_LGCL": "Logical Name 105",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1300,11 +2025,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_106",
       "COL_NAME_LGCL": "Logical Name 106",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1312,11 +2043,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_107",
       "COL_NAME_LGCL": "Logical Name 107",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1324,12 +2061,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_108",
       "COL_NAME_LGCL": "Logical Name 108",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1339,9 +2085,15 @@
       "COL_NAME_LGCL": "Logical Name 109",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1349,11 +2101,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_110",
       "COL_NAME_LGCL": "Logical Name 110",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1361,12 +2119,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_111",
       "COL_NAME_LGCL": "Logical Name 111",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1374,11 +2141,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_112",
       "COL_NAME_LGCL": "Logical Name 112",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1386,12 +2159,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_113",
       "COL_NAME_LGCL": "Logical Name 113",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1399,11 +2181,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_114",
       "COL_NAME_LGCL": "Logical Name 114",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1411,11 +2199,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_115",
       "COL_NAME_LGCL": "Logical Name 115",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1425,9 +2219,15 @@
       "COL_NAME_LGCL": "Logical Name 116",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1435,12 +2235,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_117",
       "COL_NAME_LGCL": "Logical Name 117",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1448,11 +2257,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_118",
       "COL_NAME_LGCL": "Logical Name 118",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1460,11 +2275,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_119",
       "COL_NAME_LGCL": "Logical Name 119",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1472,11 +2293,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_120",
       "COL_NAME_LGCL": "Logical Name 120",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1486,9 +2313,15 @@
       "COL_NAME_LGCL": "Logical Name 121",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1496,11 +2329,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_122",
       "COL_NAME_LGCL": "Logical Name 122",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1508,12 +2347,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_123",
       "COL_NAME_LGCL": "Logical Name 123",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1521,12 +2369,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_124",
       "COL_NAME_LGCL": "Logical Name 124",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1534,11 +2391,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_125",
       "COL_NAME_LGCL": "Logical Name 125",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1546,11 +2409,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_126",
       "COL_NAME_LGCL": "Logical Name 126",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1560,9 +2429,15 @@
       "COL_NAME_LGCL": "Logical Name 127",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1570,11 +2445,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_128",
       "COL_NAME_LGCL": "Logical Name 128",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1582,11 +2463,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_129",
       "COL_NAME_LGCL": "Logical Name 129",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1594,11 +2481,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_130",
       "COL_NAME_LGCL": "Logical Name 130",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1606,12 +2499,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_131",
       "COL_NAME_LGCL": "Logical Name 131",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1619,12 +2521,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_132",
       "COL_NAME_LGCL": "Logical Name 132",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1634,9 +2545,15 @@
       "COL_NAME_LGCL": "Logical Name 133",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1644,11 +2561,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_134",
       "COL_NAME_LGCL": "Logical Name 134",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1656,12 +2579,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_135",
       "COL_NAME_LGCL": "Logical Name 135",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1669,12 +2601,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_136",
       "COL_NAME_LGCL": "Logical Name 136",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1684,9 +2625,15 @@
       "COL_NAME_LGCL": "Logical Name 137",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1694,12 +2641,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_138",
       "COL_NAME_LGCL": "Logical Name 138",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1709,9 +2665,15 @@
       "COL_NAME_LGCL": "Logical Name 139",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1721,9 +2683,15 @@
       "COL_NAME_LGCL": "Logical Name 140",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1733,9 +2701,15 @@
       "COL_NAME_LGCL": "Logical Name 141",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1743,12 +2717,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_142",
       "COL_NAME_LGCL": "Logical Name 142",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1756,11 +2739,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_143",
       "COL_NAME_LGCL": "Logical Name 143",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1770,9 +2759,15 @@
       "COL_NAME_LGCL": "Logical Name 144",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1780,11 +2775,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_145",
       "COL_NAME_LGCL": "Logical Name 145",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1792,12 +2793,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_146",
       "COL_NAME_LGCL": "Logical Name 146",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1805,11 +2815,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_147",
       "COL_NAME_LGCL": "Logical Name 147",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1819,9 +2835,15 @@
       "COL_NAME_LGCL": "Logical Name 148",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1831,9 +2853,15 @@
       "COL_NAME_LGCL": "Logical Name 149",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1841,11 +2869,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_150",
       "COL_NAME_LGCL": "Logical Name 150",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1853,11 +2887,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_151",
       "COL_NAME_LGCL": "Logical Name 151",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1865,11 +2905,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_152",
       "COL_NAME_LGCL": "Logical Name 152",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1877,12 +2923,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_153",
       "COL_NAME_LGCL": "Logical Name 153",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1892,9 +2947,15 @@
       "COL_NAME_LGCL": "Logical Name 154",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1902,12 +2963,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_155",
       "COL_NAME_LGCL": "Logical Name 155",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -1917,9 +2987,15 @@
       "COL_NAME_LGCL": "Logical Name 156",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1929,9 +3005,15 @@
       "COL_NAME_LGCL": "Logical Name 157",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1939,11 +3021,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_158",
       "COL_NAME_LGCL": "Logical Name 158",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1951,11 +3039,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_159",
       "COL_NAME_LGCL": "Logical Name 159",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1963,11 +3057,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_160",
       "COL_NAME_LGCL": "Logical Name 160",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1975,11 +3075,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_161",
       "COL_NAME_LGCL": "Logical Name 161",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1987,11 +3093,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_162",
       "COL_NAME_LGCL": "Logical Name 162",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -1999,11 +3111,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_163",
       "COL_NAME_LGCL": "Logical Name 163",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2013,9 +3131,15 @@
       "COL_NAME_LGCL": "Logical Name 164",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2023,12 +3147,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_165",
       "COL_NAME_LGCL": "Logical Name 165",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2036,11 +3169,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_166",
       "COL_NAME_LGCL": "Logical Name 166",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2048,12 +3187,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_167",
       "COL_NAME_LGCL": "Logical Name 167",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2061,12 +3209,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_168",
       "COL_NAME_LGCL": "Logical Name 168",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2074,11 +3231,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_169",
       "COL_NAME_LGCL": "Logical Name 169",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2086,11 +3249,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_170",
       "COL_NAME_LGCL": "Logical Name 170",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2098,12 +3267,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_171",
       "COL_NAME_LGCL": "Logical Name 171",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2111,11 +3289,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_172",
       "COL_NAME_LGCL": "Logical Name 172",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2123,11 +3307,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_173",
       "COL_NAME_LGCL": "Logical Name 173",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2135,11 +3325,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_174",
       "COL_NAME_LGCL": "Logical Name 174",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2147,12 +3343,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_175",
       "COL_NAME_LGCL": "Logical Name 175",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2160,11 +3365,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_176",
       "COL_NAME_LGCL": "Logical Name 176",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2172,12 +3383,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_177",
       "COL_NAME_LGCL": "Logical Name 177",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2187,9 +3407,15 @@
       "COL_NAME_LGCL": "Logical Name 178",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2197,11 +3423,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_179",
       "COL_NAME_LGCL": "Logical Name 179",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2209,11 +3441,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_180",
       "COL_NAME_LGCL": "Logical Name 180",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2223,9 +3461,15 @@
       "COL_NAME_LGCL": "Logical Name 181",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2235,9 +3479,15 @@
       "COL_NAME_LGCL": "Logical Name 182",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2245,12 +3495,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_183",
       "COL_NAME_LGCL": "Logical Name 183",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2258,11 +3517,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_184",
       "COL_NAME_LGCL": "Logical Name 184",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2272,9 +3537,15 @@
       "COL_NAME_LGCL": "Logical Name 185",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2282,11 +3553,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_186",
       "COL_NAME_LGCL": "Logical Name 186",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2296,9 +3573,15 @@
       "COL_NAME_LGCL": "Logical Name 187",
       "COL_TYPE": "VARCHAR",
       "RULE_ID": "R4",
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2306,11 +3589,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_188",
       "COL_NAME_LGCL": "Logical Name 188",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2318,11 +3607,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_189",
       "COL_NAME_LGCL": "Logical Name 189",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2330,12 +3625,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_190",
       "COL_NAME_LGCL": "Logical Name 190",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2343,11 +3647,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_191",
       "COL_NAME_LGCL": "Logical Name 191",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2355,11 +3665,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_192",
       "COL_NAME_LGCL": "Logical Name 192",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2367,11 +3683,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_193",
       "COL_NAME_LGCL": "Logical Name 193",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2379,11 +3701,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_194",
       "COL_NAME_LGCL": "Logical Name 194",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2391,12 +3719,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_195",
       "COL_NAME_LGCL": "Logical Name 195",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2404,12 +3741,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_196",
       "COL_NAME_LGCL": "Logical Name 196",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2417,12 +3763,21 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_197",
       "COL_NAME_LGCL": "Logical Name 197",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2430,11 +3785,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_198",
       "COL_NAME_LGCL": "Logical Name 198",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2442,11 +3803,17 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_199",
       "COL_NAME_LGCL": "Logical Name 199",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
-      "VRBLs": [ 
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
+      "VRBLs": [
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2454,12 +3821,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_200",
       "COL_NAME_LGCL": "Logical Name 200",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2467,12 +3843,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_201",
       "COL_NAME_LGCL": "Logical Name 201",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     },
@@ -2480,11 +3865,17 @@
       "APPT_YN": 1,
       "COL_NAME": "COLUMN_202",
       "COL_NAME_LGCL": "Logical Name 202",
-      "COL_TYPE": "VARCHAR", 
-      "RULE_ID": "R4", 
+      "COL_TYPE": "VARCHAR",
+      "RULE_ID": "R4",
       "VRBLs": [
-            {"id": "P7", "value": -2 }, 
-            {"id": "P8", "value": "*" }
+        {
+          "id": "P7",
+          "value": -2
+        },
+        {
+          "id": "P8",
+          "value": "*"
+        }
       ],
       "DESC": ""
     },
@@ -2492,12 +3883,21 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_203",
       "COL_NAME_LGCL": "Logical Name 203",
-      "COL_TYPE": "DECIMAL", 
-      "RULE_ID": "R9", 
-      "VRBLs": [ 
-            {"id": "P9", "value": "ratio" }, 
-            {"id": "P10", "value": 1 },
-            {"id": "P13", "value": 1 }
+      "COL_TYPE": "DECIMAL",
+      "RULE_ID": "R9",
+      "VRBLs": [
+        {
+          "id": "P9",
+          "value": "ratio"
+        },
+        {
+          "id": "P10",
+          "value": 1
+        },
+        {
+          "id": "P13",
+          "value": 1
+        }
       ],
       "DESC": ""
     }

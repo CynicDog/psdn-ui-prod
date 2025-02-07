@@ -1,8 +1,9 @@
+import {useMenu} from "../context/Menu";
 import Area from "../component/Area";
+import MainViewHeader from "../module/MainViewHeader";
 import DefinitionView from "../view/DefinitionView";
 import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";
-import {useMenu} from "../Context";
 
 const MainView = () => {
 
@@ -16,8 +17,8 @@ const MainView = () => {
 
     return (
         <>
-            <Area rounded roundedSize="3" shadow p="3">
-                {/* Header Placeholder */}
+            <Area border rounded="3" shadow p="3">
+                <MainViewHeader />
                 {menuToView[menu]}
             </Area>
         </>
