@@ -1,0 +1,42 @@
+{
+  "auth": {
+    "greeting": "Welcome, {name}"
+  },
+  "components": {
+    "menu_title": "Menu",
+    "menu_link_1": "Definition",
+    "menu_link_2": "Configuration",
+    "menu_link_3": "History",
+    "pseudonymization_title": "Pseudonymization",
+    "pseudonymization_definition_view_title": "Definition",
+    "pseudonymization_configuration_view_title": "Configuration",
+    "pseudonymization_history_view_title": "History",
+    "pseudonymization_rule_name": "Pseudonymization Rule Name",
+    "grid_row_control_check": "Select",
+    "record_detail_title": "Record Details",
+    "close": "close",
+    "delete": "delete",
+    "download": "Download",
+    "pagination_button_previous": "previous",
+    "pagination_button_next": "next",
+    "rows_per_page": "Per Page",
+    "search_placeholder": "Search column(s)",
+    "select_option_all": "All",
+    "reset_filters": "Reset Filter(s)",
+    "select_rule": "Select",
+    "apply_in_batch_rule": "Assign a rule",
+    "delete_all_rules": "Delete rule(s)",
+    "no_rules_to_apply": "No Rules to Apply"
+  },
+  "chart": {
+    "using_parameters": "uses the parameters of",
+    "to_apply": "to apply",
+    "application": ""
+  },
+  "messages": {
+    "found_no_record_matching_filters": "Found no record matching filter(s)."
+  },
+  "pseudonymization": {
+    "set_APPT": "Set Apply"
+  }
+}

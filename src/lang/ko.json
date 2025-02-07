@@ -1,0 +1,42 @@
+{
+  "auth": {
+    "greeting": "{name}님"
+  },
+  "components": {
+    "menu_title": "메뉴",
+    "menu_link_1": "규칙 정의",
+    "menu_link_2": "규칙 설정",
+    "menu_link_3": "이력 관리",
+    "pseudonymization_title": "가명화",
+    "pseudonymization_definition_view_title": "규칙 정의",
+    "pseudonymization_configuration_view_title": "규칙 설정",
+    "pseudonymization_history_view_title": "이력 관리",
+    "pseudonymization_rule_name": "가명화 규칙",
+    "grid_row_control_check": "선택",
+    "record_detail_title": "레코드 상세",
+    "close": "닫기",
+    "delete": "삭제",
+    "download": "내려받기",
+    "pagination_button_previous": "이전",
+    "pagination_button_next": "다음",
+    "rows_per_page": "보기",
+    "search_placeholder": "칼럼 검색",
+    "select_option_all": "전체",
+    "reset_filters": "필터 초기화",
+    "select_rule": "선택",
+    "apply_in_batch_rule": "규칙 지정",
+    "delete_all_rules": "규칙 삭제",
+    "no_rules_to_apply": "지정된 가명화 규칙이 없습니다."
+  },
+  "chart": {
+    "using_parameters": "데이터를 파라미터",
+    "to_apply": "를 활용하여",
+    "application": "(을)를 적용합니다."
+  },
+  "messages": {
+    "found_no_record_matching_filters": "조건에 맞는 데이터가 존재하지 않습니다."
+  },
+  "pseudonymization": {
+    "set_APPT": "규칙 적용"
+  }
+}
