@@ -1,0 +1,17 @@
+{
+  "R4": {
+    "RULE_ID": "R4",
+    "VRBLs": [
+      {"id": "P7", "value": -2},
+      {"id": "P8", "value": "*"}
+    ]
+  },
+  "R9": {
+    "RULE_ID": "R9",
+    "VRBLs": [
+      {"id": "P9", "value": "ratio"},
+      {"id": "P10", "value": 1},
+      {"id": "P13", "value": 1}
+    ]
+  }
+}

@@ -40,9 +40,9 @@ const ConfigTableRow = ({ row, columnNames }) => {
                             {row[colKey].map((rule, index) => (
                                 <Area key={index} border rounded="2" shadow="sm" my="2" p="2">
                                     <Area flex justifyContent="between">
-                                        <Area className="badge-warning">{rule.RULE_ID}</Area>
+                                        <Area className="">{rule.RULE_ID}</Area>
                                         <Area
-                                            className="badge-danger"
+                                            className=""
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 handleDeleteRule(row.COL_NAME, rule.RULE_ID);
