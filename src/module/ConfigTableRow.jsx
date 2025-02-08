@@ -16,6 +16,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
             style={{ cursor: "pointer", verticalAlign: row.RULES.length > 0 ? "" : "middle" }}
             onClick={() => toggleRowSelection(row, !selectedRow.includes(row.COL_NAME))}
         >
+            {/* Control master checkbox */}
             <TableRowCell>
                 <Area flex justifyContent="center" >
                     <CheckBox
@@ -25,6 +26,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     />
                 </Area>
             </TableRowCell>
+            {/* Columns render area */}
             {columnNames.map((colKey) => (
                 <TableRowCell key={colKey}>
                     {colKey === "APPT_YN" ? (
@@ -57,6 +59,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     )}
                 </TableRowCell>
             ))}
+            {/* Popup icon column */}
             <TableRowCell>
                 <Area flex justifyContent="center">
                     <Button size="sm"

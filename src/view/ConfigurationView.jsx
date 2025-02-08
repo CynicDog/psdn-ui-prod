@@ -1,12 +1,11 @@
 import React from "react";
 import Area from "../component/Area";
 import { Col, Row } from "../component/Grid";
-import Table from "../component/Table";
 import ConfigTableHeader from "../module/ConfigTableHeader";
 import PaginationControl from "../module/PaginationControl";
 import ConfigTableColumn from "../module/ConfigTableColumn";
 import ConfigPopup from "../layout/ConfigPopup";
-import ConfigTableBody from "../module/ConfigTableBody";
+import ConfigTable from "../module/ConfigTable";
 
 const ConfigurationView = () => {
 
@@ -28,7 +27,7 @@ const ConfigurationView = () => {
                 </Area>
 
                 {/* Configuration Data Table */}
-                <Table>
+                <ConfigTable>
                     <ConfigTableHeader>
                         <ConfigTableColumn name="APPT_YN" applyFilter width="8%" />
                         <ConfigTableColumn name="COL_NAME" width="12%" />
@@ -37,8 +36,7 @@ const ConfigurationView = () => {
                         <ConfigTableColumn name="RULES" applyFilter width="20%" />
                         <ConfigTableColumn name="DESC" width="30%" />
                     </ConfigTableHeader>
-                    <ConfigTableBody />
-                </Table>
+                </ConfigTable>
             </Area>
 
             {/* Configuration Popup */}
