@@ -1,5 +1,6 @@
 const DraggableArea = ({
                            children,
+                           order,
                            isDragging = false,
                            isOver = false,
                            onClick,
@@ -23,6 +24,7 @@ const DraggableArea = ({
                        }) => {
 
     const classes = [
+        isOver? 'border border-danger' : '',
         flex ? 'd-flex' : '',
         border ? `border border-${border}` : '',
         rounded ? `rounded rounded-${rounded}` : '',
@@ -49,7 +51,10 @@ const DraggableArea = ({
     ].filter(Boolean).join(' ');
 
     return (
+        // <div className="bg-warning"></div>
+
         <div
+            data-order={order}
             draggable
             className={classes}
             onClick={onClick}

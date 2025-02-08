@@ -1,33 +1,31 @@
-import { useState } from "react";
-import { useTranslation } from "../context/Translation";
 import { useConfig } from "../context/Config";
+import { useTranslation } from "../context/Translation";
 import DraggableArea from "../component/DraggableArea";
 import Area from "../component/Area";
 import Span from "../component/Span";
 import ParametersGroup from "./ParametersGroup";
+import {useState} from "react";
 
-const RuleCard = ({ row, rule, index }) => {
+const RuleCard = ({ row, rule, order }) => {
     const { t } = useTranslation();
-    const { handleDeleteRule, handleMoveRule } = useConfig();
+    const { handleDeleteRule, handleMoveRule,
+        sourceRuleDraggable, setSourceRuleDraggable,
+        targetRuleDraggable, setTargetRuleDraggable } = useConfig();
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
-    const [targetRule, setTargetRule] = useState(null);
 
     const handleDragStart = (e) => {
+        setSourceRuleDraggable(order);
         setIsDragging(true);
         e.dataTransfer.setData("text/plain", rule.RULE_ID);
-    };
-
-    const handleDragEnd = (e) => {
-        setIsDragging(false);
-        setIsOver(false);
     };
 
     const handleDragOver = (e) => {
         e.preventDefault();
 
-        console.log(e);
+        const targetOrder = e.currentTarget.getAttribute("data-order");
+        setTargetRuleDraggable(Number(targetOrder));
 
         setIsOver(true);
     };
@@ -37,12 +35,25 @@ const RuleCard = ({ row, rule, index }) => {
     };
 
     const handleDrop = (e) => {
-        handleMoveRule(row.COL_NAME, index, row.COL_NAME, index + 1);
         setIsOver(false);
+    };
+
+    const handleDragEnd = (e) => {
+        // TODO: Verify if the DND is happening in a row, not between rows
+        if (sourceRuleDraggable !== targetRuleDraggable && targetRuleDraggable !== null) {
+            handleMoveRule(row.COL_NAME, sourceRuleDraggable, row.COL_NAME, targetRuleDraggable);
+        }
+
+        // Reset context after drop
+        setIsDragging(false);
+        setIsOver(false);
+        setSourceRuleDraggable(null);
+        setTargetRuleDraggable(null);
     };
 
     return (
         <DraggableArea
+            order={order}
             border rounded="2" shadow="sm" bg="body" my="2" p="2"
             isDragging={isDragging}
             isOver={isOver}

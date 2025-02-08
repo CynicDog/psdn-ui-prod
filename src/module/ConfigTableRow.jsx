@@ -43,7 +43,8 @@ const ConfigTableRow = ({ row, columnNames }) => {
                                     key={rule.RULE_ID}
                                     row={row}
                                     rule={rule}
-                                    index={index} />
+                                    order={index}
+                                />
                             ))}
                         </Area>
                     ) : (

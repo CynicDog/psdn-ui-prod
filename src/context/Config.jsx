@@ -15,6 +15,9 @@ export const ConfigProvider = ({ children }) => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [selectedRule, setSelectedRule] = useState("");
 
+    const [sourceRuleDraggable, setSourceRuleDraggable] = useState(null);
+    const [targetRuleDraggable, setTargetRuleDraggable] = useState(null);
+
     // Filter rows
     const filteredRows = configRows.filter((row) =>
         Object.keys(filters).every(
@@ -130,7 +133,6 @@ export const ConfigProvider = ({ children }) => {
         );
     };
 
-    // Handle delete a single
     // Handle delete a single rule
     const handleDeleteRule = (colName, ruleId) => {
         setConfigRows((prevRows) =>
@@ -195,6 +197,10 @@ export const ConfigProvider = ({ children }) => {
                 toggleRowSelection,
                 toggleSelectAllRows,
                 selectedRule, setSelectedRule,
+
+                /* Drag-and-drop state management */
+                sourceRuleDraggable, setSourceRuleDraggable,
+                targetRuleDraggable, setTargetRuleDraggable,
 
                 /* Actions on selected rows */
                 handleAssignRule,

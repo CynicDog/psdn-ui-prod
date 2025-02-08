@@ -27,25 +27,7 @@
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
       "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R9",
-          "VRBLs": [
-            {
-              "id": "P9",
-              "value": "ratio"
-            },
-            {
-              "id": "P10",
-              "value": 1
-            },
-            {
-              "id": "P13",
-              "value": 1
-            }
-          ]
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
@@ -53,7 +35,53 @@
       "COL_NAME": "COLUMN_2",
       "COL_NAME_LGCL": "Logical Name 2",
       "COL_TYPE": "VARCHAR",
+      "RULES": [],
+      "DESC": ""
+    },
+    {
+      "APPT_YN": 0,
+      "COL_NAME": "COLUMN_3",
+      "COL_NAME_LGCL": "Logical Name 3",
+      "COL_TYPE": "DECIMAL",
       "RULES": [
+        {
+          "RULE_ID": "R1",
+          "VRBLs": [
+            {
+              "id": "P1",
+              "value": true
+            }
+          ],
+          "ORDER": 0
+        },
+        {
+          "RULE_ID": "R2",
+          "VRBLs": [
+            {
+              "id": "P1",
+              "value": true
+            },
+            {
+              "id": "P2",
+              "value": true
+            }
+          ],
+          "ORDER": 1
+        },
+        {
+          "RULE_ID": "R3",
+          "VRBLs": [
+            {
+              "id": "P3",
+              "value": true
+            },
+            {
+              "id": "P4",
+              "value": true
+            }
+          ],
+          "ORDER": 2
+        },
         {
           "RULE_ID": "R4",
           "VRBLs": [
@@ -65,33 +93,8 @@
               "id": "P8",
               "value": "*"
             }
-          ]
-        }
-      ],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_3",
-      "COL_NAME_LGCL": "Logical Name 3",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R9",
-          "VRBLs": [
-            {
-              "id": "P9",
-              "value": "ratio"
-            },
-            {
-              "id": "P10",
-              "value": 1
-            },
-            {
-              "id": "P13",
-              "value": 1
-            }
-          ]
+          ],
+          "ORDER": 3
         }
       ],
       "DESC": ""
