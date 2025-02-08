@@ -6,54 +6,47 @@ import Area from "../component/Area";
 import Span from "../component/Span";
 import ParametersGroup from "./ParametersGroup";
 
-const RuleCard = ({ row, rule, index, isDragging }) => {
+const RuleCard = ({ row, rule, index }) => {
     const { t } = useTranslation();
     const { handleDeleteRule, handleMoveRule } = useConfig();
 
-    const [dragging, setDragging] = useState(false);
+    const [isDragging, setIsDragging] = useState(false);
+    const [isOver, setIsOver] = useState(false);
 
     const handleDragStart = (e) => {
-        // Custom drag start logic
-        console.log("Dragging started", e);
-        setDragging(true);  // Indicate that this card is being dragged
+        setIsDragging(true);
         e.dataTransfer.setData("text/plain", rule.RULE_ID);
     };
 
     const handleDragEnd = (e) => {
-        // Handle drag end logic
-        console.log("Dragging ended", e);
-        setDragging(false);  // Reset dragging state
+        setIsDragging(false);
+        setIsOver(false);
     };
 
     const handleDragOver = (e) => {
-        // Custom drag over logic
-        console.log("Dragging over", e);
-        e.preventDefault(); // Necessary to allow dropping
+        e.preventDefault();
+        setIsOver(true);
+    };
+
+    const handleDragLeave = () => {
+        setIsOver(false);
     };
 
     const handleDrop = (e) => {
-        // Handle drop logic
-        console.log("Dropped", e);
-        // Reorder the rules after drop
         handleMoveRule(row.COL_NAME, index, row.COL_NAME, index + 1);
+        setIsOver(false);
     };
 
     return (
         <DraggableArea
-            onClick={() => {}}
+            border rounded="2" shadow="sm" bg="body" my="2" p="2"
+            isDragging={isDragging}
+            isOver={isOver}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
             onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            border
-            rounded="2"
-            shadow="sm"
-            my="2"
-            p="2"
-            draggable={true}
-            style={{
-                opacity: isDragging ? 1 : 0.3
-            }}
         >
             <Area flex justifyContent="between" className="mb-2">
                 <Span>{rule.RULE_ID}</Span>

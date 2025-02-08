@@ -1,11 +1,12 @@
-import { useState } from "react";
-
 const DraggableArea = ({
                            children,
+                           isDragging = false,
+                           isOver = false,
                            onClick,
                            onDragStart,
                            onDragEnd,
                            onDragOver,
+                           onDragLeave,
                            onDrop,
                            flex = false,
                            border = '',
@@ -19,40 +20,7 @@ const DraggableArea = ({
                            m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                            className = '',
                            style = {},
-                           draggable = true
                        }) => {
-
-    const [draggedIndex, setDraggedIndex] = useState(null);
-
-    const handleDragStart = (e) => {
-        if (onDragStart) {
-            onDragStart(e);
-        }
-        setDraggedIndex(true);
-        e.dataTransfer.setData("text/plain", "dragging");
-    };
-
-    const handleDragEnd = (e) => {
-        if (onDragEnd) {
-            onDragEnd(e);
-        }
-        setDraggedIndex(null);
-    };
-
-    const handleDragOver = (e) => {
-        if (onDragOver) {
-            onDragOver(e);
-        }
-        e.preventDefault();
-    };
-
-    const handleDrop = (e) => {
-        if (onDrop) {
-            onDrop(e);
-        }
-        e.preventDefault();
-        setDraggedIndex(null);
-    };
 
     const classes = [
         flex ? 'd-flex' : '',
@@ -82,14 +50,18 @@ const DraggableArea = ({
 
     return (
         <div
+            draggable
             className={classes}
-            style={style}
             onClick={onClick}
-            draggable={draggable}
-            onDragStart={handleDragStart}
-            onDragEnd={handleDragEnd}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
+            onDragStart={onDragStart}
+            onDragEnd={onDragEnd}
+            onDragOver={onDragOver}
+            onDragLeave={onDragLeave}
+            onDrop={onDrop}
+            style={{
+                opacity: isDragging || isOver ? 0.3 : 1,
+                ...style,
+            }}
         >
             {children}
         </div>
