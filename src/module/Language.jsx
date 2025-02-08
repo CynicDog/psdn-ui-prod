@@ -13,20 +13,18 @@ const Language = () => {
     };
 
     return (
-        <>
-            <SelectOptions
-                options={
-                    [
-                        { label : "🇰🇷", value: "ko" },
-                        { label : "🇺🇸", value: "en" },
-                    ]
-                }
-                id="language-select"
-                value={auth.language}
-                onChange={handleLanguageChange}
-                border="0"
-            />
-        </>
+        <SelectOptions
+            options={
+                [
+                    { label : "🇰🇷", value: "ko" },
+                    { label : "🇺🇸", value: "en" },
+                ]
+            }
+            id="language-select"
+            value={auth.language}
+            onChange={handleLanguageChange}
+            border="0"
+        />
     );
 };
 

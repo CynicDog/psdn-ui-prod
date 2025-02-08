@@ -12,8 +12,8 @@ const ConfigTableRow = ({ row, columnNames }) => {
 
     return (
         <TableRow
-            className={selectedRow.includes(row.COL_NAME) ? "table-active" : ""}
-            style={{ cursor: "pointer", verticalAlign: row.RULES.length > 0 ? "" : "middle" }}
+            selected={selectedRow.includes(row.COL_NAME)}
+            verticalAlign={row.RULES.length > 0 ? "" : "middle" }
             onClick={() => toggleRowSelection(row, !selectedRow.includes(row.COL_NAME))}
         >
             {/* Control master checkbox */}

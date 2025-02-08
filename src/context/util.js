@@ -29,7 +29,8 @@ const useDebounce = (value, delay) => {
 export default useDebounce;
 
 /**
- * Extracts column names from ConfigTableHeader's children (ConfigTableColumn components)
+ * Extracts column names from `ConfigTableHeader`'s children (`ConfigTableColumn` components)
+ *
  * @param {React.ReactNode} children - The children of ConfigTable
  * @returns {string[]} - Array of column names
  */

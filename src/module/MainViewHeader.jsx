@@ -11,17 +11,15 @@ const MainViewHeader = () => {
     const { menu } = useMenu();
 
     return (
-        <>
-            <Area flex justifyContent="between" mb="3">
-                <Span fontSize="3" fontWeight="lighter">
-                    {t('components.pseudonymization_title')}{' '}
-                    {t(`components.pseudonymization_${menu}_view_title`)}
-                </Span>
-                <Span>
-                    {t('auth.greeting', { name: auth.username })}
-                </Span>
-            </Area>
-        </>
+        <Area flex justifyContent="between" mb="3">
+            <Span fontSize="3" fontWeight="lighter">
+                {t('components.pseudonymization_title')}{' '}
+                {t(`components.pseudonymization_${menu}_view_title`)}
+            </Span>
+            <Span>
+                {t('auth.greeting', { name: auth.username })}
+            </Span>
+        </Area>
     )
 }
 

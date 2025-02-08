@@ -26,13 +26,11 @@ const DarkMode = () => {
     };
 
     return (
-        <>
-            <Switch
-                id="dark-mode-switch"
-                isChecked={isDarkMode}
-                onChange={handleToggleTheme}
-            />
-        </>
+        <Switch
+            id="dark-mode-switch"
+            isChecked={isDarkMode}
+            onChange={handleToggleTheme}
+        />
     );
 };
 
