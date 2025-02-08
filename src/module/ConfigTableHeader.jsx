@@ -10,7 +10,7 @@ import {useConfig} from "../context/Config";
 const ConfigTableHeader = ({ children }) => {
 
     const { t } = useTranslation();
-    const { allSelected, toggleSelectAllRows } = useConfig();
+    const { paginatedRowsAllSelected, toggleSelectAllRows } = useConfig();
 
     return (
         <TableHeader>
@@ -24,7 +24,7 @@ const ConfigTableHeader = ({ children }) => {
                     <Area flex justifyContent="center">
                         <CheckBox
                             id="control_check"
-                            checked={allSelected}
+                            checked={paginatedRowsAllSelected}
                             onChange={(e) => toggleSelectAllRows(e.target.checked)}
                         />
                     </Area>

@@ -8,20 +8,20 @@ import {useConfig} from "../context/Config";
 
 const ConfigTableRow = ({ row, columnNames }) => {
 
-    const { selectedRow, toggleRowSelection, handleDeleteRule } = useConfig();
+    const { selectedRows, toggleRowSelection, handleDeleteRule } = useConfig();
 
     return (
         <TableRow
-            selected={selectedRow.includes(row.COL_NAME)}
+            selected={selectedRows.includes(row.COL_NAME)}
             verticalAlign={row.RULES.length > 0 ? "" : "middle" }
-            onClick={() => toggleRowSelection(row, !selectedRow.includes(row.COL_NAME))}
+            onClick={() => toggleRowSelection(row, !selectedRows.includes(row.COL_NAME))}
         >
             {/* Control master checkbox */}
             <TableRowCell>
                 <Area flex justifyContent="center" >
                     <CheckBox
                         type="checkbox"
-                        checked={selectedRow.includes(row.COL_NAME)}
+                        checked={selectedRows.includes(row.COL_NAME)}
                         onChange={(e) => toggleRowSelection(row, e.target.checked)}
                     />
                 </Area>
