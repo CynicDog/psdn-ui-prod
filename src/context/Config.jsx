@@ -78,8 +78,8 @@ export const ConfigProvider = ({ children }) => {
         setConfigRows(updatedRows);
     };
 
-    // Handle rule application
-    const handleApplyRule = () => {
+    // Handle rule application with ORDER logic
+    const handleAssignRule = () => {
         if (!selectedRule) return;
 
         const newRule = rules[selectedRule];
@@ -90,10 +90,16 @@ export const ConfigProvider = ({ children }) => {
                 if (row.RULES?.some(rule => rule.RULE_ID === selectedRule)) {
                     return row;
                 } else {
-                    return {
-                        ...row,
-                        RULES: row.RULES ? [...row.RULES, newRule] : [newRule]
-                    };
+                    // Insert new rule
+                    const updatedRules = row.RULES ? [...row.RULES, newRule] : [newRule];
+                    updatedRules.forEach((rule, index) => {
+                        rule.ORDER = index;  // Set ORDER value based on the index
+                    });
+
+                    // Sort the rules by ORDER value
+                    updatedRules.sort((a, b) => a.ORDER - b.ORDER);
+
+                    return { ...row, RULES: updatedRules };
                 }
             }
             return row;
@@ -104,7 +110,7 @@ export const ConfigProvider = ({ children }) => {
 
     useEffect(() => {
         if (selectedRule) {
-            handleApplyRule();
+            handleAssignRule();
         }
     }, [selectedRule]);
 
@@ -125,13 +131,21 @@ export const ConfigProvider = ({ children }) => {
     };
 
     // Handle delete a single
+    // Handle delete a single rule
     const handleDeleteRule = (colName, ruleId) => {
         setConfigRows((prevRows) =>
             prevRows.map((row) => {
                 if (row.COL_NAME === colName) {
+                    const updatedRules = row.RULES.filter((rule) => rule.RULE_ID !== ruleId);
+
+                    // Update ORDER for remaining rules
+                    updatedRules.forEach((rule, index) => {
+                        rule.ORDER = index;  // Reassign the ORDER to maintain sequence
+                    });
+
                     return {
                         ...row,
-                        RULES: row.RULES.filter((rule) => rule.RULE_ID !== ruleId)
+                        RULES: updatedRules
                     };
                 }
                 return row;
@@ -183,7 +197,7 @@ export const ConfigProvider = ({ children }) => {
                 selectedRule, setSelectedRule,
 
                 /* Actions on selected rows */
-                handleApplyRule,
+                handleAssignRule,
                 handleDeleteRule,
                 handleDeleteAllRules,
                 handleMasterControlUpdate,
