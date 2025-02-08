@@ -12,6 +12,7 @@ export const ConfigProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [selectedRows, setSelectedRows] = useState([]);
+    const [selectedRule, setSelectedRule] = useState("");
 
     // Filter rows
     const filteredRows = configRows.filter((row) =>
@@ -76,8 +77,6 @@ export const ConfigProvider = ({ children }) => {
         setConfigRows(updatedRows);
     };
 
-    const [selectedRule, setSelectedRule] = useState("");
-
     // Handle rule application
     const handleApplyRule = () => {
         if (!selectedRule) return;
@@ -139,6 +138,26 @@ export const ConfigProvider = ({ children }) => {
         );
     };
 
+    // Handle the DND behavior of ordering rules over a column
+    const handleMoveRule = (sourceColName, sourceIndex, targetColName, targetIndex) => {
+        setConfigRows((prevRows) =>
+            prevRows.map((row) => {
+                if (row.COL_NAME === sourceColName) {
+                    const updatedRules = [...row.RULES];
+                    const [movedRule] = updatedRules.splice(sourceIndex, 1);
+
+                    updatedRules.splice(targetIndex, 0, movedRule);
+                    updatedRules.forEach((rule, index) => {
+                        rule.ORDER = index;
+                    });
+
+                    return { ...row, RULES: updatedRules };
+                }
+                return row;
+            })
+        );
+    };
+
     return (
         <ConfigContext.Provider
             value={{
@@ -166,7 +185,8 @@ export const ConfigProvider = ({ children }) => {
                 handleApplyRule,
                 handleDeleteRule,
                 handleDeleteAllRules,
-                handleMasterControlUpdate
+                handleMasterControlUpdate,
+                handleMoveRule
             }}
         >
             {children}

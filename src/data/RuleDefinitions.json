@@ -4,7 +4,8 @@
     "VRBLs": [
       {"id": "P7", "value": -2},
       {"id": "P8", "value": "*"}
-    ]
+    ],
+    "ORDER": 0
   },
   "R9": {
     "RULE_ID": "R9",
@@ -12,6 +13,7 @@
       {"id": "P9", "value": "ratio"},
       {"id": "P10", "value": 1},
       {"id": "P13", "value": 1}
-    ]
+    ],
+    "ORDER": 0
   }
 }

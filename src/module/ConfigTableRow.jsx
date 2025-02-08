@@ -5,8 +5,8 @@ import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
 import { useConfig } from "../context/Config";
-import ParametersGroup from "./ParametersGroup";
 import {useTranslation} from "../context/Translation";
+import RuleCard from "./RuleCard";
 
 const ConfigTableRow = ({ row, columnNames }) => {
     const { t } = useTranslation();
@@ -39,24 +39,11 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     ) : colKey === "RULES" ? (
                         <Area>
                             {row[colKey].map((rule, index) => (
-                                <Area key={index} border rounded="2" shadow="sm" my="2" p="2">
-                                    <Area flex justifyContent="between" className="mb-2">
-                                        <Span className="">{rule.RULE_ID}</Span>
-                                        <Span
-                                            badge="danger"
-                                            size="sm"
-                                            outline
-                                            variant="danger"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                handleDeleteRule(row.COL_NAME, rule.RULE_ID);
-                                            }}
-                                        >
-                                            {t('components.delete')}
-                                        </Span>
-                                    </Area>
-                                    <ParametersGroup parameters={rule.VRBLs} />
-                                </Area>
+                                <RuleCard
+                                    key={rule.RULE_ID}
+                                    row={row}
+                                    rule={rule}
+                                    index={index} />
                             ))}
                         </Area>
                     ) : (
