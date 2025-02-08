@@ -1,9 +1,9 @@
 const Span = ({
                   children = '',
+                  onClick,
                   fontSize = '',
                   fontWeight = '',
                   badge = '',
-                  badgeColor = '',
                   p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                   className = ''
@@ -11,8 +11,7 @@ const Span = ({
     const classes = [
         fontSize ? `fs-${fontSize}` : '',
         fontWeight ? `fw-${fontWeight}` : '',
-        badge ? 'badge' : '',
-        badge && badgeColor ? `badge-${badgeColor}` : '',
+        badge ? `badge-${badge}` : '',
         p ? `p-${p}` : '',
         px ? `px-${px}` : '',
         py ? `py-${py}` : '',
@@ -31,7 +30,7 @@ const Span = ({
     ].filter(Boolean).join(' ');
 
     return (
-        <span className={classes}>
+        <span className={classes} onClick={onClick}>
             {children}
         </span>
     );

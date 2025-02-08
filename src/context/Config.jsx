@@ -30,6 +30,11 @@ export const ConfigProvider = ({ children }) => {
         );
     };
 
+    // Update the current page when filters change
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [filters]);
+
     // Paginate rows
     const paginatedRows = filteredRows.slice(
         (currentPage - 1) * rowsPerPage,
@@ -144,7 +149,7 @@ export const ConfigProvider = ({ children }) => {
                 filters, setFilters, resetFilters,
                 filteredRows,
 
-                /* Filter rows */
+                /* Paginate rows */
                 paginatedRows,
                 paginatedRowsAllSelected,
                 currentPage, setCurrentPage,

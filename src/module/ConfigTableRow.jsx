@@ -4,21 +4,23 @@ import Area from "../component/Area";
 import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
-import {useConfig} from "../context/Config";
+import { useConfig } from "../context/Config";
+import ParametersGroup from "./ParametersGroup";
+import {useTranslation} from "../context/Translation";
 
 const ConfigTableRow = ({ row, columnNames }) => {
-
+    const { t } = useTranslation();
     const { selectedRows, toggleRowSelection, handleDeleteRule } = useConfig();
 
     return (
         <TableRow
             selected={selectedRows.includes(row.COL_NAME)}
-            verticalAlign={row.RULES.length > 0 ? "" : "middle" }
+            verticalAlign={row.RULES.length > 0 ? "" : "middle"}
             onClick={() => toggleRowSelection(row, !selectedRows.includes(row.COL_NAME))}
         >
             {/* Control master checkbox */}
             <TableRowCell>
-                <Area flex justifyContent="center" >
+                <Area flex justifyContent="center">
                     <CheckBox
                         type="checkbox"
                         checked={selectedRows.includes(row.COL_NAME)}
@@ -26,31 +28,34 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     />
                 </Area>
             </TableRowCell>
+
             {/* Columns render area */}
             {columnNames.map((colKey) => (
                 <TableRowCell key={colKey}>
                     {colKey === "APPT_YN" ? (
                         <Area flex justifyContent="center">
-                            <CheckBox
-                                type="checkbox"
-                                checked={row[colKey] === 1} />
+                            <CheckBox type="checkbox" checked={row[colKey] === 1} disabled />
                         </Area>
                     ) : colKey === "RULES" ? (
                         <Area>
                             {row[colKey].map((rule, index) => (
                                 <Area key={index} border rounded="2" shadow="sm" my="2" p="2">
-                                    <Area flex justifyContent="between">
-                                        <Area className="">{rule.RULE_ID}</Area>
-                                        <Area
-                                            className=""
+                                    <Area flex justifyContent="between" className="mb-2">
+                                        <Span className="">{rule.RULE_ID}</Span>
+                                        <Span
+                                            badge="danger"
+                                            size="sm"
+                                            outline
+                                            variant="danger"
                                             onClick={(e) => {
                                                 e.stopPropagation();
                                                 handleDeleteRule(row.COL_NAME, rule.RULE_ID);
                                             }}
                                         >
-                                            Delete
-                                        </Area>
+                                            {t('components.delete')}
+                                        </Span>
                                     </Area>
+                                    <ParametersGroup parameters={rule.VRBLs} />
                                 </Area>
                             ))}
                         </Area>
@@ -59,14 +64,17 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     )}
                 </TableRowCell>
             ))}
+
             {/* Popup icon column */}
             <TableRowCell>
                 <Area flex justifyContent="center">
-                    <Button size="sm"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                // open up ConfigPopup
-                            }}>
+                    <Button
+                        size="sm"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            // open up ConfigPopup
+                        }}
+                    >
                         <i className="bi bi-box-arrow-up-right"></i>
                     </Button>
                 </Area>
