@@ -7,6 +7,7 @@ const ConfigContext = createContext();
 export const ConfigProvider = ({ children }) => {
     const { BaseDB } = useBaseDB();
     const [configRows, setConfigRows] = useState(BaseDB.rows);
+    const [rules, _] = useState(ruleDefinitions);
 
     const [filters, setFilters] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
@@ -81,7 +82,7 @@ export const ConfigProvider = ({ children }) => {
     const handleApplyRule = () => {
         if (!selectedRule) return;
 
-        const newRule = ruleDefinitions[selectedRule];
+        const newRule = rules[selectedRule];
 
         setConfigRows(configRows.map((row) => {
             if (selectedRows.includes(row.COL_NAME)) {
@@ -162,7 +163,7 @@ export const ConfigProvider = ({ children }) => {
         <ConfigContext.Provider
             value={{
                 /* User-configurable gadget object */
-                configRows, setConfigRows,
+                configRows, setConfigRows, rules,
 
                 /* Filter rows */
                 filters, setFilters, resetFilters,

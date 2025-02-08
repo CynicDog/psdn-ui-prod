@@ -1,4 +1,27 @@
 {
+  "R1": {
+    "RULE_ID": "R1",
+    "VRBLs": [
+      {"id": "P1", "value": true}
+    ],
+    "ORDER": 0
+  },
+  "R2": {
+    "RULE_ID": "R2",
+    "VRBLs": [
+      {"id": "P1", "value": true},
+      {"id": "P2", "value": true}
+    ],
+    "ORDER": 0
+  },
+  "R3": {
+    "RULE_ID": "R3",
+    "VRBLs": [
+      {"id": "P3", "value": true},
+      {"id": "P4", "value": true}
+    ],
+    "ORDER": 0
+  },
   "R4": {
     "RULE_ID": "R4",
     "VRBLs": [

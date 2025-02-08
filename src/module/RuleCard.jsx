@@ -12,6 +12,7 @@ const RuleCard = ({ row, rule, index }) => {
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
+    const [targetRule, setTargetRule] = useState(null);
 
     const handleDragStart = (e) => {
         setIsDragging(true);
@@ -25,6 +26,9 @@ const RuleCard = ({ row, rule, index }) => {
 
     const handleDragOver = (e) => {
         e.preventDefault();
+
+        console.log(e);
+
         setIsOver(true);
     };
 

@@ -7,7 +7,7 @@ import Dropdown from "../component/Dropdown";
 
 const ConfigActions = () => {
     const { t } = useTranslation();
-    const { configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
+    const { rules, configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
 
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);
 
@@ -44,8 +44,10 @@ const ConfigActions = () => {
                     id="rule-dropdown"
                     options={[
                         { value: "", label: t("components.select_rule") },
-                        { value: "R4", label: "R4" },
-                        { value: "R9", label: "R9" }
+                        ...Object.values(rules).map(rule => ({
+                            value: rule.RULE_ID,
+                            label: rule.RULE_ID
+                        }))
                     ]}
                     value={selectedRule}
                     onChange={(e) => setSelectedRule(e.target.value)}

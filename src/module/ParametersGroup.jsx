@@ -8,19 +8,25 @@ import InputField from "../component/InputField";
 
 const ParametersGroup = ({parameters}) => {
 
-    // Function to determine input type based on the key
+    // TODO: Function to determine input type based on the key
     const getInputType = (key) => {
         switch (key) {
-            case 'P9':
-                return 'select';
             case 'P1':
                 return 'checkbox';
+            case 'P2':
+                return 'checkbox';
+            case 'P3':
+                return 'checkbox';
+            case 'P4':
+                return 'checkbox';
+            case 'P9':
+                return 'select';
             default:
                 return 'text';
         }
     };
 
-    // Function to get options for select inputs
+    // TODO: Function to get options for select inputs
     const getSelectOptions = (key) => {
         switch (key) {
             case 'P9':
