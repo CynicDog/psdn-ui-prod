@@ -3,7 +3,7 @@ import TableHeaderCell from "../component/TableHeaderCell";
 import Area from "../component/Area";
 import {useBaseDB} from "../context/BaseDB";
 import {useConfig} from "../context/Config";
-import SelectOptions from "../component/SelectOptions";
+import Dropdown from "../component/Dropdown";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
 
@@ -16,7 +16,7 @@ const ConfigTableColumn = ({ name, applyFilter, width }) => {
             <Area>{name}</Area>
             {applyFilter ? (
                 <Area>
-                    <SelectOptions
+                    <Dropdown
                         value={filters[name]}
                         onChange={(e) => setFilters({ ...filters, [name]: e.target.value })}
                         options={[

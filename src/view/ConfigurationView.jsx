@@ -6,6 +6,7 @@ import PaginationControl from "../module/PaginationControl";
 import ConfigTableColumn from "../module/ConfigTableColumn";
 import ConfigPopup from "../layout/ConfigPopup";
 import ConfigTable from "../module/ConfigTable";
+import ConfigActions from "../module/ConfigActions";
 
 const ConfigurationView = () => {
 
@@ -24,6 +25,9 @@ const ConfigurationView = () => {
                             </Area>
                         </Col>
                     </Row>
+                    <Area flex border rounded shadow="sm" gap="2" p="2">
+                        <ConfigActions />
+                    </Area>
                 </Area>
 
                 {/* Configuration Data Table */}

@@ -45,7 +45,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                                             className="badge-danger"
                                             onClick={(e) => {
                                                 e.stopPropagation();
-                                                handleDeleteRule(rule.RULE_ID);
+                                                handleDeleteRule(row.COL_NAME, rule.RULE_ID);
                                             }}
                                         >
                                             Delete

@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useBaseDB } from "./BaseDB";
+import ruleDefinitions from "../data/RuleDefinitions.json"
 
 const ConfigContext = createContext();
 
@@ -19,6 +20,16 @@ export const ConfigProvider = ({ children }) => {
         )
     );
 
+    // Reset filters to default values
+    const resetFilters = () => {
+        setFilters(
+            Object.keys(filters).reduce((acc, col) => {
+                acc[col] = "All";
+                return acc;
+            }, {})
+        );
+    };
+
     // Paginate rows
     const paginatedRows = filteredRows.slice(
         (currentPage - 1) * rowsPerPage,
@@ -33,6 +44,7 @@ export const ConfigProvider = ({ children }) => {
         });
     };
 
+    // Select all rows on the current page
     const toggleSelectAllRows = (isSelecting) => {
         const selectedRow = paginatedRows.map((r) => r.COL_NAME);
         setSelectedRow((prevSelected) =>
@@ -49,17 +61,84 @@ export const ConfigProvider = ({ children }) => {
         if (currentPage > totalPages) setCurrentPage(totalPages);
     }, [filteredRows, currentPage, totalPages]);
 
-    const handleDeleteRule = (ruleId) => {
-        // Define your deletion logic here
-        console.log("Deleted rule with ID:", ruleId);
+    // Handle batch update
+    const handleMasterControlUpdate = (newValue) => {
+        const updatedRows = configRows.map((row) =>
+            selectedRow.includes(row.COL_NAME)
+                ? {...row, APPT_YN: newValue}
+                : row
+        );
+        setConfigRows(updatedRows);
     };
 
+    const [selectedRule, setSelectedRule] = useState("");
+
+    // Handle rule application
+    const handleApplyRule = () => {
+        if (!selectedRule) return;
+
+        const newRule = ruleDefinitions[selectedRule];
+
+        setConfigRows(configRows.map((row) => {
+            if (selectedRow.includes(row.COL_NAME)) {
+                // if it's already a present rule
+                if (row.RULES?.some(rule => rule.RULE_ID === selectedRule)) {
+                    return row;
+                } else {
+                    return {
+                        ...row,
+                        RULES: row.RULES ? [...row.RULES, newRule] : [newRule]
+                    };
+                }
+            }
+            return row;
+        }));
+
+        setSelectedRule("");
+    };
+
+    useEffect(() => {
+        if (selectedRule) {
+            handleApplyRule();
+        }
+    }, [selectedRule]);
+
+
+    // Handle delete all rules for selected rows
+    const handleDeleteAllRules = () => {
+        setConfigRows((prevRows) =>
+            prevRows.map((row) => {
+                if (selectedRow.includes(row.COL_NAME)) {
+                    return {
+                        ...row,
+                        RULES: []
+                    };
+                }
+                return row;
+            })
+        );
+    };
+
+    // Handle delete a single
+    const handleDeleteRule = (colName, ruleId) => {
+        setConfigRows((prevRows) =>
+            prevRows.map((row) => {
+                if (row.COL_NAME === colName) {
+                    return {
+                        ...row,
+                        RULES: row.RULES.filter((rule) => rule.RULE_ID !== ruleId)
+                    };
+                }
+                return row;
+            })
+        );
+    };
 
     return (
         <ConfigContext.Provider
             value={{
                 configRows, setConfigRows,
-                filters, setFilters,
+                filters, setFilters, resetFilters,
                 currentPage, setCurrentPage,
                 rowsPerPage, setRowsPerPage,
                 totalPages,
@@ -69,7 +148,11 @@ export const ConfigProvider = ({ children }) => {
                 toggleRowSelection,
                 toggleSelectAllRows,
                 allSelected,
-                handleDeleteRule
+                selectedRule, setSelectedRule,
+                handleApplyRule,
+                handleDeleteRule,
+                handleDeleteAllRules,
+                handleMasterControlUpdate
             }}
         >
             {children}

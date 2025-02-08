@@ -4,7 +4,7 @@ import { useConfig } from "../context/Config";
 import Area from "../component/Area";
 import Span from "../component/Span";
 import Button from "../component/Button";
-import SelectOptions from "../component/SelectOptions";
+import Dropdown from "../component/Dropdown";
 
 const PaginationControl = () => {
     const { t } = useTranslation();
@@ -68,7 +68,7 @@ const PaginationControl = () => {
     return (
         <Area flex justifyContent="start" alignItems="center">
             <Span me="3">{t('components.rows_per_page')}:</Span>
-            <SelectOptions
+            <Dropdown
                 id="rowsPerPage"
                 value={rowsPerPage}
                 onChange={(e) => {

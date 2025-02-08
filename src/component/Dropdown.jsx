@@ -1,4 +1,4 @@
-const SelectOptions = ({
+const Dropdown = ({
                            options,
                            id,
                            value,
@@ -28,4 +28,4 @@ const SelectOptions = ({
     )
 }
 
-export default SelectOptions
+export default Dropdown

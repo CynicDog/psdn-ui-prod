@@ -1,5 +1,5 @@
 import {useAuth} from "../context/Auth";
-import SelectOptions from "../component/SelectOptions";
+import Dropdown from "../component/Dropdown";
 
 const Language = () => {
     const { auth, setAuth } = useAuth();
@@ -13,7 +13,7 @@ const Language = () => {
     };
 
     return (
-        <SelectOptions
+        <Dropdown
             options={
                 [
                     { label : "🇰🇷", value: "ko" },

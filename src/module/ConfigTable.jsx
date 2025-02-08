@@ -12,7 +12,10 @@ const ConfigTable = ({ children }) => {
 
     return (
         <Table>
+            {/* Config Table Header */}
             {children}
+
+            {/* Config Table Body */}
             <TableBody>
                 {paginatedRows.length > 0 &&
                     paginatedRows.map((row) => (
