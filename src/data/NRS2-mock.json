@@ -39,22 +39,6 @@
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
       "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_2",
-      "COL_NAME_LGCL": "Logical Name 2",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_3",
-      "COL_NAME_LGCL": "Logical Name 3",
-      "COL_TYPE": "DECIMAL",
       "RULES": [
         {
           "RULE_ID": "R1",
@@ -117,7 +101,15 @@
             },
             {
               "id": "P17",
+              "value": "CODE_P17_C1"
+            },
+            {
+              "id": "P18",
               "value": 10
+            },
+            {
+              "id": "P2",
+              "value": "CODE_P2_C1"
             }
           ],
           "ORDER": 4
@@ -141,10 +133,14 @@
             },
             {
               "id": "P17",
-              "value": 10
+              "value": "CODE_P17_C1"
             },
             {
               "id": "P18",
+              "value": 10
+            },
+            {
+              "id": "P19",
               "value": false
             }
           ],
@@ -159,11 +155,19 @@
             },
             {
               "id": "P17",
+              "value": "CODE_P17_C1"
+            },
+            {
+              "id": "P18",
               "value": 10
             },
             {
               "id": "P3",
               "value": ""
+            },
+            {
+              "id": "P2",
+              "value": "CODE_P2_C1"
             }
           ],
           "ORDER": 7
@@ -233,6 +237,22 @@
           "ORDER": 13
         }
       ],
+      "DESC": ""
+    },
+    {
+      "APPT_YN": 0,
+      "COL_NAME": "COLUMN_2",
+      "COL_NAME_LGCL": "Logical Name 2",
+      "COL_TYPE": "VARCHAR",
+      "RULES": [],
+      "DESC": ""
+    },
+    {
+      "APPT_YN": 0,
+      "COL_NAME": "COLUMN_3",
+      "COL_NAME_LGCL": "Logical Name 3",
+      "COL_TYPE": "DECIMAL",
+      "RULES": [],
       "DESC": ""
     },
     {
