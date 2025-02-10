@@ -39,7 +39,7 @@ const ParametersGroup = ({ row, rule, parameters }) => {
         if (!param || !pseudoCodeInfo[param.TYPE]) return [];
 
         return pseudoCodeInfo[param.TYPE].map(option => ({
-            value: option.VALUE,
+            value: option.ID,
             label: getLocalizedName(option)
         }));
     };
