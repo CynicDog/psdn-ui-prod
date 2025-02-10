@@ -6,8 +6,8 @@ import Button from "../component/Button";
 import Dropdown from "../component/Dropdown";
 
 const ConfigActions = () => {
-    const { t } = useLanguage();
-    const { rules, configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
+    const { t, getLocalizedName } = useLanguage();
+    const { pseudoMasterInfo, configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
 
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);
 
@@ -44,9 +44,9 @@ const ConfigActions = () => {
                     id="rule-dropdown"
                     options={[
                         { value: "", label: t("components.select_rule") },
-                        ...Object.values(rules).map(rule => ({
-                            value: rule.RULE_ID,
-                            label: rule.RULE_ID
+                        ...pseudoMasterInfo.rules.map(rule => ({
+                            value: rule.ID,
+                            label: getLocalizedName(rule)
                         }))
                     ]}
                     value={selectedRule}

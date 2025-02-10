@@ -1,0 +1,88 @@
+{
+  "CODE_P2": [
+    {
+      "ID": "CODE_P2_C1",
+      "VALUE": "mean",
+      "NAME_EN": "mean",
+      "NAME_KO": "평균"
+    },
+    {
+      "ID": "CODE_P2_C2",
+      "VALUE": "min",
+      "NAME_EN": "min",
+      "NAME_KO": "최소값"
+    },
+    {
+      "ID": "CODE_P2_C3",
+      "VALUE": "max",
+      "NAME_EN": "max",
+      "NAME_KO": "최댓값"
+    },
+    {
+      "ID": "CODE_P2_C4",
+      "VALUE": "mode",
+      "NAME_EN": "mode",
+      "NAME_KO": "최빈값"
+    },
+    {
+      "ID": "CODE_P2_C5",
+      "VALUE": "median",
+      "NAME_EN": "median",
+      "NAME_KO": "중앙값"
+    }
+  ],
+  "CODE_P5": [
+    {
+      "ID": "CODE_P5_C1",
+      "VALUE": "up",
+      "NAME_EN": "up",
+      "NAME_KO": "올림"
+    },
+    {
+      "ID": "CODE_P5_C2",
+      "VALUE": "down",
+      "NAME_EN": "down",
+      "NAME_KO": "내림"
+    },
+    {
+      "ID": "CODE_P5_C3",
+      "VALUE": "nearest",
+      "NAME_EN": "nearest",
+      "NAME_KO": "반올림"
+    }
+  ],
+  "CODE_P9": [
+    {
+      "ID": "CODE_P9_C1",
+      "VALUE": "count",
+      "NAME_EN": "count",
+      "NAME_KO": "건수"
+    },
+    {
+      "ID": "CODE_P9_C2",
+      "VALUE": "ratio",
+      "NAME_EN": "ratio",
+      "NAME_KO": "비율"
+    }
+  ],
+  "CODE_P16": [
+    {
+      "ID": "CODE_P16_C1",
+      "VALUE": "less",
+      "NAME_EN": "less",
+      "NAME_KO": "하위"
+    },
+    {
+      "ID": "CODE_P16_C2",
+      "VALUE": "greater",
+      "NAME_EN": "greater",
+      "NAME_KO": "상위"
+    },
+    {
+      "ID": "CODE_P16_C3",
+      "VALUE": "two-sided",
+      "NAME_EN": "two-sided",
+      "NAME_KO": "상하위"
+    }
+  ]
+}
