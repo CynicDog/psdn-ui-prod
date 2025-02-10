@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App.jsx'
 import {ThemeProvider} from "./context/Theme";
 import {AuthProvider} from "./context/Auth";
-import {TranslationProvider} from "./context/Translation";
+import {LanguageProvider} from "./context/Language";
 import {BaseDBProvider} from "./context/BaseDB";
 import {ConfigProvider} from "./context/Config";
 import {LayoutProvider} from "./context/Layout";
@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 ReactDOM.render(
     <ThemeProvider>
         <AuthProvider>
-            <TranslationProvider>
+            <LanguageProvider>
                 <LayoutProvider>
                     <BaseDBProvider>
                         <ConfigProvider>
@@ -24,7 +24,7 @@ ReactDOM.render(
                         </ConfigProvider>
                     </BaseDBProvider>
                 </LayoutProvider>
-            </TranslationProvider>
+            </LanguageProvider>
         </AuthProvider>
     </ThemeProvider>,
     document.getElementById('root')

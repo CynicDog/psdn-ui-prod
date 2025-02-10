@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from "../context/Translation";
+import { useLanguage } from "../context/Language";
 import { useConfig } from "../context/Config";
 import Area from "../component/Area";
 import Span from "../component/Span";
@@ -7,7 +7,7 @@ import Button from "../component/Button";
 import Dropdown from "../component/Dropdown";
 
 const PaginationControl = () => {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { totalPages, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage } = useConfig();
 
     const totalRows = totalPages * rowsPerPage;

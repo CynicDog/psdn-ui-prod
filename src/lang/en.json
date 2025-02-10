@@ -26,7 +26,7 @@
     "select_rule": "Select",
     "apply_in_batch_rule": "Assign a rule",
     "delete_all_rules": "Delete rule(s)",
-    "no_rules_to_apply": "No Rules to Apply"
+    "no_rules_to_apply": "No rules to apply."
   },
   "chart": {
     "using_parameters": "uses the parameters of",

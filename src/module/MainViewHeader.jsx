@@ -1,12 +1,12 @@
 import Area from "../component/Area";
 import Span from "../component/Span";
-import {useTranslation} from "../context/Translation";
+import {useLanguage} from "../context/Language";
 import {useAuth} from "../context/Auth";
 import {useLayout} from "../context/Layout";
 
 const MainViewHeader = () => {
 
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { auth, setAuth } = useAuth();
     const { menu } = useLayout();
 

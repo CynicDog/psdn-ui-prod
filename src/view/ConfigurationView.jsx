@@ -33,11 +33,11 @@ const ConfigurationView = () => {
                 {/* Configuration Data Table */}
                 <ConfigTable>
                     <ConfigTableHeader>
-                        <ConfigTableColumn name="APPT_YN" applyFilter width="8%" />
-                        <ConfigTableColumn name="COL_NAME" width="12%" />
-                        <ConfigTableColumn name="COL_NAME_LGCL" width="12%" />
-                        <ConfigTableColumn name="COL_TYPE" applyFilter width="10%"/>
-                        <ConfigTableColumn name="RULES" applyFilter width="20%" />
+                        <ConfigTableColumn name="APPT_YN" applyFilter width="7%" />
+                        <ConfigTableColumn name="COL_NAME" width="11%" />
+                        <ConfigTableColumn name="COL_NAME_LGCL" width="11%" />
+                        <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
+                        <ConfigTableColumn name="RULES" applyFilter width="25%" />
                         <ConfigTableColumn name="DESC" width="30%" />
                     </ConfigTableHeader>
                 </ConfigTable>

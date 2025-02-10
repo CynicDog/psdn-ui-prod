@@ -1,13 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useBaseDB } from "./BaseDB";
-import ruleDefinitions from "../data/RuleDefinitions.json"
+import ruleDefinitions from "../data/RuleDefinitions.json";
+import PSDN_master from "../data/PSDN-master.json";
+import PSDN_codes from "../data/PSDN-codes.json";
 
 const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children }) => {
+
     const { BaseDB } = useBaseDB();
     const [configRows, setConfigRows] = useState(BaseDB.rows);
     const [rules, _] = useState(ruleDefinitions);
+    const [pseudoMasterInfo, __] = useState(PSDN_master);
+    const [pseudoCodeInfo, ___] = useState(PSDN_codes);
 
     const [filters, setFilters] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
@@ -180,8 +185,11 @@ export const ConfigProvider = ({ children }) => {
     return (
         <ConfigContext.Provider
             value={{
+                /* Pseudonymization Business Meta information */
+                pseudoMasterInfo, pseudoCodeInfo, rules,
+
                 /* User-configurable gadget object */
-                configRows, setConfigRows, rules,
+                configRows, setConfigRows,
 
                 /* Filter rows */
                 filters, setFilters, resetFilters,

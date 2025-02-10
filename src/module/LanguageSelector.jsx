@@ -1,7 +1,7 @@
 import {useAuth} from "../context/Auth";
 import Dropdown from "../component/Dropdown";
 
-const Language = () => {
+const LanguageSelector = () => {
     const { auth, setAuth } = useAuth();
 
     const handleLanguageChange = (event) => {
@@ -28,4 +28,4 @@ const Language = () => {
     );
 };
 
-export default Language;
+export default LanguageSelector;

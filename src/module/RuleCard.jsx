@@ -1,13 +1,16 @@
 import { useConfig } from "../context/Config";
-import { useTranslation } from "../context/Translation";
+import { useLanguage } from "../context/Language";
 import DraggableArea from "../component/DraggableArea";
 import Area from "../component/Area";
 import Span from "../component/Span";
 import ParametersGroup from "./ParametersGroup";
 import {useState} from "react";
+import {useAuth} from "../context/Auth";
 
 const RuleCard = ({ row, rule, order }) => {
-    const { t } = useTranslation();
+
+    const { auth } = useAuth();
+    const { t } = useLanguage();
     const { handleDeleteRule, handleMoveRule,
         sourceRuleDraggable, setSourceRuleDraggable,
         targetRuleDraggable, setTargetRuleDraggable } = useConfig();

@@ -5,13 +5,13 @@ import {createContext, useContext} from "react";
 import {useAuth} from "./Auth";
 
 {/* Localization Context */}
-const TranslationContext = createContext();
+const LanguageContext = createContext();
 const translations = {
     ko,
     en,
 };
 
-export const TranslationProvider = ({ children }) => {
+export const LanguageProvider = ({ children }) => {
     const { auth } = useAuth();
     const languageTranslations = translations[auth.language] || {};
 
@@ -38,10 +38,10 @@ export const TranslationProvider = ({ children }) => {
     };
 
     return (
-        <TranslationContext.Provider value={{ t }}>
+        <LanguageContext.Provider value={{ t }}>
             {children}
-        </TranslationContext.Provider>
+        </LanguageContext.Provider>
     );
 };
 
-export const useTranslation = () => useContext(TranslationContext);
+export const useLanguage = () => useContext(LanguageContext);

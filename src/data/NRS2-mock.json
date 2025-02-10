@@ -17,8 +17,20 @@
       {"value": "VARCHAR", "label": "VARCHAR"}
     ],
     "RULES": [
+      {"value": "R1", "label": "R1"},
+      {"value": "R2", "label": "R2"},
+      {"value": "R3", "label": "R3"},
       {"value": "R4", "label": "R4"},
-      {"value": "R9", "label": "R9"}
+      {"value": "R5", "label": "R5"},
+      {"value": "R6", "label": "R6"},
+      {"value": "R7", "label": "R7"},
+      {"value": "R8", "label": "R8"},
+      {"value": "R9", "label": "R9"},
+      {"value": "R10", "label": "R10"},
+      {"value": "R11", "label": "R11"},
+      {"value": "R12", "label": "R12"},
+      {"value": "R13", "label": "R13"},
+      {"value": "R14", "label": "R14"}
     ]
   },
   "rows": [
@@ -58,12 +70,12 @@
           "RULE_ID": "R2",
           "VRBLs": [
             {
-              "id": "P1",
-              "value": true
+              "id": "P7",
+              "value": ""
             },
             {
-              "id": "P2",
-              "value": true
+              "id": "P8",
+              "value": ""
             }
           ],
           "ORDER": 1
@@ -72,12 +84,8 @@
           "RULE_ID": "R3",
           "VRBLs": [
             {
-              "id": "P3",
-              "value": true
-            },
-            {
-              "id": "P4",
-              "value": true
+              "id": "P12",
+              "value": 3
             }
           ],
           "ORDER": 2
@@ -86,15 +94,143 @@
           "RULE_ID": "R4",
           "VRBLs": [
             {
-              "id": "P7",
-              "value": -2
+              "id": "P9",
+              "value": "CODE_P9_C1"
             },
             {
-              "id": "P8",
-              "value": "*"
+              "id": "P10",
+              "value": 1
+            },
+            {
+              "id": "P13",
+              "value": 1
             }
           ],
           "ORDER": 3
+        },
+        {
+          "RULE_ID": "R5",
+          "VRBLs": [
+            {
+              "id": "P16",
+              "value": "CODE_P16_C1"
+            },
+            {
+              "id": "P17",
+              "value": 10
+            }
+          ],
+          "ORDER": 4
+        },
+        {
+          "RULE_ID": "R6",
+          "VRBLs": [
+            {
+              "id": "P7",
+              "value": ""
+            }
+          ],
+          "ORDER": 5
+        },
+        {
+          "RULE_ID": "R7",
+          "VRBLs": [
+            {
+              "id": "P16",
+              "value": "CODE_P16_C1"
+            },
+            {
+              "id": "P17",
+              "value": 10
+            },
+            {
+              "id": "P18",
+              "value": false
+            }
+          ],
+          "ORDER": 6
+        },
+        {
+          "RULE_ID": "R8",
+          "VRBLs": [
+            {
+              "id": "P16",
+              "value": "CODE_P16_C1"
+            },
+            {
+              "id": "P17",
+              "value": 10
+            },
+            {
+              "id": "P3",
+              "value": ""
+            }
+          ],
+          "ORDER": 7
+        },
+        {
+          "RULE_ID": "R9",
+          "VRBLs": [
+            {
+              "id": "P4",
+              "value": 1
+            },
+            {
+              "id": "P5",
+              "value": "CODE_P5_C1"
+            }
+          ],
+          "ORDER": 8
+        },
+        {
+          "RULE_ID": "R10",
+          "VRBLs": [
+            {
+              "id": "P5",
+              "value": "CODE_P5_C1"
+            }
+          ],
+          "ORDER": 9
+        },
+        {
+          "RULE_ID": "R11",
+          "VRBLs": [
+            {
+              "id": "P6",
+              "value": 2
+            }
+          ],
+          "ORDER": 10
+        },
+        {
+          "RULE_ID": "R12",
+          "VRBLs": [
+            {
+              "id": "P3",
+              "value": ""
+            }
+          ],
+          "ORDER": 11
+        },
+        {
+          "RULE_ID": "R13",
+          "VRBLs": [
+            {
+              "id": "P14",
+              "value": ""
+            }
+          ],
+          "ORDER": 12
+        },
+        {
+          "RULE_ID": "R14",
+          "VRBLs": [
+            {
+              "id": "P15",
+              "value": ""
+            }
+          ],
+          "ORDER": 13
         }
       ],
       "DESC": ""

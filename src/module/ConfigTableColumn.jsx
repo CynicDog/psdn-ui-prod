@@ -1,4 +1,4 @@
-import {useTranslation} from "../context/Translation";
+import {useLanguage} from "../context/Language";
 import TableHeaderCell from "../component/TableHeaderCell";
 import Area from "../component/Area";
 import {useBaseDB} from "../context/BaseDB";
@@ -7,7 +7,7 @@ import Dropdown from "../component/Dropdown";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
 
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { BaseDB } = useBaseDB();
     const { filters, setFilters } = useConfig();
 

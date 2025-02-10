@@ -1,109 +1,87 @@
 import React from "react";
 import Area from "../component/Area";
-import {Col, Row} from "../component/Grid";
+import { Col, Row } from "../component/Grid";
 import Span from "../component/Span";
 import CheckBox from "../component/CheckBox";
 import Dropdown from "../component/Dropdown";
 import InputField from "../component/InputField";
+import { useConfig } from "../context/Config";
+import { useAuth } from "../context/Auth";
 
-const ParametersGroup = ({parameters}) => {
+const ParametersGroup = ({ parameters }) => {
 
-    // TODO: Function to determine input type based on the key
+    const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();
+    const { auth } = useAuth();
+
+    // Function to determine input type dynamically
     const getInputType = (key) => {
-        switch (key) {
-            case 'P1':
-                return 'checkbox';
-            case 'P2':
-                return 'checkbox';
-            case 'P3':
-                return 'checkbox';
-            case 'P4':
-                return 'checkbox';
-            case 'P9':
-                return 'select';
+        const param = pseudoMasterInfo.parameters.find(p => p.ID === key);
+        if (!param) return "text";
+
+        switch (param.TYPE) {
+            case "Boolean":
+                return "checkbox";
+            case "CODE_P9":
+            case "CODE_P10":
+            case "CODE_P5":
+            case "CODE_P16":
+            case "CODE_P2":
+                return "select";
             default:
-                return 'text';
+                return "text";
         }
     };
 
-    // TODO: Function to get options for select inputs
+    // Function to get the name dynamically based on language
+    const getName = (item) => auth.language === "ko" ? item.NAME_KO : item.NAME_EN;
+
+    // Function to get options for select inputs dynamically from config
     const getSelectOptions = (key) => {
-        switch (key) {
-            case 'P9':
-                return [
-                    {value: 'ratio', label: 'ratio'},
-                    {value: 'frequency', label: 'frequency'},
-                ];
-            case 'P10':
-                return [
-                    {value: 'OptionA', label: 'Option A'},
-                    {value: 'OptionB', label: 'Option B'},
-                ];
-            default:
-                return [];
-        }
+        const param = pseudoMasterInfo.parameters.find(p => p.ID === key);
+        if (!param || !pseudoCodeInfo[param.TYPE]) return [];
+
+        return pseudoCodeInfo[param.TYPE].map(option => ({
+            value: option.VALUE,
+            label: getName(option)
+        }));
     };
 
     return (
         <Area>
             {parameters.map((param) => {
-
                 const inputType = getInputType(param.id);
                 const options = getSelectOptions(param.id);
+                const paramInfo = pseudoMasterInfo.parameters.find(p => p.ID === param.id);
+                const paramName = paramInfo ? getName(paramInfo) : param.id;
 
-                switch (inputType) {
-                    case 'select':
-                        return (
-                            <Row key={param.id} my="1">
-                                <Col width="3" responsive="lg" flex alignItems="center">
-                                    <Span>{param.id}</Span>
-                                </Col>
-                                <Col width="9" responsive="lg">
-                                    <Dropdown
-                                        id={param.id}
-                                        options={options}
-                                        value={param.value}
-                                        onChange={(e) =>
-                                            console.log(`Parameter ${param.id} changed to ${e.target.value}`)
-                                        }
-                                    />
-                                </Col>
-                            </Row>
-                        );
-                    case 'checkbox':
-                        return (
-                            <Row key={param.id} my="1">
-                                <Col width="3" responsive="lg" flex alignItems="center">
-                                    <Span>{param.id}</Span>
-                                </Col>
-                                <Col width="9" responsive="lg">
-                                    <CheckBox
-                                        checked={!!param.value}
-                                        onChange={(e) =>
-                                            console.log(`Parameter ${param.id} changed to ${e.target.checked}`)
-                                        }
-                                    />
-                                </Col>
-                            </Row>
-                        );
-                    default:
-                        return (
-                            <Row key={param.id} my="1">
-                                <Col width="3" responsive="lg" flex alignItems="center">
-                                    <Span>{param.id}</Span>
-                                </Col>
-                                <Col width="9" responsive="lg">
-                                    <InputField
-                                        id={param.id}
-                                        value={param.value}
-                                        onChange={(e) =>
-                                            console.log(`Parameter ${param.id} changed to ${e.target.value}`)
-                                        }
-                                    />
-                                </Col>
-                            </Row>
-                        );
-                }
+                return (
+                    <Row key={param.id} my="1">
+                        <Col width="7" responsive="lg" flex alignItems="center">
+                            <Span>{paramName}</Span>
+                        </Col>
+                        <Col width="5" responsive="lg">
+                            {inputType === "select" ? (
+                                <Dropdown
+                                    id={param.id}
+                                    options={options}
+                                    value={param.value}
+                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                />
+                            ) : inputType === "checkbox" ? (
+                                <CheckBox
+                                    checked={!!param.value}
+                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.checked}`)}
+                                />
+                            ) : (
+                                <InputField
+                                    id={param.id}
+                                    value={param.value}
+                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                />
+                            )}
+                        </Col>
+                    </Row>
+                );
             })}
         </Area>
     );

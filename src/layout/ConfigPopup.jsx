@@ -1,5 +1,5 @@
 import {useTheme} from "../context/Theme";
-import {useTranslation} from "../context/Translation";
+import {useLanguage} from "../context/Language";
 import {useQuery} from "react-query";
 import {fetchColumnData} from "../data/APIs";
 import {useCallback, useEffect} from "react";
@@ -12,7 +12,7 @@ import Button from "../component/Button";
 import {useConfig} from "../context/Config";
 
 const ConfigPopup = () => {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { isPopupOpen, setIsPopupOpen } = useLayout();
 
     const { focusedRow } = useConfig();
@@ -59,7 +59,7 @@ const ConfigPopup = () => {
     if (!isPopupOpen) return null;
     return (
         <PopupOverlay onClick={closePopup}>
-            <PopupContent>
+            <PopupContent onClick={(e) => e.stopPropagation()}>
                 {/* Popup Header */}
                 <Area>
                     <Area flex justifyContent="between">
@@ -81,13 +81,12 @@ const ConfigPopup = () => {
                         Chart control here..
                     </Area>
                 ) : (
-                    <Area flex justifyContent="center" alignItems="center">
+                    <Area flex justifyContent="center" style={{marginTop: "20%"}}>
                         <Span variant="secondary">
                             {t('components.no_rules_to_apply')}
                         </Span>
                     </Area>
                 )}
-
             </PopupContent>
         </PopupOverlay>
     )

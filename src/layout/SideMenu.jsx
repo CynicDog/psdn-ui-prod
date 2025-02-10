@@ -4,13 +4,13 @@ import Anchor from "../component/Anchor";
 import Icon from "../component/Icon";
 import OrderedList from "../component/OrderedList";
 import DarkMode from "../module/DarkMode";
-import Language from "../module/Language";
+import LanguageSelector from "../module/LanguageSelector";
 import {useLayout} from "../context/Layout";
-import { useTranslation } from "../context/Translation";
+import { useLanguage } from "../context/Language";
 
 const SideMenu = () => {
 
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { setMenu, isMenuOpen, toggleMenu } = useLayout();
 
     return (
@@ -21,7 +21,7 @@ const SideMenu = () => {
                         <Area flex justifyContent="between" mb="2" p="2">
                             <Span fontSize="5" fontWeight="lighter">{t('components.menu_title')}</Span>
                             <Area flex alignItems="center" gap="2">
-                                <Language/>
+                                <LanguageSelector/>
                                 <DarkMode/>
                             </Area>
                         </Area>

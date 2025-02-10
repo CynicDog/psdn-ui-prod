@@ -1,4 +1,4 @@
-import { useTranslation } from "../context/Translation";
+import { useLanguage } from "../context/Language";
 import { useConfig } from "../context/Config";
 import { useState } from "react";
 import Area from "../component/Area";
@@ -6,7 +6,7 @@ import Button from "../component/Button";
 import Dropdown from "../component/Dropdown";
 
 const ConfigActions = () => {
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { rules, configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
 
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);

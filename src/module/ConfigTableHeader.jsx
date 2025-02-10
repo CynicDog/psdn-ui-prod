@@ -3,13 +3,13 @@ import TableHeaderCell from "../component/TableHeaderCell";
 import Area from "../component/Area";
 import Span from "../component/Span";
 import CheckBox from "../component/CheckBox";
-import {useTranslation} from "../context/Translation";
+import {useLanguage} from "../context/Language";
 import TableHeader from "../component/TableHeader";
 import {useConfig} from "../context/Config";
 
 const ConfigTableHeader = ({ children }) => {
 
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const { paginatedRowsAllSelected, toggleSelectAllRows } = useConfig();
 
     return (

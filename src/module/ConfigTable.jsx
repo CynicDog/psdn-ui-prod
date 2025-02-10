@@ -4,13 +4,13 @@ import ConfigTableRow from "./ConfigTableRow";
 import TableBody from "../component/TableBody";
 import {useConfig} from "../context/Config";
 import {extractColumnNames} from "../context/util";
-import {useTranslation} from "../context/Translation";
+import {useLanguage} from "../context/Language";
 import TableRow from "../component/TableRow";
 import TableRowCell from "../component/TableRowCell";
 
 const ConfigTable = ({children}) => {
 
-    const { t } = useTranslation();
+    const { t } = useLanguage();
     const {paginatedRows} = useConfig();
     const columnNames = extractColumnNames(children);
 

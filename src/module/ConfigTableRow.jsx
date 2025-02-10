@@ -4,13 +4,11 @@ import Area from "../component/Area";
 import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
-import { useConfig } from "../context/Config";
-import {useTranslation} from "../context/Translation";
 import RuleCard from "./RuleCard";
+import { useConfig } from "../context/Config";
 import {useLayout} from "../context/Layout";
 
 const ConfigTableRow = ({ row, columnNames }) => {
-    const { t } = useTranslation();
     const { setIsPopupOpen } = useLayout();
     const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
 
