@@ -29,6 +29,18 @@
       "VALUE": "median",
       "NAME_EN": "median",
       "NAME_KO": "중앙값"
+    },
+    {
+      "ID": "CODE_P2_C6",
+      "VALUE": "border",
+      "NAME_EN": "border",
+      "NAME_KO": "경계값"
+    },
+    {
+      "ID": "CODE_P2_C7",
+      "VALUE": "drop",
+      "NAME_EN": "drop",
+      "NAME_KO": "삭제"
     }
   ],
   "CODE_P5": [
@@ -83,6 +95,20 @@
       "VALUE": "two-sided",
       "NAME_EN": "two-sided",
       "NAME_KO": "상하위"
+    }
+  ],
+  "CODE_P17": [
+    {
+      "ID": "CODE_P17_C1",
+      "VALUE": "value",
+      "NAME_EN": "value",
+      "NAME_KO": "수치"
+    },
+    {
+      "ID": "CODE_P17_C2",
+      "VALUE": "ratio",
+      "NAME_EN": "ratio",
+      "NAME_KO": "비율"
     }
   ]
 }

@@ -21,11 +21,12 @@ const ParametersGroup = ({ parameters }) => {
         switch (param.TYPE) {
             case "Boolean":
                 return "checkbox";
+            case "CODE_P2":
+            case "CODE_P5":
             case "CODE_P9":
             case "CODE_P10":
-            case "CODE_P5":
             case "CODE_P16":
-            case "CODE_P2":
+            case "CODE_P17":
                 return "select";
             default:
                 return "text";
