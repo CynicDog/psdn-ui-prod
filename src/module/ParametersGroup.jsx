@@ -6,12 +6,12 @@ import CheckBox from "../component/CheckBox";
 import Dropdown from "../component/Dropdown";
 import InputField from "../component/InputField";
 import { useConfig } from "../context/Config";
-import { useAuth } from "../context/Auth";
+import { useLanguage } from "../context/Language";
 
 const ParametersGroup = ({ parameters }) => {
 
     const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();
-    const { auth } = useAuth();
+    const { getLocalizedName } = useLanguage();
 
     // Function to determine input type dynamically
     const getInputType = (key) => {
@@ -32,9 +32,6 @@ const ParametersGroup = ({ parameters }) => {
         }
     };
 
-    // Function to get the name dynamically based on language
-    const getName = (item) => auth.language === "ko" ? item.NAME_KO : item.NAME_EN;
-
     // Function to get options for select inputs dynamically from config
     const getSelectOptions = (key) => {
         const param = pseudoMasterInfo.parameters.find(p => p.ID === key);
@@ -42,7 +39,7 @@ const ParametersGroup = ({ parameters }) => {
 
         return pseudoCodeInfo[param.TYPE].map(option => ({
             value: option.VALUE,
-            label: getName(option)
+            label: getLocalizedName(option)
         }));
     };
 
@@ -52,12 +49,12 @@ const ParametersGroup = ({ parameters }) => {
                 const inputType = getInputType(param.id);
                 const options = getSelectOptions(param.id);
                 const paramInfo = pseudoMasterInfo.parameters.find(p => p.ID === param.id);
-                const paramName = paramInfo ? getName(paramInfo) : param.id;
+                const paramName = paramInfo ? getLocalizedName(paramInfo) : param.id;
 
                 return (
                     <Row key={param.id} my="1">
                         <Col width="7" responsive="lg" flex alignItems="center">
-                            <Span>{paramName}</Span>
+                            <Span fontWeight="lighter">{paramName}</Span>
                         </Col>
                         <Col width="5" responsive="lg">
                             {inputType === "select" ? (

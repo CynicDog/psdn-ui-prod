@@ -37,8 +37,12 @@ export const LanguageProvider = ({ children }) => {
         );
     };
 
+    const getLocalizedName = (item) => {
+        return auth.language === "ko" ? item.NAME_KO : item.NAME_EN;
+    }
+
     return (
-        <LanguageContext.Provider value={{ t }}>
+        <LanguageContext.Provider value={{ t, getLocalizedName }}>
             {children}
         </LanguageContext.Provider>
     );

@@ -10,10 +10,13 @@ import {useAuth} from "../context/Auth";
 const RuleCard = ({ row, rule, order }) => {
 
     const { auth } = useAuth();
-    const { t } = useLanguage();
-    const { handleDeleteRule, handleMoveRule,
+    const { t, getLocalizedName } = useLanguage();
+    const {
+        pseudoMasterInfo,
+        handleDeleteRule, handleMoveRule,
         sourceRuleDraggable, setSourceRuleDraggable,
-        targetRuleDraggable, setTargetRuleDraggable } = useConfig();
+        targetRuleDraggable, setTargetRuleDraggable
+    } = useConfig();
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
@@ -54,6 +57,7 @@ const RuleCard = ({ row, rule, order }) => {
         setTargetRuleDraggable(null);
     };
 
+    const ruleInfo = pseudoMasterInfo.rules.find(r => r.ID === rule.RULE_ID);
     return (
         <DraggableArea
             order={order}
@@ -67,19 +71,21 @@ const RuleCard = ({ row, rule, order }) => {
             onDrop={handleDrop}
         >
             <Area flex justifyContent="between" className="mb-2">
-                <Span>{rule.RULE_ID}</Span>
-                <Span
-                    badge="danger"
-                    size="sm"
-                    outline
-                    variant="danger"
-                    onClick={(e) => {
-                        e.stopPropagation();
-                        handleDeleteRule(row.COL_NAME, rule.RULE_ID);
-                    }}
-                >
-                    {t('components.delete')}
-                </Span>
+                <Span fontSize="6">{getLocalizedName(ruleInfo)}</Span>
+                <Area flex alignItems="center">
+                    <Span
+                        badge="danger"
+                        size="sm"
+                        outline
+                        variant="danger"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            handleDeleteRule(row.COL_NAME, rule.RULE_ID);
+                        }}
+                    >
+                        {t('components.delete')}
+                    </Span>
+                </Area>
             </Area>
             <ParametersGroup parameters={rule.VRBLs} />
         </DraggableArea>
