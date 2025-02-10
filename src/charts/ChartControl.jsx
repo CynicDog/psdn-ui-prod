@@ -1,8 +1,7 @@
 import { useConfig } from "../context/Config";
 import { useLanguage } from "../context/Language";
 import Area from "../component/Area";
-import { useEffect } from "react";
-import EmptyPlaceholder from "./EmptyPlaceholder";
+import EmptyChartPlaceholder from "./EmptyChartPlaceholder";
 import LoadingSpinner from "../component/LoadingSpinner";
 import ChartSummary from "./ChartSummary";
 
@@ -11,20 +10,20 @@ const ChartControl = ({ isDataLoading }) => {
     const { focusedRow } = useConfig();
 
     const ruleToChart = {
-        "R1": <EmptyPlaceholder />,
-        "R2": <EmptyPlaceholder />,
-        "R3": <EmptyPlaceholder />,
-        "R4": <EmptyPlaceholder />,
-        "R5": <EmptyPlaceholder />,
-        "R6": <EmptyPlaceholder />,
-        "R7": <EmptyPlaceholder />,
-        "R8": <EmptyPlaceholder />,
-        "R9": <EmptyPlaceholder />,
-        "R10": <EmptyPlaceholder />,
-        "R11": <EmptyPlaceholder />,
-        "R12": <EmptyPlaceholder />,
-        "R13": <EmptyPlaceholder />,
-        "R14": <EmptyPlaceholder />,
+        "R1": <EmptyChartPlaceholder />,
+        "R2": <EmptyChartPlaceholder />,
+        "R3": <EmptyChartPlaceholder />,
+        "R4": <EmptyChartPlaceholder />,
+        "R5": <EmptyChartPlaceholder />,
+        "R6": <EmptyChartPlaceholder />,
+        "R7": <EmptyChartPlaceholder />,
+        "R8": <EmptyChartPlaceholder />,
+        "R9": <EmptyChartPlaceholder />,
+        "R10": <EmptyChartPlaceholder />,
+        "R11": <EmptyChartPlaceholder />,
+        "R12": <EmptyChartPlaceholder />,
+        "R13": <EmptyChartPlaceholder />,
+        "R14": <EmptyChartPlaceholder />,
     };
 
     return (

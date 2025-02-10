@@ -16,10 +16,10 @@ const ConfigurationView = () => {
                 {/* Control Panel */}
                 <Area className="control-panel" bg="body">
                     <Row p="2">
-                        <Col width="5" responsive="lg">
+                        <Col width="7" responsive="lg">
                             <PaginationControl />
                         </Col>
-                        <Col width="7" responsive="lg">
+                        <Col width="5" responsive="lg">
                             <Area flex justifyContent="end">
                                 Search Input
                             </Area>
