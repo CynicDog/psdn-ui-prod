@@ -7,10 +7,12 @@ import Button from "../component/Button";
 import { useConfig } from "../context/Config";
 import {useTranslation} from "../context/Translation";
 import RuleCard from "./RuleCard";
+import {useLayout} from "../context/Layout";
 
 const ConfigTableRow = ({ row, columnNames }) => {
     const { t } = useTranslation();
-    const { selectedRows, toggleRowSelection, handleDeleteRule } = useConfig();
+    const { setIsPopupOpen } = useLayout();
+    const { selectedRows, toggleRowSelection } = useConfig();
 
     return (
         <TableRow
@@ -60,9 +62,8 @@ const ConfigTableRow = ({ row, columnNames }) => {
                         size="sm"
                         onClick={(e) => {
                             e.stopPropagation();
-                            // open up ConfigPopup
-                        }}
-                    >
+                            setIsPopupOpen(true);
+                        }}>
                         <i className="bi bi-box-arrow-up-right"></i>
                     </Button>
                 </Area>

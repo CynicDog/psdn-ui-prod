@@ -18,7 +18,7 @@ const SideMenu = () => {
             <Area border rounded="3" shadow p="3" mb="3">
                 {isMenuOpen ? (
                     <>
-                        <Area flex justifyContent="between" mb="2" p="3">
+                        <Area flex justifyContent="between" mb="2" p="2">
                             <Span fontSize="5" fontWeight="lighter">{t('components.menu_title')}</Span>
                             <Area flex alignItems="center" gap="2">
                                 <Language/>

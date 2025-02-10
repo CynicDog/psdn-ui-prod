@@ -4,22 +4,29 @@ import {useQuery} from "react-query";
 import {fetchColumnData} from "../data/APIs";
 import {useCallback, useEffect} from "react";
 import Area from "../component/Area";
+import {useLayout} from "../context/Layout";
+import PopupOverlay from "../component/PopupOverlay";
+import PopupContent from "../component/PopupContent";
 
-const ConfigPopup = ({isOpen, onClose, rowData}) => {
-
-    const { theme } = useTheme();
+const ConfigPopup = ({rowData}) => {
     const { t } = useTranslation();
+    const { theme } = useTheme();
+    const { isPopupOpen, setIsPopupOpen } = useLayout();
+
+    const onClose = () => {
+        setIsPopupOpen(false);
+    }
 
     const {data: columnData, isLoading: isColumnDataLoading} = useQuery(
         ['columnData', rowData?.COL_NAME],
         () => fetchColumnData(rowData.COL_NAME),
         {
-            enabled: !!rowData?.COL_NAME && isOpen,
+            enabled: !!rowData?.COL_NAME && isPopupOpen,
         }
     );
 
     useEffect(() => {
-        if (isOpen) {
+        if (isPopupOpen) {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
@@ -28,7 +35,7 @@ const ConfigPopup = ({isOpen, onClose, rowData}) => {
         return () => {
             document.body.style.overflow = '';
         };
-    }, [isOpen]);
+    }, [isPopupOpen]);
 
     const handleEscKey = useCallback((event) => {
         if (event.key === 'Escape') {
@@ -37,22 +44,22 @@ const ConfigPopup = ({isOpen, onClose, rowData}) => {
     }, [onClose]);
 
     useEffect(() => {
-        if (isOpen) {
+        if (isPopupOpen) {
             document.addEventListener('keydown', handleEscKey);
         }
         return () => {
             document.removeEventListener('keydown', handleEscKey);
         };
-    }, [isOpen]);
+    }, [isPopupOpen]);
 
-    if (!isOpen) return null;
+    if (!isPopupOpen) return null;
 
     return (
-        <Area className="popover-overlay">
-            <Area className="popover-content">
+        <PopupOverlay onClick={onClose}>
+            <PopupContent>
                 POPUP CONTENTS
-            </Area>
-        </Area>
+            </PopupContent>
+        </PopupOverlay>
     )
 }
 
