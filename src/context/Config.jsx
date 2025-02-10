@@ -25,12 +25,20 @@ export const ConfigProvider = ({ children }) => {
 
     const [focusedRow, setFocusedRow] = useState(null);
 
-    // TODO: filter behave on RULEs
+    // TODO: Filter fallback to 'All' returns no matching rows
     // Filter rows
     const filteredRows = configRows.filter((row) =>
-        Object.keys(filters).every(
-            (key) => filters[key] === "All" || row[key]?.toString().toLowerCase() === filters[key]?.toLowerCase()
-        )
+        Object.keys(filters).every((key) => {
+            if (filters[key] === 'All') return true;
+
+            // Special handling for RULES filter
+            if (key === 'RULES') {
+                return filters[key].length === 0 || row.RULES?.some(rule => filters[key].includes(rule.RULE_ID));
+            }
+
+            // General filtering for other columns
+            return row[key]?.toString().toLowerCase() === filters[key]?.toLowerCase();
+        })
     );
 
     // Reset filters to default values
@@ -185,9 +193,6 @@ export const ConfigProvider = ({ children }) => {
 
     // Inline Editing State (No need for commit, applied immediately)
     const updateParameterValue = (rowName, ruleId, paramId, newValue) => {
-
-        console.log(rowName, ruleId, paramId, newValue);
-
         // Update the specific row's rules
         setConfigRows((prevRows) =>
             prevRows.map((row) => {
