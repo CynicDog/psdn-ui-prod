@@ -64,6 +64,7 @@ const RuleCard = ({ row, rule, order }) => {
             border rounded="2" shadow="sm" bg="body" my="2" p="2"
             isDragging={isDragging}
             isOver={isOver}
+            onClick={(e) => e.stopPropagation()}
             onDragStart={handleDragStart}
             onDragEnd={handleDragEnd}
             onDragOver={handleDragOver}

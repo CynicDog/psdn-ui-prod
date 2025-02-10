@@ -51,7 +51,6 @@ const ConfigActions = () => {
                     ]}
                     value={selectedRule}
                     onChange={(e) => setSelectedRule(e.target.value)}
-                    border="secondary"
                     width="auto"
                     me="2"
                 />

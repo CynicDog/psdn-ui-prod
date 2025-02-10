@@ -7,9 +7,8 @@ import Dropdown from "../component/Dropdown";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
 
-    const { t } = useLanguage();
-    const { BaseDB } = useBaseDB();
-    const { filters, setFilters } = useConfig();
+    const { t, getLocalizedName } = useLanguage();
+    const { pseudoMasterInfo, filters, setFilters } = useConfig();
 
     return (
         <TableHeaderCell width={width}>
@@ -20,11 +19,11 @@ const ConfigTableColumn = ({ name, applyFilter, width }) => {
                         value={filters[name]}
                         onChange={(e) => setFilters({ ...filters, [name]: e.target.value })}
                         options={[
-                            { value: "All", label: t("components.select_option_all") },
-                            ...(BaseDB.domains[name] || []).map((domain) => ({
-                                value: domain.value,
-                                label: domain.label,
-                            })),
+                            { value: "", label: t("components.select_option_all") },
+                            ...pseudoMasterInfo.rules.map(rule => ({
+                                value: rule.ID,
+                                label: getLocalizedName(rule)
+                            }))
                         ]}
                     />
                 </Area>

@@ -25,6 +25,7 @@ export const ConfigProvider = ({ children }) => {
 
     const [focusedRow, setFocusedRow] = useState(null);
 
+    // TODO: filter behave on RULEs
     // Filter rows
     const filteredRows = configRows.filter((row) =>
         Object.keys(filters).every(

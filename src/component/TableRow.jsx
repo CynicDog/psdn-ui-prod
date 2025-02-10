@@ -17,7 +17,7 @@ const TableRow = ({
             className={classes}
             onClick={onClick}
             style={{
-                cursor: cursor,
+                cursor: "pointer",
                 verticalAlign: verticalAlign
             }}>
             {children}
