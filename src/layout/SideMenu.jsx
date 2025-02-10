@@ -1,24 +1,24 @@
-import { useTranslation } from "../context/Translation";
-import { useMenu } from "../context/Menu";
 import Area from "../component/Area";
 import Span from "../component/Span";
 import Anchor from "../component/Anchor";
+import Icon from "../component/Icon";
 import OrderedList from "../component/OrderedList";
 import DarkMode from "../module/DarkMode";
 import Language from "../module/Language";
-import Icon from "../component/Icon";
+import {useLayout} from "../context/Layout";
+import { useTranslation } from "../context/Translation";
 
-const SideMenu = ({ isMenuOpen, toggleMenu }) => {
+const SideMenu = () => {
 
     const { t } = useTranslation();
-    const { setMenu } = useMenu();
+    const { setMenu, isMenuOpen, toggleMenu } = useLayout();
 
     return (
         <>
             <Area border rounded="3" shadow p="3" mb="3">
                 {isMenuOpen ? (
                     <>
-                        <Area flex justifyContent="between" mb="2">
+                        <Area flex justifyContent="between" mb="2" p="3">
                             <Span fontSize="5" fontWeight="lighter">{t('components.menu_title')}</Span>
                             <Area flex alignItems="center" gap="2">
                                 <Language/>

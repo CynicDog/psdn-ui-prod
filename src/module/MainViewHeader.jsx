@@ -1,14 +1,14 @@
-import {useTranslation} from "../context/Translation";
-import {useAuth} from "../context/Auth";
-import {useMenu} from "../context/Menu";
 import Area from "../component/Area";
 import Span from "../component/Span";
+import {useTranslation} from "../context/Translation";
+import {useAuth} from "../context/Auth";
+import {useLayout} from "../context/Layout";
 
 const MainViewHeader = () => {
 
     const { t } = useTranslation();
     const { auth, setAuth } = useAuth();
-    const { menu } = useMenu();
+    const { menu } = useLayout();
 
     return (
         <Area flex justifyContent="between" mb="3">

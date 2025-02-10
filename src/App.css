@@ -4,6 +4,29 @@
     z-index: 2;
 }
 
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.popup-content {
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 95%;
+    width: 100%;
+    max-height: 90%;
+    overflow-y: auto;
+    height: 100%;
+    z-index: 1000;
+}
+
 .badge-warning {
     display: inline-block;
     padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);

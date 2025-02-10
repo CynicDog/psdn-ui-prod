@@ -3,11 +3,12 @@ import {useTranslation} from "../context/Translation";
 import {useQuery} from "react-query";
 import {fetchColumnData} from "../data/APIs";
 import {useCallback, useEffect} from "react";
+import Area from "../component/Area";
 
-const ConfigPopup = ({ isOpen, onClose, rowData }) => {
+const ConfigPopup = ({isOpen, onClose, rowData}) => {
 
-    const {theme} = useTheme();
-    const {t} = useTranslation();
+    const { theme } = useTheme();
+    const { t } = useTranslation();
 
     const {data: columnData, isLoading: isColumnDataLoading} = useQuery(
         ['columnData', rowData?.COL_NAME],
@@ -47,9 +48,11 @@ const ConfigPopup = ({ isOpen, onClose, rowData }) => {
     if (!isOpen) return null;
 
     return (
-        <>
-            POPUP CONTENTS
-        </>
+        <Area className="popover-overlay">
+            <Area className="popover-content">
+                POPUP CONTENTS
+            </Area>
+        </Area>
     )
 }
 

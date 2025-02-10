@@ -5,22 +5,17 @@ import { Col, Row } from './component/Grid';
 import Container from './component/Container';
 import SideMenu from './layout/SideMenu';
 import MainView from "./layout/MainView";
-import {useState} from "react";
+import {useLayout} from "./context/Layout";
 
 const App = () => {
 
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const { isMenuOpen } = useLayout();
 
   return (
     <Container fluid p="3">
       <Row>
         <Col width={ isMenuOpen ? "2" : "1" } responsive="lg">
-          <SideMenu
-              isMenuOpen={isMenuOpen}
-              toggleMenu={toggleMenu} />
+          <SideMenu/>
         </Col>
         <Col width={ isMenuOpen ? "10": "11" } responsive="lg">
           <MainView />
