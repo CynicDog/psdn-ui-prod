@@ -64,6 +64,7 @@ const ParametersGroup = ({ parameters }) => {
                                     options={options}
                                     value={param.value}
                                     onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                    border="primary-subtle"
                                 />
                             ) : inputType === "checkbox" ? (
                                 <CheckBox
@@ -75,6 +76,7 @@ const ParametersGroup = ({ parameters }) => {
                                     id={param.id}
                                     value={param.value}
                                     onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                    border="primary-subtle"
                                 />
                             )}
                         </Col>

@@ -10,6 +10,7 @@ import PopupContent from "../component/PopupContent";
 import Span from "../component/Span";
 import Button from "../component/Button";
 import {useConfig} from "../context/Config";
+import ChartControl from "../charts/ChartControl";
 
 const ConfigPopup = () => {
     const { t } = useLanguage();
@@ -78,7 +79,7 @@ const ConfigPopup = () => {
                 {/* Popup Body */}
                 {Array.isArray(focusedRow.RULES) && focusedRow.RULES.length > 0 ? (
                     <Area>
-                        Chart control here..
+                        <ChartControl isDataLoading={isColumnDataLoading}/>
                     </Area>
                 ) : (
                     <Area flex justifyContent="center" style={{marginTop: "20%"}}>

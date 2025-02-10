@@ -4,7 +4,7 @@ import { Col, Row } from "../component/Grid";
 import ConfigTableHeader from "../module/ConfigTableHeader";
 import PaginationControl from "../module/PaginationControl";
 import ConfigTableColumn from "../module/ConfigTableColumn";
-import ConfigPopup from "../layout/ConfigPopup";
+import ConfigPopup from "../module/ConfigPopup";
 import ConfigTable from "../module/ConfigTable";
 import ConfigActions from "../module/ConfigActions";
 

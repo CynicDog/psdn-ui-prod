@@ -26,7 +26,8 @@
     "select_rule": "선택",
     "apply_in_batch_rule": "규칙 지정",
     "delete_all_rules": "규칙 삭제",
-    "no_rules_to_apply": "지정된 가명화 규칙이 없습니다."
+    "no_rules_to_apply": "지정된 가명화 규칙이 없습니다.",
+    "loading_message": "Loading.."
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

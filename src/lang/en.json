@@ -26,12 +26,13 @@
     "select_rule": "Select",
     "apply_in_batch_rule": "Assign a rule",
     "delete_all_rules": "Delete rule(s)",
-    "no_rules_to_apply": "No rules to apply."
+    "no_rules_to_apply": "No rules to apply.",
+    "loading_message": "Loading.."
   },
   "chart": {
     "using_parameters": "uses the parameters of",
     "to_apply": "to apply",
-    "application": ""
+    "application": "."
   },
   "messages": {
     "found_no_record_matching_filters": "Found no record matching filter(s)."
