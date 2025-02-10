@@ -51,8 +51,6 @@ const DraggableArea = ({
     ].filter(Boolean).join(' ');
 
     return (
-        // <div className="bg-warning"></div>
-
         <div
             data-order={order}
             draggable

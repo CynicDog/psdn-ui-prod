@@ -1,32 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import './App.css';
-import {useMenu} from "./context/Menu";
 import { Col, Row } from './component/Grid';
 import Container from './component/Container';
 import SideMenu from './layout/SideMenu';
 import MainView from "./layout/MainView";
-import ConfigurationView from './view/ConfigurationView';
-import DefinitionView from './view/DefinitionView';
-import HistoryView from './view/HistoryView';
+import {useState} from "react";
 
 const App = () => {
 
-  const { menu } = useMenu();
-
-  const menuToView = {
-    "definition": <DefinitionView />,
-    "configuration": <ConfigurationView />,
-    "history": <HistoryView />
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
     <Container fluid p="3">
       <Row>
-        <Col width="2" responsive="lg">
-          <SideMenu />
+        <Col width={ isMenuOpen ? "2" : "1" } responsive="lg">
+          <SideMenu
+              isMenuOpen={isMenuOpen}
+              toggleMenu={toggleMenu} />
         </Col>
-        <Col width="10" responsive="lg">
+        <Col width={ isMenuOpen ? "10": "11" } responsive="lg">
           <MainView />
         </Col>
       </Row>
