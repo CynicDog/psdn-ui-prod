@@ -8,10 +8,10 @@ import InputField from "../component/InputField";
 import { useConfig } from "../context/Config";
 import { useLanguage } from "../context/Language";
 
-const ParametersGroup = ({ parameters }) => {
-
+const ParametersGroup = ({ row, rule, parameters }) => {
     const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();
     const { getLocalizedName } = useLanguage();
+    const { updateParameterValue } = useConfig();
 
     // Function to determine input type dynamically
     const getInputType = (key) => {
@@ -52,6 +52,11 @@ const ParametersGroup = ({ parameters }) => {
                 const paramInfo = pseudoMasterInfo.parameters.find(p => p.ID === param.id);
                 const paramName = paramInfo ? getLocalizedName(paramInfo) : param.id;
 
+                // Retrieve the current value from the row's rule
+                const currentValue = row.RULES
+                    .find(r => r.RULE_ID === rule.RULE_ID)
+                    ?.VRBLs.find(vrbl => vrbl.id === param.id)?.value || "";
+
                 return (
                     <Row key={param.id} my="1">
                         <Col width="7" responsive="lg" flex alignItems="center">
@@ -62,20 +67,20 @@ const ParametersGroup = ({ parameters }) => {
                                 <Dropdown
                                     id={param.id}
                                     options={options}
-                                    value={param.value}
-                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                    value={currentValue}
+                                    onChange={(e) => updateParameterValue(row.COL_NAME, rule.RULE_ID, param.id, e.target.value)}
                                     border="primary-subtle"
                                 />
                             ) : inputType === "checkbox" ? (
                                 <CheckBox
-                                    checked={!!param.value}
-                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.checked}`)}
+                                    checked={!!currentValue}
+                                    onChange={(e) => updateParameterValue(row.COL_NAME, rule.RULE_ID, param.id, e.target.checked)}
                                 />
                             ) : (
                                 <InputField
                                     id={param.id}
-                                    value={param.value}
-                                    onChange={(e) => console.log(`Parameter ${param.id} changed to ${e.target.value}`)}
+                                    value={currentValue}
+                                    onChange={(e) => updateParameterValue(row.COL_NAME, rule.RULE_ID, param.id, e.target.value)}
                                     border="primary-subtle"
                                 />
                             )}
@@ -87,4 +92,4 @@ const ParametersGroup = ({ parameters }) => {
     );
 };
 
-export default ParametersGroup;
+export default ParametersGroup

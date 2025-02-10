@@ -183,6 +183,41 @@ export const ConfigProvider = ({ children }) => {
         );
     };
 
+    // Inline Editing State (No need for commit, applied immediately)
+    const updateParameterValue = (rowName, ruleId, paramId, newValue) => {
+
+        console.log(rowName, ruleId, paramId, newValue);
+
+        // Update the specific row's rules
+        setConfigRows((prevRows) =>
+            prevRows.map((row) => {
+                if (row.COL_NAME === rowName) {
+                    // Find the rule by RULE_ID
+                    const updatedRules = row.RULES.map((rule) => {
+                        if (rule.RULE_ID === ruleId) {
+                            // Update the specific VRBL (parameter) inside the rule
+                            const updatedVrbls = rule.VRBLs.map((vrbl) => {
+                                if (vrbl.id === paramId) {
+                                    return { ...vrbl, value: newValue };
+                                }
+                                return vrbl;
+                            });
+
+                            // Return the updated rule with the modified VRBLs
+                            return { ...rule, VRBLs: updatedVrbls };
+                        }
+                        return rule;
+                    });
+
+                    // Return the updated row with modified rules
+                    return { ...row, RULES: updatedRules };
+                }
+                return row;
+            })
+        );
+    };
+
+
     return (
         <ConfigContext.Provider
             value={{
@@ -221,7 +256,10 @@ export const ConfigProvider = ({ children }) => {
                 handleDeleteRule,
                 handleDeleteAllRules,
                 handleMasterControlUpdate,
-                handleMoveRule
+                handleMoveRule,
+
+                /* Inline editing */
+                updateParameterValue,
             }}
         >
             {children}

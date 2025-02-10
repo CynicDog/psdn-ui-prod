@@ -88,7 +88,7 @@ const RuleCard = ({ row, rule, order }) => {
                     </Span>
                 </Area>
             </Area>
-            <ParametersGroup parameters={rule.VRBLs} />
+            <ParametersGroup row={row} rule={rule} parameters={rule.VRBLs} />
         </DraggableArea>
     );
 };
