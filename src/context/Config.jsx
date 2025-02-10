@@ -18,6 +18,8 @@ export const ConfigProvider = ({ children }) => {
     const [sourceRuleDraggable, setSourceRuleDraggable] = useState(null);
     const [targetRuleDraggable, setTargetRuleDraggable] = useState(null);
 
+    const [focusedRow, setFocusedRow] = useState(null);
+
     // Filter rows
     const filteredRows = configRows.filter((row) =>
         Object.keys(filters).every(
@@ -197,6 +199,9 @@ export const ConfigProvider = ({ children }) => {
                 toggleRowSelection,
                 toggleSelectAllRows,
                 selectedRule, setSelectedRule,
+
+                /* Focused Row on ConfigPopup */
+                focusedRow, setFocusedRow,
 
                 /* Drag-and-drop state management */
                 sourceRuleDraggable, setSourceRuleDraggable,

@@ -1,6 +1,7 @@
 const Span = ({
                   children = '',
                   onClick,
+                  variant = '',
                   fontSize = '',
                   fontWeight = '',
                   badge = '',
@@ -9,6 +10,7 @@ const Span = ({
                   className = ''
 }) => {
     const classes = [
+        variant ? `text-${variant}` : '',
         fontSize ? `fs-${fontSize}` : '',
         fontWeight ? `fw-${fontWeight}` : '',
         badge ? `badge-${badge}` : '',

@@ -12,7 +12,7 @@ import {useLayout} from "../context/Layout";
 const ConfigTableRow = ({ row, columnNames }) => {
     const { t } = useTranslation();
     const { setIsPopupOpen } = useLayout();
-    const { selectedRows, toggleRowSelection } = useConfig();
+    const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
 
     return (
         <TableRow
@@ -63,6 +63,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                         onClick={(e) => {
                             e.stopPropagation();
                             setIsPopupOpen(true);
+                            setFocusedRow(row)
                         }}>
                         <i className="bi bi-box-arrow-up-right"></i>
                     </Button>

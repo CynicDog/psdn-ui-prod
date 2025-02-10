@@ -7,21 +7,25 @@ import Area from "../component/Area";
 import {useLayout} from "../context/Layout";
 import PopupOverlay from "../component/PopupOverlay";
 import PopupContent from "../component/PopupContent";
+import Span from "../component/Span";
+import Button from "../component/Button";
+import {useConfig} from "../context/Config";
 
-const ConfigPopup = ({rowData}) => {
+const ConfigPopup = () => {
     const { t } = useTranslation();
-    const { theme } = useTheme();
     const { isPopupOpen, setIsPopupOpen } = useLayout();
 
-    const onClose = () => {
+    const { focusedRow } = useConfig();
+
+    const closePopup = () => {
         setIsPopupOpen(false);
     }
 
     const {data: columnData, isLoading: isColumnDataLoading} = useQuery(
-        ['columnData', rowData?.COL_NAME],
-        () => fetchColumnData(rowData.COL_NAME),
+        ['columnData', focusedRow?.COL_NAME],
+        () => fetchColumnData(focusedRow.COL_NAME),
         {
-            enabled: !!rowData?.COL_NAME && isPopupOpen,
+            enabled: !!focusedRow?.COL_NAME && isPopupOpen,
         }
     );
 
@@ -39,9 +43,9 @@ const ConfigPopup = ({rowData}) => {
 
     const handleEscKey = useCallback((event) => {
         if (event.key === 'Escape') {
-            onClose();
+            closePopup();
         }
-    }, [onClose]);
+    }, [closePopup]);
 
     useEffect(() => {
         if (isPopupOpen) {
@@ -53,11 +57,37 @@ const ConfigPopup = ({rowData}) => {
     }, [isPopupOpen]);
 
     if (!isPopupOpen) return null;
-
     return (
-        <PopupOverlay onClick={onClose}>
+        <PopupOverlay onClick={closePopup}>
             <PopupContent>
-                POPUP CONTENTS
+                {/* Popup Header */}
+                <Area>
+                    <Area flex justifyContent="between">
+                        <Span fontSize="4">
+                            {t('components.record_detail_title')}
+                        </Span>
+                        <Button size="sm" variant="light" onClick={closePopup}>
+                            {t('components.close')}
+                        </Button>
+                    </Area>
+                    <Area flex justifyContent="center">
+                        <Span fontSize="3" fontWeight="lighter">{focusedRow.COL_NAME}</Span>
+                    </Area>
+                </Area>
+
+                {/* Popup Body */}
+                {Array.isArray(focusedRow.RULES) && focusedRow.RULES.length > 0 ? (
+                    <Area>
+                        Chart control here..
+                    </Area>
+                ) : (
+                    <Area flex justifyContent="center" alignItems="center">
+                        <Span variant="secondary">
+                            {t('components.no_rules_to_apply')}
+                        </Span>
+                    </Area>
+                )}
+
             </PopupContent>
         </PopupOverlay>
     )
