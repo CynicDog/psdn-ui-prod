@@ -43,8 +43,8 @@ jobs:
 
       - name: Apply Kubernetes manifest
         run: |
-          kubectl apply -f ./k8s/deployment.yaml
-          kubectl apply -f ./k8s/service.yaml
+          kubectl apply -f k8s/deployment.yaml
+          kubectl apply -f k8s/service.yaml
 
       - name: Log out from Azure CLI
         run: az logout
