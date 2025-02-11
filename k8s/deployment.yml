@@ -18,4 +18,13 @@ spec:
         - name: psdn-ui-development
           image: eunsangacr.azurecr.io/psdn-ui:latest
           ports:
+            - containerPort: 443
             - containerPort: 80
+          volumeMounts:
+            - name: tls-certificates
+              mountPath: "/etc/nginx/ssl"
+              readOnly: true
+      volumes:
+        - name: tls-certificates
+          secret:
+            secretName: my-tls-secret
