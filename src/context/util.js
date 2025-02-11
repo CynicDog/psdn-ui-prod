@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-
+import ConfigTableHeader from "../module/ConfigTableHeader";
 /**
  * Custom hook to debounce a value over a specified delay.
  * Useful for optimizing expensive operations like API calls, filtering, or searching.
@@ -30,14 +30,15 @@ export default useDebounce;
 
 /**
  * Extracts column names from `ConfigTableHeader`'s children (`ConfigTableColumn` components)
- *
+ * Uses direct component reference comparison.
  * @param {React.ReactNode} children - The children of ConfigTable
  * @returns {string[]} - Array of column names
  */
 export const extractColumnNames = (children) => {
+
     // Find ConfigTableHeader in children
     const headerChild = React.Children.toArray(children).find(
-        (child) => React.isValidElement(child) && child.type && child.type.name === "ConfigTableHeader"
+        (child) => React.isValidElement(child) && child.type === ConfigTableHeader
     );
 
     // Extract column names from ConfigTableColumn inside ConfigTableHeader

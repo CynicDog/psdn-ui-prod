@@ -6,7 +6,8 @@ import Span from "../component/Span";
 import Button from "../component/Button";
 import RuleCard from "./RuleCard";
 import { useConfig } from "../context/Config";
-import {useLayout} from "../context/Layout";
+import { useLayout } from "../context/Layout";
+import Icon from "../component/Icon";
 
 const ConfigTableRow = ({ row, columnNames }) => {
     const { setIsPopupOpen } = useLayout();
@@ -38,9 +39,9 @@ const ConfigTableRow = ({ row, columnNames }) => {
                         </Area>
                     ) : colKey === "RULES" ? (
                         <Area>
-                            {row[colKey].map((rule, index) => (
+                            {(Array.isArray(row[colKey]) ? row[colKey] : []).map((rule, index) => (
                                 <RuleCard
-                                    key={rule.RULE_ID}
+                                    key={rule?.RULE_ID || index}
                                     row={row}
                                     rule={rule}
                                     order={index}
@@ -48,7 +49,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                             ))}
                         </Area>
                     ) : (
-                        <Span>{row[colKey] || ""}</Span>
+                        <Span>{row[colKey] ?? "N/A"}</Span>
                     )}
                 </TableRowCell>
             ))}
@@ -61,9 +62,10 @@ const ConfigTableRow = ({ row, columnNames }) => {
                         onClick={(e) => {
                             e.stopPropagation();
                             setIsPopupOpen(true);
-                            setFocusedRow(row)
-                        }}>
-                        <i className="bi bi-box-arrow-up-right"></i>
+                            setFocusedRow(row);
+                        }}
+                    >
+                        <Icon name="box-arrow-up-right" />
                     </Button>
                 </Area>
             </TableRowCell>
