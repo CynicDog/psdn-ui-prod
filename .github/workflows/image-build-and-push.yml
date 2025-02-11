@@ -1,4 +1,5 @@
 name: Image Build for a SPA Container and Push to ACR
+
 on:
   workflow_dispatch:
 
@@ -9,7 +10,7 @@ jobs:
       ACR_NAME: eunsangacr
       ACR_URL: eunsangacr.azurecr.io
       ACR_IMAGE_NAME: psdn-ui
-      AKS_CLUSTSER_NAME: psdn 
+      AKS_CLUSTSER_NAME: psdn
       AZURE_RESOURCE_GROUP: MetLife-Project-Research
 
     steps:
@@ -28,18 +29,19 @@ jobs:
       - name: Build Docker image
         run: |
           docker build \
+            --build-arg REACT_APP_AZURE_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }} \
             -t ${{ env.ACR_URL }}/${{ env.ACR_IMAGE_NAME }} \
             -f ./Dockerfile .
 
       - name: Push Docker image to ACR
         run: |
-          docker push ${{ env.ACR_URL }}/${{ env.ACR_IMAGE_NAME }}:latest  
+          docker push ${{ env.ACR_URL }}/${{ env.ACR_IMAGE_NAME }}:latest
 
-      - name: Set Kubernetes Context 
+      - name: Set Kubernetes Context
         uses: azure/aks-set-context@v4
         with:
-           resource-group: ${{ env.AZURE_RESOURCE_GROUP }} 
-           cluster-name: ${{ env.AKS_CLUSTSER_NAME }}
+          resource-group: ${{ env.AZURE_RESOURCE_GROUP }}
+          cluster-name: ${{ env.AKS_CLUSTSER_NAME }}
 
       - name: Apply Kubernetes manifest
         run: |

@@ -3,6 +3,10 @@ FROM node:18 AS build
 
 WORKDIR /app
 
+# Accept the build argument for AZURE_CLIENT_ID
+ARG REACT_APP_AZURE_CLIENT_ID
+ENV REACT_APP_AZURE_CLIENT_ID=${REACT_APP_AZURE_CLIENT_ID}
+
 COPY package*.json ./
 RUN npm install
 
