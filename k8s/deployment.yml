@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psdn-ui-development
+  labels:
+    app: psdn-ui-development
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: psdn-ui-development
+  template:
+    metadata:
+      labels:
+        app: psdn-ui-development
+    spec:
+      containers:
+        - name: psdn-ui-development
+          image: eunsangacr.azurecr.io/psdn-ui/psdn-ui:latest
+          ports:
+            - containerPort: 80
