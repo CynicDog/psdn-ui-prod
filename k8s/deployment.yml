@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: psdn-ui-development
-          image: eunsangacr.azurecr.io/psdn-ui/psdn-ui:latest
+          image: eunsangacr.azurecr.io/psdn-ui:latest
           ports:
             - containerPort: 80
