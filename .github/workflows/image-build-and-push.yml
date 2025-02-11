@@ -9,6 +9,8 @@ jobs:
       ACR_NAME: eunsangacr
       ACR_URL: eunsangacr.azurecr.io
       ACR_IMAGE_NAME: psdn-ui
+      AKS_CLUSTSER_NAME: psdn 
+      AZURE_RESOURCE_GROUP: MetLife-Project-Research
 
     steps:
       - name: Checkout repository
@@ -32,6 +34,17 @@ jobs:
       - name: Push Docker image to ACR
         run: |
           docker push ${{ env.ACR_URL }}/${{ env.ACR_IMAGE_NAME }}:latest  
+
+      - name: Set Kubernetes Context 
+        uses: azure/aks-set-context@v4
+        with:
+           resource-group: ${{ env.AZURE_RESOURCE_GROUP }} 
+           cluster-name: ${{ env.AKS_CLUSTSER_NAME }}
+
+      - name: Apply Kubernetes manifest
+        run: |
+          kubectl apply -f ./k8s/deployment.yaml
+          kubectl apply -f ./k8s/service.yaml
 
       - name: Log out from Azure CLI
         run: az logout
