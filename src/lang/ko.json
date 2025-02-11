@@ -1,6 +1,6 @@
 {
   "auth": {
-    "greeting": "{name}님"
+    "greeting": "{name} 님"
   },
   "components": {
     "menu_title": "메뉴",

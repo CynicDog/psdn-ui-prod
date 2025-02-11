@@ -11,12 +11,12 @@ const MainViewHeader = () => {
     const { menu } = useLayout();
 
     return (
-        <Area flex justifyContent="between" mb="3">
+        <Area flex justifyContent="between" alignItems="center" mb="3">
             <Span fontSize="3" fontWeight="lighter">
                 {t('components.pseudonymization_title')}{' '}
                 {t(`components.pseudonymization_${menu}_view_title`)}
             </Span>
-            <Span>
+            <Span badge="light">
                 {t('auth.greeting', { name: auth.username })}
             </Span>
         </Area>
