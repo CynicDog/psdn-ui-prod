@@ -5,7 +5,7 @@ const LayoutContext = createContext();
 
 export const LayoutProvider = ({ children }) => {
 
-    const [menu, setMenu] = useState('configuration');
+    const [menu, setMenu] = useState('definition');
     const [isMenuOpen, setIsMenuOpen] = useState(true);
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
