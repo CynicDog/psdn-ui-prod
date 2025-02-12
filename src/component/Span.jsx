@@ -7,6 +7,7 @@ const Span = ({
                   badge = '',
                   p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
+                  cursor = '',
                   className = ''
 }) => {
     const classes = [
@@ -32,7 +33,7 @@ const Span = ({
     ].filter(Boolean).join(' ');
 
     return (
-        <span className={classes} onClick={onClick}>
+        <span className={classes} onClick={onClick} style={{ cursor: cursor}}>
             {children}
         </span>
     );

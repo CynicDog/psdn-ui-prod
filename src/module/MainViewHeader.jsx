@@ -3,10 +3,12 @@ import Span from "../component/Span";
 import {useLanguage} from "../context/Language";
 import {useAuth} from "../context/Auth";
 import {useLayout} from "../context/Layout";
+import {useMsal} from "@azure/msal-react";
 
 const MainViewHeader = () => {
 
     const { t } = useLanguage();
+    const { instance } = useMsal();
     const { auth, setAuth } = useAuth();
     const { menu } = useLayout();
 
@@ -16,7 +18,7 @@ const MainViewHeader = () => {
                 {t('components.pseudonymization_title')}{' '}
                 {t(`components.pseudonymization_${menu}_view_title`)}
             </Span>
-            <Span badge="light">
+            <Span badge="light" onClick={() => instance.logoutPopup()} cursor="pointer">
                 {t('auth.greeting', { name: auth.username })}
             </Span>
         </Area>
