@@ -14,7 +14,7 @@ const DefinitionTable = ({ children }) => {
             {/* Definition Table Header */}
             <TableHeader>
                 <TableRow>
-                    <TableHeaderCell width="25%">
+                    <TableHeaderCell width="15%">
                         {t('components.definition_name')}
                     </TableHeaderCell>
                     <TableHeaderCell>

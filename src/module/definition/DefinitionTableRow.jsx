@@ -14,10 +14,10 @@ const DefinitionTableRow = ({ ruleId }) => {
     const rule = pseudoMasterInfo.rules.find(r => r.ID === ruleId)
 
     return (
-        <TableRow>
+        <TableRow cursor="auto">
             <TableRowCell>
-                <Area>
-                    <Span fontSize="6" >
+                <Area my="2">
+                    <Span fontSize="4" fontWeight="lighter">
                         {getLocalizedName(rule)}
                     </Span>
                 </Area>

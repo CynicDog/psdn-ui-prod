@@ -33,7 +33,7 @@ const DefinitionDescription = ({ rule }) => {
                         }
                         bg="body" rounded shadow="sm" p="1" px="2" gap="3"
                     >
-                        <Span key={index} badge="primary-filled" >
+                        <Span key={index} badge="primary-filled">
                             {getLocalizedName(param)}
                         </Span>
                     </Tooltip>
@@ -55,14 +55,14 @@ const DefinitionDescription = ({ rule }) => {
 
     if (!ruleData) return <Area>No description available</Area>;
     return (
-        <Area>
+        <Area my="2">
             <Area mb="4">
-                <Span >
+                <Span fontSize="5" fontWeight="light">
                     {parseDescription(ruleData.main_description)}
                 </Span>
             </Area>
             <Area>
-                <Span>
+                <Span fontWeight="light">
                     {parseDescription(ruleData.detailed_description)}
                 </Span>
             </Area>
