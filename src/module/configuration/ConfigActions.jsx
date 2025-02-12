@@ -33,9 +33,6 @@ const ConfigActions = () => {
             <Button size="sm" variant="light" onClick={() => handleMasterControlUpdate(0)}>
                 {t("pseudonymization.set_APPT")} <i className="bi bi-x-square"></i>
             </Button>
-            <Button size="sm" variant="light" onClick={handleDeleteAllRules}>
-                {t("components.delete_all_rules")}
-            </Button>
             <Button size="sm" variant="light" onClick={() => setShowRuleDropdown(!showRuleDropdown)}>
                 {t("components.apply_in_batch_rule")}
             </Button>
@@ -55,6 +52,9 @@ const ConfigActions = () => {
                     me="2"
                 />
             )}
+            <Button size="sm" variant="light" onClick={handleDeleteAllRules}>
+                {t("components.delete_all_rules")}
+            </Button>
 
             <Area ms="auto">
                 <Button size="sm" variant="light" onClick={downloadJSON}>
