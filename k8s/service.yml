@@ -12,4 +12,4 @@ spec:
       port: 80
       targetPort: 80
   selector:
-    app: psdn-ui-development
+    app: psdn-ui-deployment
