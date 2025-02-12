@@ -46,7 +46,7 @@
     },
     "en": {
       "main_description": "Replaces extreme values in numerical data (e.g., amounts, ages) with meaningful statistical values.",
-      "detailed_description": "If {P16} is set to `upper`, {P17} to `percentage`, {P18} to `5`, and {P2} to `threshold`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
+      "detailed_description": "If {P16} is set to `greater`, {P17} to `percentage`, {P18} to `5`, and {P2} to `threshold`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
     }
   },
   "R6": {
@@ -66,7 +66,7 @@
     },
     "en": {
       "main_description": "Nullifies (sets to Null) or removes records with extreme values in numerical data (e.g., amounts, ages).",
-      "detailed_description": "If {P16} is set to `upper`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range are set to Null. If {P19} is set to `true`, the records within the verification range are removed from the dataset."
+      "detailed_description": "If {P16} is set to `greater`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range are set to Null. If {P19} is set to `true`, the records within the verification range are removed from the dataset."
     }
   },
   "R8": {
@@ -76,7 +76,7 @@
     },
     "en": {
       "main_description": "Groups the target column based on a related column and replaces extreme values within each group with meaningful statistical values.",
-      "detailed_description": "After grouping the target column using {P3}, if {P16} is set to `upper`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range are replaced with {P2}."
+      "detailed_description": "After grouping the target column using {P3}, if {P16} is set to `greater`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range are replaced with {P2}."
     }
   },
   "R9": {
