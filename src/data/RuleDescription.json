@@ -72,11 +72,11 @@
   "R8": {
     "ko": {
       "main_description": "대상 칼럼을 연관 칼럼으로 그룹화한 뒤 각 그룹 내 나타나는 대상 칼럼의 극단치 데이터를 유의미한 통계값으로 대체하는 기법.",
-      "detailed_description": "대상 칼럼을 {P3}(으)로 그룹화한 뒤, 대상 칼럼의 레코드 수치에 대해 {P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 그 값이 {P2}(으)로 대체됨."
+      "detailed_description": "대상 칼럼을 {P3}(으)로 그룹화한 뒤, 대상 칼럼의 레코드 수치에 대해 {P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 각 그룹 내 상위 5% 검증 영역에 해당되는 레코드는 그 값이 {P2}(으)로 대체됨."
     },
     "en": {
       "main_description": "Groups the target column based on a related column and replaces extreme values within each group with meaningful statistical values.",
-      "detailed_description": "After grouping the target column using {P3}, if {P16} is set to `greater`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range are replaced with {P2}."
+      "detailed_description": "After grouping the target column using {P3}, if {P16} is set to `greater`, {P17} to `percentage`, and {P18} to `5`, then records falling within the top 5% verification range in each group  are replaced with {P2}."
     }
   },
   "R9": {
