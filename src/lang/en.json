@@ -37,7 +37,8 @@
     "application": "."
   },
   "messages": {
-    "found_no_record_matching_filters": "Found no record matching filter(s)."
+    "found_no_record_matching_filters": "Found no record matching filter(s).",
+    "tooltip_logout": "Click to log out."
   },
   "pseudonymization": {
     "set_APPT": "Set Apply"

@@ -2,28 +2,34 @@ import Area from "../component/Area";
 import DefinitionTable from "../module/DefinitionTable";
 import DefinitionTableBody from "../module/DefinitionTableBody";
 import DefinitionTableRow from "../module/DefinitionTableRow";
+import Button from "../component/Button";
 
 const DefinitionView = () => {
 
     return (
         <>
-            <Area style={{ fontSize: "smaller" }}>
+            <Area style={{ fontSize: "0.9rem" }}>
+                <Area flex justifyContent="end">
+                    <Button size="sm" variant="light">
+                        가명화 매뉴얼 내려받기
+                    </Button>
+                </Area>
                 <DefinitionTable>
                     <DefinitionTableBody>
-                        <DefinitionTableRow name="R1" />
-                        <DefinitionTableRow name="R2" />
-                        <DefinitionTableRow name="R3" />
-                        <DefinitionTableRow name="R4" />
-                        <DefinitionTableRow name="R5" />
-                        <DefinitionTableRow name="R6" />
-                        <DefinitionTableRow name="R7" />
-                        <DefinitionTableRow name="R8" />
-                        <DefinitionTableRow name="R9" />
-                        <DefinitionTableRow name="R10" />
-                        <DefinitionTableRow name="R11" />
-                        <DefinitionTableRow name="R12" />
-                        <DefinitionTableRow name="R13" />
-                        <DefinitionTableRow name="R14" />
+                        <DefinitionTableRow ruleId="R1" />
+                        <DefinitionTableRow ruleId="R2" />
+                        <DefinitionTableRow ruleId="R3" />
+                        <DefinitionTableRow ruleId="R4" />
+                        <DefinitionTableRow ruleId="R5" />
+                        {/*<DefinitionTableRow ruleId="R6" />*/}
+                        {/*<DefinitionTableRow ruleId="R7" />*/}
+                        {/*<DefinitionTableRow ruleId="R8" />*/}
+                        {/*<DefinitionTableRow ruleId="R9" />*/}
+                        {/*<DefinitionTableRow ruleId="R10" />*/}
+                        {/*<DefinitionTableRow ruleId="R11" />*/}
+                        {/*<DefinitionTableRow ruleId="R12" />*/}
+                        {/*<DefinitionTableRow ruleId="R13" />*/}
+                        {/*<DefinitionTableRow ruleId="R14" />*/}
                     </DefinitionTableBody>
                 </DefinitionTable>
             </Area>

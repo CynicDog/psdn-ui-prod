@@ -1,0 +1,52 @@
+{
+  "R1": {
+    "ko": {
+      "main_description": "식별정보를 포함하는 칼럼을 단순 삭제하는 기법.",
+      "detailed_description": "{P1}(이)가 `true`로 설정된다면, 해당 칼럼은 결과 테이블에서 삭제될 뿐만 아니라 별도의 암호화를 거쳐 재식별키로서 분리보관되는 재식별 프로세스에 사용됨."
+    },
+    "en": {
+      "main_description": "Deletes a column that contains identifiable information.",
+      "detailed_description": "If {P1} is set to `true`, the column will not only be removed from the resulting table but also be separately stored as a re-identification key through an encryption process."
+    }
+  },
+  "R2": {
+    "ko": {
+      "main_description": "대상 칼럼 각 데이터의 일부를 문자('*', '_' 등)로 대체하는 기법.",
+      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 별표('*')로 대체하고자 할 때, {P7}(을)를 `-2`, {P8}(을)를 `*`로 설정."
+    },
+    "en": {
+      "main_description": "Replaces part of each data value in the target column with a character (e.g., '*', '_').",
+      "detailed_description": "To replace the last two characters of each record in the target column with an asterisk ('*'), set {P7} to `-2` and {P8} to `*`."
+    }
+  },
+  "R3": {
+    "ko": {
+      "main_description": "수치 데이터 개별 데이터 값을 특정 수의 배수로 반올림하는 기법.",
+      "detailed_description": "소수점 기준으로 숫자를 조정하는 라운딩과는 달리, {P12}(으)로 반올림하는 범위방법을 사용하게 되면 더욱 세분화된 그룹화가 가능."
+    },
+    "en": {
+      "main_description": "Rounds numerical data values to the nearest multiple of a specified number.",
+      "detailed_description": "Unlike rounding based on decimal places, using {P12} as the rounding base allows for more granular grouping of values."
+    }
+  },
+  "R4": {
+    "ko": {
+      "main_description": "분포 상 특이성으로 인해 식별가능한 레코드 수치에 대하여 일반화를 적용하는 기법.",
+      "detailed_description": "출현 빈도가 현저히 낮아 식별 가능한 수치를 가지는 레코드에 대하여, {P9}(와)과 {P10}(을)를 설정하여 특이 레코드를 식별하고, 이를 유의미한 통계값으로 대체함으로써 분포 상 특이성을 해소. \n\n 연속성 데이터에 대하여는 {P13}로 설정되는 값을 기준으로 이산화(Discretization)가 수행됨."
+    },
+    "en": {
+      "main_description": "Applies generalization to records with identifiable numerical values due to distribution anomalies.",
+      "detailed_description": "For records with identifiable values due to extremely low frequency, set {P9} and {P10} to detect outlier records and replace them with meaningful statistical values to eliminate distribution anomalies. \n\n For continuous data, discretization is performed based on the value set by {P13}."
+    }
+  },
+  "R5": {
+    "ko": {
+      "main_description": "금액, 나이 등 수치형 데이터에서 나타나는 극단값을 가지는 레코드 수치를 유의미한 통계값으로 대체하는 기법.",
+      "detailed_description": "{P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로, {P2}이 `경계값`으로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 분위 경계값으로 일괄 대체됨."
+    },
+    "en": {
+      "main_description": "Replaces extreme values in numerical data (e.g., amounts, ages) with meaningful statistical values.",
+      "detailed_description": "If {P16} is set to `upper`, {P17} to `percentage`, {P18} to `5`, and {P2} to `threshold`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
+    }
+  }
+}

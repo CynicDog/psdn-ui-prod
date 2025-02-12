@@ -37,7 +37,8 @@
     "application": "(을)를 적용합니다."
   },
   "messages": {
-    "found_no_record_matching_filters": "조건에 맞는 데이터가 존재하지 않습니다."
+    "found_no_record_matching_filters": "조건에 맞는 데이터가 존재하지 않습니다.",
+    "tooltip_logout": "클릭 시 로그아웃"
   },
   "pseudonymization": {
     "set_APPT": "규칙 적용"

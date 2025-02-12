@@ -4,6 +4,7 @@ import {useLanguage} from "../context/Language";
 import {useAuth} from "../context/Auth";
 import {useLayout} from "../context/Layout";
 import {useMsal} from "@azure/msal-react";
+import Tooltip from "../component/Tooltip";
 
 const MainViewHeader = () => {
 
@@ -18,9 +19,19 @@ const MainViewHeader = () => {
                 {t('components.pseudonymization_title')}{' '}
                 {t(`components.pseudonymization_${menu}_view_title`)}
             </Span>
-            <Span badge="light" onClick={() => instance.logoutPopup()} cursor="pointer">
-                {t('auth.greeting', { name: auth.username })}
-            </Span>
+            <Tooltip
+                position="top"
+                content={
+                    <Area>
+                        {t('messages.tooltip_logout')}
+                    </Area>
+                }
+                bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+            >
+                <Span badge="light" onClick={() => instance.logoutPopup()} cursor="pointer">
+                    {t('auth.greeting', { name: auth.username })}
+                </Span>
+            </Tooltip>
         </Area>
     )
 }
