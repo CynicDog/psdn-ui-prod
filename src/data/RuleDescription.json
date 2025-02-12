@@ -48,5 +48,95 @@
       "main_description": "Replaces extreme values in numerical data (e.g., amounts, ages) with meaningful statistical values.",
       "detailed_description": "If {P16} is set to `upper`, {P17} to `percentage`, {P18} to `5`, and {P2} to `threshold`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
     }
+  },
+  "R6": {
+    "ko": {
+      "main_description": "대상 칼럼 각 데이터의 일부를 삭제하는 기법.",
+      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 삭제하고자 할 때, {P7}(을)를 `-2`로 설정."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R7": {
+    "ko": {
+      "main_description": "금액, 나이 등 수치형 데이터에서 나타나는 극단값을 가지는 레코드 수치를 무효화(Null 처리)하거나, 해당 레코드를 데이터셋에서 삭제하는 기법.",
+      "detailed_description": "{P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 그 값이 삭제(Null)됨. 만일 {P19}(이)가 `true`로 설정된 경우, 검증 영역에 해당되는 레코드는 데이터 셋에서 삭제됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R8": {
+    "ko": {
+      "main_description": "대상 칼럼을 연관 칼럼으로 그룹화한 뒤 각 그룹 내 나타나는 대상 칼럼의 극단치 데이터를 유의미한 통계값으로 대체하는 기법.",
+      "detailed_description": "대상 칼럼을 {P3}(으)로 그룹화한 뒤, 대상 칼럼의 레코드 수치에 대해 {P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 그 값이 {P2}(으)로 대체됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R9": {
+    "ko": {
+      "main_description": "대상 칼럼의 각 데이터를 특정 단위에서 변환(반올림, 올림 또는 내림)하는 기법.",
+      "detailed_description": "{P4}(을)를 `2`로, {P5}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 백(10^2)의 자리에서 올림 처리됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R10": {
+    "ko": {
+      "main_description": "대상 칼럼의 각 데이터를 임의의 유효 단위에서 변환(반올림, 올림 또는 내림)하는 기법.",
+      "detailed_description": "{P5}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 임의의 자리수에서 올림 처리됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R11": {
+    "ko": {
+      "main_description": "개인정보에 임의의 숫자 등 잡음(Noise)를 추가하는 기법.",
+      "detailed_description": "{P6}(을)를 `2`로 설정하면 백 단위(10^2, 100~999)로 무작위 잡음이 추가됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R12": {
+    "ko": {
+      "main_description": "대상 칼럼의 레코드 수치를 다른 레코드 수치와 무작위로 변경하여 특정 정보가 특정 개인과 연결되지 않도록 하는 기법.",
+      "detailed_description": "대상 칼럼의 레코드 순서 변경 범위를 세분화 하기 위해, {P3} 기준으로 대상 칼럼 그룹화가 수행됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R13": {
+    "ko": {
+      "main_description": "대상 칼럼의 각 레코드 값을 사전에 정의된 문자로 대체하는 기법.",
+      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {P14}에 기반하여 그 값이 일대일로 교체됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
+  },
+  "R14": {
+    "ko": {
+      "main_description": "대상 칼럼의 각 레코드 값을 사전에 정의된 단어사전에서 무작위로 추출된 문자로 대체하는 기법.",
+      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {P15}에서 무작위로 추출된 값으로 교체됨."
+    },
+    "en": {
+      "main_description": "",
+      "detailed_description": ""
+    }
   }
 }

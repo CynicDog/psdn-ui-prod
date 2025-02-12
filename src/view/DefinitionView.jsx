@@ -21,15 +21,15 @@ const DefinitionView = () => {
                         <DefinitionTableRow ruleId="R3" />
                         <DefinitionTableRow ruleId="R4" />
                         <DefinitionTableRow ruleId="R5" />
-                        {/*<DefinitionTableRow ruleId="R6" />*/}
-                        {/*<DefinitionTableRow ruleId="R7" />*/}
-                        {/*<DefinitionTableRow ruleId="R8" />*/}
-                        {/*<DefinitionTableRow ruleId="R9" />*/}
-                        {/*<DefinitionTableRow ruleId="R10" />*/}
-                        {/*<DefinitionTableRow ruleId="R11" />*/}
-                        {/*<DefinitionTableRow ruleId="R12" />*/}
-                        {/*<DefinitionTableRow ruleId="R13" />*/}
-                        {/*<DefinitionTableRow ruleId="R14" />*/}
+                        <DefinitionTableRow ruleId="R6" />
+                        <DefinitionTableRow ruleId="R7" />
+                        <DefinitionTableRow ruleId="R8" />
+                        <DefinitionTableRow ruleId="R9" />
+                        <DefinitionTableRow ruleId="R10" />
+                        <DefinitionTableRow ruleId="R11" />
+                        <DefinitionTableRow ruleId="R12" />
+                        <DefinitionTableRow ruleId="R13" />
+                        <DefinitionTableRow ruleId="R14" />
                     </DefinitionTableBody>
                 </DefinitionTable>
             </Area>

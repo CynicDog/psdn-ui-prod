@@ -10,8 +10,7 @@ const Tooltip = ({
                      shadow = '',
                      gap = 8,
                      p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
-
-}) => {
+                 }) => {
     const [visible, setVisible] = useState(false);
     const [coords, setCoords] = useState({ left: 0, top: 0 });
     const [ready, setReady] = useState(false);
@@ -29,26 +28,26 @@ const Tooltip = ({
             switch (position) {
                 case "top":
                     newCoords = {
-                        left: targetRect.left + targetRect.width / 2 - tooltipRect.width / 2,
-                        top: targetRect.top - tooltipRect.height - gap,
+                        left: targetRect.left + window.scrollX + targetRect.width / 2 - tooltipRect.width / 2,
+                        top: targetRect.top + window.scrollY - tooltipRect.height - gap,
                     };
                     break;
                 case "bottom":
                     newCoords = {
-                        left: targetRect.left + targetRect.width / 2 - tooltipRect.width / 2,
-                        top: targetRect.bottom + gap,
+                        left: targetRect.left + window.scrollX + targetRect.width / 2 - tooltipRect.width / 2,
+                        top: targetRect.bottom + window.scrollY + gap,
                     };
                     break;
                 case "left":
                     newCoords = {
-                        left: targetRect.left - tooltipRect.width - gap,
-                        top: targetRect.top + targetRect.height / 2 - tooltipRect.height / 2,
+                        left: targetRect.left + window.scrollX - tooltipRect.width - gap,
+                        top: targetRect.top + window.scrollY + targetRect.height / 2 - tooltipRect.height / 2,
                     };
                     break;
                 case "right":
                     newCoords = {
-                        left: targetRect.right + gap,
-                        top: targetRect.top + targetRect.height / 2 - tooltipRect.height / 2,
+                        left: targetRect.right + window.scrollX + gap,
+                        top: targetRect.top + window.scrollY + targetRect.height / 2 - tooltipRect.height / 2,
                     };
                     break;
                 default:
@@ -82,9 +81,7 @@ const Tooltip = ({
             ref={targetRef}
             onMouseEnter={() => setVisible(true)}
             onMouseLeave={() => setVisible(false)}
-            style={{
-                display: "inline-block",
-            }}
+            style={{ display: "inline-block" }}
         >
             {children}
             {visible && (

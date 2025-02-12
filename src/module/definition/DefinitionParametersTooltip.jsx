@@ -1,8 +1,12 @@
+import {useLanguage} from "../../context/Language";
+
 const DefinitionParametersTooltip = ({ parameter }) => {
+
+    const { getLocalizedName } = useLanguage();
 
     return (
         <>
-            {parameter.NAME_EN}
+            {getLocalizedName(parameter)}
         </>
     )
 }
