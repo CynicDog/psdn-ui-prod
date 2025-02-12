@@ -17,6 +17,7 @@ spec:
       containers:
         - name: psdn-ui-development
           image: eunsangacr.azurecr.io/psdn-ui:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 443
             - containerPort: 80
