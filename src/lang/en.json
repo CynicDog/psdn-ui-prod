@@ -27,7 +27,9 @@
     "apply_in_batch_rule": "Assign a rule",
     "delete_all_rules": "Delete rule(s)",
     "no_rules_to_apply": "No rules to apply.",
-    "loading_message": "Loading.."
+    "loading_message": "Loading..",
+    "definition_name": "Name",
+    "definition_description": "Description"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

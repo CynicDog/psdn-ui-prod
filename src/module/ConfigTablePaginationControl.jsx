@@ -6,7 +6,7 @@ import Span from "../component/Span";
 import Button from "../component/Button";
 import Dropdown from "../component/Dropdown";
 
-const PaginationControl = () => {
+const ConfigTablePaginationControl = () => {
     const { t } = useLanguage();
     const { totalPages, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage } = useConfig();
 
@@ -112,4 +112,4 @@ const PaginationControl = () => {
     );
 };
 
-export default PaginationControl;
+export default ConfigTablePaginationControl;

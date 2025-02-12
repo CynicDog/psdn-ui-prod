@@ -4,7 +4,7 @@ import Area from "../component/Area";
 import CheckBox from "../component/CheckBox";
 import Span from "../component/Span";
 import Button from "../component/Button";
-import RuleCard from "./RuleCard";
+import ConfigRuleCard from "./ConfigRuleCard";
 import { useConfig } from "../context/Config";
 import { useLayout } from "../context/Layout";
 import Icon from "../component/Icon";
@@ -40,7 +40,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                     ) : colKey === "RULES" ? (
                         <Area>
                             {(Array.isArray(row[colKey]) ? row[colKey] : []).map((rule, index) => (
-                                <RuleCard
+                                <ConfigRuleCard
                                     key={rule?.RULE_ID || index}
                                     row={row}
                                     rule={rule}

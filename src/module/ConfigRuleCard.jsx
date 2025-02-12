@@ -3,11 +3,11 @@ import { useLanguage } from "../context/Language";
 import DraggableArea from "../component/DraggableArea";
 import Area from "../component/Area";
 import Span from "../component/Span";
-import ParametersGroup from "./ParametersGroup";
+import ConfigParametersGroup from "./ConfigParametersGroup";
 import {useState} from "react";
 import {useAuth} from "../context/Auth";
 
-const RuleCard = ({ row, rule, order }) => {
+const ConfigRuleCard = ({ row, rule, order }) => {
 
     const { auth } = useAuth();
     const { t, getLocalizedName } = useLanguage();
@@ -88,9 +88,9 @@ const RuleCard = ({ row, rule, order }) => {
                     </Span>
                 </Area>
             </Area>
-            <ParametersGroup row={row} rule={rule} parameters={rule.VRBLs} />
+            <ConfigParametersGroup row={row} rule={rule} parameters={rule.VRBLs} />
         </DraggableArea>
     );
 };
 
-export default RuleCard;
+export default ConfigRuleCard;

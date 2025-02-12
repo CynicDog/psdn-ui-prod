@@ -8,7 +8,7 @@ import InputField from "../component/InputField";
 import { useConfig } from "../context/Config";
 import { useLanguage } from "../context/Language";
 
-const ParametersGroup = ({ row, rule, parameters }) => {
+const ConfigParametersGroup = ({ row, rule, parameters }) => {
     const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();
     const { getLocalizedName } = useLanguage();
     const { updateParameterValue } = useConfig();
@@ -92,4 +92,4 @@ const ParametersGroup = ({ row, rule, parameters }) => {
     );
 };
 
-export default ParametersGroup
+export default ConfigParametersGroup
