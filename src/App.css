@@ -1,3 +1,19 @@
+/* By default, disable sticky for small screens (when the layout is stacked) */
+.sticky-col {
+    position: static;
+}
+
+/* For large screens, apply sticky behavior */
+@media (min-width: 992px) { /* Assuming large screen is 992px or above */
+    .sticky-col {
+        position: sticky;
+        top: 15px;
+        height: 95vh;
+        overflow-y: auto;
+        z-index: 10;
+    }
+}
+
 .control-panel {
     position: sticky;
     top: 0;

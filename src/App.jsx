@@ -24,7 +24,7 @@ const App = () => {
   return (
       <Container fluid p="3">
         <Row>
-          <Col width={isMenuOpen ? "2" : "1"} responsive="lg">
+          <Col width={isMenuOpen ? "2" : "1"} responsive="lg" sticky>
             <SideMenu />
           </Col>
           <Col width={isMenuOpen ? "10" : "11"} responsive="lg">

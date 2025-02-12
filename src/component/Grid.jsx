@@ -33,7 +33,8 @@ const Col = ({
                  alignItems = '',
                  className = "",
                  p = "", px = "", py = "", pt = "", pb = "", ps = "", pe = "",
-                 m = "", mx = "", my = "", mt = "", mb = "", ms = "", me = ""
+                 m = "", mx = "", my = "", mt = "", mb = "", ms = "", me = "",
+                 sticky = false,
              }) => {
     const colClass = `col${responsive ? `-${responsive}` : ""}-${width}`.trim();
 
@@ -42,6 +43,7 @@ const Col = ({
         flex ? 'd-flex' : '',
         justifyContent ? `justify-content-${justifyContent}` : '',
         alignItems ? `align-items-${alignItems}` : '',
+        sticky ? 'sticky-col' : '',
         p ? `p-${p}` : "", px ? `px-${px}` : "", py ? `py-${py}` : "",
         pt ? `pt-${pt}` : "", pb ? `pb-${pb}` : "", ps ? `ps-${ps}` : "", pe ? `pe-${pe}` : "",
         m ? `m-${m}` : "", mx ? `mx-${mx}` : "", my ? `my-${my}` : "",
@@ -49,7 +51,11 @@ const Col = ({
         className
     ].filter(Boolean).join(" ");
 
-    return <div className={classes}>{children}</div>;
+    return (
+        <div className={classes}>
+            {children}
+        </div>
+    );
 };
 
 export { Row, Col };

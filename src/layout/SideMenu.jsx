@@ -15,7 +15,7 @@ const SideMenu = () => {
 
     return (
         <>
-            <Area border rounded="3" shadow p="3" mb="3">
+            <Area border rounded="3" shadow p="2" mb="3">
                 {isMenuOpen ? (
                     <>
                         <Area flex justifyContent="between" mb="2" p="2">
@@ -25,7 +25,7 @@ const SideMenu = () => {
                                 <DarkMode/>
                             </Area>
                         </Area>
-                        <Area>
+                        <Area px="3">
                             <OrderedList
                                 listItems={[
                                     <Anchor key="1" label={t('components.menu_link_1')} onClick={() => setMenu("definition")}/>,
