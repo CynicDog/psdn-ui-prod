@@ -5,6 +5,7 @@ const Span = ({
                   fontSize = '',
                   fontWeight = '',
                   badge = '',
+                  underline = false,
                   p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                   cursor = '',
@@ -33,7 +34,10 @@ const Span = ({
     ].filter(Boolean).join(' ');
 
     return (
-        <span className={classes} onClick={onClick} style={{ cursor: cursor}}>
+        <span className={classes} onClick={onClick} style={{
+            cursor: cursor,
+            textDecoration: underline ? 'underline solid #AFCBFF 4px' : 'none'
+        }}>
             {children}
         </span>
     );

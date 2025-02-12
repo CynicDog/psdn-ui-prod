@@ -16,7 +16,7 @@
     "record_detail_title": "Record Details",
     "close": "close",
     "delete": "delete",
-    "download": "Download",
+    "config_download": "Download",
     "pagination_button_previous": "previous",
     "pagination_button_next": "next",
     "rows_per_page": "Per Page",
@@ -29,7 +29,8 @@
     "no_rules_to_apply": "No rules to apply.",
     "loading_message": "Loading..",
     "definition_name": "Name",
-    "definition_description": "Description"
+    "definition_description": "Description",
+    "pseudonymization_guide": "Pseudonymization Guide"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

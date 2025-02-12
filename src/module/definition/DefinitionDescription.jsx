@@ -55,7 +55,7 @@ const DefinitionDescription = ({ rule }) => {
 
     if (!ruleData) return <Area>No description available</Area>;
     return (
-        <Area my="2">
+        <Area my="1">
             <Area mb="4">
                 <Span fontSize="5" fontWeight="light">
                     {parseDescription(ruleData.main_description)}

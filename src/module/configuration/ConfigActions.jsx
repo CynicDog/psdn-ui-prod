@@ -58,7 +58,7 @@ const ConfigActions = () => {
 
             <Area ms="auto">
                 <Button size="sm" variant="light" onClick={downloadJSON}>
-                    {t("components.download")} <code className="ms-1">config.json</code>
+                    {t("components.config_download")} <code className="ms-1">config.json</code>
                 </Button>
             </Area>
         </>

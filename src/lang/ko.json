@@ -16,7 +16,7 @@
     "record_detail_title": "레코드 상세",
     "close": "닫기",
     "delete": "삭제",
-    "download": "내려받기",
+    "config_download": "내려받기",
     "pagination_button_previous": "이전",
     "pagination_button_next": "다음",
     "rows_per_page": "보기",
@@ -29,7 +29,8 @@
     "no_rules_to_apply": "지정된 가명화 규칙이 없습니다.",
     "loading_message": "Loading..",
     "definition_name": "규칙명",
-    "definition_description": "설명"
+    "definition_description": "설명",
+    "pseudonymization_guide": "가명화 가이드"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",
