@@ -5,6 +5,8 @@ import RuleDescription from "../data/RuleDescription.json";
 import {useAuth} from "../context/Auth";
 import {useConfig} from "../context/Config";
 import {useLanguage} from "../context/Language";
+import Tooltip from "../component/Tooltip";
+import DefinitionParametersTooltip from "./DefinitionParametersTooltip";
 
 const DefinitionDescription = ({ rule }) => {
     const { getLocalizedName } = useLanguage();
@@ -24,9 +26,17 @@ const DefinitionDescription = ({ rule }) => {
             if (part.match(/{P\d+}/)) {
                 const param = pseudoMasterInfo.parameters.find(p => p.ID === part.replace(/[{}]/g, ""));
                 return (
-                    <Span key={index} badge="primary-filled" >
-                        {getLocalizedName(param)}
-                    </Span>
+                    <Tooltip
+                        position="top"
+                        content={
+                            <DefinitionParametersTooltip parameter={param} />
+                        }
+                        bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                    >
+                        <Span key={index} badge="primary-filled" >
+                            {getLocalizedName(param)}
+                        </Span>
+                    </Tooltip>
                 );
             }
             // Extract the value of parameter
