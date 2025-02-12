@@ -46,7 +46,7 @@
     },
     "en": {
       "main_description": "Replaces extreme values in numerical data (e.g., amounts, ages) with meaningful statistical values.",
-      "detailed_description": "If {P16} is set to `greater`, {P17} to `ratio`, {P18} to `5`, and {P2} to `threshold`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
+      "detailed_description": "If {P16} is set to `greater`, {P17} to `ratio`, {P18} to `5`, and {P2} to `border`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
     }
   },
   "R6": {
