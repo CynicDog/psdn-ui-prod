@@ -160,7 +160,7 @@
       "ID": "P15",
       "NAME_EN": "Selection Dictionary",
       "NAME_KO": "단어추출사전",
-      "TYPE": "Integer"
+      "TYPE": "String"
     },
     {
       "ID": "P16",
