@@ -30,7 +30,7 @@
     "loading_message": "Loading..",
     "definition_name": "규칙명",
     "definition_description": "설명",
-    "pseudonymization_guide": "가명화 가이드"
+    "pseudonymization_guide_download": "가명화 가이드 내려받기"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

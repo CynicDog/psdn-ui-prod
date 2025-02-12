@@ -30,7 +30,7 @@
     "loading_message": "Loading..",
     "definition_name": "Name",
     "definition_description": "Description",
-    "pseudonymization_guide": "Pseudonymization Guide"
+    "pseudonymization_guide_download": "Download the Pseudonymization Guide"
   },
   "chart": {
     "using_parameters": "uses the parameters of",
