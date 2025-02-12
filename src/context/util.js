@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import ConfigTableHeader from "../module/ConfigTableHeader";
+import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
 /**
  * Custom hook to debounce a value over a specified delay.
  * Useful for optimizing expensive operations like API calls, filtering, or searching.

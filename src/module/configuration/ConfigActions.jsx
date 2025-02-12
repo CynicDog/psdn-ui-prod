@@ -1,9 +1,9 @@
-import { useLanguage } from "../context/Language";
-import { useConfig } from "../context/Config";
+import { useLanguage } from "../../context/Language";
+import { useConfig } from "../../context/Config";
 import { useState } from "react";
-import Area from "../component/Area";
-import Button from "../component/Button";
-import Dropdown from "../component/Dropdown";
+import Area from "../../component/Area";
+import Button from "../../component/Button";
+import Dropdown from "../../component/Dropdown";
 
 const ConfigActions = () => {
     const { t, getLocalizedName } = useLanguage();

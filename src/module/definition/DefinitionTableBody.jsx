@@ -1,4 +1,4 @@
-import TableBody from "../component/TableBody";
+import TableBody from "../../component/TableBody";
 
 const DefinitionTableBody = ({ children }) => {
 

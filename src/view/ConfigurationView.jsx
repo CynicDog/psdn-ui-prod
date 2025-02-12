@@ -1,12 +1,12 @@
 import React from "react";
 import Area from "../component/Area";
 import { Col, Row } from "../component/Grid";
-import ConfigTableHeader from "../module/ConfigTableHeader";
-import ConfigTablePaginationControl from "../module/ConfigTablePaginationControl";
-import ConfigTableColumn from "../module/ConfigTableColumn";
-import ConfigPopup from "../module/ConfigPopup";
-import ConfigTable from "../module/ConfigTable";
-import ConfigActions from "../module/ConfigActions";
+import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
+import ConfigTablePaginationControl from "../module/configuration/ConfigTablePaginationControl";
+import ConfigTableColumn from "../module/configuration/ConfigTableColumn";
+import ConfigPopup from "../module/configuration/ConfigPopup";
+import ConfigTable from "../module/configuration/ConfigTable";
+import ConfigActions from "../module/configuration/ConfigActions";
 
 const ConfigurationView = () => {
 

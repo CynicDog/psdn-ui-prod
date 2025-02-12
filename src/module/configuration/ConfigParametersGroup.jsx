@@ -1,12 +1,12 @@
 import React from "react";
-import Area from "../component/Area";
-import { Col, Row } from "../component/Grid";
-import Span from "../component/Span";
-import CheckBox from "../component/CheckBox";
-import Dropdown from "../component/Dropdown";
-import InputField from "../component/InputField";
-import { useConfig } from "../context/Config";
-import { useLanguage } from "../context/Language";
+import Area from "../../component/Area";
+import { Col, Row } from "../../component/Grid";
+import Span from "../../component/Span";
+import CheckBox from "../../component/CheckBox";
+import Dropdown from "../../component/Dropdown";
+import InputField from "../../component/InputField";
+import { useConfig } from "../../context/Config";
+import { useLanguage } from "../../context/Language";
 
 const ConfigParametersGroup = ({ row, rule, parameters }) => {
     const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();

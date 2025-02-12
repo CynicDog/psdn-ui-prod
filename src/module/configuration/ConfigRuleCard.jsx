@@ -1,11 +1,11 @@
-import { useConfig } from "../context/Config";
-import { useLanguage } from "../context/Language";
-import DraggableArea from "../component/DraggableArea";
-import Area from "../component/Area";
-import Span from "../component/Span";
+import { useConfig } from "../../context/Config";
+import { useLanguage } from "../../context/Language";
+import DraggableArea from "../../component/DraggableArea";
+import Area from "../../component/Area";
+import Span from "../../component/Span";
 import ConfigParametersGroup from "./ConfigParametersGroup";
 import {useState} from "react";
-import {useAuth} from "../context/Auth";
+import {useAuth} from "../../context/Auth";
 
 const ConfigRuleCard = ({ row, rule, order }) => {
 

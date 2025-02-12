@@ -1,10 +1,10 @@
-import TableRow from "../component/TableRow";
-import TableRowCell from "../component/TableRowCell";
-import Span from "../component/Span";
-import Area from "../component/Area";
+import TableRow from "../../component/TableRow";
+import TableRowCell from "../../component/TableRowCell";
+import Span from "../../component/Span";
+import Area from "../../component/Area";
 import DefinitionDescription from "./DefinitionDescription";
-import {useConfig} from "../context/Config";
-import {useLanguage} from "../context/Language";
+import {useConfig} from "../../context/Config";
+import {useLanguage} from "../../context/Language";
 
 const DefinitionTableRow = ({ ruleId }) => {
 

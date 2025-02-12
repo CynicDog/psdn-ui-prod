@@ -1,16 +1,16 @@
-import {useTheme} from "../context/Theme";
-import {useLanguage} from "../context/Language";
+import {useTheme} from "../../context/Theme";
+import {useLanguage} from "../../context/Language";
 import {useQuery} from "react-query";
-import {fetchColumnData} from "../data/APIs";
+import {fetchColumnData} from "../../data/APIs";
 import {useCallback, useEffect} from "react";
-import Area from "../component/Area";
-import {useLayout} from "../context/Layout";
-import PopupOverlay from "../component/PopupOverlay";
-import PopupContent from "../component/PopupContent";
-import Span from "../component/Span";
-import Button from "../component/Button";
-import {useConfig} from "../context/Config";
-import ChartControl from "../charts/ChartControl";
+import Area from "../../component/Area";
+import {useLayout} from "../../context/Layout";
+import PopupOverlay from "../../component/PopupOverlay";
+import PopupContent from "../../component/PopupContent";
+import Span from "../../component/Span";
+import Button from "../../component/Button";
+import {useConfig} from "../../context/Config";
+import ChartControl from "../../charts/ChartControl";
 
 const ConfigPopup = () => {
     const { t } = useLanguage();

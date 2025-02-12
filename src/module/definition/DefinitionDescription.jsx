@@ -1,11 +1,11 @@
-import Area from "../component/Area";
-import Span from "../component/Span";
-import Code from "../component/Code";
-import RuleDescription from "../data/RuleDescription.json";
-import {useAuth} from "../context/Auth";
-import {useConfig} from "../context/Config";
-import {useLanguage} from "../context/Language";
-import Tooltip from "../component/Tooltip";
+import Area from "../../component/Area";
+import Span from "../../component/Span";
+import Code from "../../component/Code";
+import RuleDescription from "../../data/RuleDescription.json";
+import {useAuth} from "../../context/Auth";
+import {useConfig} from "../../context/Config";
+import {useLanguage} from "../../context/Language";
+import Tooltip from "../../component/Tooltip";
 import DefinitionParametersTooltip from "./DefinitionParametersTooltip";
 
 const DefinitionDescription = ({ rule }) => {

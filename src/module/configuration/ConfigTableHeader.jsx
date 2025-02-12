@@ -1,11 +1,11 @@
-import TableRow from "../component/TableRow";
-import TableHeaderCell from "../component/TableHeaderCell";
-import Area from "../component/Area";
-import Span from "../component/Span";
-import CheckBox from "../component/CheckBox";
-import {useLanguage} from "../context/Language";
-import TableHeader from "../component/TableHeader";
-import {useConfig} from "../context/Config";
+import TableRow from "../../component/TableRow";
+import TableHeaderCell from "../../component/TableHeaderCell";
+import Area from "../../component/Area";
+import Span from "../../component/Span";
+import CheckBox from "../../component/CheckBox";
+import {useLanguage} from "../../context/Language";
+import TableHeader from "../../component/TableHeader";
+import {useConfig} from "../../context/Config";
 
 const ConfigTableHeader = ({ children }) => {
 

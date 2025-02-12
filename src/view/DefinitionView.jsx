@@ -1,7 +1,7 @@
 import Area from "../component/Area";
-import DefinitionTable from "../module/DefinitionTable";
-import DefinitionTableBody from "../module/DefinitionTableBody";
-import DefinitionTableRow from "../module/DefinitionTableRow";
+import DefinitionTable from "../module/definition/DefinitionTable";
+import DefinitionTableBody from "../module/definition/DefinitionTableBody";
+import DefinitionTableRow from "../module/definition/DefinitionTableRow";
 import Button from "../component/Button";
 
 const DefinitionView = () => {

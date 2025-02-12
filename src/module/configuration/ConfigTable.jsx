@@ -1,12 +1,12 @@
 import React from "react";
-import Table from "../component/Table";
+import Table from "../../component/Table";
 import ConfigTableRow from "./ConfigTableRow";
-import TableBody from "../component/TableBody";
-import {useConfig} from "../context/Config";
-import {extractColumnNames} from "../context/util";
-import {useLanguage} from "../context/Language";
-import TableRow from "../component/TableRow";
-import TableRowCell from "../component/TableRowCell";
+import TableBody from "../../component/TableBody";
+import {useConfig} from "../../context/Config";
+import {extractColumnNames} from "../../context/util";
+import {useLanguage} from "../../context/Language";
+import TableRow from "../../component/TableRow";
+import TableRowCell from "../../component/TableRowCell";
 
 const ConfigTable = ({children}) => {
 

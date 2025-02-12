@@ -1,9 +1,9 @@
-import { useLanguage } from "../context/Language";
-import TableHeaderCell from "../component/TableHeaderCell";
-import Area from "../component/Area";
-import { useBaseDB } from "../context/BaseDB";
-import { useConfig } from "../context/Config";
-import Dropdown from "../component/Dropdown";
+import { useLanguage } from "../../context/Language";
+import TableHeaderCell from "../../component/TableHeaderCell";
+import Area from "../../component/Area";
+import { useBaseDB } from "../../context/BaseDB";
+import { useConfig } from "../../context/Config";
+import Dropdown from "../../component/Dropdown";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
 

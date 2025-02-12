@@ -1,13 +1,13 @@
-import TableRow from "../component/TableRow";
-import TableRowCell from "../component/TableRowCell";
-import Area from "../component/Area";
-import CheckBox from "../component/CheckBox";
-import Span from "../component/Span";
-import Button from "../component/Button";
+import TableRow from "../../component/TableRow";
+import TableRowCell from "../../component/TableRowCell";
+import Area from "../../component/Area";
+import CheckBox from "../../component/CheckBox";
+import Span from "../../component/Span";
+import Button from "../../component/Button";
 import ConfigRuleCard from "./ConfigRuleCard";
-import { useConfig } from "../context/Config";
-import { useLayout } from "../context/Layout";
-import Icon from "../component/Icon";
+import { useConfig } from "../../context/Config";
+import { useLayout } from "../../context/Layout";
+import Icon from "../../component/Icon";
 
 const ConfigTableRow = ({ row, columnNames }) => {
     const { setIsPopupOpen } = useLayout();
