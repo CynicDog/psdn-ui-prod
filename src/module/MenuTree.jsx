@@ -3,11 +3,17 @@ import { useState } from "react";
 import { useLanguage } from "../context/Language";
 import Area from "../component/Area";
 import Span from "../component/Span";
+import { useAuth } from "../context/Auth"; // to access the user's role
 
-const MenuItem = ({ index, itemID, itemData, level, parentID, parentName }) => {
+const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRole }) => {
     const { t } = useLanguage();
     const { setCurrentMenu } = useLayout();
     const [isOpen, setIsOpen] = useState(true);
+
+    // Filter children based on user's role
+    const visibleChildren = itemData.CHILDREN?.filter(child =>
+        child.SHOWN_TO.includes(userRole)
+    );
 
     const handleClick = () => {
         if (itemData.CHILDREN) {
@@ -36,9 +42,9 @@ const MenuItem = ({ index, itemID, itemData, level, parentID, parentName }) => {
                 onClick={handleClick}>
                 {t(`menu.${itemData.NAME}`)}
             </Span>
-            {isOpen && itemData.CHILDREN && (
+            {isOpen && visibleChildren && (
                 <Area>
-                    {itemData.CHILDREN.map((child) => (
+                    {visibleChildren.map((child) => (
                         <MenuItem
                             key={child.ID}
                             level={level + 1}
@@ -46,6 +52,7 @@ const MenuItem = ({ index, itemID, itemData, level, parentID, parentName }) => {
                             itemData={child}
                             parentID={itemID}
                             parentName={itemData.NAME}
+                            userRole={userRole}
                         />
                     ))}
                 </Area>
@@ -56,10 +63,16 @@ const MenuItem = ({ index, itemID, itemData, level, parentID, parentName }) => {
 
 const MenuTree = () => {
     const { menu } = useLayout();
+    const { auth } = useAuth();
+
+    // Filter top-level menu items based on user's role
+    const visibleMenuItems = menu.filter(item =>
+        item.CHILDREN.some(child => child.SHOWN_TO.includes(auth.role))
+    );
 
     return (
         <Area style={{ fontSize: "smaller" }}>
-            {menu.map((menuItem, index) => (
+            {visibleMenuItems.map((menuItem, index) => (
                 <MenuItem
                     index={index}
                     key={menuItem.ID}
@@ -68,6 +81,7 @@ const MenuTree = () => {
                     level={0}
                     parentID={null}
                     parentName={""}
+                    userRole={auth.role}
                 />
             ))}
         </Area>

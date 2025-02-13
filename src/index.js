@@ -12,27 +12,27 @@ import {QueryClient, QueryClientProvider} from "react-query";
 import {PublicClientApplication} from "@azure/msal-browser";
 import {MsalProvider} from "@azure/msal-react";
 
-// Configuration object constructed
-const config = {
-    auth: {
-        clientId: process.env.REACT_APP_AZURE_CLIENT_ID,
-    },
-    cache: {
-        cacheLocation: "localStorage",
-    },
-};
-
-// Create PublicClientApplication instance
-const publicClientApplication = new PublicClientApplication(config);
+// // Configuration object constructed
+// const config = {
+//     auth: {
+//         clientId: process.env.REACT_APP_AZURE_CLIENT_ID,
+//     },
+//     cache: {
+//         cacheLocation: "localStorage",
+//     },
+// };
+//
+// // Create PublicClientApplication instance
+// const publicClientApplication = new PublicClientApplication(config);
 
 const queryClient = new QueryClient();
 
-const initializeMSAL = async () => {
-
-    await publicClientApplication.initialize();
+// const initializeMSAL = async () => {
+//
+//     await publicClientApplication.initialize();
 
     ReactDOM.render(
-        <MsalProvider instance={publicClientApplication}>
+        // <MsalProvider instance={publicClientApplication}>
             <ThemeProvider>
                 <AuthProvider>
                     <LanguageProvider>
@@ -48,12 +48,12 @@ const initializeMSAL = async () => {
                     </LanguageProvider>
                 </AuthProvider>
             </ThemeProvider>
-        </MsalProvider>,
-        document.getElementById('root')
+        // </MsalProvider>
+        , document.getElementById('root')
     )
-}
-
-// Call the async function to initialize MSAL and render the app
-initializeMSAL().catch(err => {
-    console.error("MSAL initialization failed:", err);
-});
+// }
+//
+// // Call the async function to initialize MSAL and render the app
+// initializeMSAL().catch(err => {
+//     console.error("MSAL initialization failed:", err);
+// });

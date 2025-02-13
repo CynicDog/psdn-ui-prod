@@ -48,3 +48,14 @@ export const extractColumnNames = (children) => {
             .map((col) => col.props.name)
         : [];
 };
+
+/**
+ * Enum-like object to represent roles within the application.
+ * This is a JavaScript equivalent of an enum, which helps ensure consistency and prevent typos when handling roles.
+ */
+export const ROLES = Object.freeze({
+    DEV: "DEV",             // Developer role
+    CONSUMER: "CONSUMER",   // Consumer role
+    ADMIN: "ADMIN",         // Administrator role
+    VERIFIER: "VERIFIER",   // Verifier role
+});
