@@ -10,7 +10,7 @@ const MainLayout = () => {
         <>
             <Area border rounded="3" shadow p="3">
                 <MainLayoutHeader />
-                {currentMenuToView[currentMenu]}
+                {currentMenuToView[currentMenu.CURRENT.ID]}
             </Area>
         </>
     )

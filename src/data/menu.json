@@ -1,0 +1,81 @@
+[
+  {
+    "ID": "M1",
+    "NAME": "definition",
+    "CHILDREN": [
+      {
+        "ID": "M1_1",
+        "NAME": "definition_description",
+        "SHOWN_TO": ["DEV", "CONSUMER", "ADMIN", "VERIFIER"]
+      }
+    ]
+  },
+  {
+    "ID": "M2",
+    "NAME": "configuration",
+    "CHILDREN": [
+      {
+        "ID": "M2_1",
+        "NAME": "configuration_request",
+        "SHOWN_TO": ["DEV", "CONSUMER"]
+      },
+      {
+        "ID": "M2_2",
+        "NAME": "configuration_history",
+        "SHOWN_TO": ["DEV", "CONSUMER"]
+      },
+      {
+        "ID": "M2_3",
+        "NAME": "configuration_approval",
+        "SHOWN_TO": ["DEV", "CONSUMER"]
+      }
+    ]
+  },
+  {
+    "ID": "M3",
+    "NAME": "re_identification",
+    "CHILDREN": [
+      {
+        "ID": "M3_1",
+        "NAME": "re_identification_request",
+        "SHOWN_TO": ["DEV", "CONSUMER"]
+      },
+      {
+        "ID": "M3_2",
+        "NAME": "re_identification_history",
+        "SHOWN_TO": ["DEV", "CONSUMER"]
+      },
+      {
+        "ID": "M3_3",
+        "NAME": "re_identification_approval",
+        "SHOWN_TO": ["DEV", "VERIFIER"]
+      }
+    ]
+  },
+  {
+    "ID": "M4",
+    "NAME": "system_management",
+    "CHILDREN": [
+      {
+        "ID": "M4_1",
+        "NAME": "system_management_roles",
+        "SHOWN_TO": ["DEV", "ADMIN"]
+      },
+      {
+        "ID": "M4_2",
+        "NAME": "system_management_users",
+        "SHOWN_TO": ["DEV", "ADMIN"]
+      },
+      {
+        "ID": "M4_3",
+        "NAME": "system_management_data",
+        "SHOWN_TO": ["DEV", "ADMIN"]
+      }
+      ,{
+        "ID": "M4_4",
+        "NAME": "system_management_history",
+        "SHOWN_TO": ["DEV", "ADMIN"]
+      }
+    ]
+  }
+]

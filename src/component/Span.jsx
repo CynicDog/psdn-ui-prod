@@ -10,6 +10,7 @@ const Span = ({
                   p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                   cursor = '',
+                  noSelect = false,
                   className = ''
 }) => {
     const classes = [
@@ -38,7 +39,8 @@ const Span = ({
     return (
         <span className={classes} onClick={onClick} style={{
             cursor: cursor,
-            textDecoration: underline ? 'underline solid #AFCBFF 4px' : 'none'
+            textDecoration: underline ? "underline solid #AFCBFF 4px" : "none",
+            userSelect: noSelect ? "none" : ""
         }}>
             {children}
         </span>

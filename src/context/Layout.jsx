@@ -13,6 +13,18 @@ export const LayoutProvider = ({ children }) => {
     // TODO: separate Popup state as a standalone context
     const [isPopupOpen, setIsPopupOpen] = useState(false);
 
+    const [currentMenu, setCurrentMenu] = useState({
+        CURRENT: { ID: "M1_1", NAME: "definition_description" },
+        PARENT: { ID: "M1", NAME: "definition" },
+    });
+
+    // Views mapped to each menu item
+    const currentMenuToView = {
+        "M1_1": <DefinitionView />,
+        "M2_1": <ConfigurationView />,
+        "M4_4": <HistoryView />,
+    };
+
     // Toggle menu visibility
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -22,13 +34,6 @@ export const LayoutProvider = ({ children }) => {
     useEffect(() => {
         setMenu(menuData);
     }, []);
-
-    const [currentMenu, setCurrentMenu] = useState('M1_1');
-    const currentMenuToView = {
-        "M1_1": <DefinitionView />,
-        "M2_1": <ConfigurationView />,
-        "M4_4": <HistoryView />,
-    };
 
     return (
         <LayoutContext.Provider value={{

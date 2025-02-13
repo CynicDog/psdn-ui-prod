@@ -57,7 +57,7 @@ const DefinitionDescription = ({ rule }) => {
                         }
                         bg="body" border rounded shadow="sm" p="1" px="2" gap="3"
                     >
-                        <Span key={index} badge="primary-filled">
+                        <Span key={index} badge="primary-filled" noSelect>
                             {getLocalizedName(param)}
                         </Span>
                     </Tooltip>

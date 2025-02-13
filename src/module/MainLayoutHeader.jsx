@@ -17,7 +17,8 @@ const MainLayoutHeader = () => {
         <Area flex justifyContent="between" alignItems="center" mb="3">
             <Span fontSize="3" fontWeight="lighter">
                 {t('components.pseudonymization_title')}{' '}
-                {t(`components.pseudonymization_${menu}_view_title`)}
+                {t(`menu.${currentMenu.PARENT.NAME}`)}{' '}
+                {t(`menu.${currentMenu.CURRENT.NAME}`)}
             </Span>
             <Tooltip
                 position="top"
