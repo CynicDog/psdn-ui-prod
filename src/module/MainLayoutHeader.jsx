@@ -11,10 +11,8 @@ const MainLayoutHeader = () => {
     const { auth, setAuth } = useAuth();
     const { currentMenu } = useLayout();
 
-    // Check if we are in a development environment
-    const isDev = process.env.REACT_APP_ENV === "development";
-
-    // Function to cycle to the next role (for dev only)
+    /* TODO: Development Only */
+    // Function to cycle to the next role
     const getNextRole = (currentRole) => {
         const roles = Object.values(ROLES);
         const currentIndex = roles.indexOf(currentRole);
@@ -41,22 +39,18 @@ const MainLayoutHeader = () => {
                 <Span
                     badge="light"
                     onClick={() => {
-                        if (isDev) {
-                            // Development-specific logic
-                            const nextRole = getNextRole(auth.role);
-                            console.log(nextRole);
-                            // Update the authentication context with the next role
-                            setAuth({
-                                ...auth,
-                                role: nextRole
-                            });
-                            alert(`(개발용) 현재 역할: ${nextRole}`);
-                        }
+                        /* TODO: Development Only */
+                        const nextRole = getNextRole(auth.role);
+                        console.log(nextRole)
+                        // Update the authentication context with the next role
+                        setAuth({
+                            ...auth, // Retain other auth data
+                            role: nextRole // Update role to the next one
+                        });
+                        alert(`(개발용) 현재 역할: ${nextRole}`);
 
-                        // production-specific logic
-                        // if (!isDev) {
-                        //     instance.logoutPopup();
-                        // }
+                        // production only
+                        // instance.logoutPopup();
                     }}
                     cursor="pointer">
                     {t('auth.greeting', { name: auth.username })}
