@@ -6,12 +6,12 @@ import {useLayout} from "../context/Layout";
 import {useMsal} from "@azure/msal-react";
 import Tooltip from "../component/Tooltip";
 
-const MainViewHeader = () => {
+const MainLayoutHeader = () => {
 
     const { t } = useLanguage();
     const { instance } = useMsal();
     const { auth, setAuth } = useAuth();
-    const { menu } = useLayout();
+    const { currentMenu } = useLayout();
 
     return (
         <Area flex justifyContent="between" alignItems="center" mb="3">
@@ -36,4 +36,4 @@ const MainViewHeader = () => {
     )
 }
 
-export default MainViewHeader
+export default MainLayoutHeader
