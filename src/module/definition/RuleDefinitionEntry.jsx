@@ -1,16 +1,16 @@
 import Span from "../../component/Span";
 import Area from "../../component/Area";
 import DefinitionDescription from "./DefinitionDescription";
-import {useConfig} from "../../context/Config";
 import {useLanguage} from "../../context/Language";
 import {Col, Row} from "../../component/Grid";
+import {useMeta} from "../../context/Meta";
 
 const RuleDefinitionEntry = ({ ruleId }) => {
 
     const { getLocalizedName } = useLanguage();
-    const { pseudoMasterInfo } = useConfig();
+    const { businessMeta } = useMeta();
 
-    const rule = pseudoMasterInfo.rules.find(r => r.ID === ruleId)
+    const rule = businessMeta.pseudoMasterInfo.rules.find(r => r.ID === ruleId)
 
     return (
         <Area m="4" p="3">

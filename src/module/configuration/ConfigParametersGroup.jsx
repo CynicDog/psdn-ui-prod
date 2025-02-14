@@ -7,15 +7,16 @@ import Dropdown from "../../component/Dropdown";
 import InputField from "../../component/InputField";
 import { useConfig } from "../../context/Config";
 import { useLanguage } from "../../context/Language";
+import {useMeta} from "../../context/Meta";
 
 const ConfigParametersGroup = ({ row, rule, parameters }) => {
-    const { pseudoMasterInfo, pseudoCodeInfo } = useConfig();
+    const { businessMeta } = useMeta();
     const { getLocalizedName } = useLanguage();
     const { updateParameterValue } = useConfig();
 
     // Function to determine input type dynamically
     const getInputType = (key) => {
-        const param = pseudoMasterInfo.parameters.find(p => p.ID === key);
+        const param = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === key);
         if (!param) return "text";
 
         switch (param.TYPE) {
@@ -35,10 +36,10 @@ const ConfigParametersGroup = ({ row, rule, parameters }) => {
 
     // Function to get options for select inputs dynamically from config
     const getSelectOptions = (key) => {
-        const param = pseudoMasterInfo.parameters.find(p => p.ID === key);
-        if (!param || !pseudoCodeInfo[param.TYPE]) return [];
+        const param = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === key);
+        if (!param || !businessMeta.pseudoCodeInfo[param.TYPE]) return [];
 
-        return pseudoCodeInfo[param.TYPE].map(option => ({
+        return businessMeta.pseudoCodeInfo[param.TYPE].map(option => ({
             value: option.ID,
             label: getLocalizedName(option)
         }));
@@ -49,7 +50,7 @@ const ConfigParametersGroup = ({ row, rule, parameters }) => {
             {parameters.map((param) => {
                 const inputType = getInputType(param.id);
                 const options = getSelectOptions(param.id);
-                const paramInfo = pseudoMasterInfo.parameters.find(p => p.ID === param.id);
+                const paramInfo = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === param.id);
                 const paramName = paramInfo ? getLocalizedName(paramInfo) : param.id;
 
                 // Retrieve the current value from the row's rule

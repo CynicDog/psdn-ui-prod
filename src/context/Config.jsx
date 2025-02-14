@@ -1,9 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useBaseDB } from "./BaseDB";
-import ruleDefinitions from "../data/meta/business/PSDN-definition.json";
-import PSDN_master from "../data/meta/business/PSDN-master.json";
-import PSDN_codes from "../data/meta/business/PSDN-code.json";
-import {fetchPSDNCodes, fetchPSDNMaster, fetchRuleDefinitions} from "../data/APIs";
 import {useMeta} from "./Meta";
 
 const ConfigContext = createContext();

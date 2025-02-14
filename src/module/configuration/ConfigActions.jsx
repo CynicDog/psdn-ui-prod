@@ -1,5 +1,6 @@
 import { useLanguage } from "../../context/Language";
 import { useConfig } from "../../context/Config";
+import { useMeta } from "../../context/Meta";
 import { useState } from "react";
 import Area from "../../component/Area";
 import Button from "../../component/Button";
@@ -7,7 +8,8 @@ import Dropdown from "../../component/Dropdown";
 
 const ConfigActions = () => {
     const { t, getLocalizedName } = useLanguage();
-    const { pseudoMasterInfo, configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
+    const { configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
+    const { businessMeta } = useMeta();
 
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);
 
@@ -36,12 +38,13 @@ const ConfigActions = () => {
             <Button size="sm" variant="light" onClick={() => setShowRuleDropdown(!showRuleDropdown)}>
                 {t("components.apply_in_batch_rule")}
             </Button>
+
             {showRuleDropdown && (
                 <Dropdown
                     id="rule-dropdown"
                     options={[
                         { value: "", label: t("components.select_rule") },
-                        ...pseudoMasterInfo.rules.map(rule => ({
+                        ...businessMeta.rules.map(rule => ({
                             value: rule.ID,
                             label: getLocalizedName(rule)
                         }))
@@ -52,6 +55,7 @@ const ConfigActions = () => {
                     me="2"
                 />
             )}
+
             <Button size="sm" variant="light" onClick={handleDeleteAllRules}>
                 {t("components.delete_all_rules")}
             </Button>

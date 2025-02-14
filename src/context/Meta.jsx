@@ -1,18 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { fetchPSDNMaster, fetchPSDNCodes, fetchRuleDefinitions } from "../data/APIs";
 
-{/* Meta Context */}
+// Meta Context
 const MetaContext = createContext();
 
 export const MetaProvider = ({ children }) => {
-
-    // Pseudonymization Business Meta information
+    // Separate state for the business meta data and loading status
     const [businessMeta, setBusinessMeta] = useState({
         pseudoMasterInfo: null,
         pseudoCodeInfo: null,
         rules: null,
-        isLoading: true,
     });
+
+    const [isMetaLoading, setIsMetaLoading] = useState(true); // Separate loading state
 
     useEffect(() => {
         async function fetchBusinessMetaData() {
@@ -21,25 +21,28 @@ export const MetaProvider = ({ children }) => {
                 const pseudoCodeInfo = await fetchPSDNCodes();
                 const rules = await fetchRuleDefinitions();
 
+                // Update business meta data
                 setBusinessMeta({
                     pseudoMasterInfo,
                     pseudoCodeInfo,
                     rules,
-                    isLoading: false,
                 });
+
+                // Set loading to false after the data is fetched
+                setIsMetaLoading(false);
             } catch (error) {
                 console.error("Error loading business metadata:", error);
-                setBusinessMeta(prev => ({
-                    ...prev,
-                    isLoading: false,
-                }));
+
+                // In case of error, set loading to false
+                setIsMetaLoading(false);
             }
         }
+
         fetchBusinessMetaData();
     }, []);
 
     return (
-        <MetaContext.Provider value={businessMeta}>
+        <MetaContext.Provider value={{ businessMeta, isMetaLoading }}>
             {children}
         </MetaContext.Provider>
     );

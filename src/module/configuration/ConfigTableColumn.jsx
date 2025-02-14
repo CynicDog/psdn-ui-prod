@@ -4,12 +4,13 @@ import Area from "../../component/Area";
 import { useBaseDB } from "../../context/BaseDB";
 import { useConfig } from "../../context/Config";
 import Dropdown from "../../component/Dropdown";
+import {useMeta} from "../../context/Meta";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
-
+    const { businessMeta } = useMeta();
     const { t, getLocalizedName } = useLanguage();
     const { BaseDB } = useBaseDB();
-    const { pseudoMasterInfo, filters, setFilters } = useConfig();
+    const { filters, setFilters } = useConfig();
 
     // Determine the options based on column name
     const getOptions = () => {
@@ -18,7 +19,7 @@ const ConfigTableColumn = ({ name, applyFilter, width }) => {
             ...BaseDB.domains[name].map(option => ({
                 value: option.value,
                 label: name === "RULES"
-                    ? getLocalizedName(pseudoMasterInfo.rules.find(rule => rule.ID === option.value))
+                    ? getLocalizedName(businessMeta.pseudoMasterInfo.rules.find(rule => rule.ID === option.value))
                     : option.label
             }))
         ];

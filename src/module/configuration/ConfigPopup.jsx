@@ -1,4 +1,3 @@
-import {useTheme} from "../../context/Theme";
 import {useLanguage} from "../../context/Language";
 import {useQuery} from "react-query";
 import {fetchColumnData} from "../../data/APIs";
