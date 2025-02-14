@@ -11,7 +11,7 @@ import { InteractionStatus } from "@azure/msal-browser";
 import { useMenu } from "./context/Menu";
 import ProjectArea from "./module/ProjectArea";
 import { useProject } from "./context/Project";
-import LoadingSpinner from "./component/LoadingSpinner";
+import LoadingSpinner from "./module/LoadingSpinner";
 
 const App = () => {
     const { isMenuOpen } = useMenu();

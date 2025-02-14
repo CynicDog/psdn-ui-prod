@@ -3,7 +3,6 @@ import { useProject } from "./Project";
 import { fetchProjectTable } from "../data/APIs";
 import { useMenu } from "./Menu";
 
-// BaseDB Context
 const BaseDBContext = createContext();
 
 export const BaseDBProvider = ({ children }) => {
@@ -13,21 +12,25 @@ export const BaseDBProvider = ({ children }) => {
     const [isBaseDBLoading, setIsBaseDBLoading] = useState(true);
 
     useEffect(() => {
-        if (!currentProject) return;
+        if (!currentProject) {
+            setBaseDB(null);
+            setIsBaseDBLoading(false);
+            return;
+        }
 
         setIsBaseDBLoading(true);
 
         if (currentProject.TABLES.length === 0) {
             setBaseDB(null);
-            setIsBaseDBLoading(true);
+            setIsBaseDBLoading(false);  
         } else {
             fetchProjectTable(currentProject.TABLES[0])
                 .then((data) => {
                     setBaseDB(data);
                 })
                 .catch((err) => {
+                    console.error("Failed to fetch BaseDB:", err);
                     setBaseDB(null);
-                    setIsBaseDBLoading(true);
                 })
                 .finally(() => {
                     setIsBaseDBLoading(false);

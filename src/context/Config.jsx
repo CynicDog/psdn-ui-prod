@@ -26,11 +26,16 @@ export const ConfigProvider = ({ children }) => {
     // Update `configRows` only when BaseDB is loaded
     useEffect(() => {
         if (!isBaseDBLoading && BaseDB) {
-            setConfigRows(BaseDB.rows || []);
+            setConfigRows(BaseDB.rows ?? []);
             setCurrentPage(1);
             setRowsPerPage(10);
+            setFilters({});
+            setSelectedRows([]);
+        } else {
+            setConfigRows([]);
         }
     }, [BaseDB, isBaseDBLoading]);
+
 
     // TODO: Filter fallback to 'All' returns no matching rows
     // Filter rows
