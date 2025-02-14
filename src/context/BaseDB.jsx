@@ -14,10 +14,10 @@ export const BaseDBProvider = ({ children }) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!projects?.projects?.length) return;
+        if (!projects?.data.length) return;
 
         // Get the first project
-        const firstProject = projects.projects[0];
+        const firstProject = projects.data[0];
 
         setIsBaseDBLoading(true);
         setError(null);
@@ -30,7 +30,7 @@ export const BaseDBProvider = ({ children }) => {
             .finally(() => {
                 setIsBaseDBLoading(false);
             });
-    }, [currentMenu]);
+    }, [currentMenu]); // TODO: bind BaseDB to Projects / Tabs
 
     return (
         <BaseDBContext.Provider value={{ BaseDB, isBaseDBLoading, error }}>

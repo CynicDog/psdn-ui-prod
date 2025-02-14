@@ -1,30 +1,39 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./Auth";
-import { fetchUserProjects } from "../data/APIs"; // Import the API function
+import { fetchUserProjects } from "../data/APIs";
 
-{/*.Project Context */}
+// Project Context
 const ProjectContext = createContext();
 
 export const ProjectProvider = ({ children }) => {
     const { auth } = useAuth();
     const [projects, setProjects] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [currentProject, setCurrentProject] = useState(null);
+    const [isProjectLoading, setIsProjectLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         if (!auth?.username) return;
 
-        setLoading(true);
+        setIsProjectLoading(true);
         setError(null);
 
         fetchUserProjects(auth.username)
-            .then((data) => setProjects(data))
+            .then((projects) => {
+                setProjects(projects);
+
+                // Set the first project as the current one
+                if (projects.data?.length > 0) {
+                    setCurrentProject(projects.data[0]);
+                }
+            })
             .catch((err) => setError(err.message))
-            .finally(() => setLoading(false));
+            .finally(() => setIsProjectLoading(false));
+
     }, [auth]);
 
     return (
-        <ProjectContext.Provider value={{ projects, loading, error }}>
+        <ProjectContext.Provider value={{ projects, currentProject, setCurrentProject, isProjectLoading }}>
             {children}
         </ProjectContext.Provider>
     );
