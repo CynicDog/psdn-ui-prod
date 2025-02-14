@@ -11,6 +11,8 @@ import {QueryClient, QueryClientProvider} from "react-query";
 
 import {PublicClientApplication} from "@azure/msal-browser";
 import {MsalProvider} from "@azure/msal-react";
+import {ProjectProvider} from "./context/Project";
+import {MetaProvider} from "./context/Meta";
 
 // // Configuration object constructed
 // const config = {
@@ -33,21 +35,25 @@ const queryClient = new QueryClient();
 
     ReactDOM.render(
         // <MsalProvider instance={publicClientApplication}>
-            <ThemeProvider>
-                <AuthProvider>
-                    <LanguageProvider>
-                        <LayoutProvider>
+            <AuthProvider>
+                <QueryClientProvider client={queryClient}>
+                    <ProjectProvider>
+                        <MetaProvider>
                             <BaseDBProvider>
                                 <ConfigProvider>
-                                    <QueryClientProvider client={queryClient}>
-                                        <App/>
-                                    </QueryClientProvider>
+                                    <ThemeProvider>
+                                        <LanguageProvider>
+                                            <LayoutProvider>
+                                                <App/>
+                                            </LayoutProvider>
+                                        </LanguageProvider>
+                                    </ThemeProvider>
                                 </ConfigProvider>
                             </BaseDBProvider>
-                        </LayoutProvider>
-                    </LanguageProvider>
-                </AuthProvider>
-            </ThemeProvider>
+                        </MetaProvider>
+                    </ProjectProvider>
+                </QueryClientProvider>
+            </AuthProvider>
         // </MsalProvider>
         , document.getElementById('root')
     )

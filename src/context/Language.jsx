@@ -1,5 +1,5 @@
-import ko from '../lang/ko.json';
-import en from '../lang/en.json';
+import ko from '../data/lang/ko.json';
+import en from '../data/lang/en.json';
 
 import {createContext, useContext} from "react";
 import {useAuth} from "./Auth";

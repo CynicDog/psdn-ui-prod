@@ -10,7 +10,7 @@ export const AuthProvider = ({ children }) => {
     const { accounts, inProgress } = useMsal();
     const [auth, setAuth] = useState({
         // TODO: goes null for production env
-        username: "Developer",
+        username: "JohnDoe",
         email: "thecynicdog0328@gmail.com",
         language: "en",
         role: ROLES.DEV

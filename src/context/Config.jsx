@@ -1,18 +1,18 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useBaseDB } from "./BaseDB";
-import ruleDefinitions from "../data/RuleDefinitions.json";
-import PSDN_master from "../data/PSDN-master.json";
-import PSDN_codes from "../data/PSDN-codes.json";
+import ruleDefinitions from "../data/meta/business/PSDN-definition.json";
+import PSDN_master from "../data/meta/business/PSDN-master.json";
+import PSDN_codes from "../data/meta/business/PSDN-code.json";
+import {fetchPSDNCodes, fetchPSDNMaster, fetchRuleDefinitions} from "../data/APIs";
+import {useMeta} from "./Meta";
 
 const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children }) => {
 
-    const { BaseDB } = useBaseDB();
-    const [configRows, setConfigRows] = useState(BaseDB.rows);
-    const [rules, _] = useState(ruleDefinitions);
-    const [pseudoMasterInfo, __] = useState(PSDN_master);
-    const [pseudoCodeInfo, ___] = useState(PSDN_codes);
+    const { businessMeta } = useMeta();
+    const { BaseDB, loading } = useBaseDB();
+    const [configRows, setConfigRows] = useState([]);
 
     const [filters, setFilters] = useState({});
     const [currentPage, setCurrentPage] = useState(1);
@@ -24,6 +24,13 @@ export const ConfigProvider = ({ children }) => {
     const [targetRuleDraggable, setTargetRuleDraggable] = useState(null);
 
     const [focusedRow, setFocusedRow] = useState(null);
+
+    // Update `configRows` only when BaseDB is loaded
+    useEffect(() => {
+        if (!loading && BaseDB) {
+            setConfigRows(BaseDB.rows || []);
+        }
+    }, [BaseDB, loading]);
 
     // TODO: Filter fallback to 'All' returns no matching rows
     // Filter rows
@@ -99,9 +106,9 @@ export const ConfigProvider = ({ children }) => {
 
     // Handle rule application with ORDER logic
     const handleAssignRule = () => {
-        if (!selectedRule) return;
+        if (!selectedRule || businessMeta.isLoading) return;
 
-        const newRule = rules[selectedRule];
+        const newRule = businessMeta.rules[selectedRule];
 
         setConfigRows(configRows.map((row) => {
             if (selectedRows.includes(row.COL_NAME)) {
@@ -226,9 +233,6 @@ export const ConfigProvider = ({ children }) => {
     return (
         <ConfigContext.Provider
             value={{
-                /* Pseudonymization Business Meta information */
-                pseudoMasterInfo, pseudoCodeInfo, rules,
-
                 /* User-configurable gadget object */
                 configRows, setConfigRows,
 

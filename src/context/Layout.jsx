@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import menuData from "../data/menu.json";
+import menuData from "../data/config/Menu.json";
 import DefinitionView from "../view/DefinitionView";
 import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";

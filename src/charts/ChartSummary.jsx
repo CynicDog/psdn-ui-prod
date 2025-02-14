@@ -6,7 +6,7 @@ import { useLanguage } from "../context/Language";
 
 const ChartSummary = ({ rule }) => {
     const { t, getLocalizedName } = useLanguage();
-    const { pseudoMasterInfo, pseudoCodeInfo, focusedRow } = useConfig();
+    const { loadingConfigData, pseudoMasterInfo, pseudoCodeInfo, focusedRow } = useConfig();
 
     const getRuleName = (ruleId) => {
         const rule = pseudoMasterInfo.rules.find(r => r.ID === ruleId);

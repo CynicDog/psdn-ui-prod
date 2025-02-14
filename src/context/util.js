@@ -59,3 +59,4 @@ export const ROLES = Object.freeze({
     ADMIN: "ADMIN",         // Administrator role
     VERIFIER: "VERIFIER",   // Verifier role
 });
+
