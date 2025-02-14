@@ -2,17 +2,18 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
 import {ROLES} from "./util";
+import {useLanguage} from "./Language";
 
 {/* Authentication Context */}
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
+
     const { accounts, inProgress } = useMsal();
+    const { setLanguage } = useLanguage();
     const [auth, setAuth] = useState({
-        // TODO: goes null for production env
         username: "JohnDoe",
         email: "thecynicdog0328@gmail.com",
-        language: "en",
         role: ROLES.DEV
     });
 
@@ -21,10 +22,10 @@ export const AuthProvider = ({ children }) => {
             setAuth({
                 username: accounts[0].name,
                 email: accounts[0].username,
-                language: "en",
                 role: "" // TODO: integrate with Azure EntraID App Registration's `App Roles`
             });
         }
+        // setLanguage based on User's locale information from EntraId
     }, [accounts, inProgress]);
 
 

@@ -1,15 +1,13 @@
-import {useAuth} from "../context/Auth";
 import Dropdown from "../component/Dropdown";
+import {useLanguage} from "../context/Language";
 
 const LanguageSelector = () => {
-    const { auth, setAuth } = useAuth();
+
+    const { language, setLanguage } = useLanguage()
 
     const handleLanguageChange = (event) => {
         const newLanguage = event.target.value;
-        setAuth((prevAuth) => ({
-            ...prevAuth,
-            language: newLanguage,
-        }));
+        setLanguage(newLanguage);
     };
 
     return (
@@ -21,7 +19,7 @@ const LanguageSelector = () => {
                 ]
             }
             id="language-select"
-            value={auth.language}
+            value={language}
             onChange={handleLanguageChange}
             border="0"
         />

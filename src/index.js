@@ -35,25 +35,26 @@ const queryClient = new QueryClient();
 
     ReactDOM.render(
         // <MsalProvider instance={publicClientApplication}>
-            <AuthProvider>
-                <QueryClientProvider client={queryClient}>
-                    <ProjectProvider>
-                        <MetaProvider>
-                            <MenuProvider>
-                                <BaseDBProvider>
-                                    <ConfigProvider>
-                                        <ThemeProvider>
-                                            <LanguageProvider>
+
+            <LanguageProvider>
+                <AuthProvider>
+                    <QueryClientProvider client={queryClient}>
+                        <ProjectProvider>
+                            <MetaProvider>
+                                <MenuProvider>
+                                    <BaseDBProvider>
+                                        <ConfigProvider>
+                                            <ThemeProvider>
                                                 <App/>
-                                            </LanguageProvider>
-                                        </ThemeProvider>
-                                    </ConfigProvider>
-                                </BaseDBProvider>
-                            </MenuProvider>
-                        </MetaProvider>
-                    </ProjectProvider>
-                </QueryClientProvider>
-            </AuthProvider>
+                                            </ThemeProvider>
+                                        </ConfigProvider>
+                                    </BaseDBProvider>
+                                </MenuProvider>
+                            </MetaProvider>
+                        </ProjectProvider>
+                    </QueryClientProvider>
+                </AuthProvider>
+            </LanguageProvider>
         // </MsalProvider>
         , document.getElementById('root')
     )

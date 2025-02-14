@@ -1,8 +1,7 @@
 import ko from '../data/lang/ko.json';
 import en from '../data/lang/en.json';
 
-import {createContext, useContext} from "react";
-import {useAuth} from "./Auth";
+import {createContext, useContext, useState} from "react";
 
 {/* Localization Context */}
 const LanguageContext = createContext();
@@ -12,9 +11,10 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const { auth } = useAuth();
-    const languageTranslations = translations[auth.language] || {};
+    const [language, setLanguage] = useState("ko");
+    const languageTranslations = translations[language] || {};
 
+    // Returns the item's name from config dictionary based on the selected language
     const t = (key, vars = {}) => {
         const [namespace, ...subKeys] = key.split('.');
         const section = languageTranslations[namespace];
@@ -37,12 +37,13 @@ export const LanguageProvider = ({ children }) => {
         );
     };
 
+    // Returns the item's name from database based on the selected language
     const getLocalizedName = (item) => {
-        return auth.language === "ko" ? item.NAME_KO : item.NAME_EN;
+        return language === "ko" ? item.NAME_KO : item.NAME_EN;
     }
 
     return (
-        <LanguageContext.Provider value={{ t, getLocalizedName }}>
+        <LanguageContext.Provider value={{ language, setLanguage, t, getLocalizedName }}>
             {children}
         </LanguageContext.Provider>
     );

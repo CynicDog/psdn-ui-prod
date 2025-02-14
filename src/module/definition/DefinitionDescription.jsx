@@ -2,7 +2,6 @@ import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Code from "../../component/Code";
 import RuleDescription from "../../data/config/RuleDescription.json";
-import {useAuth} from "../../context/Auth";
 import {useLanguage} from "../../context/Language";
 import Tooltip from "../../component/Tooltip";
 import DefinitionParametersTooltip from "./DefinitionParametersTooltip";
@@ -10,7 +9,7 @@ import {useMeta} from "../../context/Meta";
 
 const DefinitionDescription = ({ rule }) => {
     const { getLocalizedName } = useLanguage();
-    const { auth } = useAuth();
+    const { language } = useLanguage();
     const { pseudoMaster, pseudoCode } = useMeta();
 
     const parseDescription = (text) => {
@@ -73,7 +72,7 @@ const DefinitionDescription = ({ rule }) => {
         });
     };
 
-    const ruleData = RuleDescription[rule.ID]?.[auth.language];
+    const ruleData = RuleDescription[rule.ID]?.[language];
 
     return (
         <Area my="1">
