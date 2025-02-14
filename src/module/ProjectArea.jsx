@@ -2,6 +2,13 @@ import { useProject } from "../context/Project";
 import Area from "../component/Area";
 
 const ProjectArea = () => {
+
+    // TODO:
+    //  1. Color System
+    //  2. DND to order
+    //  3. In-line editing for project name
+    //  4. Add / Delete projects
+
     const { projects, currentProject, setCurrentProject } = useProject();
     const numberOfProjects = projects.data.length;
 
@@ -13,7 +20,7 @@ const ProjectArea = () => {
     const nonCurrentWidth = `${(100 - parseInt(currentWidth)) / nonCurrentProjects}%`;
 
     return (
-        <Area flex style={{ width: "100%" }}>
+        <Area flex style={{ width: "100%", fontSize: "smaller" }}>
             {/* Render all projects */}
             {projects.data.map((project, index) => {
                 const isCurrent = currentProject === project;
@@ -26,7 +33,6 @@ const ProjectArea = () => {
                         onClick={() => setCurrentProject(project)}
                         textPosition="center"
                         style={{
-                            cursor: "pointer",
                             width: width,
                         }}
                     >

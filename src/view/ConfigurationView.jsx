@@ -8,11 +8,13 @@ import ConfigTableColumn from "../module/configuration/ConfigTableColumn";
 import ConfigPopup from "../module/configuration/ConfigPopup";
 import ConfigTable from "../module/configuration/ConfigTable";
 import ConfigActions from "../module/configuration/ConfigActions";
-import {useConfig} from "../context/Config";
-import {useBaseDB} from "../context/BaseDB";
+import { useConfig } from "../context/Config";
+import { useBaseDB } from "../context/BaseDB";
+import { useLanguage } from "../context/Language";
 
 const ConfigurationView = () => {
 
+    const { t } = useLanguage();
     const { BaseDB, isBaseDBLoading } = useBaseDB();
     const { paginatedRows } = useConfig();
 
@@ -36,20 +38,26 @@ const ConfigurationView = () => {
                     </Area>
                 </Area>
 
-                {/* Configuration Data Table */}
-                {(isBaseDBLoading || !paginatedRows) ? (
-                    <LoadingSpinner />
+                {!BaseDB ? (
+                    <Area textPosition="center" mt="4">
+                        {t('messages.request_table_designation')}
+                    </Area>
                 ) : (
-                    <ConfigTable>
-                        <ConfigTableHeader>
-                            <ConfigTableColumn name="APPT_YN" applyFilter width="7%" />
-                            <ConfigTableColumn name="COL_NAME" width="11%" />
-                            <ConfigTableColumn name="COL_NAME_LGCL" width="11%" />
-                            <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
-                            <ConfigTableColumn name="RULES" applyFilter width="25%" />
-                            <ConfigTableColumn name="DESC" width="30%" />
-                        </ConfigTableHeader>
-                    </ConfigTable>
+                    // Configuration Data Table
+                    (isBaseDBLoading || !paginatedRows) ? (
+                        <LoadingSpinner />
+                    ) : (
+                        <ConfigTable>
+                            <ConfigTableHeader>
+                                <ConfigTableColumn name="APPT_YN" applyFilter width="7%" />
+                                <ConfigTableColumn name="COL_NAME" width="11%" />
+                                <ConfigTableColumn name="COL_NAME_LGCL" width="11%" />
+                                <ConfigTableColumn name="COL_TYPE" applyFilter width="9%" />
+                                <ConfigTableColumn name="RULES" applyFilter width="25%" />
+                                <ConfigTableColumn name="DESC" width="30%" />
+                            </ConfigTableHeader>
+                        </ConfigTable>
+                    )
                 )}
             </Area>
 

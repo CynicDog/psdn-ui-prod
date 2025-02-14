@@ -11,6 +11,9 @@ const Span = ({
                   m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                   cursor = '',
                   noSelect = false,
+                  whiteSpace = '',
+                  overflow = '',
+                  textOverflow = '',
                   className = ''
 }) => {
     const classes = [
@@ -40,7 +43,10 @@ const Span = ({
         <span className={classes} onClick={onClick} style={{
             cursor: cursor,
             textDecoration: underline ? "underline solid #AFCBFF 4px" : "none",
-            userSelect: noSelect ? "none" : ""
+            userSelect: noSelect ? "none" : "",
+            whiteSpace: whiteSpace,
+            overflow: overflow,
+            textOverflow: textOverflow
         }}>
             {children}
         </span>

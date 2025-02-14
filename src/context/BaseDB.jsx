@@ -7,33 +7,36 @@ import { useMenu } from "./Menu";
 const BaseDBContext = createContext();
 
 export const BaseDBProvider = ({ children }) => {
-    const { projects } = useProject();
+    const { currentProject } = useProject();
     const { currentMenu } = useMenu();
     const [BaseDB, setBaseDB] = useState(null);
     const [isBaseDBLoading, setIsBaseDBLoading] = useState(true);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (!projects?.data.length) return;
-
-        // Get the first project
-        const firstProject = projects.data[0];
+        if (!currentProject) return;
 
         setIsBaseDBLoading(true);
-        setError(null);
 
-        fetchProjectTable(firstProject.TABLES[0])
-            .then((data) => {
-                setBaseDB(data);
-            })
-            .catch((err) => setError(err.message))
-            .finally(() => {
-                setIsBaseDBLoading(false);
-            });
-    }, [currentMenu]); // TODO: bind BaseDB to Projects / Tabs
+        if (currentProject.TABLES.length === 0) {
+            setBaseDB(null);
+            setIsBaseDBLoading(true);
+        } else {
+            fetchProjectTable(currentProject.TABLES[0])
+                .then((data) => {
+                    setBaseDB(data);
+                })
+                .catch((err) => {
+                    setBaseDB(null);
+                    setIsBaseDBLoading(true);
+                })
+                .finally(() => {
+                    setIsBaseDBLoading(false);
+                });
+        }
+    }, [currentProject, currentMenu]);
 
     return (
-        <BaseDBContext.Provider value={{ BaseDB, isBaseDBLoading, error }}>
+        <BaseDBContext.Provider value={{ BaseDB, isBaseDBLoading }}>
             {children}
         </BaseDBContext.Provider>
     );

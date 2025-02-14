@@ -49,6 +49,7 @@
   },
   "messages": {
     "found_no_record_matching_filters": "Found no record matching filter(s).",
+    "request_table_designation": "Designate a table first.",
     "tooltip_logout": "Click to log out."
   },
   "pseudonymization": {
