@@ -5,37 +5,35 @@ import { fetchPSDNMaster, fetchPSDNCodes, fetchRuleDefinitions } from "../data/A
 const MetaContext = createContext();
 
 export const MetaProvider = ({ children }) => {
-    const [businessMeta, setBusinessMeta] = useState({
-        pseudoMasterInfo: {},
-        pseudoCodeInfo: {},
-        ruleDefinitions: {},
-    });
 
+    const [pseudoMaster, setPseudoMaster] = useState({});
+    const [pseudoCode, setPseudoCode] = useState({});
+    const [ruleDefinitions, setRuleDefinitions] = useState({});
     const [isMetaLoading, setIsMetaLoading] = useState(true);
 
     useEffect(() => {
         async function fetchBusinessMetaData() {
             try {
-                const pseudoMasterInfo = await fetchPSDNMaster();
-                const pseudoCodeInfo = await fetchPSDNCodes();
-                const ruleDefinitions = await fetchRuleDefinitions();
+                const pseudoMasterData = await fetchPSDNMaster();
+                const pseudoCodeData = await fetchPSDNCodes();
+                const ruleDefinitionsData = await fetchRuleDefinitions();
 
-                setBusinessMeta({
-                    pseudoMasterInfo: pseudoMasterInfo || {},
-                    pseudoCodeInfo: pseudoCodeInfo || {},
-                    ruleDefinitions: ruleDefinitions || {},
-                });
+                // Set each state variable individually
+                setPseudoMaster(pseudoMasterData || {});
+                setPseudoCode(pseudoCodeData || {});
+                setRuleDefinitions(ruleDefinitionsData || {});
 
                 setIsMetaLoading(false);
             } catch (error) {
                 setIsMetaLoading(false);
             }
         }
+
         fetchBusinessMetaData();
     }, []);
 
     return (
-        <MetaContext.Provider value={{ businessMeta, isMetaLoading }}>
+        <MetaContext.Provider value={{ pseudoMaster, pseudoCode, ruleDefinitions, isMetaLoading }}>
             {children}
         </MetaContext.Provider>
     );

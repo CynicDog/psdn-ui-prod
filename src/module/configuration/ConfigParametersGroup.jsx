@@ -10,13 +10,13 @@ import { useLanguage } from "../../context/Language";
 import { useMeta } from "../../context/Meta";
 
 const ConfigParametersGroup = ({ row, rule, parameters }) => {
-    const { businessMeta } = useMeta();
+    const { pseudoMaster, pseudoCode } = useMeta();
     const { getLocalizedName } = useLanguage();
     const { updateParameterValue } = useConfig();
 
     // Function to determine input type dynamically
     const getInputType = (key) => {
-        const param = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === key);
+        const param = pseudoMaster.parameters.find(p => p.ID === key);
         if (!param) return "text";
 
         switch (param.TYPE) {
@@ -36,10 +36,10 @@ const ConfigParametersGroup = ({ row, rule, parameters }) => {
 
     // Function to get options for select inputs dynamically from config
     const getSelectOptions = (key) => {
-        const param = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === key);
-        if (!param || !businessMeta.pseudoCodeInfo[param.TYPE]) return [];
+        const param = pseudoMaster.parameters.find(p => p.ID === key);
+        if (!param || !pseudoCode[param.TYPE]) return [];
 
-        return businessMeta.pseudoCodeInfo[param.TYPE].map(option => ({
+        return pseudoCode[param.TYPE].map(option => ({
             value: option.ID,
             label: getLocalizedName(option)
         }));
@@ -50,7 +50,7 @@ const ConfigParametersGroup = ({ row, rule, parameters }) => {
             {parameters.map((param) => {
                 const inputType = getInputType(param.id);
                 const options = getSelectOptions(param.id);
-                const paramInfo = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === param.id);
+                const paramInfo = pseudoMaster.parameters.find(p => p.ID === param.id);
                 const paramName = paramInfo ? getLocalizedName(paramInfo) : param.id;
 
                 // Retrieve the current value from the row's rule

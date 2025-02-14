@@ -6,7 +6,7 @@ const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children }) => {
 
-    const { businessMeta } = useMeta();
+    const { ruleDefinitions } = useMeta();
     const { BaseDB, isBaseDBLoading } = useBaseDB();
     const [configRows, setConfigRows] = useState([]);
 
@@ -106,9 +106,9 @@ export const ConfigProvider = ({ children }) => {
 
     // Handle rule application with ORDER logic
     const handleAssignRule = () => {
-        if (!selectedRule || businessMeta.isLoading) return;
+        if (!selectedRule) return;
 
-        const newRule = businessMeta.ruleDefinitions[selectedRule];
+        const newRule = ruleDefinitions[selectedRule];
 
         setConfigRows(configRows.map((row) => {
             if (selectedRows.includes(row.COL_NAME)) {

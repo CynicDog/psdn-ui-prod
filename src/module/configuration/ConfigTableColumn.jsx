@@ -7,7 +7,7 @@ import { useMeta } from "../../context/Meta";
 import { useLanguage } from "../../context/Language";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
-    const { businessMeta } = useMeta();
+    const { pseudoMaster } = useMeta();
     const { t, getLocalizedName } = useLanguage();
     const { BaseDB } = useBaseDB();
     const { filters, setFilters } = useConfig();
@@ -19,7 +19,7 @@ const ConfigTableColumn = ({ name, applyFilter, width }) => {
             ...BaseDB.domains[name].map(option => ({
                 value: option.value,
                 label: name === "RULES"
-                    ? getLocalizedName(businessMeta.pseudoMasterInfo.rules.find(rule => rule.ID === option.value))
+                    ? getLocalizedName(pseudoMaster.rules.find(rule => rule.ID === option.value))
                     : option.label
             }))
         ];

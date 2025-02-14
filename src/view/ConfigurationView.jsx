@@ -1,14 +1,13 @@
 import React from "react";
 import Area from "../component/Area";
 import { Col, Row } from "../component/Grid";
+import LoadingSpinner from "../component/LoadingSpinner";
 import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
 import ConfigTablePaginationControl from "../module/configuration/ConfigTablePaginationControl";
 import ConfigTableColumn from "../module/configuration/ConfigTableColumn";
 import ConfigPopup from "../module/configuration/ConfigPopup";
 import ConfigTable from "../module/configuration/ConfigTable";
 import ConfigActions from "../module/configuration/ConfigActions";
-
-import LoadingSpinner from "../component/LoadingSpinner";
 import {useConfig} from "../context/Config";
 import {useBaseDB} from "../context/BaseDB";
 

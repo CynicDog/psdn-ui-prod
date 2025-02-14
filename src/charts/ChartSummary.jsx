@@ -8,22 +8,20 @@ import { useMeta } from "../context/Meta";
 const ChartSummary = ({ rule }) => {
     const { t, getLocalizedName } = useLanguage();
     const { focusedRow } = useConfig();
-    const { businessMeta } = useMeta();
-
-    if (businessMeta.isLoading) return null;
+    const { pseudoMaster, pseudoCode } = useMeta();
 
     const getRuleName = (ruleId) => {
-        const rule = businessMeta.pseudoMasterInfo.rules?.find(r => r.ID === ruleId);
+        const rule = pseudoMaster.rules.find(r => r.ID === ruleId);
         return rule ? getLocalizedName(rule) : ruleId;
     };
 
     const getParameterName = (paramId) => {
-        const param = businessMeta.pseudoMasterInfo?.parameters?.find(p => p.ID === paramId);
+        const param = pseudoMaster.parameters.find(p => p.ID === paramId);
         return param ? getLocalizedName(param) : paramId;
     };
 
     const getCodeTranslation = (paramType, codeId) => {
-        const codeList = businessMeta.pseudoCodeInfo?.[paramType] || [];
+        const codeList = pseudoCode[paramType] || [];
         const codeEntry = codeList.find(c => c.ID === codeId);
         return codeEntry ? getLocalizedName(codeEntry) : codeId;
     };
@@ -34,7 +32,7 @@ const ChartSummary = ({ rule }) => {
                 <Span badge="light" mx="1">{focusedRow.COL_NAME}</Span>
                 {t('chart.using_parameters')}
                 {rule.VRBLs.map((param, index) => {
-                    const paramInfo = businessMeta.pseudoMasterInfo?.parameters?.find(p => p.ID === param.id);
+                    const paramInfo = pseudoMaster.parameters.find(p => p.ID === param.id);
                     const translatedValue = paramInfo?.TYPE?.startsWith("CODE_")
                         ? getCodeTranslation(paramInfo.TYPE, param.value)
                         : String(param.value);

@@ -8,9 +8,9 @@ import {useMeta} from "../../context/Meta";
 const RuleDefinitionEntry = ({ ruleId }) => {
 
     const { getLocalizedName } = useLanguage();
-    const { businessMeta } = useMeta();
+    const { pseudoMaster } = useMeta();
 
-    const rule = businessMeta.pseudoMasterInfo.rules.find(r => r.ID === ruleId)
+    const rule = pseudoMaster.rules.find(r => r.ID === ruleId)
 
     return (
         <Area m="4" p="3">

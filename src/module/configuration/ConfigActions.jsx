@@ -9,7 +9,7 @@ import { useMeta } from "../../context/Meta";
 const ConfigActions = () => {
     const { t, getLocalizedName } = useLanguage();
     const { configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
-    const { businessMeta } = useMeta();
+    const { pseudoMaster } = useMeta();
 
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);
 
@@ -44,7 +44,7 @@ const ConfigActions = () => {
                     id="rule-dropdown"
                     options={[
                         { value: "", label: t("components.select_rule") },
-                        ...businessMeta.pseudoMasterInfo.rules.map(rule => ({
+                        ...pseudoMaster.rules.map(rule => ({
                             value: rule.ID,
                             label: getLocalizedName(rule)
                         }))

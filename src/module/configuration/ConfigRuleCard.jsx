@@ -1,4 +1,3 @@
-import LoadingSpinner from "../../component/LoadingSpinner";
 import DraggableArea from "../../component/DraggableArea";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
@@ -10,7 +9,7 @@ import ConfigParametersGroup from "./ConfigParametersGroup";
 
 const ConfigRuleCard = ({ row, rule, order }) => {
 
-    const { businessMeta } = useMeta();
+    const { pseudoMaster } = useMeta();
     const { t, getLocalizedName } = useLanguage();
     const {
         handleDeleteRule, handleMoveRule,
@@ -20,10 +19,6 @@ const ConfigRuleCard = ({ row, rule, order }) => {
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
-
-    if (!businessMeta || businessMeta.isLoading) {
-        return <LoadingSpinner message={t('components.loading_message')} />;
-    }
 
     const handleDragStart = (e) => {
         setSourceRuleDraggable(order);
@@ -61,7 +56,7 @@ const ConfigRuleCard = ({ row, rule, order }) => {
         setTargetRuleDraggable(null);
     };
 
-    const ruleInfo = businessMeta.pseudoMasterInfo.rules.find(r => r.ID === rule.RULE_ID);
+    const ruleInfo = pseudoMaster.rules.find(r => r.ID === rule.RULE_ID);
     return (
         <DraggableArea
             order={order}

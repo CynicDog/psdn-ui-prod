@@ -7,13 +7,13 @@ import { useMenu } from "../context/Menu";
 const MainLayout = () => {
 
     const { currentMenu, currentMenuToView } = useMenu();
-    const { businessMeta, isMetaLoading } = useMeta();
+    const { isMetaLoading } = useMeta();
 
     return (
         <>
             <Area border rounded="3" shadow p="3">
                 <MainLayoutHeader />
-                {(!businessMeta || isMetaLoading) ? (
+                { isMetaLoading ? (
                     <LoadingSpinner />
                 ) : (
                     currentMenuToView[currentMenu.CURRENT.ID]

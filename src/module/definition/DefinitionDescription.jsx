@@ -2,8 +2,8 @@ import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Code from "../../component/Code";
 import RuleDescription from "../../data/config/RuleDescription.json";
-import { useAuth } from "../../context/Auth";
-import { useLanguage } from "../../context/Language";
+import {useAuth} from "../../context/Auth";
+import {useLanguage} from "../../context/Language";
 import Tooltip from "../../component/Tooltip";
 import DefinitionParametersTooltip from "./DefinitionParametersTooltip";
 import {useMeta} from "../../context/Meta";
@@ -11,7 +11,7 @@ import {useMeta} from "../../context/Meta";
 const DefinitionDescription = ({ rule }) => {
     const { getLocalizedName } = useLanguage();
     const { auth } = useAuth();
-    const { businessMeta } = useMeta();
+    const { pseudoMaster, pseudoCode } = useMeta();
 
     const parseDescription = (text) => {
         if (!text) return null;
@@ -25,21 +25,18 @@ const DefinitionDescription = ({ rule }) => {
             // Extract the localized name of parameter
             if (part.match(/{P\d+}/)) {
                 const paramId = part.replace(/[{}]/g, "");
-                const param = businessMeta.pseudoMasterInfo.parameters.find(p => p.ID === paramId);
+                const param = pseudoMaster.parameters.find(p => p.ID === paramId);
 
                 // Check if the parameter is of CODE_ type and has related pseudoCodeInfo
                 let codeInfo = null;
                 let typeDisplay = null;
-                if (param?.TYPE && businessMeta.pseudoCodeInfo[param.TYPE]) {
+                if (param?.TYPE && pseudoCode[param.TYPE]) {
                     const codeKey = param.TYPE;
 
-                    // Get the domain values based on the code key (e.g., CODE_P2, CODE_P5, etc.)
-                    const domainValues = businessMeta.pseudoCodeInfo[codeKey]?.map(codeItem => ({
+                    codeInfo = pseudoCode[codeKey]?.map(codeItem => ({
                         en: codeItem.NAME_EN,
                         ko: codeItem.NAME_KO
                     })) || [];
-
-                    codeInfo = domainValues;
                 } else {
                     // Handle native types (e.g., string, boolean, float)
                     typeDisplay = param?.TYPE;
@@ -77,8 +74,6 @@ const DefinitionDescription = ({ rule }) => {
     };
 
     const ruleData = RuleDescription[rule.ID]?.[auth.language];
-
-    if (!ruleData) return <Area>No description available</Area>;
 
     return (
         <Area my="1">
