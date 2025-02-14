@@ -16,12 +16,12 @@ import BaseDBSelectControl from "../module/configuration/BaseDBSelectControl";
 const ConfigurationView = () => {
 
     const {t} = useLanguage();
-    const {BaseDB, isBaseDBLoading} = useBaseDB();
+    const {currentBaseDB, isCurrentBaseDBLoading} = useBaseDB();
     const {paginatedRows} = useConfig();
 
     return (
         <>
-            {!BaseDB ? (
+            {!currentBaseDB ? (
                 <Area textPosition="center" mt="4">
                     {t('messages.request_table_designation')}
                 </Area>
@@ -47,7 +47,7 @@ const ConfigurationView = () => {
                         </Area>
 
                         {/* Configuration Data Table */}
-                        {isBaseDBLoading || !paginatedRows ? (
+                        {isCurrentBaseDBLoading || !paginatedRows ? (
                             <LoadingSpinner/>
                         ) : (
                             <ConfigTable>

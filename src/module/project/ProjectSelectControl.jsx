@@ -1,5 +1,6 @@
-import { useProject } from "../context/Project";
-import Area from "../component/Area";
+import { useProject } from "../../context/Project";
+import Area from "../../component/Area";
+import Span from "../../component/Span";
 
 const ProjectSelectControl = () => {
 
@@ -20,7 +21,7 @@ const ProjectSelectControl = () => {
     const nonCurrentWidth = `${(100 - parseInt(currentWidth)) / nonCurrentProjects}%`;
 
     return (
-        <Area flex style={{ width: "100%", fontSize: "smaller" }}>
+        <Area flex borderBottom mb="1" style={{ width: "100%", fontSize: "smaller" }}>
             {/* Render all projects */}
             {projects.data.map((project, index) => {
                 const isCurrent = currentProject === project;
@@ -29,11 +30,12 @@ const ProjectSelectControl = () => {
                 return (
                     <Area
                         key={index}
-                        bg={isCurrent ? "danger-subtle" : "secondary-subtle"}
+                        bg={isCurrent ? "primary-subtle" : ""}
                         onClick={() => setCurrentProject(project)}
                         textPosition="center"
                         style={{
                             width: width,
+                            borderRadius: "5px 5px 0 0"
                         }}
                     >
                         {project.NAME}

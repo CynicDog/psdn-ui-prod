@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useProject } from "./Project";
-import { fetchProjectTable } from "../data/APIs";
+import { fetchProjectTable } from "../data/APIs"; // Assuming this can return multiple tables
 import { useMenu } from "./Menu";
 
 const BaseDBContext = createContext();
@@ -8,38 +8,45 @@ const BaseDBContext = createContext();
 export const BaseDBProvider = ({ children }) => {
     const { currentProject } = useProject();
     const { currentMenu } = useMenu();
-    const [BaseDB, setBaseDB] = useState(null);
-    const [isBaseDBLoading, setIsBaseDBLoading] = useState(true);
+    const [BaseDB, setBaseDB] = useState([]);
+    const [currentBaseDB, setCurrentBaseDB] = useState(null);
+    const [isCurrentBaseDBLoading, setIsCurrentBaseDBLoading] = useState(false);
 
     useEffect(() => {
         if (!currentProject) {
-            setBaseDB(null);
-            setIsBaseDBLoading(false);
+            setBaseDB([]);
+            setIsCurrentBaseDBLoading(false);
+            setCurrentBaseDB(null);
             return;
         }
 
-        setIsBaseDBLoading(true);
+        // Set loading for currentBaseDB only
+        setIsCurrentBaseDBLoading(true);
 
         if (currentProject.TABLES.length === 0) {
-            setBaseDB(null);
-            setIsBaseDBLoading(false);  
+            setBaseDB([]);
+            setIsCurrentBaseDBLoading(false);
+            setCurrentBaseDB(null);
         } else {
-            fetchProjectTable(currentProject.TABLES[0])
-                .then((data) => {
-                    setBaseDB(data);
+            Promise.all(currentProject.TABLES.map(table => fetchProjectTable(table)))
+                .then((tables) => {
+                    setBaseDB(tables);
+                    // Set the first table as the current BaseDB
+                    setCurrentBaseDB(tables[0]);
                 })
                 .catch((err) => {
-                    console.error("Failed to fetch BaseDB:", err);
-                    setBaseDB(null);
+                    console.error("Failed to fetch BaseDBs:", err);
+                    setBaseDB([]);
+                    setCurrentBaseDB(null);
                 })
                 .finally(() => {
-                    setIsBaseDBLoading(false);
+                    setIsCurrentBaseDBLoading(false);
                 });
         }
     }, [currentProject, currentMenu]);
 
     return (
-        <BaseDBContext.Provider value={{ BaseDB, isBaseDBLoading }}>
+        <BaseDBContext.Provider value={{ BaseDB, isCurrentBaseDBLoading, currentBaseDB, setCurrentBaseDB }}>
             {children}
         </BaseDBContext.Provider>
     );

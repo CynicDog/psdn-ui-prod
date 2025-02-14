@@ -3,6 +3,7 @@ const Area = ({
                   onClick,
                   flex = false,
                   border = '',
+                  borderBottom = '',
                   rounded = '',
                   shadow = '',
                   bg = '',
@@ -19,6 +20,7 @@ const Area = ({
     const classes = [
         flex ? 'd-flex' : '',
         border ? `border border-${border}` : '',
+        borderBottom ? `border-bottom border-${borderBottom}` : '',
         rounded ? `rounded rounded-${rounded}` : '',
         shadow ? `shadow shadow-${shadow}` : '',
         bg ? `bg-${bg}` : '',

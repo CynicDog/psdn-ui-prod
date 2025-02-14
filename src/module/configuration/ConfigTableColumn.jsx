@@ -9,14 +9,14 @@ import { useLanguage } from "../../context/Language";
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
     const { pseudoMaster } = useMeta();
     const { t, getLocalizedName } = useLanguage();
-    const { BaseDB } = useBaseDB();
+    const { currentBaseDB } = useBaseDB();
     const { filters, setFilters } = useConfig();
 
     // Determine the options based on column name
     const getOptions = () => {
         return [
             { value: "", label: t("components.select_option_all") },
-            ...BaseDB.domains[name].map(option => ({
+            ...currentBaseDB.domains[name].map(option => ({
                 value: option.value,
                 label: name === "RULES"
                     ? getLocalizedName(pseudoMaster.rules.find(rule => rule.ID === option.value))

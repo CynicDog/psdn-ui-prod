@@ -9,7 +9,7 @@ import { useMsal } from "@azure/msal-react";
 import { useEffect } from "react";
 import { InteractionStatus } from "@azure/msal-browser";
 import { useMenu } from "./context/Menu";
-import ProjectSelectControl from "./module/ProjectSelectControl";
+import ProjectSelectControl from "./module/project/ProjectSelectControl";
 import { useProject } from "./context/Project";
 import LoadingSpinner from "./module/LoadingSpinner";
 

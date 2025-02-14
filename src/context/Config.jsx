@@ -7,7 +7,7 @@ const ConfigContext = createContext();
 export const ConfigProvider = ({ children }) => {
 
     const { ruleDefinitions } = useMeta();
-    const { BaseDB, isBaseDBLoading } = useBaseDB();
+    const { currentBaseDB, isCurrentBaseDBLoading } = useBaseDB();
     const [configRows, setConfigRows] = useState([]);
 
     const [filters, setFilters] = useState({});
@@ -23,10 +23,10 @@ export const ConfigProvider = ({ children }) => {
 
     const [focusedRow, setFocusedRow] = useState(null);
 
-    // Update `configRows` only when BaseDB is loaded
+    // Update `configRows` only when current BaseDB is loaded
     useEffect(() => {
-        if (!isBaseDBLoading && BaseDB) {
-            setConfigRows(BaseDB.rows ?? []);
+        if (!isCurrentBaseDBLoading && currentBaseDB) {
+            setConfigRows(currentBaseDB.rows ?? []);
             setCurrentPage(1);
             setRowsPerPage(10);
             setFilters({});
@@ -34,7 +34,7 @@ export const ConfigProvider = ({ children }) => {
         } else {
             setConfigRows([]);
         }
-    }, [BaseDB, isBaseDBLoading]);
+    }, [currentBaseDB, isCurrentBaseDBLoading]);
 
 
     // TODO: Filter fallback to 'All' returns no matching rows
