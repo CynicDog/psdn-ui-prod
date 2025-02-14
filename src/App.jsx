@@ -9,7 +9,7 @@ import { useMsal } from "@azure/msal-react";
 import { useEffect } from "react";
 import { InteractionStatus } from "@azure/msal-browser";
 import { useMenu } from "./context/Menu";
-import ProjectArea from "./module/ProjectArea";
+import ProjectSelectControl from "./module/ProjectSelectControl";
 import { useProject } from "./context/Project";
 import LoadingSpinner from "./module/LoadingSpinner";
 
@@ -33,7 +33,7 @@ const App = () => {
                 <>
                     <Row pb="2">
                         <Col width="12">
-                            <ProjectArea />
+                            <ProjectSelectControl />
                         </Col>
                     </Row>
                     <Container fluid>

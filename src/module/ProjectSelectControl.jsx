@@ -1,7 +1,7 @@
 import { useProject } from "../context/Project";
 import Area from "../component/Area";
 
-const ProjectArea = () => {
+const ProjectSelectControl = () => {
 
     // TODO:
     //  1. Color System
@@ -44,4 +44,4 @@ const ProjectArea = () => {
     );
 };
 
-export default ProjectArea;
+export default ProjectSelectControl;
