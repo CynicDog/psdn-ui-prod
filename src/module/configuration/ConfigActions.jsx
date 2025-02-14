@@ -44,7 +44,7 @@ const ConfigActions = () => {
                     id="rule-dropdown"
                     options={[
                         { value: "", label: t("components.select_rule") },
-                        ...businessMeta.rules.map(rule => ({
+                        ...businessMeta.pseudoMasterInfo.rules.map(rule => ({
                             value: rule.ID,
                             label: getLocalizedName(rule)
                         }))

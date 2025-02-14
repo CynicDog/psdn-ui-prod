@@ -5,39 +5,32 @@ import { fetchPSDNMaster, fetchPSDNCodes, fetchRuleDefinitions } from "../data/A
 const MetaContext = createContext();
 
 export const MetaProvider = ({ children }) => {
-    // Separate state for the business meta data and loading status
     const [businessMeta, setBusinessMeta] = useState({
-        pseudoMasterInfo: null,
-        pseudoCodeInfo: null,
-        rules: null,
+        pseudoMasterInfo: {},
+        pseudoCodeInfo: {},
+        ruleDefinitions: {},
     });
 
-    const [isMetaLoading, setIsMetaLoading] = useState(true); // Separate loading state
+    const [isMetaLoading, setIsMetaLoading] = useState(true);
 
     useEffect(() => {
         async function fetchBusinessMetaData() {
             try {
                 const pseudoMasterInfo = await fetchPSDNMaster();
                 const pseudoCodeInfo = await fetchPSDNCodes();
-                const rules = await fetchRuleDefinitions();
+                const ruleDefinitions = await fetchRuleDefinitions();
 
-                // Update business meta data
                 setBusinessMeta({
-                    pseudoMasterInfo,
-                    pseudoCodeInfo,
-                    rules,
+                    pseudoMasterInfo: pseudoMasterInfo || {},
+                    pseudoCodeInfo: pseudoCodeInfo || {},
+                    ruleDefinitions: ruleDefinitions || {},
                 });
 
-                // Set loading to false after the data is fetched
                 setIsMetaLoading(false);
             } catch (error) {
-                console.error("Error loading business metadata:", error);
-
-                // In case of error, set loading to false
                 setIsMetaLoading(false);
             }
         }
-
         fetchBusinessMetaData();
     }, []);
 

@@ -108,7 +108,7 @@ export const ConfigProvider = ({ children }) => {
     const handleAssignRule = () => {
         if (!selectedRule || businessMeta.isLoading) return;
 
-        const newRule = businessMeta.rules[selectedRule];
+        const newRule = businessMeta.ruleDefinitions[selectedRule];
 
         setConfigRows(configRows.map((row) => {
             if (selectedRows.includes(row.COL_NAME)) {

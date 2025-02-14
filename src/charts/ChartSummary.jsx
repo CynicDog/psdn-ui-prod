@@ -13,7 +13,7 @@ const ChartSummary = ({ rule }) => {
     if (businessMeta.isLoading) return null;
 
     const getRuleName = (ruleId) => {
-        const rule = businessMeta.rules?.find(r => r.ID === ruleId);
+        const rule = businessMeta.pseudoMasterInfo.rules?.find(r => r.ID === ruleId);
         return rule ? getLocalizedName(rule) : ruleId;
     };
 
