@@ -2,14 +2,14 @@ import Area from "../component/Area";
 import Span from "../component/Span";
 import { useLanguage } from "../context/Language";
 import { useAuth } from "../context/Auth";
-import { useLayout } from "../context/Layout";
 import Tooltip from "../component/Tooltip";
 import { ROLES } from "../context/util";
+import { useMenu } from "../context/Menu";
 
 const MainLayoutHeader = () => {
     const { t } = useLanguage();
     const { auth, setAuth } = useAuth();
-    const { currentMenu } = useLayout();
+    const { currentMenu } = useMenu();
 
     /* TODO: Development Only */
     // Function to cycle to the next role

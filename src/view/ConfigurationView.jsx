@@ -8,7 +8,14 @@ import ConfigPopup from "../module/configuration/ConfigPopup";
 import ConfigTable from "../module/configuration/ConfigTable";
 import ConfigActions from "../module/configuration/ConfigActions";
 
+import LoadingSpinner from "../component/LoadingSpinner";
+import {useConfig} from "../context/Config";
+import {useBaseDB} from "../context/BaseDB";
+
 const ConfigurationView = () => {
+
+    const { BaseDB, isBaseDBLoading } = useBaseDB();
+    const { paginatedRows } = useConfig();
 
     return (
         <>
@@ -31,16 +38,20 @@ const ConfigurationView = () => {
                 </Area>
 
                 {/* Configuration Data Table */}
-                <ConfigTable>
-                    <ConfigTableHeader>
-                        <ConfigTableColumn name="APPT_YN" applyFilter width="7%" />
-                        <ConfigTableColumn name="COL_NAME" width="11%" />
-                        <ConfigTableColumn name="COL_NAME_LGCL" width="11%" />
-                        <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
-                        <ConfigTableColumn name="RULES" applyFilter width="25%" />
-                        <ConfigTableColumn name="DESC" width="30%" />
-                    </ConfigTableHeader>
-                </ConfigTable>
+                {(isBaseDBLoading || !paginatedRows) ? (
+                    <LoadingSpinner />
+                ) : (
+                    <ConfigTable>
+                        <ConfigTableHeader>
+                            <ConfigTableColumn name="APPT_YN" applyFilter width="7%" />
+                            <ConfigTableColumn name="COL_NAME" width="11%" />
+                            <ConfigTableColumn name="COL_NAME_LGCL" width="11%" />
+                            <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
+                            <ConfigTableColumn name="RULES" applyFilter width="25%" />
+                            <ConfigTableColumn name="DESC" width="30%" />
+                        </ConfigTableHeader>
+                    </ConfigTable>
+                )}
             </Area>
 
             {/* Configuration Popup */}

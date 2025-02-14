@@ -1,14 +1,16 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import {useProject} from "./Project";
+import { useProject } from "./Project";
 import { fetchProjectTable } from "../data/APIs";
+import { useMenu } from "./Menu";
 
-{ /* BaseDB Context */ }
+// BaseDB Context
 const BaseDBContext = createContext();
 
 export const BaseDBProvider = ({ children }) => {
-    const { projects } = useProject(); // Access user projects
+    const { projects } = useProject();
+    const { currentMenu } = useMenu();
     const [BaseDB, setBaseDB] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [isBaseDBLoading, setIsBaseDBLoading] = useState(true);
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -17,20 +19,21 @@ export const BaseDBProvider = ({ children }) => {
         // Get the first project
         const firstProject = projects.projects[0];
 
-        setLoading(true);
+        setIsBaseDBLoading(true);
         setError(null);
 
         fetchProjectTable(firstProject.TABLES[0])
-            .then((data) => setBaseDB(data))
+            .then((data) => {
+                setBaseDB(data);
+            })
             .catch((err) => setError(err.message))
             .finally(() => {
-                console.log(BaseDB)
-                setLoading(false)
+                setIsBaseDBLoading(false);
             });
-    }, [projects]);
+    }, [currentMenu]);
 
     return (
-        <BaseDBContext.Provider value={{ BaseDB, loading, error }}>
+        <BaseDBContext.Provider value={{ BaseDB, isBaseDBLoading, error }}>
             {children}
         </BaseDBContext.Provider>
     );

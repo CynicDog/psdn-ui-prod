@@ -1,19 +1,20 @@
-import {useLanguage} from "../../context/Language";
-import {useQuery} from "react-query";
-import {fetchColumnData} from "../../data/APIs";
-import {useCallback, useEffect} from "react";
+import { useCallback, useEffect } from "react";
+import { useQuery } from "react-query";
+import { fetchColumnData } from "../../data/APIs";
 import Area from "../../component/Area";
-import {useLayout} from "../../context/Layout";
 import PopupOverlay from "../../component/PopupOverlay";
 import PopupContent from "../../component/PopupContent";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
-import {useConfig} from "../../context/Config";
+import { useConfig } from "../../context/Config";
+import { useMenu } from "../../context/Menu";
+import { useLanguage } from "../../context/Language";
+
 import ChartControl from "../../charts/ChartControl";
 
 const ConfigPopup = () => {
     const { t } = useLanguage();
-    const { isPopupOpen, setIsPopupOpen } = useLayout();
+    const { isPopupOpen, setIsPopupOpen } = useMenu();
 
     const { focusedRow } = useConfig();
 

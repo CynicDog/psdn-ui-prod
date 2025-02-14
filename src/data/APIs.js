@@ -117,7 +117,7 @@ export const fetchUserProjects = async (username) => {
  * TODO: Replace with a backend API call in production.
  *
  * @param {string} tableName - The table name to fetch.
- * @returns {Promise<Object>} - A promise resolving to an object with the table data.
+ * @returns {Promise<Object>} - A promise resolving to the table data directly, without the table name key.
  */
 export const fetchProjectTable = async (tableName) => {
     try {
@@ -127,8 +127,8 @@ export const fetchProjectTable = async (tableName) => {
 
         const tableData = await response.json();
 
-        // Return the fetched data in an object with the table name as key
-        return { [tableName]: tableData };
+        // Return the table data directly (no wrapping object with table name as key)
+        return tableData;
     } catch (error) {
         console.error("Error fetching project table:", error);
         return null;

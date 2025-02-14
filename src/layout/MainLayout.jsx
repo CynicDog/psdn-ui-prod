@@ -1,12 +1,12 @@
 import Area from "../component/Area";
-import MainLayoutHeader from "../module/MainLayoutHeader";
-import {useLayout} from "../context/Layout";
-import {useMeta} from "../context/Meta";
 import LoadingSpinner from "../component/LoadingSpinner";
+import MainLayoutHeader from "../module/MainLayoutHeader";
+import { useMeta } from "../context/Meta";
+import { useMenu } from "../context/Menu";
 
 const MainLayout = () => {
 
-    const { currentMenu, currentMenuToView } = useLayout();
+    const { currentMenu, currentMenuToView } = useMenu();
     const { businessMeta, isMetaLoading } = useMeta();
 
     return (

@@ -1,12 +1,12 @@
-import { useConfig } from "../../context/Config";
-import { useLanguage } from "../../context/Language";
+import LoadingSpinner from "../../component/LoadingSpinner";
 import DraggableArea from "../../component/DraggableArea";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
+import { useState } from "react";
+import { useMeta } from "../../context/Meta";
+import { useConfig } from "../../context/Config";
+import { useLanguage } from "../../context/Language";
 import ConfigParametersGroup from "./ConfigParametersGroup";
-import {useState} from "react";
-import {useMeta} from "../../context/Meta";
-import LoadingSpinner from "../../component/LoadingSpinner";
 
 const ConfigRuleCard = ({ row, rule, order }) => {
 

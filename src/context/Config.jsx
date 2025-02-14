@@ -7,12 +7,14 @@ const ConfigContext = createContext();
 export const ConfigProvider = ({ children }) => {
 
     const { businessMeta } = useMeta();
-    const { BaseDB, loading } = useBaseDB();
+    const { BaseDB, isBaseDBLoading } = useBaseDB();
     const [configRows, setConfigRows] = useState([]);
 
     const [filters, setFilters] = useState({});
-    const [currentPage, setCurrentPage] = useState(1);
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+
+    const [currentPage, setCurrentPage] = useState(null);
+    const [rowsPerPage, setRowsPerPage] = useState(null);
+
     const [selectedRows, setSelectedRows] = useState([]);
     const [selectedRule, setSelectedRule] = useState("");
 
@@ -23,10 +25,12 @@ export const ConfigProvider = ({ children }) => {
 
     // Update `configRows` only when BaseDB is loaded
     useEffect(() => {
-        if (!loading && BaseDB) {
+        if (!isBaseDBLoading && BaseDB) {
             setConfigRows(BaseDB.rows || []);
+            setCurrentPage(1);
+            setRowsPerPage(10);
         }
-    }, [BaseDB, loading]);
+    }, [BaseDB, isBaseDBLoading]);
 
     // TODO: Filter fallback to 'All' returns no matching rows
     // Filter rows
@@ -224,7 +228,6 @@ export const ConfigProvider = ({ children }) => {
             })
         );
     };
-
 
     return (
         <ConfigContext.Provider

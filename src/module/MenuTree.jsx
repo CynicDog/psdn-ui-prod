@@ -1,13 +1,13 @@
-import { useLayout } from "../context/Layout";
 import { useState } from "react";
-import { useLanguage } from "../context/Language";
 import Area from "../component/Area";
 import Span from "../component/Span";
-import { useAuth } from "../context/Auth"; // to access the user's role
+import { useLanguage } from "../context/Language";
+import { useAuth } from "../context/Auth";
+import { useMenu } from "../context/Menu";
 
 const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRole }) => {
     const { t } = useLanguage();
-    const { setCurrentMenu } = useLayout();
+    const { setCurrentMenu } = useMenu();
     const [isOpen, setIsOpen] = useState(true);
 
     // Filter children based on user's role
@@ -62,7 +62,7 @@ const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRo
 };
 
 const MenuTree = () => {
-    const { menu } = useLayout();
+    const { menu } = useMenu();
     const { auth } = useAuth();
 
     // Filter top-level menu items based on user's role

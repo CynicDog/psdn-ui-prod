@@ -5,14 +5,14 @@ import {Col, Row} from './component/Grid';
 import Container from './component/Container';
 import SideLayout from './layout/SideLayout';
 import MainLayout from "./layout/MainLayout";
-import {useLayout} from "./context/Layout";
 import {useMsal} from "@azure/msal-react";
 import {useEffect} from "react";
 import {InteractionStatus} from "@azure/msal-browser";
 import Area from "./component/Area";
+import {useMenu} from "./context/Menu";
 
 const App = () => {
-    const {isMenuOpen} = useLayout();
+    const {isMenuOpen} = useMenu();
     // const { instance, accounts, inProgress } = useMsal();
     // useEffect(() => {
     //   if (accounts.length === 0 && inProgress === InteractionStatus.None) {

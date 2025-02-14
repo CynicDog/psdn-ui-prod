@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLanguage } from "../../context/Language";
-import { useConfig } from "../../context/Config";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
 import Dropdown from "../../component/Dropdown";
+import { useLanguage } from "../../context/Language";
+import { useConfig } from "../../context/Config";
 
 const ConfigTablePaginationControl = () => {
     const { t } = useLanguage();

@@ -1,10 +1,10 @@
-import { useLanguage } from "../../context/Language";
 import TableHeaderCell from "../../component/TableHeaderCell";
 import Area from "../../component/Area";
+import Dropdown from "../../component/Dropdown";
 import { useBaseDB } from "../../context/BaseDB";
 import { useConfig } from "../../context/Config";
-import Dropdown from "../../component/Dropdown";
-import {useMeta} from "../../context/Meta";
+import { useMeta } from "../../context/Meta";
+import { useLanguage } from "../../context/Language";
 
 const ConfigTableColumn = ({ name, applyFilter, width }) => {
     const { businessMeta } = useMeta();

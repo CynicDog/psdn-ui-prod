@@ -6,13 +6,13 @@ import {AuthProvider} from "./context/Auth";
 import {LanguageProvider} from "./context/Language";
 import {BaseDBProvider} from "./context/BaseDB";
 import {ConfigProvider} from "./context/Config";
-import {LayoutProvider} from "./context/Layout";
 import {QueryClient, QueryClientProvider} from "react-query";
 
 import {PublicClientApplication} from "@azure/msal-browser";
 import {MsalProvider} from "@azure/msal-react";
 import {ProjectProvider} from "./context/Project";
 import {MetaProvider} from "./context/Meta";
+import {MenuProvider} from "./context/Menu";
 
 // // Configuration object constructed
 // const config = {
@@ -39,17 +39,17 @@ const queryClient = new QueryClient();
                 <QueryClientProvider client={queryClient}>
                     <ProjectProvider>
                         <MetaProvider>
-                            <BaseDBProvider>
-                                <ConfigProvider>
-                                    <ThemeProvider>
-                                        <LanguageProvider>
-                                            <LayoutProvider>
+                            <MenuProvider>
+                                <BaseDBProvider>
+                                    <ConfigProvider>
+                                        <ThemeProvider>
+                                            <LanguageProvider>
                                                 <App/>
-                                            </LayoutProvider>
-                                        </LanguageProvider>
-                                    </ThemeProvider>
-                                </ConfigProvider>
-                            </BaseDBProvider>
+                                            </LanguageProvider>
+                                        </ThemeProvider>
+                                    </ConfigProvider>
+                                </BaseDBProvider>
+                            </MenuProvider>
                         </MetaProvider>
                     </ProjectProvider>
                 </QueryClientProvider>

@@ -1,18 +1,16 @@
 import Area from "../component/Area";
 import Span from "../component/Span";
-import Anchor from "../component/Anchor";
 import Icon from "../component/Icon";
-import OrderedList from "../component/OrderedList";
 import DarkMode from "../module/DarkMode";
 import LanguageSelector from "../module/LanguageSelector";
-import {useLayout} from "../context/Layout";
-import { useLanguage } from "../context/Language";
 import MenuTree from "../module/MenuTree";
+import { useLanguage } from "../context/Language";
+import { useMenu } from "../context/Menu";
 
 const SideLayout = () => {
 
     const { t } = useLanguage();
-    const { setMenu, isMenuOpen, toggleMenu } = useLayout();
+    const { isMenuOpen, toggleMenu } = useMenu();
 
     return (
         <>

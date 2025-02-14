@@ -5,12 +5,14 @@ import CheckBox from "../../component/CheckBox";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
 import ConfigRuleCard from "./ConfigRuleCard";
-import { useConfig } from "../../context/Config";
-import { useLayout } from "../../context/Layout";
 import Icon from "../../component/Icon";
+import { useConfig } from "../../context/Config";
+import { useMenu } from "../../context/Menu";
+
+
 
 const ConfigTableRow = ({ row, columnNames }) => {
-    const { setIsPopupOpen } = useLayout();
+    const { setIsPopupOpen } = useMenu();
     const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
 
     return (

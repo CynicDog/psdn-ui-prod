@@ -4,9 +4,9 @@ import DefinitionView from "../view/DefinitionView";
 import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";
 
-const LayoutContext = createContext();
+const MenuContext = createContext();
 
-export const LayoutProvider = ({ children }) => {
+export const MenuProvider = ({ children }) => {
     const [menu, setMenu] = useState([]);
     const [isMenuOpen, setIsMenuOpen] = useState(true);
 
@@ -36,7 +36,7 @@ export const LayoutProvider = ({ children }) => {
     }, []);
 
     return (
-        <LayoutContext.Provider value={{
+        <MenuContext.Provider value={{
             menu, setMenu,
             isMenuOpen, toggleMenu,
             currentMenu, setCurrentMenu,
@@ -44,8 +44,8 @@ export const LayoutProvider = ({ children }) => {
             isPopupOpen, setIsPopupOpen
         }}>
             {children}
-        </LayoutContext.Provider>
+        </MenuContext.Provider>
     );
 };
 
-export const useLayout = () => useContext(LayoutContext);
+export const useMenu = () => useContext(MenuContext);

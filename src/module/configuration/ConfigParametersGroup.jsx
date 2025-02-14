@@ -7,7 +7,7 @@ import Dropdown from "../../component/Dropdown";
 import InputField from "../../component/InputField";
 import { useConfig } from "../../context/Config";
 import { useLanguage } from "../../context/Language";
-import {useMeta} from "../../context/Meta";
+import { useMeta } from "../../context/Meta";
 
 const ConfigParametersGroup = ({ row, rule, parameters }) => {
     const { businessMeta } = useMeta();
