@@ -28,18 +28,18 @@ const ChartControl = ({ isDataLoading }) => {
 
     return (
         <Area>
-            {focusedRow.RULES.map((rule) => (
-                <Area key={rule.RULE_ID} border rounded="4" shadow="sm" mx="3" my="5" px="2" py="3">
-                    {isDataLoading ? (
-                        <LoadingSpinner message={t('components.loading_message')} />
-                    ) : (
+            {isDataLoading ? (
+                <LoadingSpinner message={t('components.loading_message')} />
+            ) : (
+                focusedRow.RULES.map((rule) => (
+                    <Area key={rule.RULE_ID} border rounded="4" shadow="sm" mx="3" my="5" px="2" py="3">
                         <Area>
                             {ruleToChart[rule.RULE_ID]}
                             <ChartSummary rule={rule} />
                         </Area>
-                    )}
-                </Area>
-            ))}
+                    </Area>
+                ))
+            )}
         </Area>
     );
 };

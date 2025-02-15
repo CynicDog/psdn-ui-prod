@@ -28,7 +28,6 @@ export const AuthProvider = ({ children }) => {
         // setLanguage based on User's locale information from EntraId
     }, [accounts, inProgress]);
 
-
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}

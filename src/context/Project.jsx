@@ -19,18 +19,22 @@ export const ProjectProvider = ({ children }) => {
         setIsProjectLoading(true);
         setError(null);
 
-        fetchUserProjects(auth.username)
-            .then((projects) => {
-                setProjects(projects);
+        // Load project data only for users with OWNER role
+        if (auth.role && (auth.role === "DEV" || auth.role === "OWNER")) {
+            fetchUserProjects(auth.username)
+                .then((projects) => {
+                    setProjects(projects);
 
-                // Set the first project as the current one
-                if (projects.data?.length > 0) {
-                    setCurrentProject(projects.data[0]);
-                }
-            })
-            .catch((err) => setError(err.message))
-            .finally(() => setIsProjectLoading(false));
-
+                    // Set the first project as the current one
+                    if (projects.data?.length > 0) {
+                        setCurrentProject(projects.data[0]);
+                    }
+                })
+                .catch((err) => setError(err.message))
+                .finally(() => setIsProjectLoading(false));
+        } else {
+            setIsProjectLoading(false);
+        }
     }, [auth]);
 
     return (

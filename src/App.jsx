@@ -12,11 +12,13 @@ import { useMenu } from "./context/Menu";
 import ProjectTabArea from "./module/project/ProjectTabArea";
 import { useProject } from "./context/Project";
 import LoadingSpinner from "./component/LoadingSpinner";
-import {usePopup} from "./context/Popup";
+import { usePopup } from "./context/Popup";
 import ProjectSettingPopup from "./module/project/ProjectSettingPopup";
-import Area from "./component/Area";
+import { useAuth } from "./context/Auth";
+import {ROLES} from "./context/util";
 
 const App = () => {
+    const { auth } = useAuth();
     const { isMenuOpen } = useMenu();
     const { isProjectLoading } = useProject();
     const { isProjectPopupOpen } = usePopup();
@@ -32,7 +34,7 @@ const App = () => {
     return (
         <>
             {isProjectLoading ? (
-                    <LoadingSpinner />
+                <LoadingSpinner />
             ) : (
                 <>
                     <Container fluid>
@@ -45,10 +47,13 @@ const App = () => {
                             </Col>
                         </Row>
                     </Container>
-                    {isProjectPopupOpen && (
-                        <ProjectSettingPopup />
+                    {/* Project controls are shown only to OWNER role */}
+                    {auth.role && [ROLES.DEV, ROLES.OWNER].includes(auth.role) && (
+                        <>
+                            {isProjectPopupOpen && <ProjectSettingPopup />}
+                            <ProjectTabArea />
+                        </>
                     )}
-                    <ProjectTabArea />
                 </>
             )}
         </>

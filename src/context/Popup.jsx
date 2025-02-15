@@ -9,8 +9,13 @@ export const PopupProvider = ({ children }) => {
 
     const { auth } = useAuth();
 
+    // Project popup is shown only to users with OWNER role
     useEffect(() => {
-        setIsProjectPopupOpen(true);
+        if (auth.role && (auth.role === "DEV" || auth.role === "OWNER")) {
+            setIsProjectPopupOpen(true);
+        } else {
+            setIsProjectPopupOpen(false);
+        }
     }, [auth]);
 
     return (
