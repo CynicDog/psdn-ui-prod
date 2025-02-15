@@ -50,7 +50,7 @@ const ConfigPopup = () => {
                         <ChartControl isDataLoading={isColumnDataLoading} />
                     </Area>
                 ) : (
-                    <Area flex justifyContent="center" style={{ marginTop: "20%" }}>
+                    <Area flex justifyContent="center" marginTop="20%">
                         <Span variant="secondary">
                             {t('components.no_rules_to_apply')}
                         </Span>

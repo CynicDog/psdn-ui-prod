@@ -10,7 +10,7 @@ const DefinitionView = () => {
 
     return (
         <>
-            <Area style={{fontSize: "0.9rem"}}>
+            <Area fontSize="0.9rem">
                 <Area flex justifyContent="end">
                     <Button size="sm" outline variant="primary">
                         {t('components.pseudonymization_guide_download')}

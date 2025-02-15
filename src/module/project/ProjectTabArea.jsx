@@ -42,10 +42,8 @@ const ProjectTabArea = () => {
                         bg={isCurrent ? "primary-subtle" : ""}
                         onClick={() => setCurrentProject(project)}
                         textPosition="center"
-                        style={{
-                            width: width,
-                            borderRadius: "5px 5px 0 0"
-                        }}
+                        width={width}
+                        borderRadius="5px 5px 0 0"
                     >
                         {project.NAME}
                     </Area>

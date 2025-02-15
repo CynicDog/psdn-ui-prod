@@ -26,7 +26,7 @@ const ConfigurationView = () => {
                     {t('messages.request_table_designation')}
                 </Area>
             ) : (
-                <Area rounded shadow="sm" style={{fontSize: "smaller"}}>
+                <Area rounded shadow="sm" fontSize="smaller">
                     <BaseDBSelectControl/>
                     <Area p="3">
                         {/* Control Panel */}

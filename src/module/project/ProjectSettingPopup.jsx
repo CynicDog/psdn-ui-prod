@@ -9,6 +9,7 @@ import Button from "../../component/Button";
 import LanguageSelector from "../LanguageSelector";
 import ThemeSelector from "../ThemeSelector";
 import AuthBadge from "../AuthBadge";
+import ProjectCardsArea from "./ProjectCardsArea";
 
 const ProjectSettingPopup = () => {
 
@@ -43,28 +44,19 @@ const ProjectSettingPopup = () => {
                 </Area>
 
 
-                <Area textPosition="center" style={{marginTop: "10%"}}>
+                <Area textPosition="center" marginTop="5%">
                     <Span fontSize="3" fontWeight="lighter">
                         {t('components.select_project')}
                     </Span>
                 </Area>
 
                 {/* Project Cards */}
-                <Area flex justifyContent="center" gap="3" style={{marginTop: "10%"}}>
-                    {projects?.data?.map((project) => (
-                        <Area
-                            key={project.ID}
-                            bg={currentProject === project ? "primary-subtle" : "secondary"}
-                            border rounded p="2" shadow="sm"
-                            style={{
-                                cursor: "pointer",
-                                textAlign: "center",
-                            }}
-                            onClick={() => setCurrentProject(project)}
-                        >
-                            <Span fontWeight="bold">{project.NAME}</Span>
-                        </Area>
-                    ))}
+                <Area marginTop="5%">
+                    <ProjectCardsArea
+                        projects={projects}
+                        currentProject={currentProject}
+                        onSelect={setCurrentProject}
+                    />
                 </Area>
 
             </PopupContent>

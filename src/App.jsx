@@ -38,7 +38,7 @@ const App = () => {
             ) : (
                 <>
                     <Container fluid>
-                        <Row mt="2">
+                        <Row mt="3">
                             <Col width={isMenuOpen ? "2" : "1"} responsive="lg" sticky>
                                 <SideLayout />
                             </Col>
