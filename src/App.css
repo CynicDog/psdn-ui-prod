@@ -56,7 +56,7 @@
 .popup-body {
     padding-top: 10px;
     font-size: 1em;
-    max-height: calc(90% - 50px);
+    max-height: calc(90% - 10px);
     overflow-y: auto;
 }
 
