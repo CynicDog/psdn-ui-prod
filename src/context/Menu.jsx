@@ -23,6 +23,7 @@ export const MenuProvider = ({ children }) => {
             CURRENT: { ID: "M1_1", NAME: "definition_description" },
             PARENT: { ID: "M1", NAME: "definition" },
         })
+        setIsMenuOpen(true);
     }, [currentProject]);
 
     // Views mapped to each menu item

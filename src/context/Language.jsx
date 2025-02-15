@@ -11,7 +11,7 @@ const translations = {
 };
 
 export const LanguageProvider = ({ children }) => {
-    const [language, setLanguage] = useState("en");
+    const [language, setLanguage] = useState("ko");
     const languageTranslations = translations[language] || {};
 
     // Returns the item's name from config dictionary based on the selected language

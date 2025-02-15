@@ -21,7 +21,16 @@ const ProjectTabArea = () => {
     const nonCurrentWidth = `${(100 - parseInt(currentWidth)) / nonCurrentProjects}%`;
 
     return (
-        <Area flex borderBottom mb="1" style={{ width: "100%", fontSize: "smaller" }}>
+        <Area
+            flex
+            borderTop
+            bg="body"
+            style={{
+                width: "100%",
+                fontSize: "smaller",
+                position: "fixed",
+                bottom: "0"
+        }}>
             {/* Render all projects */}
             {projects.data.map((project, index) => {
                 const isCurrent = currentProject === project;

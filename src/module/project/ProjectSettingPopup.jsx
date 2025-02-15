@@ -6,6 +6,9 @@ import {useProject} from "../../context/Project";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
+import LanguageSelector from "../LanguageSelector";
+import ThemeSelector from "../ThemeSelector";
+import AuthBadge from "../AuthBadge";
 
 const ProjectSettingPopup = () => {
 
@@ -25,11 +28,20 @@ const ProjectSettingPopup = () => {
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
             <PopupContent>
                 {/* Popup Header */}
-                <Area flex justifyContent="end">
-                    <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
-                        {t('components.close')}
-                    </Button>
+
+                <Area flex justifyContent="between">
+                    <Area flex alignItems="center" gap="2">
+                        <AuthBadge />
+                        <LanguageSelector />
+                        <ThemeSelector />
+                    </Area>
+                    <Area>
+                        <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
+                            {t('components.close')}
+                        </Button>
+                    </Area>
                 </Area>
+
 
                 <Area textPosition="center" style={{marginTop: "10%"}}>
                     <Span fontSize="3" fontWeight="lighter">
@@ -54,6 +66,7 @@ const ProjectSettingPopup = () => {
                         </Area>
                     ))}
                 </Area>
+
             </PopupContent>
         </PopupOverlay>
     );

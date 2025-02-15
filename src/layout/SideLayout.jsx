@@ -1,28 +1,32 @@
 import Area from "../component/Area";
 import Span from "../component/Span";
 import Icon from "../component/Icon";
-import DarkMode from "../module/DarkMode";
+import ThemeSelector from "../module/ThemeSelector";
 import LanguageSelector from "../module/LanguageSelector";
 import MenuTree from "../module/MenuTree";
 import { useLanguage } from "../context/Language";
 import { useMenu } from "../context/Menu";
+import {usePopup} from "../context/Popup";
 
 const SideLayout = () => {
 
     const { t } = useLanguage();
     const { isMenuOpen, toggleMenu } = useMenu();
+    const { isProjectPopupOpen } = usePopup();
 
     return (
         <>
-            <Area border rounded="3" shadow p="2" mb="3">
+            <Area rounded="3" shadow p="2" mb="3">
                 {isMenuOpen ? (
                     <>
                         <Area flex justifyContent="between" mb="2" p="2">
                             <Span fontSize="5" fontWeight="lighter">{t('menu.title')}</Span>
-                            <Area flex alignItems="center" gap="2">
-                                <LanguageSelector/>
-                                <DarkMode/>
-                            </Area>
+                            {!isProjectPopupOpen && (
+                                <Area flex alignItems="center" gap="2">
+                                    <LanguageSelector/>
+                                    <ThemeSelector/>
+                                </Area>
+                            )}
                         </Area>
                         <Area px="3">
                             <MenuTree />

@@ -7,7 +7,7 @@
 @media (min-width: 992px) { /* Assuming large screen is 992px or above */
     .sticky-col {
         position: sticky;
-        top: 15px;
+        top: 5px;
         height: 95vh;
         overflow-y: auto;
         z-index: 10;

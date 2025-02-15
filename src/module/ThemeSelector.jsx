@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useTheme} from "../context/Theme";
 import Switch from "../component/Switch";
 
-const DarkMode = () => {
+const ThemeSelector = () => {
     const {theme, toggleTheme} = useTheme();
     const isDarkMode = theme === 'dark';
 
@@ -34,4 +34,4 @@ const DarkMode = () => {
     );
 };
 
-export default DarkMode;
+export default ThemeSelector;

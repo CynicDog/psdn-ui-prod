@@ -11,9 +11,10 @@ import { InteractionStatus } from "@azure/msal-browser";
 import { useMenu } from "./context/Menu";
 import ProjectTabArea from "./module/project/ProjectTabArea";
 import { useProject } from "./context/Project";
-import LoadingSpinner from "./module/LoadingSpinner";
+import LoadingSpinner from "./component/LoadingSpinner";
 import {usePopup} from "./context/Popup";
 import ProjectSettingPopup from "./module/project/ProjectSettingPopup";
+import Area from "./component/Area";
 
 const App = () => {
     const { isMenuOpen } = useMenu();
@@ -31,16 +32,11 @@ const App = () => {
     return (
         <>
             {isProjectLoading ? (
-                <LoadingSpinner />
+                    <LoadingSpinner />
             ) : (
                 <>
-                    <Row pb="2">
-                        <Col width="12">
-                            <ProjectTabArea />
-                        </Col>
-                    </Row>
                     <Container fluid>
-                        <Row>
+                        <Row mt="2">
                             <Col width={isMenuOpen ? "2" : "1"} responsive="lg" sticky>
                                 <SideLayout />
                             </Col>
@@ -49,10 +45,10 @@ const App = () => {
                             </Col>
                         </Row>
                     </Container>
-
                     {isProjectPopupOpen && (
                         <ProjectSettingPopup />
                     )}
+                    <ProjectTabArea />
                 </>
             )}
         </>

@@ -25,7 +25,7 @@ const ConfigActions = () => {
     };
 
     return (
-        <>
+        <Area flex borderBottom gap="2" p="2">
             <Button size="sm" variant="light" onClick={resetFilters}>
                 {t("components.reset_filters")}
             </Button>
@@ -65,7 +65,7 @@ const ConfigActions = () => {
                     {t("components.config_download")} <code className="ms-1">config.json</code>
                 </Button>
             </Area>
-        </>
+        </Area>
     );
 };
 

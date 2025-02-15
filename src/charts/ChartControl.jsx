@@ -2,7 +2,7 @@ import { useConfig } from "../context/Config";
 import { useLanguage } from "../context/Language";
 import Area from "../component/Area";
 import EmptyChartPlaceholder from "./EmptyChartPlaceholder";
-import LoadingSpinner from "../module/LoadingSpinner";
+import LoadingSpinner from "../component/LoadingSpinner";
 import ChartSummary from "./ChartSummary";
 
 const ChartControl = ({ isDataLoading }) => {

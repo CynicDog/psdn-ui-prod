@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./Auth";
 import { fetchUserProjects } from "../data/APIs";
+import {useMenu} from "./Menu";
 
 // Project Context
 const ProjectContext = createContext();

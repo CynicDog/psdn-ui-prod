@@ -1,6 +1,6 @@
 import Area from "../component/Area";
-import LoadingSpinner from "../module/LoadingSpinner";
-import MainLayoutHeader from "../module/MainLayoutHeader";
+import LoadingSpinner from "../component/LoadingSpinner";
+import CurrentMenuTitle from "../module/CurrentMenuTitle";
 import { useMeta } from "../context/Meta";
 import { useMenu } from "../context/Menu";
 import React from "react";
@@ -12,8 +12,8 @@ const MainLayout = () => {
 
     return (
         <>
-            <Area border rounded="3" shadow p="3">
-                <MainLayoutHeader />
+            <Area rounded="3" shadow p="3">
+                <CurrentMenuTitle />
                 { isMetaLoading ? (
                     <LoadingSpinner/>
                 ) : (

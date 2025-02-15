@@ -1,7 +1,7 @@
 import React from "react";
 import Area from "../component/Area";
 import {Col, Row} from "../component/Grid";
-import LoadingSpinner from "../module/LoadingSpinner";
+import LoadingSpinner from "../component/LoadingSpinner";
 import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
 import ConfigTablePaginationControl from "../module/configuration/ConfigTablePaginationControl";
 import ConfigTableColumn from "../module/configuration/ConfigTableColumn";
@@ -26,7 +26,7 @@ const ConfigurationView = () => {
                     {t('messages.request_table_designation')}
                 </Area>
             ) : (
-                <Area border rounded style={{fontSize: "smaller"}}>
+                <Area rounded shadow="sm" style={{fontSize: "smaller"}}>
                     <BaseDBSelectControl/>
                     <Area p="3">
                         {/* Control Panel */}
@@ -41,9 +41,7 @@ const ConfigurationView = () => {
                                     </Area>
                                 </Col>
                             </Row>
-                            <Area flex border rounded shadow="sm" gap="2" p="2">
-                                <ConfigActions/>
-                            </Area>
+                            <ConfigActions/>
                         </Area>
 
                         {/* Configuration Data Table */}
