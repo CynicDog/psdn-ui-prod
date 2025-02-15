@@ -21,14 +21,14 @@ const ProjectLists = ({ projects, currentProject, onSelect }) => {
                             {project.NAME}
                         </Span>
                     </Col>
-                    
+
                     <Col width="6" responsive="lg">
                         Project Description..
                     </Col>
 
                     <Col width="4" responsive="lg">
                         {project.TABLES?.map((table) => (
-                            <Span badge="primary">{table.NAME}</Span>
+                            <Span badge="primary-filled" mx="1">{table.NAME}</Span>
                         ))}
                     </Col>
                 </Row>

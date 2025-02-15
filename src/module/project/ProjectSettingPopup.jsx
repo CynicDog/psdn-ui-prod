@@ -10,6 +10,8 @@ import LanguageSelector from "../LanguageSelector";
 import ThemeSelector from "../ThemeSelector";
 import AuthBadge from "../AuthBadge";
 import ProjectLists from "./ProjectLists";
+import PopupHeader from "../../component/PopupHeader";
+import PopupBody from "../../component/PopupBody";
 
 const ProjectSettingPopup = () => {
 
@@ -28,37 +30,35 @@ const ProjectSettingPopup = () => {
     return (
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
             <PopupContent>
-                {/* Popup Header */}
-
-                <Area flex justifyContent="between">
-                    <Area flex alignItems="center" gap="2">
-                        <AuthBadge />
-                        <LanguageSelector />
-                        <ThemeSelector />
+                <PopupHeader>
+                    <Area flex justifyContent="between">
+                        <Area flex alignItems="center" gap="2">
+                            <AuthBadge />
+                            <LanguageSelector />
+                            <ThemeSelector />
+                        </Area>
+                        <Area>
+                            <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
+                                {t('components.close')}
+                            </Button>
+                        </Area>
                     </Area>
-                    <Area>
-                        <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
-                            {t('components.close')}
-                        </Button>
+                </PopupHeader>
+                <PopupBody>
+                    <Area textPosition="center" marginTop="5%">
+                        <Span fontSize="3" fontWeight="lighter">
+                            {t('components.select_project')}
+                        </Span>
                     </Area>
-                </Area>
-
-
-                <Area textPosition="center" marginTop="5%">
-                    <Span fontSize="3" fontWeight="lighter">
-                        {t('components.select_project')}
-                    </Span>
-                </Area>
-
-                {/* Project Cards */}
-                <Area marginTop="5%">
-                    <ProjectLists
-                        projects={projects}
-                        currentProject={currentProject}
-                        onSelect={setCurrentProject}
-                    />
-                </Area>
-
+                    {/* Projects list */}
+                    <Area marginTop="5%">
+                        <ProjectLists
+                            projects={projects}
+                            currentProject={currentProject}
+                            onSelect={setCurrentProject}
+                        />
+                    </Area>
+                </PopupBody>
             </PopupContent>
         </PopupOverlay>
     );

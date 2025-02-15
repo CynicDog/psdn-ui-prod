@@ -33,7 +33,7 @@
 }
 
 .popup-content {
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     max-width: 95%;
     width: 100%;
@@ -41,6 +41,23 @@
     overflow-y: auto;
     height: 100%;
     z-index: 1000;
+}
+
+.popup-header {
+    position: sticky;
+    top: 0;
+    background-color: inherit;
+    z-index: 1001;
+    padding-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.popup-body {
+    padding-top: 10px;
+    font-size: 1em;
+    max-height: calc(90% - 50px);
+    overflow-y: auto;
 }
 
 .badge-primary {
