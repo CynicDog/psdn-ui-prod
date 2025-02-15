@@ -1,16 +1,16 @@
 import { useProject } from "../../context/Project";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
+import {usePopup} from "../../context/Popup";
 
-const ProjectSelectControl = () => {
-
-    // TODO:
-    //  1. Color System
-    //  2. DND to order
-    //  3. In-line editing for project name
-    //  4. Add / Delete projects
+const ProjectTabArea = () => {
 
     const { projects, currentProject, setCurrentProject } = useProject();
+    const { isProjectPopupOpen  } = usePopup();
+
+    // If ProjectSettingPopup is open, render none.
+    if (isProjectPopupOpen) return null;
+
     const numberOfProjects = projects.data.length;
 
     // Ensure there's at least one non-current project
@@ -46,4 +46,4 @@ const ProjectSelectControl = () => {
     );
 };
 
-export default ProjectSelectControl;
+export default ProjectTabArea;

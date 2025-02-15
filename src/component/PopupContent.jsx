@@ -1,7 +1,6 @@
-import {useTheme} from "../context/Theme";
+import { useTheme } from "../context/Theme";
 
 const PopupContent = ({ children, onClick }) => {
-
     const { theme } = useTheme();
 
     return (
@@ -10,10 +9,14 @@ const PopupContent = ({ children, onClick }) => {
             style={{
                 backgroundColor: theme === 'dark' ? '#202020' : '#FFFFFF',
             }}
-            onClick={onClick}>
+            onClick={(e) => {
+                e.stopPropagation();
+                if (onClick) onClick(e);
+            }}
+        >
             {children}
         </div>
-    )
-}
+    );
+};
 
 export default PopupContent;

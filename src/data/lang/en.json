@@ -21,6 +21,7 @@
     "system_management_history": "History"
   },
   "components": {
+    "select_project": "Select Pseudonymization Project.",
     "pseudonymization_title": "Pseudonymization",
     "grid_row_control_check": "Select",
     "record_detail_title": "Record Details",

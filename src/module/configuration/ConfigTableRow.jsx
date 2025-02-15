@@ -7,12 +7,12 @@ import Button from "../../component/Button";
 import ConfigRuleCard from "./ConfigRuleCard";
 import Icon from "../../component/Icon";
 import { useConfig } from "../../context/Config";
-import { useMenu } from "../../context/Menu";
+import {usePopup} from "../../context/Popup";
 
 
 
 const ConfigTableRow = ({ row, columnNames }) => {
-    const { setIsPopupOpen } = useMenu();
+    const { setIsConfigPopupOpen } = usePopup();
     const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
 
     return (
@@ -63,7 +63,7 @@ const ConfigTableRow = ({ row, columnNames }) => {
                         size="sm"
                         onClick={(e) => {
                             e.stopPropagation();
-                            setIsPopupOpen(true);
+                            setIsConfigPopupOpen(true);
                             setFocusedRow(row);
                         }}
                     >

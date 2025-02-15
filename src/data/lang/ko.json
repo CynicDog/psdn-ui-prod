@@ -21,6 +21,7 @@
     "system_management_history": "이력"
   },
   "components": {
+    "select_project": "프로젝트를 선택하세요.",
     "pseudonymization_title": "가명화",
     "grid_row_control_check": "선택",
     "record_detail_title": "레코드 상세",

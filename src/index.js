@@ -13,6 +13,7 @@ import {MsalProvider} from "@azure/msal-react";
 import {ProjectProvider} from "./context/Project";
 import {MetaProvider} from "./context/Meta";
 import {MenuProvider} from "./context/Menu";
+import {PopupProvider} from "./context/Popup";
 
 // // Configuration object constructed
 // const config = {
@@ -35,25 +36,26 @@ const queryClient = new QueryClient();
 
     ReactDOM.render(
         // <MsalProvider instance={publicClientApplication}>
-
             <LanguageProvider>
-                <AuthProvider>
-                    <QueryClientProvider client={queryClient}>
-                        <ProjectProvider>
-                            <MetaProvider>
-                                <MenuProvider>
-                                    <BaseDBProvider>
-                                        <ConfigProvider>
-                                            <ThemeProvider>
-                                                <App/>
-                                            </ThemeProvider>
-                                        </ConfigProvider>
-                                    </BaseDBProvider>
-                                </MenuProvider>
-                            </MetaProvider>
-                        </ProjectProvider>
-                    </QueryClientProvider>
-                </AuthProvider>
+                <ThemeProvider>
+                    <AuthProvider>
+                        <QueryClientProvider client={queryClient}>
+                            <ProjectProvider>
+                                <PopupProvider>
+                                    <MetaProvider>
+                                        <MenuProvider>
+                                            <BaseDBProvider>
+                                                <ConfigProvider>
+                                                    <App/>
+                                                </ConfigProvider>
+                                            </BaseDBProvider>
+                                        </MenuProvider>
+                                    </MetaProvider>
+                                </PopupProvider>
+                            </ProjectProvider>
+                        </QueryClientProvider>
+                    </AuthProvider>
+                </ThemeProvider>
             </LanguageProvider>
         // </MsalProvider>
         , document.getElementById('root')

@@ -3,20 +3,27 @@ import menuData from "../data/config/Menu.json";
 import DefinitionView from "../view/DefinitionView";
 import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";
+import {useProject} from "./Project";
 
 const MenuContext = createContext();
 
 export const MenuProvider = ({ children }) => {
+
     const [menu, setMenu] = useState([]);
     const [isMenuOpen, setIsMenuOpen] = useState(true);
-
-    // TODO: separate Popup state as a standalone context
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
-
     const [currentMenu, setCurrentMenu] = useState({
         CURRENT: { ID: "M1_1", NAME: "definition_description" },
         PARENT: { ID: "M1", NAME: "definition" },
     });
+    const { currentProject } = useProject();
+
+    // Set to view first menu when project changes
+    useEffect(() => {
+        setCurrentMenu({
+            CURRENT: { ID: "M1_1", NAME: "definition_description" },
+            PARENT: { ID: "M1", NAME: "definition" },
+        })
+    }, [currentProject]);
 
     // Views mapped to each menu item
     const currentMenuToView = {
@@ -41,7 +48,6 @@ export const MenuProvider = ({ children }) => {
             isMenuOpen, toggleMenu,
             currentMenu, setCurrentMenu,
             currentMenuToView,
-            isPopupOpen, setIsPopupOpen
         }}>
             {children}
         </MenuContext.Provider>

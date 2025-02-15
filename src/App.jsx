@@ -9,13 +9,16 @@ import { useMsal } from "@azure/msal-react";
 import { useEffect } from "react";
 import { InteractionStatus } from "@azure/msal-browser";
 import { useMenu } from "./context/Menu";
-import ProjectSelectControl from "./module/project/ProjectSelectControl";
+import ProjectTabArea from "./module/project/ProjectTabArea";
 import { useProject } from "./context/Project";
 import LoadingSpinner from "./module/LoadingSpinner";
+import {usePopup} from "./context/Popup";
+import ProjectSettingPopup from "./module/project/ProjectSettingPopup";
 
 const App = () => {
     const { isMenuOpen } = useMenu();
     const { isProjectLoading } = useProject();
+    const { isProjectPopupOpen } = usePopup();
 
     // const { instance, accounts, inProgress } = useMsal();
     // useEffect(() => {
@@ -33,7 +36,7 @@ const App = () => {
                 <>
                     <Row pb="2">
                         <Col width="12">
-                            <ProjectSelectControl />
+                            <ProjectTabArea />
                         </Col>
                     </Row>
                     <Container fluid>
@@ -46,6 +49,10 @@ const App = () => {
                             </Col>
                         </Row>
                     </Container>
+
+                    {isProjectPopupOpen && (
+                        <ProjectSettingPopup />
+                    )}
                 </>
             )}
         </>
