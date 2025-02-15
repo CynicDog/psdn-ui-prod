@@ -23,7 +23,9 @@ const ProjectLists = ({ projects, currentProject, onSelect }) => {
                     </Col>
 
                     <Col width="6" responsive="lg">
-                        Project Description..
+                        <Span m="1">
+                            Project Description..
+                        </Span>
                     </Col>
 
                     <Col width="4" responsive="lg">
