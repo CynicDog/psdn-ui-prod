@@ -6,7 +6,7 @@
       {
         "ID": "M1_1",
         "NAME": "definition_description",
-        "SHOWN_TO": ["DEV", "CONSUMER", "ADMIN", "VERIFIER"]
+        "SHOWN_TO": ["DEV", "OWNER", "CONSUMER", "ADMIN", "VERIFIER"]
       }
     ]
   },
@@ -17,12 +17,12 @@
       {
         "ID": "M2_1",
         "NAME": "configuration_request",
-        "SHOWN_TO": ["DEV", "CONSUMER"]
+        "SHOWN_TO": ["DEV", "OWNER"]
       },
       {
         "ID": "M2_2",
         "NAME": "configuration_history",
-        "SHOWN_TO": ["DEV", "CONSUMER"]
+        "SHOWN_TO": ["DEV", "OWNER"]
       },
       {
         "ID": "M2_3",

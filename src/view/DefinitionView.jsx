@@ -2,6 +2,7 @@ import Area from "../component/Area";
 import RuleDefinitionEntry from "../module/definition/RuleDefinitionEntry";
 import Button from "../component/Button";
 import {useLanguage} from "../context/Language";
+import Icon from "../component/Icon";
 
 const DefinitionView = () => {
 
@@ -11,7 +12,7 @@ const DefinitionView = () => {
         <>
             <Area style={{fontSize: "0.9rem"}}>
                 <Area flex justifyContent="end">
-                    <Button size="sm" variant="light">
+                    <Button size="sm" outline variant="primary">
                         {t('components.pseudonymization_guide_download')}
                     </Button>
                 </Area>
