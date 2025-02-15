@@ -1,7 +1,10 @@
 // Grid Row Component
 const Row = ({
                  children,
+                 onClick,
                  className = "",
+                 bg = '',
+                 rounded = '',
                  flex = false,
                  justifyContent = '',
                  alignItems = '',
@@ -10,6 +13,8 @@ const Row = ({
              }) => {
     const classes = [
         "row",
+        bg ? `bg-${bg}` : '',
+        rounded ? `rounded rounded-${rounded}` : '',
         flex ? 'd-flex' : '',
         justifyContent ? `justify-content-${justifyContent}` : '',
         alignItems ? `align-items-${alignItems}` : '',
@@ -20,7 +25,7 @@ const Row = ({
         className
     ].filter(Boolean).join(" ");
 
-    return <div className={classes}>{children}</div>;
+    return <div className={classes} onClick={onClick}>{children}</div>;
 };
 
 // Grid Column Component

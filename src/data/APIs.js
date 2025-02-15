@@ -115,14 +115,14 @@ export const fetchUserProjects = async (username) => {
  * @description Fetches table data dynamically based on the given table name.
  * TODO: Replace with a backend API call in production.
  *
- * @param {string} tableName - The table name to fetch.
+ * @param {string} tableId - The table id to fetch.
  * @returns {Promise<Object>} - A promise resolving to the table data directly, without the table name key.
  */
-export const fetchProjectTable = async (tableName) => {
+export const fetchProjectTable = async (tableId) => {
     try {
         // Fetch the data for the given table from the mock server
-        const response = await fetch(`https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/table/${tableName}.json`);
-        if (!response.ok) throw new Error(`Failed to fetch ${tableName} data`);
+        const response = await fetch(`https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/table/${tableId}.json`);
+        if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
         const tableData = await response.json();
 

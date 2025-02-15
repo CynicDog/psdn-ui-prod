@@ -28,7 +28,7 @@ export const BaseDBProvider = ({ children }) => {
             setIsCurrentBaseDBLoading(false);
             setCurrentBaseDB(null);
         } else {
-            Promise.all(currentProject.TABLES.map(table => fetchProjectTable(table)))
+            Promise.all(currentProject.TABLES.map(table => fetchProjectTable(table.ID)))
                 .then((tables) => {
                     setBaseDB(tables);
                     // Set the first table as the current BaseDB

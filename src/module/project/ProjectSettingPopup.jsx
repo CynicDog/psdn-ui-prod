@@ -9,7 +9,7 @@ import Button from "../../component/Button";
 import LanguageSelector from "../LanguageSelector";
 import ThemeSelector from "../ThemeSelector";
 import AuthBadge from "../AuthBadge";
-import ProjectCardsArea from "./ProjectCardsArea";
+import ProjectLists from "./ProjectLists";
 
 const ProjectSettingPopup = () => {
 
@@ -52,7 +52,7 @@ const ProjectSettingPopup = () => {
 
                 {/* Project Cards */}
                 <Area marginTop="5%">
-                    <ProjectCardsArea
+                    <ProjectLists
                         projects={projects}
                         currentProject={currentProject}
                         onSelect={setCurrentProject}

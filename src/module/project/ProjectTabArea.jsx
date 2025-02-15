@@ -2,11 +2,12 @@ import { useProject } from "../../context/Project";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
 import {usePopup} from "../../context/Popup";
+import Icon from "../../component/Icon";
 
 const ProjectTabArea = () => {
 
     const { projects, currentProject, setCurrentProject } = useProject();
-    const { isProjectPopupOpen  } = usePopup();
+    const { isProjectPopupOpen, setIsProjectPopupOpen  } = usePopup();
 
     // If ProjectSettingPopup is open, render none.
     if (isProjectPopupOpen) return null;
@@ -21,13 +22,8 @@ const ProjectTabArea = () => {
     const nonCurrentWidth = `${(100 - parseInt(currentWidth)) / nonCurrentProjects}%`;
 
     return (
-        <Area
-            flex
-            borderTop
-            bg="body"
+        <Area flex borderTop bg="body" width="100%" fontSize="smaller"
             style={{
-                width: "100%",
-                fontSize: "smaller",
                 position: "fixed",
                 bottom: "0"
         }}>
@@ -49,6 +45,14 @@ const ProjectTabArea = () => {
                     </Area>
                 );
             })}
+            {/* Add the "settings" icon at the end */}
+            <Area
+                onClick={() => setIsProjectPopupOpen(true)}
+                cursor="pointer"
+                mx="2"
+            >
+                <Icon name="arrows-fullscreen" />
+            </Area>
         </Area>
     );
 };

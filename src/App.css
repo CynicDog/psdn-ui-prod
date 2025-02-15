@@ -43,21 +43,6 @@
     z-index: 1000;
 }
 
-.badge-warning {
-    display: inline-block;
-    padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
-    font-size: var(--bs-badge-font-size, 0.75em);
-    font-weight: var(--bs-badge-font-weight, 700);
-    line-height: 1;
-    color: var(--bs-warning-text-emphasis, #856404);
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    background-color: var(--bs-warning-bg-subtle, #fff3cd);
-    border: var(--bs-border-width, 1px) var(--bs-border-style, solid) var(--bs-warning-border-subtle, #ffeeba);
-    border-radius: var(--bs-border-radius-pill, 50rem);
-}
-
 .badge-primary {
     display: inline-block;
     padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
@@ -70,6 +55,36 @@
     vertical-align: baseline;
     background-color: var(--bs-primary-bg-subtle, #cfe2ff);
     border: var(--bs-border-width, 1px) var(--bs-border-style, solid) var(--bs-primary-border-subtle, #bfdfff);
+    border-radius: var(--bs-border-radius-pill, 50rem);
+}
+
+.badge-secondary {
+    display: inline-block;
+    padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
+    font-size: var(--bs-badge-font-size, 0.75em);
+    font-weight: var(--bs-badge-font-weight, 700);
+    line-height: 1;
+    color: var(--bs-secondary-text-emphasis, #6c757d);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: var(--bs-secondary-bg-subtle, #e2e3e5);
+    border: var(--bs-border-width, 1px) var(--bs-border-style, solid) var(--bs-secondary-border-subtle, #d6d8db);
+    border-radius: var(--bs-border-radius-pill, 50rem);
+}
+
+.badge-warning {
+    display: inline-block;
+    padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
+    font-size: var(--bs-badge-font-size, 0.75em);
+    font-weight: var(--bs-badge-font-weight, 700);
+    line-height: 1;
+    color: var(--bs-warning-text-emphasis, #856404);
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: var(--bs-warning-bg-subtle, #fff3cd);
+    border: var(--bs-border-width, 1px) var(--bs-border-style, solid) var(--bs-warning-border-subtle, #ffeeba);
     border-radius: var(--bs-border-radius-pill, 50rem);
 }
 
