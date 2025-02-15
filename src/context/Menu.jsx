@@ -17,14 +17,14 @@ export const MenuProvider = ({ children }) => {
     });
     const { currentProject } = useProject();
 
-    // Set to view first menu when project changes
-    useEffect(() => {
-        setCurrentMenu({
-            CURRENT: { ID: "M1_1", NAME: "definition_description" },
-            PARENT: { ID: "M1", NAME: "definition" },
-        })
-        setIsMenuOpen(true);
-    }, [currentProject]);
+    // // Set to view first menu when project changes
+    // useEffect(() => {
+    //     setCurrentMenu({
+    //         CURRENT: { ID: "M1_1", NAME: "definition_description" },
+    //         PARENT: { ID: "M1", NAME: "definition" },
+    //     })
+    //     setIsMenuOpen(true);
+    // }, [currentProject]);
 
     // Views mapped to each menu item
     const currentMenuToView = {
