@@ -1,5 +1,5 @@
 /**
- * Fetches column data from a mock API.
+ * @description Fetches column data from a mock API.
  * TODO: Replace with a backend endpoint in production.
  *
  * @param {string} COL_NAME - The name of the column to fetch data for.
@@ -18,7 +18,7 @@ export const fetchColumnData = async (COL_NAME) => {
 
 
 /**
- * Fetches rule definitions data from the mock API.
+ * @description Fetches rule definitions data from the mock API.
  * TODO: Replace with a backend endpoint in production.
  *
  * @returns {Promise<Object>} - The rule definitions data in JSON format.
@@ -41,7 +41,7 @@ export const fetchRuleDefinitions = async () => {
 
 
 /**
- * Fetches PSDN master data from the mock API.
+ * @description Fetches PSDN master data from the mock API.
  * TODO: Replace with a backend endpoint in production.
  *
  * @returns {Promise<Object>} - The PSDN master data in JSON format.
@@ -64,7 +64,7 @@ export const fetchPSDNMaster = async () => {
 
 
 /**
- * Fetches PSDN codes data from the mock API.
+ * @description Fetches PSDN codes data from the mock API.
  * TODO: Replace with a backend endpoint in production.
  *
  * @returns {Promise<Object>} - The PSDN codes data in JSON format.
@@ -87,8 +87,7 @@ export const fetchPSDNCodes = async () => {
 
 
 /**
- * Fetches project data for a specific user.
- * Simulates retrieving user project data from a local JSON file.
+ * @description Fetches project data for a specific user. Simulates retrieving user project data from a local JSON file.
  * TODO: Replace with a backend API call in production.
  *
  * @param {string} username - The username of the user whose projects are being fetched.
@@ -113,7 +112,7 @@ export const fetchUserProjects = async (username) => {
 
 
 /**
- * Fetches table data dynamically based on the given table name.
+ * @description Fetches table data dynamically based on the given table name.
  * TODO: Replace with a backend API call in production.
  *
  * @param {string} tableName - The table name to fetch.

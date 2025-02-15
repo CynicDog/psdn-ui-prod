@@ -3,22 +3,13 @@ import Span from "../component/Span";
 import { useLanguage } from "../context/Language";
 import { useAuth } from "../context/Auth";
 import Tooltip from "../component/Tooltip";
-import { ROLES } from "../context/util";
+import {getNextUser, ROLES} from "../context/util";
 import { useMenu } from "../context/Menu";
 
 const MainLayoutHeader = () => {
     const { t } = useLanguage();
     const { auth, setAuth } = useAuth();
     const { currentMenu } = useMenu();
-
-    /* TODO: Development Only */
-    // Function to cycle to the next role
-    const getNextRole = (currentRole) => {
-        const roles = Object.values(ROLES);
-        const currentIndex = roles.indexOf(currentRole);
-        const nextIndex = (currentIndex + 1) % roles.length;
-        return roles[nextIndex];
-    };
 
     return (
         <Area flex justifyContent="between" alignItems="center" mb="3">
@@ -39,15 +30,8 @@ const MainLayoutHeader = () => {
                 <Span
                     badge="light"
                     onClick={() => {
-                        /* TODO: Development Only */
-                        const nextRole = getNextRole(auth.role);
-                        console.log(nextRole)
-                        // Update the authentication context with the next role
-                        setAuth({
-                            ...auth, // Retain other auth data
-                            role: nextRole // Update role to the next one
-                        });
-                        alert(`(개발용) 현재 역할: ${nextRole}`);
+                        const nextUser = getNextUser(auth.username);
+                        setAuth(nextUser);
 
                         // production only
                         // instance.logoutPopup();

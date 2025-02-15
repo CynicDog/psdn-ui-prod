@@ -2,8 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
 /**
- * Custom hook to debounce a value over a specified delay.
- * Useful for optimizing expensive operations like API calls, filtering, or searching.
+ * @description Custom hook to debounce a value over a specified delay.
  *
  * @param {any} value - The input value to debounce.
  * @param {number} delay - The debounce delay in milliseconds.
@@ -29,7 +28,7 @@ const useDebounce = (value, delay) => {
 export default useDebounce;
 
 /**
- * Extracts column names from `ConfigTableHeader`'s children (`ConfigTableColumn` components)
+ * @description Extracts column names from `ConfigTableHeader`'s children (`ConfigTableColumn` components)
  * Uses direct component reference comparison.
  * @param {React.ReactNode} children - The children of ConfigTable
  * @returns {string[]} - Array of column names
@@ -50,13 +49,55 @@ export const extractColumnNames = (children) => {
 };
 
 /**
- * Enum-like object to represent roles within the application.
- * This is a JavaScript equivalent of an enum, which helps ensure consistency and prevent typos when handling roles.
+ * @description Enum-like object to represent roles within the application.
  */
 export const ROLES = Object.freeze({
     DEV: "DEV",             // Developer role
+    OWNER: "OWNER",         // User role
     CONSUMER: "CONSUMER",   // Consumer role
     ADMIN: "ADMIN",         // Administrator role
     VERIFIER: "VERIFIER",   // Verifier role
 });
 
+/**
+ * @description Enum-like object to represent usernames. FOR DEVELOPMENT ONLY
+ */
+export const DEV_USERS = Object.freeze({
+    JohnDoe: {
+        username: "JohnDoe",
+        email: "JohnDoe@gmail.com",
+        role: ROLES.DEV
+    },
+    JaneSmith: {
+        username: "JaneSmith",
+        email: "JaneSmith@gmail.com",
+        role: ROLES.OWNER
+    },
+    AlexBrown: {
+        username: "AlexBrown",
+        email: "AlexBrown@gmail.com",
+        role: ROLES.CONSUMER
+    },
+    SamTaylor: {
+        username: "SamTaylor",
+        email: "SamTaylor@gmail.com",
+        role: ROLES.CONSUMER
+    },
+    EmmaWilson: {
+        username: "EmmaWilson",
+        email: "EmmaWilson@gmail.com",
+        role: ROLES.ADMIN
+    },
+    MaxDavis: {
+        username: "MaxDavis",
+        email: "MaxDavis@gmail.com",
+        role: ROLES.VERIFIER
+    }
+});
+
+export const getNextUser = (currentUsername) => {
+    const users = Object.values(DEV_USERS);
+    const currentIndex = users.findIndex(user => user.username === currentUsername);
+    const nextIndex = (currentIndex + 1) % users.length;
+    return users[nextIndex];
+};
