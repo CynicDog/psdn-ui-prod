@@ -1,7 +1,15 @@
-const Icon = ({ name, onClick }) => {
+const Icon = ({
+                  name,
+                  variant = '',
+                  onClick
+}) => {
+
+    const classes = [
+        variant ? `text-${variant}` : '',
+    ].filter(Boolean).join(' ');
 
     return (
-        <i className={`bi bi-${name}`} onClick={onClick} style={{cursor: "pointer"}}></i>
+        <i className={`bi bi-${name} ${classes}`} onClick={onClick} style={{cursor: "pointer"}}></i>
     )
 }
 

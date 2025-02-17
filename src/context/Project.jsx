@@ -48,20 +48,18 @@ export const ProjectProvider = ({ children }) => {
             // Remove the dragged project from its original position
             const [movedProject] = updatedProjects.splice(sourceIndex, 1);
 
-            // Recalculate the new target index after removal
-            const newTargetIndex = sourceIndex < targetIndex ? targetIndex - 1 : targetIndex;
-
             // Insert it at the target position
-            updatedProjects.splice(newTargetIndex, 0, movedProject);
+            updatedProjects.splice(targetIndex, 0, movedProject);
 
-            // Update the ORDER property
+            // Update the ORDER property to reflect the new position
             updatedProjects.forEach((project, index) => {
-                project.ORDER = index; // Ensures correct order after reordering
+                project.ORDER = index;
             });
 
             return { ...prevProjects, data: updatedProjects };
         });
     };
+
 
     return (
         <ProjectContext.Provider
