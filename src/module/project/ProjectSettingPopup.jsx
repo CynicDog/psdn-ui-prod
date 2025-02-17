@@ -9,15 +9,15 @@ import Button from "../../component/Button";
 import LanguageSelector from "../LanguageSelector";
 import ThemeSelector from "../ThemeSelector";
 import AuthBadge from "../AuthBadge";
-import ProjectLists from "./ProjectLists";
 import PopupHeader from "../../component/PopupHeader";
 import PopupBody from "../../component/PopupBody";
+import ProjectCard from "./ProjectCard";
 
 const ProjectSettingPopup = () => {
 
     // TODO:
     //  1. Color System
-    //  2. DND to order
+    //  2. DND to order (DONE)
     //  3. In-line editing for project name
     //  4. Add / Delete projects
 
@@ -52,11 +52,15 @@ const ProjectSettingPopup = () => {
                     </Area>
                     {/* Projects list */}
                     <Area marginTop="5%">
-                        <ProjectLists
-                            projects={projects}
-                            currentProject={currentProject}
-                            onSelect={setCurrentProject}
-                        />
+                        {projects?.data?.map((project) => (
+                            <ProjectCard
+                                key={project.ID}
+                                project={project}
+                                order={project.ORDER}
+                                onSelect={setCurrentProject}
+                                currentProject={currentProject}
+                            />
+                        ))}
                     </Area>
                 </PopupBody>
             </PopupContent>

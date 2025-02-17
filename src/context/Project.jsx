@@ -1,9 +1,8 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./Auth";
 import { fetchUserProjects } from "../data/APIs";
-import {useMenu} from "./Menu";
 
-// Project Context
+{/* Project Context */}
 const ProjectContext = createContext();
 
 export const ProjectProvider = ({ children }) => {
@@ -12,6 +11,10 @@ export const ProjectProvider = ({ children }) => {
     const [currentProject, setCurrentProject] = useState(null);
     const [isProjectLoading, setIsProjectLoading] = useState(true);
     const [error, setError] = useState(null);
+
+    // DND State for Dragging Projects
+    const [sourceProjectDraggable, setSourceProjectDraggable] = useState(null);
+    const [targetProjectDraggable, setTargetProjectDraggable] = useState(null);
 
     useEffect(() => {
         if (!auth?.username) return;
@@ -37,8 +40,40 @@ export const ProjectProvider = ({ children }) => {
         }
     }, [auth]);
 
+    // Handle Drag-and-Drop Reordering of Projects
+    const handleMoveProject = (sourceProjectId, sourceIndex, targetProjectId, targetIndex) => {
+        setProjects((prevProjects) => {
+            const updatedProjects = [...prevProjects.data];
+
+            // Remove the dragged project from its original position
+            const [movedProject] = updatedProjects.splice(sourceIndex, 1);
+
+            // Recalculate the new target index after removal
+            const newTargetIndex = sourceIndex < targetIndex ? targetIndex - 1 : targetIndex;
+
+            // Insert it at the target position
+            updatedProjects.splice(newTargetIndex, 0, movedProject);
+
+            // Update the ORDER property
+            updatedProjects.forEach((project, index) => {
+                project.ORDER = index; // Ensures correct order after reordering
+            });
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
+
     return (
-        <ProjectContext.Provider value={{ projects, currentProject, setCurrentProject, isProjectLoading }}>
+        <ProjectContext.Provider
+            value={{
+                projects, setProjects,
+                currentProject, setCurrentProject,
+                isProjectLoading,
+                sourceProjectDraggable, setSourceProjectDraggable,
+                targetProjectDraggable, setTargetProjectDraggable,
+                handleMoveProject
+            }}
+        >
             {children}
         </ProjectContext.Provider>
     );

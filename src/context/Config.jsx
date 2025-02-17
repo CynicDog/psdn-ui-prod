@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 import { useBaseDB } from "./BaseDB";
 import {useMeta} from "./Meta";
 
+{/* Config Context */}
 const ConfigContext = createContext();
 
 export const ConfigProvider = ({ children }) => {
@@ -18,6 +19,7 @@ export const ConfigProvider = ({ children }) => {
     const [selectedRows, setSelectedRows] = useState([]);
     const [selectedRule, setSelectedRule] = useState("");
 
+    // DND states for dragging rules
     const [sourceRuleDraggable, setSourceRuleDraggable] = useState(null);
     const [targetRuleDraggable, setTargetRuleDraggable] = useState(null);
 
