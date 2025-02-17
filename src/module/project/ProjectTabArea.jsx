@@ -40,12 +40,14 @@ const ProjectTabArea = () => {
                         textPosition="center"
                         width={width}
                         borderRadius="5px 5px 0 0"
+                        cursor="pointer"
                     >
-                        {project.NAME}
+                        <Span fontWeight="light">
+                            {project.NAME}
+                        </Span>
                     </Area>
                 );
             })}
-            {/* Add the "settings" icon at the end */}
             <Area
                 onClick={() => setIsProjectPopupOpen(true)}
                 cursor="pointer"

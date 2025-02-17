@@ -1,7 +1,7 @@
 import { Col, Row } from "../../component/Grid";
 import Span from "../../component/Span";
 import DraggableArea from "../../component/DraggableArea";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { useProject } from "../../context/Project";
 import Icon from "../../component/Icon";
 import InputField from "../../component/InputField";
@@ -59,6 +59,11 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
             const updatedProjects = prevProjects.data.map((p) =>
                 p.ID === project.ID ? { ...p, NAME: editedName, DESCRIPTION: editedDescription } : p
             );
+
+            // Preserve the selected project after the update
+            const updatedProject = updatedProjects.find((p) => p.ID === project.ID);
+            onSelect(updatedProject);
+
             return { ...prevProjects, data: updatedProjects };
         });
         setIsEditing(false);
