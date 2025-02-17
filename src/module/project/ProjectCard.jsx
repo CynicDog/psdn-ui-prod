@@ -5,8 +5,10 @@ import {useEffect, useState} from "react";
 import { useProject } from "../../context/Project";
 import Icon from "../../component/Icon";
 import InputField from "../../component/InputField";
+import {useLanguage} from "../../context/Language";
 
 const ProjectCard = ({ project, order, onSelect, currentProject }) => {
+    const { t } = useLanguage();
     const {
         sourceProjectDraggable, setSourceProjectDraggable,
         targetProjectDraggable, setTargetProjectDraggable,
@@ -110,7 +112,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                         />
                     ) : (
                         <Span m="1">
-                            {project.DESCRIPTION || "No Description"}
+                            {project.DESCRIPTION || t('components.project_no_description')}
                         </Span>
                     )}
                 </Col>

@@ -22,6 +22,8 @@
   },
   "components": {
     "select_project": "Select Project.",
+    "project_no_description": "No Description.",
+    "add_new_project": "Add New Project",
     "pseudonymization_title": "Pseudonymization",
     "grid_row_control_check": "Select",
     "record_detail_title": "Record Details",
