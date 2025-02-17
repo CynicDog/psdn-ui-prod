@@ -98,7 +98,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                         />
                     ) : (
                         <Span badge="secondary-filled" fontWeight="light">
-                            {project.NAME}
+                            {project.NAME || t('components.project_no_content')}
                         </Span>
                     )}
                 </Col>
@@ -112,7 +112,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                         />
                     ) : (
                         <Span m="1">
-                            {project.DESCRIPTION || t('components.project_no_description')}
+                            {project.DESCRIPTION || t('components.project_no_content')}
                         </Span>
                     )}
                 </Col>

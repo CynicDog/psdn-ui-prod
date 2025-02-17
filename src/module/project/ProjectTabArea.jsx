@@ -25,7 +25,7 @@ const ProjectTabArea = () => {
         <Area flex borderTop bg="body" width="100%" fontSize="smaller"
             style={{
                 position: "fixed",
-                bottom: "0"
+                bottom: "0",
         }}>
             {/* Render all projects */}
             {projects.data.map((project, index) => {

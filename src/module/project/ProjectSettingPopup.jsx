@@ -73,7 +73,7 @@ const ProjectSettingPopup = () => {
                     </Area>
                 </PopupHeader>
                 <PopupBody>
-                    <Area textPosition="center" marginTop="5%">
+                    <Area textPosition="center">
                         <Span fontSize="3" fontWeight="lighter">
                             {t('components.select_project')}
                         </Span>
@@ -88,7 +88,7 @@ const ProjectSettingPopup = () => {
                     </Area>
 
                     {/* Projects list with auto-scroll */}
-                    <Area ref={projectListRef} style={{ maxHeight: "60vh", overflowY: "auto" }} marginTop="5%">
+                    <Area ref={projectListRef} marginTop="5%">
                         {projects?.data?.map((project) => (
                             <ProjectCard
                                 key={project.ID}

@@ -66,6 +66,10 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
+            style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden"
+            }}
         >
             <Span fontWeight="light">
                 {project.NAME}
