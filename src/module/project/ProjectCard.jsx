@@ -1,11 +1,14 @@
 import { Col, Row } from "../../component/Grid";
 import Span from "../../component/Span";
 import DraggableArea from "../../component/DraggableArea";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import { useProject } from "../../context/Project";
 import Icon from "../../component/Icon";
 import InputField from "../../component/InputField";
 import {useLanguage} from "../../context/Language";
+import Tooltip from "../../component/Tooltip";
+import {PROJECT_COLORS} from "../../context/util";
+import Area from "../../component/Area";
 
 const ProjectCard = ({ project, order, onSelect, currentProject }) => {
     const { t } = useLanguage();
@@ -89,7 +92,8 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
             onDrop={handleDrop}
         >
             <Row key={project.ID} rounded p="3" m="3" flex alignItems="center">
-                <Col width="2" responsive="lg" my="1">
+                {/* Project name */}
+                <Col width="3" responsive="lg" my="1">
                     {isEditing ? (
                         <InputField
                             id={`name-${project.ID}`}
@@ -97,13 +101,16 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                             onChange={(e) => setEditedName(e.target.value)}
                         />
                     ) : (
-                        <Span badge="secondary-filled" fontWeight="light">
-                            {project.NAME || t('components.project_no_content')}
-                        </Span>
+                        <Area flex justifyContent="start" alignItems="center" gap="1">
+                            <Span badge="secondary-filled" fontWeight="light">
+                                {project.NAME}
+                            </Span>
+                        </Area>
                     )}
                 </Col>
 
-                <Col width="5" responsive="lg" my="1">
+                {/* Project description */}
+                <Col width="4" responsive="lg" my="1">
                     {isEditing ? (
                         <InputField
                             id={`desc-${project.ID}`}
@@ -112,11 +119,12 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                         />
                     ) : (
                         <Span m="1">
-                            {project.DESCRIPTION || t('components.project_no_content')}
+                            {project.DESCRIPTION || t('components.project_no_description')}
                         </Span>
                     )}
                 </Col>
 
+                {/* Project's working tables */}
                 <Col width="4" responsive="lg" my="1">
                     {project.TABLES?.map((table) => (
                         <Span key={table.ID} badge="primary-filled" mx="1">
@@ -125,6 +133,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                     ))}
                 </Col>
 
+                {/* Edit button */}
                 <Col width="1" responsive="lg" flex justifyContent="end" my="1">
                     <Icon
                         name={isEditing ? "check-lg" : "pencil-fill"}
@@ -135,6 +144,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                         variant="secondary"
                     />
                 </Col>
+
             </Row>
         </DraggableArea>
     );

@@ -23,11 +23,6 @@
         "ID": "M2_2",
         "NAME": "configuration_history",
         "SHOWN_TO": ["DEV", "OWNER"]
-      },
-      {
-        "ID": "M2_3",
-        "NAME": "configuration_approval",
-        "SHOWN_TO": ["DEV", "CONSUMER"]
       }
     ]
   },

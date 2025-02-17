@@ -10,7 +10,7 @@
     "configuration_request": "요청",
     "configuration_history": "이력",
     "configuration_approval": "승인",
-    "re_identification": "재식별 처리",
+    "re_identification": "재식별",
     "re_identification_request": "요청",
     "re_identification_history": "이력",
     "re_identification_approval": "승인",
@@ -22,7 +22,7 @@
   },
   "components": {
     "select_project": "프로젝트를 선택하세요.",
-    "project_no_content": "내용을 기입해주세요.",
+    "project_no_description": "내용을 기입해주세요.",
     "add_new_project": "신규 프로젝트 추가",
     "pseudonymization_title": "가명화",
     "grid_row_control_check": "선택",

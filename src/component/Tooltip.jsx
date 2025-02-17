@@ -8,8 +8,9 @@ const Tooltip = ({
                      rounded = '',
                      bg = '',
                      shadow = '',
-                     gap = 8,
+                     gap = 2,
                      p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
+                     shownWhen = "mouseEnter", // Default behavior
                  }) => {
     const [visible, setVisible] = useState(false);
     const [coords, setCoords] = useState({ left: 0, top: 0 });
@@ -61,6 +62,43 @@ const Tooltip = ({
         }
     }, [visible]);
 
+    useEffect(() => {
+        if (shownWhen === "click") {
+            const handleClickOutside = (event) => {
+                if (
+                    tooltipRef.current &&
+                    !tooltipRef.current.contains(event.target) &&
+                    targetRef.current &&
+                    !targetRef.current.contains(event.target)
+                ) {
+                    setVisible(false);
+                }
+            };
+
+            if (visible) {
+                document.addEventListener("mousedown", handleClickOutside);
+            } else {
+                document.removeEventListener("mousedown", handleClickOutside);
+            }
+
+            return () => document.removeEventListener("mousedown", handleClickOutside);
+        }
+    }, [visible, shownWhen]);
+
+    const handleTrigger = () => {
+        if (shownWhen === "mouseEnter") {
+            setVisible(true);
+        } else if (shownWhen === "click") {
+            setVisible((prev) => !prev); // Toggle on click
+        }
+    };
+
+    const handleMouseLeave = () => {
+        if (shownWhen === "mouseEnter") {
+            setVisible(false);
+        }
+    };
+
     const classes = [
         'text-secondary',
         border ? `border border-${border}` : '',
@@ -79,9 +117,10 @@ const Tooltip = ({
     return (
         <div
             ref={targetRef}
-            onMouseEnter={() => setVisible(true)}
-            onMouseLeave={() => setVisible(false)}
-            style={{ display: "inline-block" }}
+            onMouseEnter={shownWhen === "mouseEnter" ? handleTrigger : undefined}
+            onMouseLeave={shownWhen === "mouseEnter" ? handleMouseLeave : undefined}
+            onClick={shownWhen === "click" ? handleTrigger : undefined}
+            style={{ display: "inline-block", cursor: shownWhen === "click" ? "pointer" : "default" }}
         >
             {children}
             {visible && (
