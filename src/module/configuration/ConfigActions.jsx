@@ -27,23 +27,22 @@ const ConfigActions = () => {
     return (
         <Area flex borderBottom gap="2" p="2">
             <Button size="sm" variant="light" onClick={resetFilters}>
-                {t("components.reset_filters")}
+                {t("action.reset_filters")}
             </Button>
             <Button size="sm" variant="light" onClick={() => handleMasterControlUpdate(1)}>
-                {t("pseudonymization.set_APPT")} <i className="bi bi-check-square"></i>
+                {t("action.set_APPT")} <i className="bi bi-check-square"></i>
             </Button>
             <Button size="sm" variant="light" onClick={() => handleMasterControlUpdate(0)}>
-                {t("pseudonymization.set_APPT")} <i className="bi bi-x-square"></i>
+                {t("action.set_APPT")} <i className="bi bi-x-square"></i>
             </Button>
             <Button size="sm" variant="light" onClick={() => setShowRuleDropdown(!showRuleDropdown)}>
-                {t("components.apply_in_batch_rule")}
+                {t("action.apply_in_batch_rule")}
             </Button>
-
             {showRuleDropdown && (
                 <Dropdown
                     id="rule-dropdown"
                     options={[
-                        { value: "", label: t("components.select_rule") },
+                        { value: "", label: t("action.select_rule") },
                         ...pseudoMaster.rules.map(rule => ({
                             value: rule.ID,
                             label: getLocalizedName(rule)
@@ -55,14 +54,12 @@ const ConfigActions = () => {
                     me="2"
                 />
             )}
-
             <Button size="sm" variant="light" onClick={handleDeleteAllRules}>
-                {t("components.delete_all_rules")}
+                {t("action.delete_all_rules")}
             </Button>
-
             <Area ms="auto">
                 <Button size="sm" variant="light" onClick={downloadJSON}>
-                    {t("components.config_download")} <code className="ms-1">config.json</code>
+                    {t("action.config_download")} <code className="ms-1">config.json</code>
                 </Button>
             </Area>
         </Area>

@@ -85,7 +85,7 @@ const ConfigTablePaginationControl = () => {
                     { value: totalRows, label: t('components.select_option_all') }
                 ]}
                 border="1"
-                width="20%"
+                width="15%"
             />
             <Button
                 variant="light"

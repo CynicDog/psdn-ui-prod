@@ -29,16 +29,11 @@
     "record_detail_title": "레코드 상세",
     "close": "닫기",
     "delete": "삭제",
-    "config_download": "내려받기",
     "pagination_button_previous": "이전",
     "pagination_button_next": "다음",
     "rows_per_page": "보기",
     "search_placeholder": "칼럼 검색",
     "select_option_all": "전체",
-    "reset_filters": "필터 초기화",
-    "select_rule": "선택",
-    "apply_in_batch_rule": "규칙 지정",
-    "delete_all_rules": "규칙 삭제",
     "no_rules_to_apply": "지정된 가명화 규칙이 없습니다.",
     "loading_message": "Loading..",
     "definition_name": "규칙명",
@@ -55,7 +50,12 @@
     "request_table_designation": "테이블을 먼저 지정해주세요.",
     "tooltip_logout": "클릭 시 로그아웃"
   },
-  "pseudonymization": {
-    "set_APPT": "규칙 적용"
+  "action": {
+    "reset_filters": "필터 초기화",
+    "set_APPT": "적용",
+    "apply_in_batch_rule": "지정",
+    "select_rule": "선택",
+    "delete_all_rules": "삭제",
+    "config_download": "내려받기"
   }
 }

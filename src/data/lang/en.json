@@ -29,16 +29,11 @@
     "record_detail_title": "Record Details",
     "close": "close",
     "delete": "delete",
-    "config_download": "Download",
     "pagination_button_previous": "previous",
     "pagination_button_next": "next",
     "rows_per_page": "Per Page",
     "search_placeholder": "Search column(s)",
     "select_option_all": "All",
-    "reset_filters": "Reset Filter(s)",
-    "select_rule": "Select",
-    "apply_in_batch_rule": "Assign a rule",
-    "delete_all_rules": "Delete rule(s)",
     "no_rules_to_apply": "No rules to apply.",
     "loading_message": "Loading..",
     "definition_name": "Name",
@@ -55,7 +50,12 @@
     "request_table_designation": "Designate a table first.",
     "tooltip_logout": "Click to log out."
   },
-  "pseudonymization": {
-    "set_APPT": "Set Apply"
+  "action": {
+    "reset_filters": "Reset Filter(s)",
+    "set_APPT": "Set Apply",
+    "apply_in_batch_rule": "Assign",
+    "select_rule": "Select",
+    "delete_all_rules": "Delete",
+    "config_download": "Download"
   }
 }
