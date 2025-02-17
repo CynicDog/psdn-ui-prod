@@ -89,7 +89,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
             onDrop={handleDrop}
         >
             <Row key={project.ID} rounded p="3" m="3" flex alignItems="center">
-                <Col width="2" responsive="lg">
+                <Col width="2" responsive="lg" my="1">
                     {isEditing ? (
                         <InputField
                             id={`name-${project.ID}`}
@@ -103,7 +103,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                     )}
                 </Col>
 
-                <Col width="5" responsive="lg">
+                <Col width="5" responsive="lg" my="1">
                     {isEditing ? (
                         <InputField
                             id={`desc-${project.ID}`}
@@ -117,7 +117,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                     )}
                 </Col>
 
-                <Col width="4" responsive="lg">
+                <Col width="4" responsive="lg" my="1">
                     {project.TABLES?.map((table) => (
                         <Span key={table.ID} badge="primary-filled" mx="1">
                             {table.NAME}
@@ -125,7 +125,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                     ))}
                 </Col>
 
-                <Col width="1" responsive="lg" flex justifyContent="end">
+                <Col width="1" responsive="lg" flex justifyContent="end" my="1">
                     <Icon
                         name={isEditing ? "check-lg" : "pencil-fill"}
                         onClick={(e) => {
