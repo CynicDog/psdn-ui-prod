@@ -1,8 +1,8 @@
 import { useProject } from "../../context/Project";
 import Area from "../../component/Area";
-import Span from "../../component/Span";
 import {usePopup} from "../../context/Popup";
 import Icon from "../../component/Icon";
+import ProjectTab from "./ProjectTab";
 
 const ProjectTabArea = () => {
 
@@ -29,29 +29,22 @@ const ProjectTabArea = () => {
         }}>
             {/* Render all projects */}
             {projects.data.map((project, index) => {
-                const isCurrent = currentProject === project;
-                const width = isCurrent ? currentWidth : nonCurrentWidth;
+                const width = currentProject === project ? currentWidth : nonCurrentWidth;
 
                 return (
-                    <Area
+                    <ProjectTab
                         key={index}
-                        bg={isCurrent ? "primary-subtle" : ""}
-                        onClick={() => setCurrentProject(project)}
-                        textPosition="center"
+                        order={project.ORDER}
+                        project={project}
+                        currentProject={currentProject}
+                        onSelect={() => setCurrentProject(project)}
                         width={width}
-                        borderRadius="5px 5px 0 0"
-                        cursor="pointer"
-                    >
-                        <Span fontWeight="light">
-                            {project.NAME}
-                        </Span>
-                    </Area>
+                    />
                 );
             })}
             <Area
                 onClick={() => setIsProjectPopupOpen(true)}
-                cursor="pointer"
-                mx="2"
+                cursor="pointer" ms="2" me="4"
             >
                 <Icon name="arrows-fullscreen" />
             </Area>

@@ -72,7 +72,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
     return (
         <DraggableArea
             order={order}
-            bg={currentProject === project ? "primary-subtle" : ""}
+            bg={currentProject === project ? "primary-subtle" : "body"}
             border rounded="2" shadow="sm" my="2"
             onClick={(e) => {
                 e.stopPropagation();
