@@ -20,7 +20,7 @@ const DraggableArea = ({
                            p = '', px = '', py = '', pt = '', pb = '', ps = '', pe = '',
                            m = '', mx = '', my = '', mt = '', mb = '', ms = '', me = '',
                            width = '',
-                           textPosition = '',
+                           cursor = '',
                            className = '',
                            style = {},
                        }) => {
@@ -66,6 +66,7 @@ const DraggableArea = ({
             style={{
                 opacity: isDragging || isOver ? 0.3 : 1,
                 width,
+                cursor,
                 ...style,
             }}
         >

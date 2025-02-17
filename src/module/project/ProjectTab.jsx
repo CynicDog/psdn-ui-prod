@@ -54,6 +54,7 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
             flex justifyContent="center"
             bg={currentProject === project ? "primary-subtle" : ""}
             width={width}
+            cursor="pointer"
             onClick={(e) => {
                 e.stopPropagation();
                 onSelect(project);
@@ -66,7 +67,7 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
         >
-            <Span fontWeight="light" cursor="pointer">
+            <Span fontWeight="light">
                 {project.NAME}
             </Span>
         </DraggableArea>
