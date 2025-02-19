@@ -32,10 +32,10 @@ const ConfigurationView = () => {
                         {/* Control Panel */}
                         <Area className="control-panel" bg="body" borderBottom>
                             <Row p="2">
-                                <Col width="7" responsive="lg">
+                                <Col width="7" responsive="lg" my="1">
                                     <ConfigTablePaginationControl />
                                 </Col>
-                                <Col width="5" responsive="lg">
+                                <Col width="5" responsive="lg" my="1">
                                     <Area flex justifyContent="end">
                                         <ConfigActions />
                                     </Area>
