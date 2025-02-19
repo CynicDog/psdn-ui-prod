@@ -31,7 +31,7 @@ const ConfigActions = () => {
                     ]}
                     value={selectedRule}
                     onChange={(e) => setSelectedRule(e.target.value)}
-                    width="auto"
+                    width="90px"
                     me="2"
                 />
             )}

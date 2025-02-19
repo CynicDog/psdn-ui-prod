@@ -30,7 +30,7 @@ const ConfigurationView = () => {
                     <BaseDBSelectControl/>
                     <Area p="3">
                         {/* Control Panel */}
-                        <Area className="control-panel" bg="body">
+                        <Area className="control-panel" bg="body" borderBottom>
                             <Row p="2">
                                 <Col width="7" responsive="lg">
                                     <ConfigTablePaginationControl />
