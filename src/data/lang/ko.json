@@ -25,6 +25,7 @@
     "project_no_description": "내용을 기입해주세요.",
     "add_new_project": "신규 프로젝트 추가",
     "pseudonymization_title": "가명화",
+    "reset_filters": "필터 초기화",
     "grid_row_control_check": "선택",
     "record_detail_title": "레코드 상세",
     "close": "닫기",
@@ -51,7 +52,6 @@
     "tooltip_logout": "클릭 시 로그아웃"
   },
   "action": {
-    "reset_filters": "필터 초기화",
     "set_APPT": "적용",
     "apply_in_batch_rule": "지정",
     "select_rule": "선택",

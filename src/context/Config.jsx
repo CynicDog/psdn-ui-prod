@@ -101,15 +101,15 @@ export const ConfigProvider = ({ children }) => {
         if (currentPage > totalPages) setCurrentPage(totalPages);
     }, [filteredRows, currentPage, totalPages]);
 
-    // Handle batch update
-    const handleMasterControlUpdate = (newValue) => {
-        const updatedRows = configRows.map((row) =>
-            selectedRows.includes(row.COL_NAME)
-                ? {...row, APPT_YN: newValue}
-                : row
-        );
-        setConfigRows(updatedRows);
-    };
+    // // Handle batch update
+    // const handleAPPT_YN_Update = (newValue) => {
+    //     const updatedRows = configRows.map((row) =>
+    //         selectedRows.includes(row.COL_NAME)
+    //             ? {...row, APPT_YN: newValue}
+    //             : row
+    //     );
+    //     setConfigRows(updatedRows);
+    // };
 
     // Handle rule application with ORDER logic
     const handleAssignRule = () => {
@@ -270,7 +270,7 @@ export const ConfigProvider = ({ children }) => {
                 handleAssignRule,
                 handleDeleteRule,
                 handleDeleteAllRules,
-                handleMasterControlUpdate,
+                // handleAPPT_YN_Update,
                 handleMoveRule,
 
                 /* Inline editing */

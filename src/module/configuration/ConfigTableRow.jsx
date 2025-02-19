@@ -8,10 +8,11 @@ import ConfigRuleCard from "./ConfigRuleCard";
 import Icon from "../../component/Icon";
 import { useConfig } from "../../context/Config";
 import {usePopup} from "../../context/Popup";
-
-
+import Tooltip from "../../component/Tooltip";
+import {useLanguage} from "../../context/Language";
 
 const ConfigTableRow = ({ row, columnNames }) => {
+    const { t } = useLanguage();
     const { setIsConfigPopupOpen } = usePopup();
     const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
 
@@ -59,16 +60,26 @@ const ConfigTableRow = ({ row, columnNames }) => {
             {/* Popup icon column */}
             <TableRowCell>
                 <Area flex justifyContent="center">
-                    <Button
-                        size="sm"
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setIsConfigPopupOpen(true);
-                            setFocusedRow(row);
-                        }}
+                    <Tooltip
+                        position="top"
+                        content={
+                            <Area>
+                                {t('components.record_detail_title')}
+                            </Area>
+                        }
+                        bg="body" rounded shadow="sm" p="1" px="2" gap="3"
                     >
-                        <Icon name="box-arrow-up-right" />
-                    </Button>
+                        <Button
+                            size="sm"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setIsConfigPopupOpen(true);
+                                setFocusedRow(row);
+                            }}
+                        >
+                            <Icon name="box-arrow-up-right" />
+                        </Button>
+                    </Tooltip>
                 </Area>
             </TableRowCell>
         </TableRow>

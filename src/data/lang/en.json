@@ -25,6 +25,7 @@
     "project_no_description": "No description.",
     "add_new_project": "Add New Project",
     "pseudonymization_title": "Pseudonymization",
+    "reset_filters": "Reset Filter(s)",
     "grid_row_control_check": "Select",
     "record_detail_title": "Record Details",
     "close": "close",
@@ -51,7 +52,6 @@
     "tooltip_logout": "Click to log out."
   },
   "action": {
-    "reset_filters": "Reset Filter(s)",
     "set_APPT": "Set Apply",
     "apply_in_batch_rule": "Assign",
     "select_rule": "Select",

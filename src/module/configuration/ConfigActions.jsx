@@ -5,36 +5,17 @@ import Dropdown from "../../component/Dropdown";
 import { useLanguage } from "../../context/Language";
 import { useConfig } from "../../context/Config";
 import { useMeta } from "../../context/Meta";
+import Code from "../../component/Code";
 
 const ConfigActions = () => {
     const { t, getLocalizedName } = useLanguage();
-    const { configRows, resetFilters, handleMasterControlUpdate, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
+    const { configRows, selectedRule, setSelectedRule, handleDeleteAllRules } = useConfig();
     const { pseudoMaster } = useMeta();
-
     const [showRuleDropdown, setShowRuleDropdown] = useState(false);
 
-    const downloadJSON = () => {
-        const json = JSON.stringify(configRows, null, 2);
-        const blob = new Blob([json], { type: "application/json" });
-
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "config.json";
-
-        link.click();
-    };
-
     return (
-        <Area flex borderBottom gap="2" p="2">
-            <Button size="sm" variant="light" onClick={resetFilters}>
-                {t("action.reset_filters")}
-            </Button>
-            <Button size="sm" variant="light" onClick={() => handleMasterControlUpdate(1)}>
-                {t("action.set_APPT")} <i className="bi bi-check-square"></i>
-            </Button>
-            <Button size="sm" variant="light" onClick={() => handleMasterControlUpdate(0)}>
-                {t("action.set_APPT")} <i className="bi bi-x-square"></i>
-            </Button>
+        <Area flex gap="2">
+            {/* Assign a Rule Button */}
             <Button size="sm" variant="light" onClick={() => setShowRuleDropdown(!showRuleDropdown)}>
                 {t("action.apply_in_batch_rule")}
             </Button>
@@ -54,14 +35,22 @@ const ConfigActions = () => {
                     me="2"
                 />
             )}
+            {/* Delete All Rules Button */}
             <Button size="sm" variant="light" onClick={handleDeleteAllRules}>
                 {t("action.delete_all_rules")}
             </Button>
-            <Area ms="auto">
-                <Button size="sm" variant="light" onClick={downloadJSON}>
-                    {t("action.config_download")} <code className="ms-1">config.json</code>
-                </Button>
-            </Area>
+            {/* Config Download Button */}
+            <Button size="sm" variant="light" onClick={() => {
+                const json = JSON.stringify(configRows, null, 2);
+                const blob = new Blob([json], { type: "application/json" });
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = "config.json";
+                link.click();
+            }}>
+                {t("action.config_download")}
+                <Code bgColor="light">config.json</Code>
+            </Button>
         </Area>
     );
 };

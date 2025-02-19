@@ -6,15 +6,18 @@ import Span from "../../component/Span";
 import CheckBox from "../../component/CheckBox";
 import { useLanguage } from "../../context/Language";
 import { useConfig } from "../../context/Config";
+import Icon from "../../component/Icon";
+import Tooltip from "../../component/Tooltip";
 
 const ConfigTableHeader = ({ children }) => {
 
     const { t } = useLanguage();
-    const { paginatedRowsAllSelected, toggleSelectAllRows } = useConfig();
+    const { paginatedRowsAllSelected, toggleSelectAllRows, resetFilters } = useConfig();
 
     return (
         <TableHeader>
             <TableRow>
+                {/* Config Table Select Control */}
                 <TableHeaderCell width="5%">
                     <Area flex justifyContent="center" mb="3">
                         <Span>
@@ -29,8 +32,26 @@ const ConfigTableHeader = ({ children }) => {
                         />
                     </Area>
                 </TableHeaderCell>
+
+                {/* BaseDB Columns Area  */}
                 {children}
-                <TableHeaderCell>{/* Placeholder for popup icon */}</TableHeaderCell>
+
+                <TableHeaderCell>
+                    {/* Filter Reset Button */}
+                    <Area flex justifyContent="center" alignItems="center" fontSize="large">
+                        <Tooltip
+                            position="top"
+                            content={
+                                <Area>
+                                    {t('components.reset_filters')}
+                                </Area>
+                            }
+                            bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                        >
+                            <Icon name="arrow-clockwise" onClick={resetFilters} />
+                        </Tooltip>
+                    </Area>
+                </TableHeaderCell>
             </TableRow>
         </TableHeader>
     );

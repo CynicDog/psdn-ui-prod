@@ -33,15 +33,15 @@ const ConfigurationView = () => {
                         <Area className="control-panel" bg="body">
                             <Row p="2">
                                 <Col width="7" responsive="lg">
-                                    <ConfigTablePaginationControl/>
+                                    <ConfigTablePaginationControl />
                                 </Col>
                                 <Col width="5" responsive="lg">
                                     <Area flex justifyContent="end">
-                                        Search Input
+                                        <ConfigActions />
                                     </Area>
                                 </Col>
                             </Row>
-                            <ConfigActions/>
+
                         </Area>
 
                         {/* Configuration Data Table */}
@@ -50,7 +50,7 @@ const ConfigurationView = () => {
                         ) : (
                             <ConfigTable>
                                 <ConfigTableHeader>
-                                    <ConfigTableColumn name="APPT_YN" applyFilter width="7%"/>
+                                    {/*<ConfigTableColumn name="APPT_YN" applyFilter width="7%"/>*/}
                                     <ConfigTableColumn name="COL_NAME" width="11%"/>
                                     <ConfigTableColumn name="COL_NAME_LGCL" width="11%"/>
                                     <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
