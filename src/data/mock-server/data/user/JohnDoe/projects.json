@@ -1,0 +1,69 @@
+{
+  "username": "JohnDoe",
+  "data": [
+    {
+      "ID": "J1",
+      "NAME": "👩🏻‍🚀",
+      "DESCRIPTION": "👩🏻‍🚀's description",
+      "ORDER": 0,
+      "TABLES": [
+        {
+          "ID": "T3",
+          "NAME": "HLT"
+        },
+        {
+          "ID": "T4",
+          "NAME": "KBW"
+        },
+        {
+          "ID": "T1",
+          "NAME": "LBF"
+        }
+      ]
+    },
+    {
+      "ID": "J2",
+      "NAME": "🧙🏻‍♀️",
+      "DESCRIPTION": "🧙🏻‍♀️'s description",
+      "ORDER": 1,
+      "TABLES": [
+        {
+          "ID": "T3",
+          "NAME": "HLT"
+        },
+        {
+          "ID": "T4",
+          "NAME": "KBW"
+        }
+      ]
+    },
+    {
+      "ID": "J3",
+      "NAME": "🧑🏻‍💻",
+      "DESCRIPTION": "🧑🏻‍💻's description",
+      "ORDER": 2,
+      "TABLES": [
+        {
+          "ID": "T1",
+          "NAME": "LBF"
+        }
+      ]
+    },
+    {
+      "ID": "J4",
+      "NAME": "👨🏻‍🌾",
+      "DESCRIPTION": "👨🏻‍🌾's description",
+      "ORDER": 3,
+      "TABLES": [
+      ]
+    },
+    {
+      "ID": "J5",
+      "NAME": "🐥",
+      "DESCRIPTION": "🐥's description",
+      "ORDER": 4,
+      "TABLES": [
+      ]
+    }
+  ]
+}

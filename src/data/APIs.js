@@ -1,8 +1,14 @@
 /**
- * @description Define the backend server URL based on the environment.
- * @example REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
+ * @description Define the backend server URL based on the environment. Default to the local mock server url.
+ * @example
+ *      For Production, run:
+ *          REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
+ *
+ *      For Development, run the below commands in separate terminals:
+ *          - node ./src/data/mock-server/server.js         # starts up a mock server process at `localhost:8888`
+ *          - npm run start
  */
-const BACKEND_URL = process.env.REACT_APP_BACKEND_SERVER_URL || "https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main"
+const BACKEND_URL = process.env.REACT_APP_BACKEND_SERVER_URL || "http://localhost:8888"
 
 // /**
 //  * @description Define the backend server port number based on the environment.
@@ -19,7 +25,7 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_SERVER_URL || "https://raw.git
  */
 export const fetchColumnData = async (COL_NAME) => {
 
-    const response = await fetch(`${BACKEND_URL}/data/${COL_NAME}.json`);
+    const response = await fetch(`${BACKEND_URL}/raw/${COL_NAME}`);
 
     if (!response.ok) {
         throw new Error('Failed to fetch column data');
@@ -36,7 +42,7 @@ export const fetchColumnData = async (COL_NAME) => {
  */
 export const fetchPSDNMaster = async () => {
     try {
-        const response = await fetch(`${BACKEND_URL}/data/meta/business/PSDN-master.json`);
+        const response = await fetch(`${BACKEND_URL}/meta/business/PSDN-master`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN master data');
@@ -58,7 +64,7 @@ export const fetchPSDNMaster = async () => {
  */
 export const fetchPSDNCodes = async () => {
     try {
-        const response = await fetch(`${BACKEND_URL}/data/meta/business/PSDN-code.json`);
+        const response = await fetch(`${BACKEND_URL}/meta/business/PSDN-code`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN codes data');
@@ -81,7 +87,7 @@ export const fetchPSDNCodes = async () => {
 export const fetchUserProjects = async (username) => {
     try {
         // Simulating fetching JSON from local file
-        const response = await fetch(`${BACKEND_URL}/data/scenario/${username}/projects.json`);
+        const response = await fetch(`${BACKEND_URL}/user/${username}/projects`);
 
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
@@ -105,7 +111,7 @@ export const fetchUserProjects = async (username) => {
 export const fetchProjectTable = async (tableId) => {
     try {
         // Fetch the data for the given table from the mock server
-        const response = await fetch(`${BACKEND_URL}/data/meta/table/${tableId}.json`);
+        const response = await fetch(`${BACKEND_URL}/meta/table/${tableId}`);
         if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
         const tableData = await response.json();
