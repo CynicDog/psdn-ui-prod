@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetchPSDNMaster, fetchPSDNCodes, fetchRuleDefinitions } from "../data/APIs";
+import { fetchPSDNMaster, fetchPSDNCodes } from "../data/APIs";
+import  ruleParameterDefinition from '../data/config/RuleParameterDefinitions.json';
 
 // Meta Context
 const MetaContext = createContext();
@@ -8,7 +9,7 @@ export const MetaProvider = ({ children }) => {
 
     const [pseudoMaster, setPseudoMaster] = useState({});
     const [pseudoCode, setPseudoCode] = useState({});
-    const [ruleDefinitions, setRuleDefinitions] = useState({});
+    const ruleDefinitions = ruleParameterDefinition;
     const [isMetaLoading, setIsMetaLoading] = useState(true);
 
     useEffect(() => {
@@ -16,12 +17,10 @@ export const MetaProvider = ({ children }) => {
             try {
                 const pseudoMasterData = await fetchPSDNMaster();
                 const pseudoCodeData = await fetchPSDNCodes();
-                const ruleDefinitionsData = await fetchRuleDefinitions();
 
                 // Set each state variable individually
                 setPseudoMaster(pseudoMasterData || {});
                 setPseudoCode(pseudoCodeData || {});
-                setRuleDefinitions(ruleDefinitionsData || {});
 
                 setIsMetaLoading(false);
             } catch (error) {

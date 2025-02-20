@@ -1,13 +1,25 @@
 /**
- * @description Fetches column data from a mock API.
- * TODO: Replace with a backend endpoint in production.
+ * @description Define the backend server URL based on the environment.
+ * @example REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
+ */
+const BACKEND_URL = process.env.REACT_APP_BACKEND_SERVER_URL || "https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main"
+
+// /**
+//  * @description Define the backend server port number based on the environment.
+//  * @example REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
+//  */
+// const BACKEND_PORT = process.env.REACT_APP_BACKEND_SERVER_PORT || "8080"
+
+/**
+ * @description Fetches column data.
  *
  * @param {string} COL_NAME - The name of the column to fetch data for.
  * @returns {Promise<Object>} - The column data in JSON format.
  * @throws {Error} - Throws an error if the fetch request fails.
  */
 export const fetchColumnData = async (COL_NAME) => {
-    const response = await fetch(`https://raw.githubusercontent.com/CynicDog/pseudonymization-parameters-in-action/refs/heads/main/data/${COL_NAME}.json`);
+
+    const response = await fetch(`${BACKEND_URL}/data/${COL_NAME}.json`);
 
     if (!response.ok) {
         throw new Error('Failed to fetch column data');
@@ -16,40 +28,15 @@ export const fetchColumnData = async (COL_NAME) => {
     return response.json();
 };
 
-
-/**
- * @description Fetches rule definitions data from the mock API.
- * TODO: Replace with a backend endpoint in production.
- *
- * @returns {Promise<Object>} - The rule definitions data in JSON format.
- * @throws {Error} - Throws an error if the fetch request fails.
- */
-export const fetchRuleDefinitions = async () => {
-    try {
-        const response = await fetch(`https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/business/PSDN-definition.json`);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch rule definitions');
-        }
-
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching rule definitions:', error);
-        throw error;
-    }
-};
-
-
 /**
  * @description Fetches PSDN master data from the mock API.
- * TODO: Replace with a backend endpoint in production.
  *
  * @returns {Promise<Object>} - The PSDN master data in JSON format.
  * @throws {Error} - Throws an error if the fetch request fails.
  */
 export const fetchPSDNMaster = async () => {
     try {
-        const response = await fetch('https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/business/PSDN-master.json');
+        const response = await fetch(`${BACKEND_URL}/data/meta/business/PSDN-master.json`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN master data');
@@ -64,15 +51,14 @@ export const fetchPSDNMaster = async () => {
 
 
 /**
- * @description Fetches PSDN codes data from the mock API.
- * TODO: Replace with a backend endpoint in production.
+ * @description Fetches PSDN codes data.
  *
  * @returns {Promise<Object>} - The PSDN codes data in JSON format.
  * @throws {Error} - Throws an error if the fetch request fails.
  */
 export const fetchPSDNCodes = async () => {
     try {
-        const response = await fetch('https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/business/PSDN-code.json');
+        const response = await fetch(`${BACKEND_URL}/data/meta/business/PSDN-code.json`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN codes data');
@@ -88,7 +74,6 @@ export const fetchPSDNCodes = async () => {
 
 /**
  * @description Fetches project data for a specific user. Simulates retrieving user project data from a local JSON file.
- * TODO: Replace with a backend API call in production.
  *
  * @param {string} username - The username of the user whose projects are being fetched.
  * @returns {Promise<Object|null>} - The user's project data or null if an error occurs.
@@ -96,7 +81,7 @@ export const fetchPSDNCodes = async () => {
 export const fetchUserProjects = async (username) => {
     try {
         // Simulating fetching JSON from local file
-        const response = await fetch(`https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/scenario/${username}/projects.json`);
+        const response = await fetch(`${BACKEND_URL}/data/scenario/${username}/projects.json`);
 
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
@@ -113,7 +98,6 @@ export const fetchUserProjects = async (username) => {
 
 /**
  * @description Fetches table data dynamically based on the given table name.
- * TODO: Replace with a backend API call in production.
  *
  * @param {string} tableId - The table id to fetch.
  * @returns {Promise<Object>} - A promise resolving to the table data directly, without the table name key.
@@ -121,7 +105,7 @@ export const fetchUserProjects = async (username) => {
 export const fetchProjectTable = async (tableId) => {
     try {
         // Fetch the data for the given table from the mock server
-        const response = await fetch(`https://raw.githubusercontent.com/CynicDog/psdn-mock-server/refs/heads/main/data/meta/table/${tableId}.json`);
+        const response = await fetch(`${BACKEND_URL}/data/meta/table/${tableId}.json`);
         if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
         const tableData = await response.json();
