@@ -8,7 +8,7 @@
  *          - node ./src/data/mock-server/server.js         # starts up a mock server process at `localhost:8888`
  *          - npm run start
  */
-const BACKEND_URL = process.env.REACT_APP_BACKEND_SERVER_URL || "http://localhost:8888"
+const BACKEND_URL = process.env.REACT_APP_SYSTEM_API_URL || "http://localhost:8888"
 
 // /**
 //  * @description Define the backend server port number based on the environment.
