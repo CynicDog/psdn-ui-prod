@@ -38,8 +38,12 @@ psdn-ui-prod % npm run start
 2.  MSAL은 사용자가 Front 앱에 진입하였을 때 Microsoft 로그인 화면으로 디렉션을 수행함. Entra ID에 Front 앱에 대한 정보(앱이 배포된 테넌트, 구독 등)가 등록되었으므로. Microsoft 인증 플랫폼은 해당 디렉션을 수행한 Front 앱을 신뢰할 수 있음.
 3.  로그인 리디렉션 정보 역시 Microsoft 인증 플랫폼은 알고 있으므로, 인증 플랫폼은 로그인 완료 후 Front 앱으로 리디렉션 수행. 
 
-단, 최초 로그인 시에는 해당 앱의 Graph API 사용에 대한 관리자의 동의가 이루어져야 함. 
+단, 최초 로그인 시에는 해당 앱의 Graph API 사용에 대한 관리자의 동의가 이루어져야 하며, 일반 사용자는 관리자 동의 전까지는 로그인 절차를 완료할 수 없음.  
 
-### 앱 등록 
+
+### 앱 등록 방법 
+
+1. Azure Portal > EntraID > 앱 등록 (App Registration)
+2. 
 
    
