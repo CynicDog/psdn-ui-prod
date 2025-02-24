@@ -6,7 +6,7 @@
       {
         "ID": "M1_1",
         "NAME": "definition_description",
-        "SHOWN_TO": ["DEV", "OWNER", "CONSUMER", "ADMIN", "VERIFIER"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner", "Role.Utilizer", "Role.Admin", "Role.Verifier"]
       }
     ]
   },
@@ -17,12 +17,12 @@
       {
         "ID": "M2_1",
         "NAME": "configuration_request",
-        "SHOWN_TO": ["DEV", "OWNER"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner"]
       },
       {
         "ID": "M2_2",
         "NAME": "configuration_history",
-        "SHOWN_TO": ["DEV", "OWNER"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner"]
       }
     ]
   },
@@ -33,17 +33,17 @@
       {
         "ID": "M3_1",
         "NAME": "re_identification_request",
-        "SHOWN_TO": ["DEV", "CONSUMER"]
+        "SHOWN_TO": ["Role.Application", "Role.Utilizer"]
       },
       {
         "ID": "M3_2",
         "NAME": "re_identification_history",
-        "SHOWN_TO": ["DEV", "CONSUMER"]
+        "SHOWN_TO": ["Role.Application", "Role.Utilizer"]
       },
       {
         "ID": "M3_3",
         "NAME": "re_identification_approval",
-        "SHOWN_TO": ["DEV", "VERIFIER"]
+        "SHOWN_TO": ["Role.Application", "Role.Verifier"]
       }
     ]
   },
@@ -54,22 +54,22 @@
       {
         "ID": "M4_1",
         "NAME": "system_management_roles",
-        "SHOWN_TO": ["DEV", "ADMIN"]
+        "SHOWN_TO": ["Role.Application", "Role.Admin"]
       },
       {
         "ID": "M4_2",
         "NAME": "system_management_users",
-        "SHOWN_TO": ["DEV", "ADMIN"]
+        "SHOWN_TO": ["Role.Application", "Role.Admin"]
       },
       {
         "ID": "M4_3",
         "NAME": "system_management_data",
-        "SHOWN_TO": ["DEV", "ADMIN"]
+        "SHOWN_TO": ["Role.Application", "Role.Admin"]
       }
       ,{
         "ID": "M4_4",
         "NAME": "system_management_history",
-        "SHOWN_TO": ["DEV", "ADMIN"]
+        "SHOWN_TO": ["Role.Application", "Role.Admin"]
       }
     ]
   }
