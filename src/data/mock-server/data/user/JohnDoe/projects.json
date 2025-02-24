@@ -3,8 +3,8 @@
   "data": [
     {
       "ID": "J1",
-      "NAME": "👩🏻‍🚀",
-      "DESCRIPTION": "👩🏻‍🚀's description",
+      "NAME": "Project - 1",
+      "DESCRIPTION": "Project - 1's description",
       "ORDER": 0,
       "TABLES": [
         {
@@ -23,8 +23,8 @@
     },
     {
       "ID": "J2",
-      "NAME": "🧙🏻‍♀️",
-      "DESCRIPTION": "🧙🏻‍♀️'s description",
+      "NAME": "Project - 2",
+      "DESCRIPTION": "Project - 2's description",
       "ORDER": 1,
       "TABLES": [
         {
@@ -39,8 +39,8 @@
     },
     {
       "ID": "J3",
-      "NAME": "🧑🏻‍💻",
-      "DESCRIPTION": "🧑🏻‍💻's description",
+      "NAME": "Project - 3",
+      "DESCRIPTION": "Project - 3's description",
       "ORDER": 2,
       "TABLES": [
         {
@@ -51,16 +51,16 @@
     },
     {
       "ID": "J4",
-      "NAME": "👨🏻‍🌾",
-      "DESCRIPTION": "👨🏻‍🌾's description",
+      "NAME": "Project - 4",
+      "DESCRIPTION": "Project - 4's description",
       "ORDER": 3,
       "TABLES": [
       ]
     },
     {
       "ID": "J5",
-      "NAME": "🐥",
-      "DESCRIPTION": "🐥's description",
+      "NAME": "Project - 5",
+      "DESCRIPTION": "Project - 5's description",
       "ORDER": 4,
       "TABLES": [
       ]

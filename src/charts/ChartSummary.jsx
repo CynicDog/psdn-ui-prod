@@ -45,7 +45,7 @@ const ChartSummary = ({ rule }) => {
                     );
                 })}
                 {t('chart.to_apply')}
-                <Span className="badge-warning mx-1">{getRuleName(rule.RULE_ID)}</Span>
+                <Span badge="warning" mx="1">{getRuleName(rule.RULE_ID)}</Span>
                 {t('chart.application')}
             </Area>
         )

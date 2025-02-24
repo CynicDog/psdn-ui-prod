@@ -1,10 +1,16 @@
 import Area from "../component/Area";
+import ChartSummary from "./ChartSummary";
 
-const EmptyChartPlaceholder = () => {
+const EmptyChartPlaceholder = ({ rule }) => {
 
     return (
-        <Area flex justifyContent="center" py="5" style={{fontSize: "xxx-large"}}>
-            🎨🧑🏻‍💻💭
+        <Area>
+            <Area flex justifyContent="center" style={{fontSize: "xxx-large"}}>
+                🎨🧑🏻‍💻💭
+            </Area>
+
+            {/* TODO: 시연 후 ChartControl로 lift up*/}
+            <ChartSummary rule={rule} />
         </Area>
     )
 }
