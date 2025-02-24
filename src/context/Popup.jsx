@@ -1,5 +1,6 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {useAuth} from "./Auth";
+import {ROLES} from "./util";
 
 const PopupContext = createContext();
 
@@ -11,7 +12,7 @@ export const PopupProvider = ({ children }) => {
 
     // Project popup is shown only to users with OWNER role
     useEffect(() => {
-        if (auth.role && (auth.role === "DEV" || auth.role === "OWNER")) {
+        if (auth.role && (auth.role === ROLES.APPLICATION || auth.role === ROLES.OWNER)) {
             setIsProjectPopupOpen(true);
         } else {
             setIsProjectPopupOpen(false);

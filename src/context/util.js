@@ -76,7 +76,7 @@ export const DEV_USERS = Object.freeze({
     AlexBrown: {
         username: "AlexBrown",
         email: "AlexBrown@gmail.com",
-        role: ROLES.CONSUMER
+        role: ROLES.UTILIZER
     },
     EmmaWilson: {
         username: "EmmaWilson",

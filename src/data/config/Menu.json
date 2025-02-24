@@ -22,7 +22,7 @@
       {
         "ID": "M2_2",
         "NAME": "configuration_history",
-        "SHOWN_TO": ["Role.Application", "Role.Owner"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner", "Role.Utilizer", "Role.Verifier"]
       }
     ]
   },
@@ -33,12 +33,12 @@
       {
         "ID": "M3_1",
         "NAME": "re_identification_request",
-        "SHOWN_TO": ["Role.Application", "Role.Utilizer"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner"]
       },
       {
         "ID": "M3_2",
         "NAME": "re_identification_history",
-        "SHOWN_TO": ["Role.Application", "Role.Utilizer"]
+        "SHOWN_TO": ["Role.Application", "Role.Owner", "Role.Utilizer", "Role.Verifier"]
       },
       {
         "ID": "M3_3",
