@@ -48,7 +48,7 @@ const App = () => {
                         </Row>
                     </Container>
                     {/* Project controls are shown only to OWNER role */}
-                    {auth.role && [ROLES.DEV, ROLES.OWNER].includes(auth.role) && (
+                    {auth.role && [ROLES.APPLICATION, ROLES.OWNER].includes(auth.role) && (
                         <>
                             {isProjectPopupOpen && <ProjectSettingPopup />}
                             <ProjectTabArea />

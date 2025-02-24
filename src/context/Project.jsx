@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./Auth";
 import { fetchUserProjects } from "../data/APIs";
+import {ROLES} from "./util";
 
 {/* Project Context */}
 const ProjectContext = createContext();
@@ -23,7 +24,7 @@ export const ProjectProvider = ({ children }) => {
         setError(null);
 
         // Load project data only for users with OWNER role
-        if (auth.role && (auth.role === "DEV" || auth.role === "OWNER")) {
+        if (auth.role && (auth.role === ROLES.APPLICATION || auth.role === ROLES.OWNER)) {
             fetchUserProjects(auth.username)
                 .then((projects) => {
                     setProjects(projects);

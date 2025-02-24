@@ -12,7 +12,7 @@ const ProjectTabArea = () => {
     // If ProjectSettingPopup is open, render none.
     if (isProjectPopupOpen) return null;
 
-    const numberOfProjects = projects.data.length;
+    const numberOfProjects = projects?.data.length;
 
     // Ensure there's at least one non-current project
     const nonCurrentProjects = numberOfProjects - 1;
@@ -22,13 +22,13 @@ const ProjectTabArea = () => {
     const nonCurrentWidth = `${(100 - parseInt(currentWidth)) / nonCurrentProjects}%`;
 
     return (
-        <Area flex borderTop bg="body" width="100%" fontSize="smaller"
+        <Area flex justifyContent="between" borderTop bg="body" width="100%" fontSize="smaller"
             style={{
                 position: "fixed",
                 bottom: "0",
         }}>
             {/* Render all projects */}
-            {projects.data.map((project, index) => {
+            {projects?.data.map((project, index) => {
                 const width = currentProject === project ? currentWidth : nonCurrentWidth;
 
                 return (
@@ -44,7 +44,7 @@ const ProjectTabArea = () => {
             })}
             <Area
                 onClick={() => setIsProjectPopupOpen(true)}
-                cursor="pointer" ms="2" me="4"
+                cursor="pointer" ms="auto" me="4"
             >
                 <Icon name="arrows-fullscreen" />
             </Area>

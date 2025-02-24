@@ -42,7 +42,8 @@ const ProjectSettingPopup = () => {
         };
 
         setProjects((prevProjects) => {
-            const updatedProjects = [newProject, ...prevProjects.data];
+            const prevData = prevProjects?.data ?? [];
+            const updatedProjects = [newProject, ...prevData];
 
             // Recalculate ORDER for all projects
             updatedProjects.forEach((project, index) => {
@@ -51,7 +52,6 @@ const ProjectSettingPopup = () => {
 
             return { ...prevProjects, data: updatedProjects };
         });
-
         setCurrentProject(newProject);
     };
 

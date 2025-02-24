@@ -24,11 +24,10 @@ const AuthBadge = () => {
             <Span
                 badge="light"
                 onClick={() => {
-                    // const nextUser = getNextUser(auth.username);
-                    // setAuth(nextUser);
+                    const nextUser = getNextUser(auth.username);
+                    setAuth(nextUser);
 
-                    // production only
-                    instance.logoutPopup();
+                    // instance.logoutPopup();
                 }}
                 cursor="pointer">
                 {t('auth.greeting', { name: auth.username })}
