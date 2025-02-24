@@ -19,6 +19,9 @@ export const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         if (accounts.length > 0 && inProgress === InteractionStatus.None) {
+
+            console.log(accounts[0]);
+
             setAuth({
                 username: accounts[0].name,
                 email: accounts[0].username,

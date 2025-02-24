@@ -4,10 +4,12 @@ import Span from "../component/Span";
 import {getNextUser} from "../context/util";
 import Tooltip from "../component/Tooltip";
 import {useLanguage} from "../context/Language";
+import {useMsal} from "@azure/msal-react";
 
 const AuthBadge = () => {
     const { t } = useLanguage();
     const { auth, setAuth } = useAuth();
+    const { instance } = useMsal();
 
     return (
         <Tooltip
@@ -22,11 +24,11 @@ const AuthBadge = () => {
             <Span
                 badge="light"
                 onClick={() => {
-                    const nextUser = getNextUser(auth.username);
-                    setAuth(nextUser);
+                    // const nextUser = getNextUser(auth.username);
+                    // setAuth(nextUser);
 
                     // production only
-                    // instance.logoutPopup();
+                    instance.logoutPopup();
                 }}
                 cursor="pointer">
                 {t('auth.greeting', { name: auth.username })}
