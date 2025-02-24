@@ -20,16 +20,6 @@ const ProjectSettingPopup = () => {
     const { isProjectPopupOpen, setIsProjectPopupOpen } = usePopup();
     const { projects, setProjects, currentProject, setCurrentProject } = useProject();
 
-    // Ref to track project list container
-    const projectListRef = useRef(null);
-
-    // Scroll to top when projects change
-    useEffect(() => {
-        if (projectListRef.current) {
-            projectListRef.current.scrollTop = 0;
-        }
-    }, [projects]);
-
     if (!isProjectPopupOpen) return null;
 
     const handleAddProject = () => {
@@ -86,9 +76,7 @@ const ProjectSettingPopup = () => {
                             {t('components.add_new_project')}
                         </Span>
                     </Area>
-
-                    {/* Projects list with auto-scroll */}
-                    <Area ref={projectListRef} marginTop="5%" mx="3">
+                    <Area marginTop="5%" mx="3">
                         {projects?.data?.map((project) => (
                             <ProjectCard
                                 key={project.ID}

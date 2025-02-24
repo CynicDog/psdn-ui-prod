@@ -43,6 +43,7 @@ const DefinitionDescription = ({ rule }) => {
 
                 return (
                     <Tooltip
+                        key={index}
                         position="top"
                         content={
                             <DefinitionParametersTooltip
