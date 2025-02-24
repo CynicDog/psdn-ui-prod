@@ -23,8 +23,6 @@ export const AuthProvider = ({ children }) => {
         }
     }, [accounts, inProgress]);
 
-    console.log(auth);
-
     return (
         <AuthContext.Provider value={{ auth, setAuth }}>
             {children}
