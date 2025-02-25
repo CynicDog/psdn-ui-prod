@@ -1,6 +1,7 @@
 import {useState} from "react";
 import DraggableArea from "../../component/DraggableArea";
 import {useProject} from "../../context/Project";
+import Span from "../../component/Span";
 
 const ConfigTableTab = ({ order, configTable, currentBaseDB, onSelect }) => {
 
@@ -52,9 +53,6 @@ const ConfigTableTab = ({ order, configTable, currentBaseDB, onSelect }) => {
     return (
         <DraggableArea
             order={order}
-            flex justifyContent="center"
-            bg={currentBaseDB?.name === configTable.NAME ? "primary-subtle" : "body"}
-            cursor="pointer"
             onClick={(e) => {
                 e.stopPropagation();
                 onSelect(configTable);
@@ -66,14 +64,17 @@ const ConfigTableTab = ({ order, configTable, currentBaseDB, onSelect }) => {
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            px="3"
+            bg={currentBaseDB?.name === configTable.NAME ? "primary-subtle" : "body"}
+            flex justifyContent="center" cursor="pointer" px="4"
             style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden",
                 borderRadius: "5px 5px 0 0"
             }}
         >
-            {configTable.NAME}
+            <Span>
+                {configTable.NAME}
+            </Span>
         </DraggableArea>
     );
 }

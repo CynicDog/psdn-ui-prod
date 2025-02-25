@@ -1,4 +1,3 @@
-import { useRef, useEffect } from "react";
 import PopupOverlay from "../../component/PopupOverlay";
 import PopupContent from "../../component/PopupContent";
 import { useLanguage } from "../../context/Language";

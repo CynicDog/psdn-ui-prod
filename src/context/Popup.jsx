@@ -7,6 +7,7 @@ const PopupContext = createContext();
 export const PopupProvider = ({ children }) => {
     const [isConfigPopupOpen, setIsConfigPopupOpen] = useState(false);
     const [isProjectPopupOpen, setIsProjectPopupOpen] = useState(true);
+    const [isProjectTablePopupOpen, setIsProjectTablePopupOpen] = useState(false);
 
     const { auth } = useAuth();
 
@@ -21,8 +22,9 @@ export const PopupProvider = ({ children }) => {
 
     return (
         <PopupContext.Provider value={{
+            isProjectPopupOpen, setIsProjectPopupOpen,
+            isProjectTablePopupOpen, setIsProjectTablePopupOpen,
             isConfigPopupOpen, setIsConfigPopupOpen,
-            isProjectPopupOpen, setIsProjectPopupOpen
         }}>
             {children}
         </PopupContext.Provider>

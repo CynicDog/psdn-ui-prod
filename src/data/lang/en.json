@@ -39,7 +39,9 @@
     "loading_message": "Loading..",
     "definition_name": "Name",
     "definition_description": "Description",
-    "pseudonymization_guide_download": "Download the guide"
+    "pseudonymization_guide_download": "Download the guide",
+    "configure_project_tables": "Configure Project Tables",
+    "select_project_table": "Select Table."
   },
   "chart": {
     "using_parameters": "uses the parameters of",

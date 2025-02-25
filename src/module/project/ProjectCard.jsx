@@ -77,8 +77,6 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
     return (
         <DraggableArea
             order={order}
-            bg={currentProject === project ? "primary-subtle" : "body"}
-            border rounded="2" shadow="sm" my="2"
             onClick={(e) => {
                 e.stopPropagation();
                 onSelect(project);
@@ -90,6 +88,8 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
+            bg={currentProject === project ? "primary-subtle" : "body"}
+            border rounded="2" shadow="sm" my="2"
         >
             <Row key={project.ID} rounded p="3" m="3" flex alignItems="center">
                 {/* Project name */}

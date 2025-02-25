@@ -51,10 +51,6 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
     return (
         <DraggableArea
             order={order}
-            flex justifyContent="center"
-            bg={currentProject === project ? "primary-subtle" : ""}
-            width={width}
-            cursor="pointer"
             onClick={(e) => {
                 e.stopPropagation();
                 onSelect(project);
@@ -66,6 +62,8 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
+            bg={currentProject === project ? "primary-subtle" : ""}
+            flex justifyContent="center" width={width} cursor="pointer"
             style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden"

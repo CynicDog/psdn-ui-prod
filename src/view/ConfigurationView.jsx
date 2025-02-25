@@ -12,6 +12,7 @@ import {useConfig} from "../context/Config";
 import {useBaseDB} from "../context/BaseDB";
 import {useLanguage} from "../context/Language";
 import ConfigTableTabArea from "../module/configuration/ConfigTableTabArea";
+import ProjectTableSettingPopup from "../module/project/ProjectTableSettingPopup";
 
 const ConfigurationView = () => {
 
@@ -65,6 +66,9 @@ const ConfigurationView = () => {
 
             {/* Configuration Popup */}
             <ConfigPopup/>
+
+            {/* Project Table Setting Popup */}
+            <ProjectTableSettingPopup />
         </>
     );
 };
