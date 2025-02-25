@@ -16,6 +16,8 @@ export const ProjectProvider = ({ children }) => {
     // DND State for Dragging Projects
     const [sourceProjectDraggable, setSourceProjectDraggable] = useState(null);
     const [targetProjectDraggable, setTargetProjectDraggable] = useState(null);
+    const [sourceProjectTableDraggable, setSourceProjectTableDraggable] = useState(null);
+    const [targetProjectTableDraggable, setTargetProjectTableDraggable] = useState(null);
 
     useEffect(() => {
         if (!auth?.username) return;
@@ -61,6 +63,29 @@ export const ProjectProvider = ({ children }) => {
         });
     };
 
+    // Handle Drag-and-Drop Reordering of Project Tables
+    const handleMoveProjectTable = (projectId, sourceIndex, targetIndex) => {
+        setProjects((prevProjects) => {
+            const updatedProjects = [...prevProjects.data];
+
+            // Find the project by ID
+            const project = updatedProjects.find(p => p.ID === projectId);
+            if (!project || !project.TABLES) return prevProjects; // Safety check
+
+            // Remove the dragged table from its original position
+            const [movedTable] = project.TABLES.splice(sourceIndex, 1);
+
+            // Insert it at the target position
+            project.TABLES.splice(targetIndex, 0, movedTable);
+
+            // Update the ORDER property to reflect the new position
+            project.TABLES.forEach((table, index) => {
+                table.ORDER = index;
+            });
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
 
     return (
         <ProjectContext.Provider
@@ -70,7 +95,10 @@ export const ProjectProvider = ({ children }) => {
                 isProjectLoading,
                 sourceProjectDraggable, setSourceProjectDraggable,
                 targetProjectDraggable, setTargetProjectDraggable,
-                handleMoveProject
+                handleMoveProject,
+                sourceProjectTableDraggable, setSourceProjectTableDraggable,
+                targetProjectTableDraggable, setTargetProjectTableDraggable,
+                handleMoveProjectTable
             }}
         >
             {children}
