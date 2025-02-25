@@ -42,7 +42,7 @@ export const ProjectProvider = ({ children }) => {
     }, [auth]);
 
     // Handle Drag-and-Drop Reordering of Projects
-    const handleMoveProject = (sourceProjectId, sourceIndex, targetProjectId, targetIndex) => {
+    const handleMoveProject = (sourceIndex, targetIndex) => {
         setProjects((prevProjects) => {
             const updatedProjects = [...prevProjects.data];
 

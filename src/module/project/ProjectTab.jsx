@@ -38,7 +38,7 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
 
     const handleDragEnd = (e) => {
         if (sourceProjectDraggable !== targetProjectDraggable && targetProjectDraggable !== null) {
-            handleMoveProject(project.ID, sourceProjectDraggable, project.ID, targetProjectDraggable);
+            handleMoveProject(sourceProjectDraggable, targetProjectDraggable);
         }
 
         // Reset context after drop
