@@ -41,7 +41,8 @@
     "definition_description": "설명",
     "pseudonymization_guide_download": "가명화 가이드 내려받기",
     "configure_project_tables": "프로젝트 테이블 관리",
-    "select_project_table": "테이블을 선택하세요."
+    "select_project_table": "프로젝트 테이블 선택",
+    "designate_new_table": "신규 테이블 할당"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

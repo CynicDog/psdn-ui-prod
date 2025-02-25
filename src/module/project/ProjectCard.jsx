@@ -101,7 +101,7 @@ const ProjectCard = ({ project, order, onSelect, currentProject }) => {
                             onChange={(e) => setEditedName(e.target.value)}
                         />
                     ) : (
-                        <Area flex justifyContent="start" alignItems="center" gap="1">
+                        <Area flex justifyContent="start" alignItems="center">
                             <Span badge="secondary-filled" fontWeight="light">
                                 {project.NAME}
                             </Span>

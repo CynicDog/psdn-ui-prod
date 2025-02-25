@@ -23,7 +23,7 @@ const ProjectSettingPopup = () => {
 
     const handleAddProject = () => {
         const newProject = {
-            ID: Date.now().toString(),
+            ID: Date.now().toString(), // TODO: Hibernate UUID 생성값으로 대체
             NAME: "New Project",
             DESCRIPTION: "",
             TABLES: [],
@@ -71,7 +71,7 @@ const ProjectSettingPopup = () => {
                     {/* Add Project Button */}
                     <Area flex justifyContent="center" gap="2" cursor="pointer" onClick={handleAddProject} my="2">
                         <Icon name="folder-plus" />
-                        <Span variant="secondary">
+                        <Span variant="secondary" noSelect>
                             {t('components.add_new_project')}
                         </Span>
                     </Area>

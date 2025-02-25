@@ -23,7 +23,7 @@
   "components": {
     "select_project": "Select Project.",
     "project_no_description": "No description.",
-    "add_new_project": "Add New Project",
+    "add_new_project": "Add a new Project",
     "pseudonymization_title": "Pseudonymization",
     "reset_filters": "Reset Filter(s)",
     "grid_row_control_check": "Select",
@@ -41,7 +41,8 @@
     "definition_description": "Description",
     "pseudonymization_guide_download": "Download the guide",
     "configure_project_tables": "Configure Project Tables",
-    "select_project_table": "Select Table."
+    "select_project_table": "Select Project Table",
+    "designate_new_table": "Designate a new Table"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

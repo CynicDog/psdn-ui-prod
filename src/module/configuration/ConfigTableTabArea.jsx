@@ -16,7 +16,6 @@ const ConfigTableTabArea = () => {
     const {currentProject, isProjectLoading} = useProject();
     const {BaseDB, currentBaseDB, setCurrentBaseDB} = useBaseDB();
 
-
     if (isProjectLoading) {
         return <LoadingSpinner/>
     }
