@@ -16,8 +16,6 @@ const ConfigTableSettingPopup = () => {
 
     if (!isConfigTablePopupOpen) return null;
 
-    console.log(currentProject);
-
     return (
         <PopupOverlay setIsPopupOpen={setIsConfigTablePopupOpen}>
             <PopupContent>
