@@ -6,9 +6,7 @@ import ConfigTableTab from "./ConfigTableTab";
 
 const ConfigTableTabArea = () => {
     const { currentProject, isProjectLoading } = useProject();
-    const { BaseDB, isBaseDBLoading, currentBaseDB, setCurrentBaseDB } = useBaseDB();
-
-    console.log(currentProject)
+    const { BaseDB, currentBaseDB, setCurrentBaseDB } = useBaseDB();
 
     if (isProjectLoading) {
         return <LoadingSpinner />
@@ -24,9 +22,9 @@ const ConfigTableTabArea = () => {
                     <ConfigTableTab
                         key={index}
                         order={table.ORDER}
-                        baseDB={table}
+                        configTable={table}
                         currentBaseDB={currentBaseDB}
-                        onSelect={() => setCurrentBaseDB(table)}
+                        onSelect={() => setCurrentBaseDB(BaseDB.find(db => db.id === table.ID))}
                     />
                 ))}
             </Area>

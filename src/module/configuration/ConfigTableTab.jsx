@@ -2,7 +2,7 @@ import {useState} from "react";
 import DraggableArea from "../../component/DraggableArea";
 import {useProject} from "../../context/Project";
 
-const ConfigTableTab = ({ order, baseDB, currentBaseDB, onSelect }) => {
+const ConfigTableTab = ({ order, configTable, currentBaseDB, onSelect }) => {
 
     // const {
     //     currentProject,
@@ -53,11 +53,11 @@ const ConfigTableTab = ({ order, baseDB, currentBaseDB, onSelect }) => {
         <DraggableArea
             order={order}
             flex justifyContent="center"
-            bg={currentBaseDB?.name === baseDB.name ? "primary-subtle" : "body"}
+            bg={currentBaseDB?.name === configTable.NAME ? "primary-subtle" : "body"}
             cursor="pointer"
             onClick={(e) => {
                 e.stopPropagation();
-                onSelect(baseDB);
+                onSelect(configTable);
             }}
             // isDragging={isDragging}
             // isOver={isOver}
@@ -73,7 +73,7 @@ const ConfigTableTab = ({ order, baseDB, currentBaseDB, onSelect }) => {
                 borderRadius: "5px 5px 0 0"
             }}
         >
-            {baseDB.NAME}
+            {configTable.NAME}
         </DraggableArea>
     );
 }
