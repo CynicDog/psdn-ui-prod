@@ -8,7 +8,7 @@ import {usePopup} from "../../context/Popup";
 const ConfigTableEntry = () => {
 
     const {t} = useLanguage();
-    const {setIsProjectTablePopupOpen} = usePopup();
+    const {setIsConfigTablePopupOpen} = usePopup();
 
     return (
         <Area>
@@ -17,7 +17,7 @@ const ConfigTableEntry = () => {
                     {t('messages.request_table_designation')}
                 </Span>
                 <Span
-                    onClick={() => setIsProjectTablePopupOpen(true)}
+                    onClick={() => setIsConfigTablePopupOpen(true)}
                     variant="secondary"
                     fontSize="4"
                     p="3"
