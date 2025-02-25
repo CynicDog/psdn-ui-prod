@@ -1,6 +1,9 @@
 {
-  "id": "T4",
-  "name": "KBW",
+  "id": "CT2",
+  "username": "JohnDoe",
+  "projectId": "J1",
+  "tableId": "T2",
+  "name": "QWT",
   "columns": {
     "APPT_YN": "APPT_YN",
     "COL_NAME": "COL_NAME",
@@ -41,7 +44,30 @@
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
       "COL_TYPE": "DECIMAL",
-      "RULES": [],
+      "RULES": [
+        {
+          "RULE_ID": "R5",
+          "VRBLs": [
+            {
+              "id": "P16",
+              "value": "CODE_P16_C1"
+            },
+            {
+              "id": "P17",
+              "value": "CODE_P17_C1"
+            },
+            {
+              "id": "P18",
+              "value": 10
+            },
+            {
+              "id": "P2",
+              "value": "CODE_P2_C1"
+            }
+          ],
+          "ORDER": 0
+        }
+      ],
       "DESC": ""
     },
     {
@@ -49,22 +75,7 @@
       "COL_NAME": "COLUMN_2",
       "COL_NAME_LGCL": "Logical Name 2",
       "COL_TYPE": "VARCHAR",
-      "RULES": [
-        {
-          "RULE_ID": "R2",
-          "VRBLs": [
-            {
-              "id": "P7",
-              "value": "-2"
-            },
-            {
-              "id": "P8",
-              "value": "*"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
@@ -72,25 +83,25 @@
       "COL_NAME": "COLUMN_3",
       "COL_NAME_LGCL": "Logical Name 3",
       "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_4",
-      "COL_NAME_LGCL": "Logical Name 4",
-      "COL_TYPE": "VARCHAR",
       "RULES": [
         {
-          "RULE_ID": "R2",
+          "RULE_ID": "R5",
           "VRBLs": [
             {
-              "id": "P7",
-              "value": "-2"
+              "id": "P16",
+              "value": "CODE_P16_C1"
             },
             {
-              "id": "P8",
-              "value": "*"
+              "id": "P17",
+              "value": "CODE_P17_C1"
+            },
+            {
+              "id": "P18",
+              "value": 10
+            },
+            {
+              "id": "P2",
+              "value": "CODE_P2_C1"
             }
           ],
           "ORDER": 0
@@ -100,10 +111,41 @@
     },
     {
       "APPT_YN": 0,
+      "COL_NAME": "COLUMN_4",
+      "COL_NAME_LGCL": "Logical Name 4",
+      "COL_TYPE": "VARCHAR",
+      "RULES": [],
+      "DESC": ""
+    },
+    {
+      "APPT_YN": 0,
       "COL_NAME": "COLUMN_5",
       "COL_NAME_LGCL": "Logical Name 5",
       "COL_TYPE": "DECIMAL",
-      "RULES": [],
+      "RULES": [
+        {
+          "RULE_ID": "R5",
+          "VRBLs": [
+            {
+              "id": "P16",
+              "value": "CODE_P16_C1"
+            },
+            {
+              "id": "P17",
+              "value": "CODE_P17_C1"
+            },
+            {
+              "id": "P18",
+              "value": 10
+            },
+            {
+              "id": "P2",
+              "value": "CODE_P2_C1"
+            }
+          ],
+          "ORDER": 0
+        }
+      ],
       "DESC": ""
     },
     {
@@ -1478,86 +1520,6 @@
       "APPT_YN": 0,
       "COL_NAME": "COLUMN_177",
       "COL_NAME_LGCL": "Logical Name 177",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_178",
-      "COL_NAME_LGCL": "Logical Name 178",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_179",
-      "COL_NAME_LGCL": "Logical Name 179",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_180",
-      "COL_NAME_LGCL": "Logical Name 180",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_181",
-      "COL_NAME_LGCL": "Logical Name 181",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_182",
-      "COL_NAME_LGCL": "Logical Name 182",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_183",
-      "COL_NAME_LGCL": "Logical Name 183",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_184",
-      "COL_NAME_LGCL": "Logical Name 184",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_185",
-      "COL_NAME_LGCL": "Logical Name 185",
-      "COL_TYPE": "DECIMAL",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_186",
-      "COL_NAME_LGCL": "Logical Name 186",
-      "COL_TYPE": "VARCHAR",
-      "RULES": [],
-      "DESC": ""
-    },
-    {
-      "APPT_YN": 0,
-      "COL_NAME": "COLUMN_187",
-      "COL_NAME_LGCL": "Logical Name 187",
       "COL_TYPE": "DECIMAL",
       "RULES": [],
       "DESC": ""

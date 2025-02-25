@@ -106,7 +106,7 @@ export const fetchUserProjects = async (username) => {
  */
 export const fetchProjectTable = async (tableId) => {
     try {
-        const response = await fetch(`${BACKEND_URL}/meta/table/${tableId}`);
+        const response = await fetch(`${BACKEND_URL}/configTables/${tableId}`);
         if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
         return await response.json();

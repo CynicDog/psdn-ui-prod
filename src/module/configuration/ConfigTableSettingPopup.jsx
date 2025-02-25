@@ -14,7 +14,6 @@ import Button from "../../component/Button";
 import PopupHeader from "../../component/PopupHeader";
 import PopupBody from "../../component/PopupBody";
 import ConfigTableSettingCard from "./ConfigTableSettingCard";
-import Icon from "../../component/Icon";
 
 const ConfigTableSettingPopup = () => {
     const {t} = useLanguage();
@@ -40,7 +39,8 @@ const ConfigTableSettingPopup = () => {
         if (!selectedTable) return;
 
         const newTable = {
-            ID: selectedTable.ID,
+            ID: "CT1", // TODO: Replace with Hibernate UUID
+            TABLE_ID: selectedTable.ID,
             NAME: selectedTable.NAME,
             DESCRIPTION: "",
             ORDER: 0
@@ -111,8 +111,9 @@ const ConfigTableSettingPopup = () => {
                                 key={index}
                                 order={table.ORDER}
                                 configTable={table}
-                                currentBaseDB={BaseDB}
-                                onSelect={() => setCurrentBaseDB(BaseDB.find(db => db.id === table.ID) || null)}
+                                onSelect={() => {
+                                    setCurrentBaseDB(BaseDB.find(db => db.id === table.ID) || null)
+                                }}
                             />
                         ))}
                     </Area>

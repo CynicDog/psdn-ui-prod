@@ -8,20 +8,23 @@
       "ORDER": 0,
       "TABLES": [
         {
-          "ID": "T3",
-          "NAME": "HLT",
+          "ID": "CT1",
+          "TABLE_ID": "T1",
+          "NAME": "LBF",
           "DESCRIPTION": "description..",
           "ORDER": 0
         },
         {
-          "ID": "T4",
-          "NAME": "KBW",
+          "ID": "CT3",
+          "TABLE_ID": "T3",
+          "NAME": "HLT",
           "DESCRIPTION": "description..",
           "ORDER": 1
         },
         {
-          "ID": "T1",
-          "NAME": "LBF",
+          "ID": "CT4",
+          "TABLE_ID": "T4",
+          "NAME": "KBW",
           "DESCRIPTION": "description..",
           "ORDER": 2
         }
@@ -34,13 +37,15 @@
       "ORDER": 1,
       "TABLES": [
         {
-          "ID": "T3",
+          "ID": "CT5",
+          "TABLE_ID": "T3",
           "NAME": "HLT",
           "DESCRIPTION": "description..",
           "ORDER": 0
         },
         {
-          "ID": "T4",
+          "ID": "CT6",
+          "TABLE_ID": "T4",
           "NAME": "KBW",
           "DESCRIPTION": "description..",
           "ORDER": 1
@@ -54,7 +59,8 @@
       "ORDER": 2,
       "TABLES": [
         {
-          "ID": "T1",
+          "ID": "CT7",
+          "TABLE_ID": "T1",
           "NAME": "LBF",
           "DESCRIPTION": "description..",
           "ORDER": 0

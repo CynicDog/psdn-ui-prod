@@ -8,7 +8,7 @@ const BaseDBContext = createContext();
 export const BaseDBProvider = ({ children }) => {
     const { currentProject } = useProject();
     const { currentMenu } = useMenu();
-    const [BaseDB, setBaseDB] = useState([]);
+    const [BaseDB, setBaseDB] = useState([]); // TODO: name change to ConfigTable
     const [currentBaseDB, setCurrentBaseDB] = useState(null);
     const [isCurrentBaseDBLoading, setIsCurrentBaseDBLoading] = useState(false);
 

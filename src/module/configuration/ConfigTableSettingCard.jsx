@@ -4,8 +4,9 @@ import {useProject} from "../../context/Project";
 import {useState} from "react";
 import {Col, Row} from "../../component/Grid";
 import Area from "../../component/Area";
+import {useBaseDB} from "../../context/BaseDB";
 
-const ConfigTableSettingCard = ({order, configTable, currentBaseDB, onSelect}) => {
+const ConfigTableSettingCard = ({order, configTable, onSelect}) => {
 
     const {
         currentProject,
@@ -13,6 +14,8 @@ const ConfigTableSettingCard = ({order, configTable, currentBaseDB, onSelect}) =
         targetProjectTableDraggable, setTargetProjectTableDraggable,
         handleMoveProjectTable
     } = useProject();
+
+    const { currentBaseDB } = useBaseDB();
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
@@ -66,7 +69,7 @@ const ConfigTableSettingCard = ({order, configTable, currentBaseDB, onSelect}) =
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
-            bg={currentBaseDB?.name === configTable.NAME ? "primary-subtle" : "body"}
+            bg={currentBaseDB?.id === configTable.ID ? "primary-subtle" : "body"}
             style={{
                 whiteSpace: "nowrap",
                 overflow: "hidden",
