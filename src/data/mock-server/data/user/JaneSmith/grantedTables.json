@@ -1,0 +1,13 @@
+{
+  "USERNAME": "JaneSmith",
+  "DATA": [
+    {
+      "ID": "T1",
+      "NAME": "LBF"
+    },
+    {
+      "ID": "T2",
+      "NAME": "QWT"
+    }
+  ]
+}

@@ -42,7 +42,8 @@
     "pseudonymization_guide_download": "Download the guide",
     "configure_project_tables": "Configure Project Tables",
     "select_project_table": "Select Project Table",
-    "designate_new_table": "Designate a new Table"
+    "designate_new_table": "Designate a new Table",
+    "select_table": "Select Table"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

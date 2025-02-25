@@ -65,7 +65,6 @@ export const fetchPSDNMaster = async () => {
 export const fetchPSDNCodes = async () => {
     try {
         const response = await fetch(`${BACKEND_URL}/meta/business/PSDN-code`);
-
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN codes data');
         }
@@ -86,15 +85,12 @@ export const fetchPSDNCodes = async () => {
  */
 export const fetchUserProjects = async (username) => {
     try {
-        // Simulating fetching JSON from local file
         const response = await fetch(`${BACKEND_URL}/user/${username}/projects`);
-
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
         }
 
-        const data = await response.json();
-        return data;
+        return await response.json();
     } catch (error) {
         console.error("Error fetching projects:", error);
         return null;
@@ -110,14 +106,29 @@ export const fetchUserProjects = async (username) => {
  */
 export const fetchProjectTable = async (tableId) => {
     try {
-        // Fetch the data for the given table from the mock server
         const response = await fetch(`${BACKEND_URL}/meta/table/${tableId}`);
         if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
-        const tableData = await response.json();
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching project table:", error);
+        return null;
+    }
+};
 
-        // Return the table data directly (no wrapping object with table name as key)
-        return tableData;
+
+/**
+ * @description Fetches table data that are given permission to a user.
+ *
+ * @param {string} username - The username of the user whose permission-given tables are being fetched.
+ * @returns {Promise<Object>} - A promise resolving to the table data directly.
+ */
+export const fetchUserPermissionGivenTable = async (username) => {
+    try {
+        const response = await fetch(`${BACKEND_URL}/user/${username}/grantedTables`);
+        if (!response.ok) throw new Error(`Failed to fetch ${username} data`);
+
+        return await response.json();
     } catch (error) {
         console.error("Error fetching project table:", error);
         return null;

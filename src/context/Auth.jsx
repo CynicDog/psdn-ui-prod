@@ -3,6 +3,7 @@ import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
 import {ROLES} from "./util";
 import {useLanguage} from "./Language";
+import {fetchUserPermissionGivenTable} from "../data/APIs";
 
 {/* Authentication Context */}
 const AuthContext = createContext();

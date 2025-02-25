@@ -44,7 +44,7 @@ const ProjectTabArea = () => {
             })}
             <Area
                 onClick={() => setIsProjectPopupOpen(true)}
-                cursor="pointer" ms="auto" me="4"
+                cursor="pointer" ms="auto" me="3" ps="2"
             >
                 <Icon name="arrows-fullscreen" />
             </Area>

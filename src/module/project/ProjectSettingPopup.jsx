@@ -23,7 +23,7 @@ const ProjectSettingPopup = () => {
 
     const handleAddProject = () => {
         const newProject = {
-            ID: Date.now().toString(), // TODO: Hibernate UUID 생성값으로 대체
+            ID: Date.now().toString(), // TODO: Replace with Hibernate UUID
             NAME: "New Project",
             DESCRIPTION: "",
             TABLES: [],
