@@ -9,15 +9,18 @@
       "TABLES": [
         {
           "ID": "T3",
-          "NAME": "HLT"
+          "NAME": "HLT",
+          "ORDER": 0
         },
         {
           "ID": "T4",
-          "NAME": "KBW"
+          "NAME": "KBW",
+          "ORDER": 1
         },
         {
           "ID": "T1",
-          "NAME": "LBF"
+          "NAME": "LBF",
+          "ORDER": 2
         }
       ]
     },
@@ -29,11 +32,13 @@
       "TABLES": [
         {
           "ID": "T3",
-          "NAME": "HLT"
+          "NAME": "HLT",
+          "ORDER": 0
         },
         {
           "ID": "T4",
-          "NAME": "KBW"
+          "NAME": "KBW",
+          "ORDER": 1
         }
       ]
     },
@@ -45,7 +50,8 @@
       "TABLES": [
         {
           "ID": "T1",
-          "NAME": "LBF"
+          "NAME": "LBF",
+          "ORDER": 0
         }
       ]
     },

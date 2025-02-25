@@ -11,7 +11,7 @@ import ConfigActions from "../module/configuration/ConfigActions";
 import {useConfig} from "../context/Config";
 import {useBaseDB} from "../context/BaseDB";
 import {useLanguage} from "../context/Language";
-import BaseDBSelectControl from "../module/configuration/BaseDBSelectControl";
+import ConfigTableTabArea from "../module/configuration/ConfigTableTabArea";
 
 const ConfigurationView = () => {
 
@@ -27,7 +27,7 @@ const ConfigurationView = () => {
                 </Area>
             ) : (
                 <Area rounded shadow="sm" fontSize="smaller">
-                    <BaseDBSelectControl/>
+                    <ConfigTableTabArea/>
                     <Area p="3">
                         {/* Control Panel */}
                         <Area className="control-panel" bg="body" borderBottom>
