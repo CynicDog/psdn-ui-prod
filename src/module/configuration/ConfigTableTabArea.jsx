@@ -20,7 +20,7 @@ const ConfigTableTabArea = () => {
         return <LoadingSpinner/>
     }
     if (currentProject?.TABLES.length === 0) {
-        return;
+        return null;
     }
 
     return (
