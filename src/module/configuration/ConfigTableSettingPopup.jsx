@@ -6,27 +6,24 @@ import { useProject } from "../../context/Project";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
-import LanguageSelector from "../LanguageSelector";
-import ThemeSelector from "../ThemeSelector";
-import AuthBadge from "../AuthBadge";
 import PopupHeader from "../../component/PopupHeader";
 import PopupBody from "../../component/PopupBody";
 
-const ProjectTableSettingPopup = () => {
+const ConfigTableSettingPopup = () => {
     const { t } = useLanguage();
-    const { isProjectTablePopupOpen, setIsProjectTablePopupOpen } = usePopup();
+    const { isConfigTablePopupOpen, setIsConfigTablePopupOpen } = usePopup();
     const { currentProject } = useProject();
 
-    if (!isProjectTablePopupOpen) return null;
+    if (!isConfigTablePopupOpen) return null;
 
     console.log(currentProject);
 
     return (
-        <PopupOverlay setIsPopupOpen={setIsProjectTablePopupOpen}>
+        <PopupOverlay setIsPopupOpen={setIsConfigTablePopupOpen}>
             <PopupContent>
                 <PopupHeader>
                     <Area flex justifyContent="end">
-                        <Button size="sm" variant="light" onClick={() => setIsProjectTablePopupOpen(false)}>
+                        <Button size="sm" variant="light" onClick={() => setIsConfigTablePopupOpen(false)}>
                             {t('components.close')}
                         </Button>
                     </Area>
@@ -48,4 +45,4 @@ const ProjectTableSettingPopup = () => {
     );
 };
 
-export default ProjectTableSettingPopup;
+export default ConfigTableSettingPopup;

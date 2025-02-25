@@ -1,15 +1,17 @@
 import {createContext, useContext, useEffect, useState} from "react";
 import {useAuth} from "./Auth";
 import {ROLES} from "./util";
+import {useProject} from "./Project";
 
 const PopupContext = createContext();
 
 export const PopupProvider = ({ children }) => {
     const [isConfigPopupOpen, setIsConfigPopupOpen] = useState(false);
     const [isProjectPopupOpen, setIsProjectPopupOpen] = useState(true);
-    const [isProjectTablePopupOpen, setIsProjectTablePopupOpen] = useState(false);
+    const [isConfigTablePopupOpen, setIsConfigTablePopupOpen] = useState(false);
 
     const { auth } = useAuth();
+    const { currentProject } = useProject();
 
     // Project popup is shown only to users with OWNER role
     useEffect(() => {
@@ -23,7 +25,7 @@ export const PopupProvider = ({ children }) => {
     return (
         <PopupContext.Provider value={{
             isProjectPopupOpen, setIsProjectPopupOpen,
-            isProjectTablePopupOpen, setIsProjectTablePopupOpen,
+            isConfigTablePopupOpen, setIsConfigTablePopupOpen,
             isConfigPopupOpen, setIsConfigPopupOpen,
         }}>
             {children}

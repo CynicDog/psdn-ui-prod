@@ -12,7 +12,7 @@ import Span from "../../component/Span";
 const ConfigTableTabArea = () => {
 
     const { t } = useLanguage();
-    const { setIsProjectTablePopupOpen } = usePopup();
+    const { setIsConfigTablePopupOpen } = usePopup();
     const {currentProject, isProjectLoading} = useProject();
     const {BaseDB, currentBaseDB, setCurrentBaseDB} = useBaseDB();
 
@@ -36,10 +36,7 @@ const ConfigTableTabArea = () => {
                 />
             ))}
 
-            <Area
-                onClick={() => setIsProjectTablePopupOpen(true)}
-                cursor="pointer" mx="3"
-            >
+            <Area onClick={() => setIsConfigTablePopupOpen(true)} cursor="pointer" mx="3">
                 <Tooltip
                     position="top"
                     content={

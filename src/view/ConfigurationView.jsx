@@ -2,30 +2,30 @@ import React from "react";
 import Area from "../component/Area";
 import {Col, Row} from "../component/Grid";
 import LoadingSpinner from "../component/LoadingSpinner";
+import Tooltip from "../component/Tooltip";
+import Span from "../component/Span";
+import Icon from "../component/Icon";
 import ConfigTableHeader from "../module/configuration/ConfigTableHeader";
 import ConfigTablePaginationControl from "../module/configuration/ConfigTablePaginationControl";
 import ConfigTableColumn from "../module/configuration/ConfigTableColumn";
 import ConfigPopup from "../module/configuration/ConfigPopup";
 import ConfigTable from "../module/configuration/ConfigTable";
 import ConfigActions from "../module/configuration/ConfigActions";
+import ConfigTableTabArea from "../module/configuration/ConfigTableTabArea";
+import ConfigTableSettingPopup from "../module/configuration/ConfigTableSettingPopup";
 import {useConfig} from "../context/Config";
 import {useBaseDB} from "../context/BaseDB";
-import {useLanguage} from "../context/Language";
-import ConfigTableTabArea from "../module/configuration/ConfigTableTabArea";
-import ProjectTableSettingPopup from "../module/project/ProjectTableSettingPopup";
+import ConfigTableEntry from "../module/configuration/ConfigTableEntry";
 
 const ConfigurationView = () => {
 
-    const {t} = useLanguage();
     const {currentBaseDB, isCurrentBaseDBLoading} = useBaseDB();
     const {paginatedRows} = useConfig();
 
     return (
         <>
             {!currentBaseDB ? (
-                <Area textPosition="center" mt="4">
-                    {t('messages.request_table_designation')}
-                </Area>
+                <ConfigTableEntry />
             ) : (
                 <Area rounded shadow="sm" fontSize="smaller">
                     <ConfigTableTabArea/>
@@ -34,11 +34,11 @@ const ConfigurationView = () => {
                         <Area className="control-panel" bg="body" borderBottom>
                             <Row p="2">
                                 <Col width="7" responsive="lg" my="1">
-                                    <ConfigTablePaginationControl />
+                                    <ConfigTablePaginationControl/>
                                 </Col>
                                 <Col width="5" responsive="lg" my="1">
                                     <Area flex justifyContent="end">
-                                        <ConfigActions />
+                                        <ConfigActions/>
                                     </Area>
                                 </Col>
                             </Row>
@@ -68,7 +68,7 @@ const ConfigurationView = () => {
             <ConfigPopup/>
 
             {/* Project Table Setting Popup */}
-            <ProjectTableSettingPopup />
+            <ConfigTableSettingPopup/>
         </>
     );
 };
