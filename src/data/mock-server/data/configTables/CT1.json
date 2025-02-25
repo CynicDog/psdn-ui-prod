@@ -52,22 +52,7 @@
       "COL_NAME": "COLUMN_2",
       "COL_NAME_LGCL": "Logical Name 2",
       "COL_TYPE": "VARCHAR",
-      "RULES": [
-        {
-          "RULE_ID": "R2",
-          "VRBLs": [
-            {
-              "id": "P7",
-              "value": "-2"
-            },
-            {
-              "id": "P8",
-              "value": "*"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
@@ -83,22 +68,7 @@
       "COL_NAME": "COLUMN_4",
       "COL_NAME_LGCL": "Logical Name 4",
       "COL_TYPE": "VARCHAR",
-      "RULES": [
-        {
-          "RULE_ID": "R2",
-          "VRBLs": [
-            {
-              "id": "P7",
-              "value": "-2"
-            },
-            {
-              "id": "P8",
-              "value": "*"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {

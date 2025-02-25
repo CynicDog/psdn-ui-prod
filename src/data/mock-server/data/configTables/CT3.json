@@ -47,20 +47,7 @@
       "RULES": [
         {
           "RULE_ID": "R4",
-          "VRBLs": [
-            {
-              "id": "P9",
-              "value": "CODE_P9_C1"
-            },
-            {
-              "id": "P10",
-              "value": 1
-            },
-            {
-              "id": "P13",
-              "value": "1000"
-            }
-          ],
+          "VRBLs": [],
           "ORDER": 0
         }
       ],

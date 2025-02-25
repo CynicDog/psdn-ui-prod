@@ -44,30 +44,7 @@
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
       "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R5",
-          "VRBLs": [
-            {
-              "id": "P16",
-              "value": "CODE_P16_C1"
-            },
-            {
-              "id": "P17",
-              "value": "CODE_P17_C1"
-            },
-            {
-              "id": "P18",
-              "value": 10
-            },
-            {
-              "id": "P2",
-              "value": "CODE_P2_C1"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
@@ -83,30 +60,7 @@
       "COL_NAME": "COLUMN_3",
       "COL_NAME_LGCL": "Logical Name 3",
       "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R5",
-          "VRBLs": [
-            {
-              "id": "P16",
-              "value": "CODE_P16_C1"
-            },
-            {
-              "id": "P17",
-              "value": "CODE_P17_C1"
-            },
-            {
-              "id": "P18",
-              "value": 10
-            },
-            {
-              "id": "P2",
-              "value": "CODE_P2_C1"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
@@ -122,30 +76,7 @@
       "COL_NAME": "COLUMN_5",
       "COL_NAME_LGCL": "Logical Name 5",
       "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R5",
-          "VRBLs": [
-            {
-              "id": "P16",
-              "value": "CODE_P16_C1"
-            },
-            {
-              "id": "P17",
-              "value": "CODE_P17_C1"
-            },
-            {
-              "id": "P18",
-              "value": 10
-            },
-            {
-              "id": "P2",
-              "value": "CODE_P2_C1"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {

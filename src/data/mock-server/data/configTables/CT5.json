@@ -44,26 +44,7 @@
       "COL_NAME": "COLUMN_1",
       "COL_NAME_LGCL": "Logical Name 1",
       "COL_TYPE": "DECIMAL",
-      "RULES": [
-        {
-          "RULE_ID": "R4",
-          "VRBLs": [
-            {
-              "id": "P9",
-              "value": "CODE_P9_C1"
-            },
-            {
-              "id": "P10",
-              "value": 1
-            },
-            {
-              "id": "P13",
-              "value": "1000"
-            }
-          ],
-          "ORDER": 0
-        }
-      ],
+      "RULES": [],
       "DESC": ""
     },
     {
