@@ -99,28 +99,28 @@ const ConfigTableSettingPopup = () => {
                         <Area rounded shadow fontWeight="lighter" m="3" p="3">
                             {availableTables?.map(table => (
                                 <Row border rounded mx="3" my="1" p="2">
-                                    <Col width="2" responsive="lg">
+                                    <Col width="1" responsive="xl" my="1">
                                         <Span badge="primary">
                                             {table.NAME}
                                         </Span>
                                     </Col>
-                                    <Col width="3" responsive="lg" flex alignItems="center">
+                                    <Col width="4" responsive="xl" flex alignItems="center" my="1">
                                         {table.DESCRIPTION}
                                     </Col>
-                                    <Col width="7" responsive="lg" flex justifyContent="end" alignItems="center">
-                                        <Area flex justifyContent="center" gap="3">
+                                    <Col width="5" responsive="xl" flex justifyContent="end" alignItems="center" my="1">
+                                        <Area>
                                             <Span>{t("components.source_table_created_at")}:</Span>
-                                            <Span badge="light" me="3">{table.CREATED_AT}</Span>
+                                            <Span badge="light" me="4">{table.CREATED_AT}</Span>
                                             <Span>{t("components.source_table_updated_at")}:</Span>
-                                            <Span badge="light" me="3">{table.UPDATED_AT}</Span>
+                                            <Span badge="light" me="4">{table.UPDATED_AT}</Span>
                                             <Span>{t("components.source_table_expire_at")}:</Span>
-                                            <Span badge="light" me="3">{table.EXPIRE_AT}</Span>
+                                            <Span badge="light">{table.EXPIRE_AT}</Span>
                                         </Area>
-                                        <Area mx="3">
-                                            <Button size="sm" variant="light" onClick={() => handleTableImport(table.ID)}>
-                                                {t("components.source_table_import")}
-                                            </Button>
-                                        </Area>
+                                    </Col>
+                                    <Col width="2" responsive="xl" flex justifyContent="end" my="1">
+                                        <Button size="sm" variant="light" onClick={() => handleTableImport(table.ID)}>
+                                            {t("components.source_table_import")}
+                                        </Button>
                                     </Col>
                                 </Row>
                             ))}
