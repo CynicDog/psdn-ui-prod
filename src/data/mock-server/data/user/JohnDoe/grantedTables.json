@@ -3,19 +3,35 @@
   "DATA": [
     {
       "ID": "T1",
-      "NAME": "LBF"
+      "NAME": "LBF",
+      "DESCRIPTION": "Some description on LBF table.",
+      "CREATED_AT": "2025-02-20",
+      "UPDATED_AT": "2025-02-25",
+      "EXPIRE_AT": "2025-12-31"
     },
     {
       "ID": "T2",
-      "NAME": "QWT"
+      "NAME": "QWT",
+      "DESCRIPTION": "Some description on QWT table.",
+      "CREATED_AT": "2025-02-10",
+      "UPDATED_AT": "2025-02-23",
+      "EXPIRE_AT": "2025-12-31"
     },
     {
       "ID": "T3",
-      "NAME": "HLT"
+      "NAME": "HLT",
+      "DESCRIPTION": "Some description on HLT table.",
+      "CREATED_AT": "2025-01-15",
+      "UPDATED_AT": "2025-02-22",
+      "EXPIRE_AT": "2025-12-31"
     },
     {
       "ID": "T4",
-      "NAME": "KBW"
+      "NAME": "KBW",
+      "DESCRIPTION": "Some description on KBW table.",
+      "CREATED_AT": "2025-01-20",
+      "UPDATED_AT": "2025-02-17",
+      "EXPIRE_AT": "2025-12-31"
     }
   ]
 }

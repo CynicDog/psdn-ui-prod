@@ -42,8 +42,14 @@
     "pseudonymization_guide_download": "Download the guide",
     "configure_project_tables": "Configure Project Tables",
     "select_project_table": "Select Project Table",
-    "designate_new_table": "Designate a new Table",
-    "select_table": "Select Table"
+    "import_new_table": "Import a new Table",
+    "select_table": "Select Table",
+    "source_table_created_at": "Created at",
+    "source_table_updated_at": "Updated at",
+    "source_table_expire_at": "Expire at",
+    "project_tables": "Project Tables",
+    "source_table_import": "Import",
+    "config_table_imported_at": "Imported at"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

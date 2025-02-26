@@ -42,8 +42,14 @@
     "pseudonymization_guide_download": "가명화 가이드 내려받기",
     "configure_project_tables": "프로젝트 테이블 관리",
     "select_project_table": "프로젝트 테이블 선택",
-    "designate_new_table": "신규 테이블 할당",
-    "select_table": "테이블 선택"
+    "import_new_table": "신규 테이블 불러오기",
+    "select_table": "테이블 선택",
+    "source_table_created_at": "생성일자",
+    "source_table_updated_at": "수정일자",
+    "source_table_expire_at": "말소일자",
+    "project_tables": "프로젝트 테이블 목록",
+    "source_table_import": "불러오기",
+    "config_table_imported_at": "불러온 일자"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

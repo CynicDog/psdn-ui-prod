@@ -4,16 +4,19 @@ const Row = ({
                  onClick,
                  className = "",
                  bg = '',
+                 border = '',
                  rounded = '',
                  flex = false,
                  justifyContent = '',
                  alignItems = '',
                  p = "", px = "", py = "", pt = "", pb = "", ps = "", pe = "",
-                 m = "", mx = "", my = "", mt = "", mb = "", ms = "", me = ""
+                 m = "", mx = "", my = "", mt = "", mb = "", ms = "", me = "",
+                 gap = ''
              }) => {
     const classes = [
         "row",
         bg ? `bg-${bg}` : '',
+        border ? `border border-${border}` : '',
         rounded ? `rounded rounded-${rounded}` : '',
         flex ? 'd-flex' : '',
         justifyContent ? `justify-content-${justifyContent}` : '',
@@ -22,6 +25,7 @@ const Row = ({
         pt ? `pt-${pt}` : "", pb ? `pb-${pb}` : "", ps ? `ps-${ps}` : "", pe ? `pe-${pe}` : "",
         m ? `m-${m}` : "", mx ? `mx-${mx}` : "", my ? `my-${my}` : "",
         mt ? `mt-${mt}` : "", mb ? `mb-${mb}` : "", ms ? `ms-${ms}` : "", me ? `me-${me}` : "",
+        gap ? `gap-${gap}` : '',
         className
     ].filter(Boolean).join(" ");
 
@@ -39,6 +43,7 @@ const Col = ({
                  className = "",
                  p = "", px = "", py = "", pt = "", pb = "", ps = "", pe = "",
                  m = "", mx = "", my = "", mt = "", mb = "", ms = "", me = "",
+                 gap = '',
                  sticky = false,
              }) => {
     const colClass = `col${responsive ? `-${responsive}` : ""}-${width}`.trim();
@@ -53,6 +58,7 @@ const Col = ({
         pt ? `pt-${pt}` : "", pb ? `pb-${pb}` : "", ps ? `ps-${ps}` : "", pe ? `pe-${pe}` : "",
         m ? `m-${m}` : "", mx ? `mx-${mx}` : "", my ? `my-${my}` : "",
         mt ? `mt-${mt}` : "", mb ? `mb-${mb}` : "", ms ? `ms-${ms}` : "", me ? `me-${me}` : "",
+        gap ? `gap-${gap}` : '',
         className
     ].filter(Boolean).join(" ");
 

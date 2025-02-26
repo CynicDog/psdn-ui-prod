@@ -22,6 +22,7 @@ const Area = ({
                   marginTop = '',
                   width = '', height = '', maxWidth = '', maxHeight = '',
                   fontSize = '',
+                  fontWeight = '',
                   cursor = '',
                   transition = '',
                   className = '',
@@ -70,6 +71,7 @@ const Area = ({
         marginTop,
         borderRadius,
         fontSize,
+        fontWeight,
         ...style,
     };
 

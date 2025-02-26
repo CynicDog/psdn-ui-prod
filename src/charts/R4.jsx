@@ -308,7 +308,7 @@ const R4 = ({ data, defaultBinningValue = 1000}) => {
                         )}
                         ) 를 활용하여
                         <span
-                            className="badge-warning mx-1">이상치범주화</span>
+                            className="badge-warning mx-1">특이치범주화</span>
                         를 적용합니다.
                     </div>
                 </div>

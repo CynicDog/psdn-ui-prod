@@ -11,21 +11,24 @@
           "ID": "CT1",
           "TABLE_ID": "T1",
           "NAME": "LBF",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 1 LBF] configuration table",
+          "IMPORTED_AT": "2025-02-26",
           "ORDER": 0
         },
         {
           "ID": "CT3",
           "TABLE_ID": "T3",
           "NAME": "HLT",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 1 HLT] configuration table",
+          "IMPORTED_AT": "2025-02-23",
           "ORDER": 1
         },
         {
           "ID": "CT4",
           "TABLE_ID": "T4",
           "NAME": "KBW",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 1 KBW] configuration table",
+          "IMPORTED_AT": "2025-02-22",
           "ORDER": 2
         }
       ]
@@ -40,14 +43,16 @@
           "ID": "CT5",
           "TABLE_ID": "T3",
           "NAME": "HLT",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 2 HLT] configuration table",
+          "IMPORTED_AT": "2025-02-26",
           "ORDER": 0
         },
         {
           "ID": "CT6",
           "TABLE_ID": "T4",
           "NAME": "KBW",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 2 KBW] configuration table",
+          "IMPORTED_AT": "2025-02-25",
           "ORDER": 1
         }
       ]
@@ -62,7 +67,8 @@
           "ID": "CT7",
           "TABLE_ID": "T1",
           "NAME": "LBF",
-          "DESCRIPTION": "description..",
+          "DESCRIPTION": "Some description on [Project - 3 LBF] configuration table",
+          "IMPORTED_AT": "2025-02-23",
           "ORDER": 0
         }
       ]

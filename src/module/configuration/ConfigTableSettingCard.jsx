@@ -5,8 +5,11 @@ import {useState} from "react";
 import {Col, Row} from "../../component/Grid";
 import Area from "../../component/Area";
 import {useBaseDB} from "../../context/BaseDB";
+import {useLanguage} from "../../context/Language";
 
 const ConfigTableSettingCard = ({order, configTable, onSelect}) => {
+
+    const { t } = useLanguage();
 
     const {
         currentProject,
@@ -78,18 +81,21 @@ const ConfigTableSettingCard = ({order, configTable, onSelect}) => {
             border rounded="2" shadow="sm" my="2"
         >
             <Row key={configTable.ID} rounded p="3" m="3" flex alignItems="center">
-                <Col width="4" responsive="lg" my="1">
-                    <Area flex justifyContent="start" alignItems="center">
-                        <Span>
-                            {configTable.NAME}
-                        </Span>
+                <Col width="2" responsive="lg" my="1" flex justifyContent="start" alignItems="center">
+                    <Span>
+                        {configTable.NAME}
+                    </Span>
+                </Col>
+                <Col width="7" responsive="lg" my="1" flex justifyContent="start">
+                    <Span fontWeight="light">
+                        {configTable.DESCRIPTION}
+                    </Span>
+                </Col>
+                <Col width="3" responsive="lg" >
+                    <Area fontWeight="lighter" flex justifyContent="end" gap="2">
+                        <Span>{t('components.config_table_imported_at')}:</Span>
+                        <Span badge="light" me="3">{configTable.IMPORTED_AT}</Span>
                     </Area>
-                </Col>
-                <Col width="4" responsive="lg" my="1">
-                    DESCRIPTION
-                </Col>
-                <Col width="4" responsive="lg" flex justifyContent="end" my="1">
-                    EXPIRATION DATE
                 </Col>
             </Row>
         </DraggableArea>
