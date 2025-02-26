@@ -24,7 +24,7 @@ const ConfigTableHeader = ({ children }) => {
                             {t('components.grid_row_control_check')}
                         </Span>
                     </Area>
-                    <Area flex justifyContent="center">
+                    <Area flex justifyContent="center" my="1">
                         <CheckBox
                             id="control_check"
                             checked={paginatedRowsAllSelected}

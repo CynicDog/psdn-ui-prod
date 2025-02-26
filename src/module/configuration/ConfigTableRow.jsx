@@ -6,15 +6,15 @@ import Span from "../../component/Span";
 import Button from "../../component/Button";
 import ConfigRuleCard from "./ConfigRuleCard";
 import Icon from "../../component/Icon";
-import { useConfig } from "../../context/Config";
+import {useConfig} from "../../context/Config";
 import {usePopup} from "../../context/Popup";
 import Tooltip from "../../component/Tooltip";
 import {useLanguage} from "../../context/Language";
 
-const ConfigTableRow = ({ row, columnNames }) => {
-    const { t } = useLanguage();
-    const { setIsConfigPopupOpen } = usePopup();
-    const { selectedRows, toggleRowSelection, setFocusedRow } = useConfig();
+const ConfigTableRow = ({row, columnNames}) => {
+    const {t} = useLanguage();
+    const {setIsConfigPopupOpen} = usePopup();
+    const {selectedRows, toggleRowSelection, setFocusedRow} = useConfig();
 
     return (
         <TableRow
@@ -36,50 +36,47 @@ const ConfigTableRow = ({ row, columnNames }) => {
             {/* Columns render area */}
             {columnNames.map((colKey) => (
                 <TableRowCell key={colKey}>
-                    {colKey === "APPT_YN" ? (
-                        <Area flex justifyContent="center">
-                            <CheckBox type="checkbox" checked={row[colKey] === 1} disabled />
-                        </Area>
-                    ) : colKey === "RULES" ? (
-                        <Area>
-                            {(Array.isArray(row[colKey]) ? row[colKey] : []).map((rule, index) => (
-                                <ConfigRuleCard
-                                    key={rule?.RULE_ID || index}
-                                    row={row}
-                                    rule={rule}
-                                    order={index}
-                                />
-                            ))}
-                        </Area>
-                    ) : (
-                        <Span>{row[colKey] ?? "N/A"}</Span>
-                    )}
+                    {
+                        colKey === "RULES" ? (
+                            <Area>
+                                {(Array.isArray(row[colKey]) ? row[colKey] : []).map((rule, index) => (
+                                    <ConfigRuleCard
+                                        key={rule?.RULE_ID || index}
+                                        row={row}
+                                        rule={rule}
+                                        order={index}
+                                    />
+                                ))}
+                            </Area>
+                        ) : (
+                            <Span>{row[colKey] ?? "N/A"}</Span>
+                        )}
                 </TableRowCell>
             ))}
 
             {/* Popup icon column */}
             <TableRowCell>
                 <Area flex justifyContent="center">
-                    <Tooltip
-                        position="top"
-                        content={
-                            <Area>
-                                {t('components.record_detail_title')}
-                            </Area>
-                        }
-                        bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                    <Button
+                        size="sm"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setIsConfigPopupOpen(true);
+                            setFocusedRow(row);
+                        }}
                     >
-                        <Button
-                            size="sm"
-                            onClick={(e) => {
-                                e.stopPropagation();
-                                setIsConfigPopupOpen(true);
-                                setFocusedRow(row);
-                            }}
+                        <Tooltip
+                            position="top"
+                            content={
+                                <Area>
+                                    {t('components.record_detail_title')}
+                                </Area>
+                            }
+                            bg="body" rounded shadow="sm" p="1" px="2" gap="3"
                         >
-                            <Icon name="box-arrow-up-right" />
-                        </Button>
-                    </Tooltip>
+                            <Icon name="box-arrow-up-right"/>
+                        </Tooltip>
+                    </Button>
                 </Area>
             </TableRowCell>
         </TableRow>

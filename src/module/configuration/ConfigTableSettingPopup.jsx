@@ -107,7 +107,7 @@ const ConfigTableSettingPopup = () => {
                                     <Col width="4" responsive="xl" flex alignItems="center" my="1">
                                         {table.DESCRIPTION}
                                     </Col>
-                                    <Col width="5" responsive="xl" flex justifyContent="end" alignItems="center" my="1">
+                                    <Col width="6" responsive="xl" flex justifyContent="end" alignItems="center" my="1">
                                         <Area>
                                             <Span>{t("components.source_table_created_at")}:</Span>
                                             <Span badge="light" me="4">{table.CREATED_AT}</Span>
@@ -117,7 +117,7 @@ const ConfigTableSettingPopup = () => {
                                             <Span badge="light">{table.EXPIRE_AT}</Span>
                                         </Area>
                                     </Col>
-                                    <Col width="2" responsive="xl" flex justifyContent="end" my="1">
+                                    <Col width="1" responsive="xl" flex justifyContent="end" my="1">
                                         <Button size="sm" variant="light" onClick={() => handleTableImport(table.ID)}>
                                             {t("components.source_table_import")}
                                         </Button>

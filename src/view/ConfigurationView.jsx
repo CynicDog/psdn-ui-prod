@@ -53,10 +53,10 @@ const ConfigurationView = () => {
                                 <ConfigTableHeader>
                                     {/*<ConfigTableColumn name="APPT_YN" applyFilter width="7%"/>*/}
                                     <ConfigTableColumn name="COL_NAME" width="11%"/>
-                                    <ConfigTableColumn name="COL_NAME_LGCL" width="11%"/>
+                                    <ConfigTableColumn name="COL_NAME_LGCL" width="15%"/>
                                     <ConfigTableColumn name="COL_TYPE" applyFilter width="9%"/>
                                     <ConfigTableColumn name="RULES" applyFilter width="25%"/>
-                                    <ConfigTableColumn name="DESC" width="30%"/>
+                                    <ConfigTableColumn name="DESC"/>
                                 </ConfigTableHeader>
                             </ConfigTable>
                         )}

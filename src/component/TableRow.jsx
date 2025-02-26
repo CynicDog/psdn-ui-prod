@@ -2,7 +2,7 @@ const TableRow = ({
                       children,
                       onClick,
                       selected = false,
-                      cursor = "pointer",
+                      cursor = "",
                       verticalAlign = "",
                       className = "",
                       style = {},
