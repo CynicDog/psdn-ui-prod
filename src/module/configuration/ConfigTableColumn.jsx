@@ -17,17 +17,19 @@ const ConfigTableColumn = ({ name, applyFilter, width }) => {
         return [
             { value: "", label: t("components.select_option_all") },
             ...currentBaseDB.domains[name].map(option => ({
-                value: option.value,
+                value: option,
                 label: name === "RULES"
-                    ? getLocalizedName(pseudoMaster.rules.find(rule => rule.ID === option.value))
-                    : option.label
+                    ? getLocalizedName(pseudoMaster.rules.find(rule => rule.ID === option))
+                    : option
             }))
         ];
     };
 
     return (
         <TableHeaderCell width={width}>
-            <Area>{name}</Area>
+            <Area>
+                {name}
+            </Area>
             {applyFilter && (
                 <Area>
                     <Dropdown

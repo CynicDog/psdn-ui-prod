@@ -5,7 +5,6 @@
   "tableId": "T1",
   "name": "LBF",
   "columns": {
-    "APPT_YN": "APPT_YN",
     "COL_NAME": "COL_NAME",
     "COL_NAME_LGCL": "COL_NAME_LGCL",
     "COL_TYPE": "COL_TYPE",
@@ -13,29 +12,24 @@
     "DESC": "DESC"
   },
   "domains": {
-    "APPT_YN": [
-      {"value": 1, "label": "True"},
-      {"value": 0, "label": "False"}
-    ],
     "COL_TYPE": [
-      {"value": "DECIMAL", "label": "DECIMAL"},
-      {"value": "VARCHAR", "label": "VARCHAR"}
+      "DECIMAL", "VARCHAR"
     ],
     "RULES": [
-      {"value": "R1", "label": "R1"},
-      {"value": "R2", "label": "R2"},
-      {"value": "R3", "label": "R3"},
-      {"value": "R4", "label": "R4"},
-      {"value": "R5", "label": "R5"},
-      {"value": "R6", "label": "R6"},
-      {"value": "R7", "label": "R7"},
-      {"value": "R8", "label": "R8"},
-      {"value": "R9", "label": "R9"},
-      {"value": "R10", "label": "R10"},
-      {"value": "R11", "label": "R11"},
-      {"value": "R12", "label": "R12"},
-      {"value": "R13", "label": "R13"},
-      {"value": "R14", "label": "R14"}
+      "R1",
+      "R2",
+      "R3",
+      "R4",
+      "R5",
+      "R6",
+      "R7",
+      "R8",
+      "R9",
+      "R10",
+      "R11",
+      "R12",
+      "R13",
+      "R14"
     ]
   },
   "rows": [
