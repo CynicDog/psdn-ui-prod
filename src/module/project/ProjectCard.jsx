@@ -10,15 +10,23 @@ import Tooltip from "../../component/Tooltip";
 import {PROJECT_COLORS} from "../../context/util";
 import Area from "../../component/Area";
 import TextArea from "../../component/TextArea";
+import Button from "../../component/Button";
+import {usePopup} from "../../context/Popup";
 
-const ProjectCard = ({project, order, onSelect, currentProject}) => {
+const ProjectCard = ({project, order}) => {
+
     const {t} = useLanguage();
+
     const {
+        setProjects, setLookedUpProject,
+        currentProject, setCurrentProject,
         sourceProjectDraggable, setSourceProjectDraggable,
         targetProjectDraggable, setTargetProjectDraggable,
         handleMoveProject,
-        setProjects
     } = useProject();
+
+    const {setIsProjectPopupOpen} = usePopup();
+
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
     // const [isEditing, setIsEditing] = useState(false);
@@ -78,11 +86,11 @@ const ProjectCard = ({project, order, onSelect, currentProject}) => {
     const getBadgeClass = (status) => {
         switch (status) {
             case "APPROVED":
-                return "primary-filled";
+                return "primary";
             case "WRITING":
                 return "warning";
             default:
-                return "secondary-filled";
+                return "secondary";
         }
     };
 
@@ -93,7 +101,7 @@ const ProjectCard = ({project, order, onSelect, currentProject}) => {
                 e.stopPropagation();
 
                 if (project.STATUS === "APPROVED") {
-                    onSelect(project);
+                    setCurrentProject(project);
                 }
             }}
             isDragging={isDragging}
@@ -106,92 +114,100 @@ const ProjectCard = ({project, order, onSelect, currentProject}) => {
             bg={currentProject === project ? "primary-subtle" : "body"}
             border rounded="2" shadow="sm" my="2"
         >
+            <Row>
+                <Col width="12" responsive="lg" my="1" flex justifyContent="end">
+                    <Area flex justifyContent="center">
+                        <Button
+                            size="sm"
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setLookedUpProject(project);
+                                setIsProjectPopupOpen(true);
+                            }}
+                        >
+                            <Tooltip
+                                position="top"
+                                content={
+                                    <Area>
+                                        {t('components.project_detail_title')}
+                                    </Area>
+                                }
+                                bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                            >
+                                <Icon name="box-arrow-up-right"/>
+                            </Tooltip>
+                        </Button>
+                    </Area>
+                </Col>
+            </Row>
             <Row key={project.ID} rounded p="3" m="3">
-                {/* Project name */}
-                <Col width="2" responsive="lg" my="1">
-                    {project.STATUS === "WRITING" ? (
-                        <Area>
-                            <Span fontWeight="lighter">
-                                {t('components.project_name')}
-                            </Span>
-                            <InputField
-                                id={`name-${project.ID}`}
-                                // value={editedName}
-                                // onChange={(e) => setEditedName(e.target.value)}
-                            />
-                        </Area>
-                    ) : (
-                        <Area flex justifyContent="start" alignItems="center">
-                            <Span badge="secondary-filled" fontWeight="light">
-                                {project.NAME}
-                            </Span>
-                        </Area>
-                    )}
+                {/* Project name and status */}
+                <Col width="4" responsive="lg" my="1">
+                    {/*<Area>*/}
+                    <Span>
+                        {project.NAME}
+                    </Span>
+                    <Span
+                        key={project.ID}
+                        badge={getBadgeClass(project.STATUS)}
+                        mx="1">
+                        {project.STATUS}
+                    </Span>
+                    {/*</Area>*/}
                 </Col>
 
                 {/* Project description */}
-                <Col width="5" responsive="lg" my="1">
-                    {project.STATUS === "WRITING" ? (
-                        <Area>
-                            <Span fontWeight="lighter">
-                                {t('components.project_description')}
-                            </Span>
-                            <TextArea
-                                id={`desc-${project.ID}`}
-                                // value={editedDescription}
-                                // onChange={(e) => setEditedDescription(e.target.value)}
-                            />
-                        </Area>
-                    ) : (
-                        <Span m="1">
-                            {project.DESCRIPTION || t('components.project_no_description')}
-                        </Span>
-                    )}
+                <Col width="4" responsive="lg" my="1">
+                    <Span m="1">
+                        {project.DESCRIPTION || t('components.project_no_description')}
+                    </Span>
                 </Col>
 
                 {/* Project's working tables */}
-                <Col width="3" responsive="lg" my="1">
-                    {project.STATUS === "WRITING" ? (
-                        <Area>
-                            <Span fontWeight="lighter">
-                                {t('components.project_tables')}
-                            </Span>
-                        </Area>
-                    ) : (
-                        project.TABLES?.map((table) => (
-                            <Span key={table.ID} badge="primary-filled" mx="1">
-                                {table.NAME}
-                            </Span>
-                        ))
-                    )}
-                </Col>
-
-                <Col width="2" responsive="lg" my="1" flex justifyContent="end">
-                    <Area>
-                        <Span
-                            key={project.ID}
-                            badge={getBadgeClass(project.STATUS)}
-                            mx="1">
-                            {project.STATUS}
+                <Col width="4" responsive="lg" my="1">
+                    {project.TABLES?.map((table) => (
+                        <Span key={table.ID} badge="primary-filled" mx="1">
+                            {table.NAME}
                         </Span>
-                        {project.STATUS === "WRITING" && (
-                            <Span badge="danger">delete</Span>
+                    ))}
+                </Col>
+            </Row>
+            <Row>
+                {/* Project timestamps */}
+                <Col width="12" responsive="lg" p="3" px="4" flex justifyContent="end">
+                    <Area flex gap="2">
+                        {project.CREATED_AT && (
+                            <Area>
+                                <Tooltip
+                                    position="top"
+                                    content={
+                                        <Area>
+                                            {t('components.project_created_at')}
+                                        </Area>
+                                    }
+                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                >
+                                    <Span badge="light">{project.CREATED_AT}</Span>
+                                </Tooltip>
+                            </Area>
+                        )}
+                        {project.UPDATED_AT && (
+                            <Area>
+                                <Tooltip
+                                    position="top"
+                                    content={
+                                        <Area>
+                                            {t('components.project_approved_at')}
+                                        </Area>
+                                    }
+                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                >
+                                    <Span badge="primary">{project.UPDATED_AT}</Span>
+                                </Tooltip>
+                            </Area>
                         )}
                     </Area>
                 </Col>
-
-                {/*/!* Edit button *!/*/}
-                {/*<Col width="1" responsive="lg" flex justifyContent="end" my="1">*/}
-                {/*    <Icon*/}
-                {/*        name={isEditing ? "check-lg" : "pencil-fill"}*/}
-                {/*        onClick={(e) => {*/}
-                {/*            e.stopPropagation();*/}
-                {/*            isEditing ? handleSave() : setIsEditing(true);*/}
-                {/*        }}*/}
-                {/*        variant="secondary"*/}
-                {/*    />*/}
-                {/*</Col>*/}
-
             </Row>
         </DraggableArea>
     );

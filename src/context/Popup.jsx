@@ -8,11 +8,13 @@ const PopupContext = createContext();
 export const PopupProvider = ({ children }) => {
     const [isConfigPopupOpen, setIsConfigPopupOpen] = useState(false);
     const [isConfigTablePopupOpen, setIsConfigTablePopupOpen] = useState(false);
+    const [isProjectPopupOpen, setIsProjectPopupOpen] = useState(false);
 
     return (
         <PopupContext.Provider value={{
             isConfigTablePopupOpen, setIsConfigTablePopupOpen,
             isConfigPopupOpen, setIsConfigPopupOpen,
+            isProjectPopupOpen, setIsProjectPopupOpen
         }}>
             {children}
         </PopupContext.Provider>

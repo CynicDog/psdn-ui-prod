@@ -12,7 +12,7 @@ const MainLayout = () => {
 
     return (
         <>
-            <Area rounded="3" shadow p="3">
+            <Area rounded="3" shadow p="3" mb="3">
                 <CurrentMenuTitle />
                 { isMetaLoading ? (
                     <LoadingSpinner/>

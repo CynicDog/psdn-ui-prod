@@ -2,6 +2,7 @@ import { createContext, useState, useEffect, useContext } from "react";
 import { useAuth } from "./Auth";
 import { fetchUserProjects } from "../data/APIs";
 import {ROLES} from "./util";
+import {usePopup} from "./Popup";
 
 {/* Project Context */}
 const ProjectContext = createContext();
@@ -10,6 +11,7 @@ export const ProjectProvider = ({ children }) => {
     const { auth } = useAuth();
     const [projects, setProjects] = useState(null);
     const [currentProject, setCurrentProject] = useState(null);
+    const [lookedUpProject, setLookedUpProject] = useState(null);
     const [isProjectLoading, setIsProjectLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -94,7 +96,8 @@ export const ProjectProvider = ({ children }) => {
             DESCRIPTION: "",
             TABLES: [],
             ORDER: 0,
-            STATUS: "WRITING"
+            STATUS: "WRITING",
+            CREATED_AT: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
         };
 
         setProjects((prevProjects) => {
@@ -108,6 +111,8 @@ export const ProjectProvider = ({ children }) => {
 
             return { ...prevProjects, data: updatedProjects };
         });
+
+        return newProject;
     };
 
     return (
@@ -122,7 +127,8 @@ export const ProjectProvider = ({ children }) => {
                 sourceProjectTableDraggable, setSourceProjectTableDraggable,
                 targetProjectTableDraggable, setTargetProjectTableDraggable,
                 handleMoveProjectTable,
-                handleAddProject
+                handleAddProject,
+                lookedUpProject, setLookedUpProject
             }}
         >
             {children}
