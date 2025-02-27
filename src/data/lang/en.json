@@ -24,6 +24,9 @@
     "select_project": "Select Project.",
     "project_no_description": "No description.",
     "add_new_project": "Add a new Project",
+    "project_name": "Project Name",
+    "project_description": "Project Description",
+    "project_tables": "Project Tables",
     "pseudonymization_title": "Pseudonymization",
     "reset_filters": "Reset Filter(s)",
     "grid_row_control_check": "Select",
@@ -47,7 +50,6 @@
     "source_table_created_at": "Created at",
     "source_table_updated_at": "Updated at",
     "source_table_expire_at": "Expire at",
-    "project_tables": "Project Tables",
     "source_table_import": "Import",
     "config_table_imported_at": "Imported at"
   },

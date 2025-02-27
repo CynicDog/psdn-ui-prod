@@ -53,7 +53,10 @@ const ProjectTab = ({project, order, width, onSelect, currentProject}) => {
             order={order}
             onClick={(e) => {
                 e.stopPropagation();
-                onSelect(project);
+
+                if (project.STATUS === "APPROVED") {
+                    onSelect(project);
+                }
             }}
             isDragging={isDragging}
             isOver={isOver}

@@ -24,6 +24,9 @@
     "select_project": "프로젝트를 선택하세요.",
     "project_no_description": "내용을 기입해주세요.",
     "add_new_project": "신규 프로젝트 추가",
+    "project_name": "프로젝트 이름",
+    "project_description": "프로젝트 설명",
+    "project_tables": "프로젝트 테이블",
     "pseudonymization_title": "가명화",
     "reset_filters": "필터 초기화",
     "grid_row_control_check": "선택",
@@ -47,7 +50,6 @@
     "source_table_created_at": "생성일자",
     "source_table_updated_at": "수정일자",
     "source_table_expire_at": "말소일자",
-    "project_tables": "프로젝트 테이블 목록",
     "source_table_import": "불러오기",
     "config_table_imported_at": "불러온 일자"
   },

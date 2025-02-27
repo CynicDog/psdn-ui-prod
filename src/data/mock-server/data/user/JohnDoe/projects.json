@@ -6,6 +6,7 @@
       "NAME": "Project - 1",
       "DESCRIPTION": "Project - 1's description",
       "ORDER": 0,
+      "STATUS": "APPROVED",
       "TABLES": [
         {
           "ID": "CT1",
@@ -38,6 +39,7 @@
       "NAME": "Project - 2",
       "DESCRIPTION": "Project - 2's description",
       "ORDER": 1,
+      "STATUS": "APPROVED",
       "TABLES": [
         {
           "ID": "CT5",
@@ -62,6 +64,7 @@
       "NAME": "Project - 3",
       "DESCRIPTION": "Project - 3's description",
       "ORDER": 2,
+      "STATUS": "APPROVED",
       "TABLES": [
         {
           "ID": "CT7",
@@ -78,6 +81,7 @@
       "NAME": "Project - 4",
       "DESCRIPTION": "Project - 4's description",
       "ORDER": 3,
+      "STATUS": "PENDING",
       "TABLES": [
       ]
     },
@@ -86,6 +90,7 @@
       "NAME": "Project - 5",
       "DESCRIPTION": "Project - 5's description",
       "ORDER": 4,
+      "STATUS": "PENDING",
       "TABLES": [
       ]
     }

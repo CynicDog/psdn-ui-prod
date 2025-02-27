@@ -54,7 +54,7 @@
 .popup-body {
     padding-top: 10px;
     font-size: 1em;
-    max-height: calc(93% - 10px);
+    max-height: calc(95% - 10px);
     overflow-y: auto;
 }
 
@@ -122,7 +122,7 @@
     display: inline-block;
     padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
     font-size: var(--bs-badge-font-size, 0.65em);
-    font-weight: var(--bs-badge-font-weight, 500);
+    font-weight: var(--bs-badge-font-weight, 700);
     color: var(--bs-danger-text-emphasis) !important;
     text-align: center;
     white-space: nowrap;
@@ -173,3 +173,4 @@
     color: #000 !important;
     background-color: RGBA(var(--bs-warning-rgb), var(--bs-bg-opacity, 1)) !important;
 }
+

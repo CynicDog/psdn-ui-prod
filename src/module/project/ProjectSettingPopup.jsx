@@ -27,7 +27,8 @@ const ProjectSettingPopup = () => {
             NAME: "New Project",
             DESCRIPTION: "",
             TABLES: [],
-            ORDER: 0
+            ORDER: 0,
+            STATUS: "WRITING"
         };
 
         setProjects((prevProjects) => {
@@ -41,7 +42,6 @@ const ProjectSettingPopup = () => {
 
             return { ...prevProjects, data: updatedProjects };
         });
-        setCurrentProject(newProject);
     };
 
     return (
@@ -75,6 +75,9 @@ const ProjectSettingPopup = () => {
                             {t('components.add_new_project')}
                         </Span>
                     </Area>
+
+                    {/* Project Add Form area.. */}
+
                     <Area marginTop="5%" mx="3">
                         {projects?.data?.map((project) => (
                             <ProjectCard
