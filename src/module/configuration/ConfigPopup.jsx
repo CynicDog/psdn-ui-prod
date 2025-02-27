@@ -34,7 +34,7 @@ const ConfigPopup = () => {
                 <PopupHeader>
                     <Area>
                         <Area flex justifyContent="between">
-                            <Span fontSize="4">
+                            <Span fontSize="4" fontWeight="lighter">
                                 {t('components.record_detail_title')}
                             </Span>
                             <Button size="sm" variant="light" onClick={() => setIsConfigPopupOpen(false)}>
@@ -42,7 +42,9 @@ const ConfigPopup = () => {
                             </Button>
                         </Area>
                         <Area flex justifyContent="center">
-                            <Span fontSize="5" fontWeight="lighter">{focusedRow.COL_NAME}</Span>
+                            <Span badge="light" fontSize="6" fontWeight="lighter">
+                                {focusedRow.COL_NAME}
+                            </Span>
                         </Area>
                     </Area>
                 </PopupHeader>
