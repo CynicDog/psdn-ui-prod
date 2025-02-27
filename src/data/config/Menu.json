@@ -1,12 +1,23 @@
 [
   {
-    "ID": "M1",
+    "ID": "M0",
     "NAME": "definition",
     "CHILDREN": [
       {
-        "ID": "M1_1",
+        "ID": "M0_1",
         "NAME": "definition_description",
         "SHOWN_TO": ["Role.Application", "Role.Owner", "Role.Utilizer", "Role.Admin", "Role.Verifier"]
+      }
+    ]
+  },
+  {
+    "ID": "M1",
+    "NAME": "project",
+    "CHILDREN": [
+      {
+        "ID": "M1_1",
+        "NAME": "project_configuration",
+        "SHOWN_TO": ["Role.Application", "Role.Owner"]
       }
     ]
   },
@@ -63,7 +74,7 @@
       },
       {
         "ID": "M4_3",
-        "NAME": "system_management_data",
+        "NAME": "system_management_project",
         "SHOWN_TO": ["Role.Application", "Role.Admin"]
       }
       ,{

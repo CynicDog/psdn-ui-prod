@@ -7,10 +7,6 @@ import ProjectTab from "./ProjectTab";
 const ProjectTabArea = () => {
 
     const {projects, currentProject, setCurrentProject} = useProject();
-    const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
-
-    // If ProjectSettingPopup is open, render none.
-    if (isProjectPopupOpen) return null;
 
     // Filter out only approved projects
     const approvedProjects = projects?.data.filter((project) => project.STATUS === "APPROVED");
@@ -44,9 +40,6 @@ const ProjectTabArea = () => {
                     />
                 );
             })}
-            <Area onClick={() => setIsProjectPopupOpen(true)} cursor="pointer" ms="auto" me="3" ps="2">
-                <Icon name="arrows-fullscreen"/>
-            </Area>
         </Area>
     );
 };

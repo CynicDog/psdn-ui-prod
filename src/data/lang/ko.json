@@ -4,6 +4,8 @@
   },
   "menu": {
     "title": "메뉴",
+    "project": "프로젝트",
+    "project_configuration": "설정",
     "definition": "규칙",
     "definition_description": "설명",
     "configuration": "설정",
@@ -17,7 +19,7 @@
     "system_management": "시스템 관리",
     "system_management_roles": "역할",
     "system_management_users": "사용자",
-    "system_management_data": "데이터",
+    "system_management_project": "프로젝트",
     "system_management_history": "이력"
   },
   "components": {

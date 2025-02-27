@@ -13,13 +13,13 @@ import ProjectTabArea from "./module/project/ProjectTabArea";
 import { useProject } from "./context/Project";
 import LoadingSpinner from "./component/LoadingSpinner";
 import { usePopup } from "./context/Popup";
-import ProjectSettingPopup from "./module/project/ProjectSettingPopup";
+import ProjectView from "./view/ProjectView";
 import { useAuth } from "./context/Auth";
 import {ROLES} from "./context/util";
 
 const App = () => {
     const { auth } = useAuth();
-    const { isMenuOpen } = useMenu();
+    const { isMenuOpen, currentMenu } = useMenu();
     const { isProjectLoading } = useProject();
     const { isProjectPopupOpen } = usePopup();
 
@@ -30,6 +30,12 @@ const App = () => {
     //     instance.loginRedirect();
     //   }
     // }, [accounts, inProgress, instance]);
+
+    const shouldShowProjectTabArea = () => {
+        return auth.role &&
+            [ROLES.APPLICATION, ROLES.OWNER].includes(auth.role) &&
+            !["M1_1", "M0_1"].includes(currentMenu.CURRENT.ID);  // hides when the current menu is set to first two menus
+    };
 
     return (
         <>
@@ -48,11 +54,8 @@ const App = () => {
                         </Row>
                     </Container>
                     {/* Project controls are shown only to OWNER role */}
-                    {auth.role && [ROLES.APPLICATION, ROLES.OWNER].includes(auth.role) && (
-                        <>
-                            {isProjectPopupOpen && <ProjectSettingPopup />}
-                            <ProjectTabArea />
-                        </>
+                    {shouldShowProjectTabArea() && (
+                        <ProjectTabArea />
                     )}
                 </>
             )}

@@ -3,32 +3,36 @@ import menuData from "../data/config/Menu.json";
 import DefinitionView from "../view/DefinitionView";
 import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";
-import {useProject} from "./Project";
+import ProjectView from "../view/ProjectView";
+import {useAuth} from "./Auth";
+import {ROLES} from "./util";
 
 const MenuContext = createContext();
 
 export const MenuProvider = ({ children }) => {
 
+    const { auth } = useAuth();
+
     const [menu, setMenu] = useState([]);
     const [isMenuOpen, setIsMenuOpen] = useState(true);
-    const [currentMenu, setCurrentMenu] = useState({
-        CURRENT: { ID: "M1_1", NAME: "definition_description" },
-        PARENT: { ID: "M1", NAME: "definition" },
-    });
-    const { currentProject } = useProject();
+    const [currentMenu, setCurrentMenu] = useState();
 
-    // // Set to view first menu when project changes
-    // useEffect(() => {
-    //     setCurrentMenu({
-    //         CURRENT: { ID: "M1_1", NAME: "definition_description" },
-    //         PARENT: { ID: "M1", NAME: "definition" },
-    //     })
-    //     setIsMenuOpen(true);
-    // }, [currentProject]);
+    // Initialize menu from JSON
+    useEffect(() => {
+        setMenu(menuData);
+    }, []);
+
+    useEffect(() => {
+        setCurrentMenu({
+            CURRENT: { ID: "M0_1", NAME: "definition_description" },
+            PARENT: { ID: "M0", NAME: "definition" },
+        })
+    }, [menu]);
 
     // Views mapped to each menu item
     const currentMenuToView = {
-        "M1_1": <DefinitionView />,
+        "M0_1": <DefinitionView />,
+        "M1_1": <ProjectView />,
         "M2_1": <ConfigurationView />,
         "M4_4": <HistoryView />,
     };
@@ -37,11 +41,6 @@ export const MenuProvider = ({ children }) => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
-
-    // Initialize menu from JSON
-    useEffect(() => {
-        setMenu(menuData);
-    }, []);
 
     return (
         <MenuContext.Provider value={{

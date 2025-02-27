@@ -4,6 +4,8 @@
   },
   "menu": {
     "title": "Menu",
+    "project": "Project",
+    "project_configuration": "Configuration",
     "definition": "Rule Definition",
     "definition_description": "Description",
     "configuration": "Configuration",
@@ -17,7 +19,7 @@
     "system_management": "System Management",
     "system_management_roles": "Roles",
     "system_management_users": "Users",
-    "system_management_data": "Data",
+    "system_management_project": "Projects",
     "system_management_history": "History"
   },
   "components": {

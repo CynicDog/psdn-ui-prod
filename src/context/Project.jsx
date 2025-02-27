@@ -87,6 +87,29 @@ export const ProjectProvider = ({ children }) => {
         });
     };
 
+    const handleAddProject = () => {
+        const newProject = {
+            ID: Date.now().toString(), // TODO: Replace with Hibernate UUID
+            NAME: "New Project",
+            DESCRIPTION: "",
+            TABLES: [],
+            ORDER: 0,
+            STATUS: "WRITING"
+        };
+
+        setProjects((prevProjects) => {
+            const prevData = prevProjects?.data ?? [];
+            const updatedProjects = [newProject, ...prevData];
+
+            // Recalculate ORDER for all projects
+            updatedProjects.forEach((project, index) => {
+                project.ORDER = index;
+            });
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
+
     return (
         <ProjectContext.Provider
             value={{
@@ -98,7 +121,8 @@ export const ProjectProvider = ({ children }) => {
                 handleMoveProject,
                 sourceProjectTableDraggable, setSourceProjectTableDraggable,
                 targetProjectTableDraggable, setTargetProjectTableDraggable,
-                handleMoveProjectTable
+                handleMoveProjectTable,
+                handleAddProject
             }}
         >
             {children}

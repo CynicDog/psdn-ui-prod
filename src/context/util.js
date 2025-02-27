@@ -52,11 +52,11 @@ export const extractColumnNames = (children) => {
  * @description Enum-like object to represent roles within the application.
  */
 export const ROLES = Object.freeze({
-    APPLICATION: "Role.Application",         // Application role
-    ADMIN: "Role.Admin",                     // Administrator role
-    OWNER: "Role.Owner",                     // User role
-    UTILIZER: "Role.Utilizer",               // Consumer role
-    VERIFIER: "Role.Verifier",               // Verifier role
+    APPLICATION: "Role.Application", // Application role
+    OWNER: "Role.Owner",             // User role
+    UTILIZER: "Role.Utilizer",       // Consumer role
+    ADMIN: "Role.Admin",             // Administrator role
+    VERIFIER: "Role.Verifier",       // Verifier role
 });
 
 /**
