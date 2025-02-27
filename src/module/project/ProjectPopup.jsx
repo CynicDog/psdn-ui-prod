@@ -87,7 +87,7 @@ const ProjectPopup = () => {
                                                     {t('components.add_project_table')}
                                                 </Span>
                                             }
-                                            bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                            bg="body" rounded shadow="sm" p="1" px="2"
                                         >
                                             <Span variant="secondary" fontSize="4"
                                                   onClick={() => handleProjectTableAdd(lookedUpProject.ID)}>
