@@ -153,7 +153,7 @@ const ProjectCard = ({project, order}) => {
                 {/* Project name and status */}
                 <Col width="4" responsive="lg" >
                     {/*<Area>*/}
-                    <Span>
+                    <Span fontSize="4" fontWeight="lighter">
                         {project.NAME}
                     </Span>
                     {/*</Area>*/}
