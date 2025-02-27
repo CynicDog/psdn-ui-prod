@@ -23,13 +23,13 @@ const ProjectView = () => {
                 </Span>
             </Area>
             {/* Add Project Button */}
-            <Area flex justifyContent="center" gap="2" cursor="pointer" onClick={() => {
-                const newProject = handleAddProject();
-                setLookedUpProject(newProject);
-                setIsProjectPopupOpen(true);
-            }} my="2">
+            <Area flex justifyContent="center" gap="2" my="2">
                 <Icon name="folder-plus" />
-                <Span variant="secondary" noSelect>
+                <Span variant="secondary" cursor="pointer" onClick={() => {
+                    const newProject = handleAddProject();
+                    setLookedUpProject(newProject);
+                    setIsProjectPopupOpen(true);
+                }} >
                     {t('components.add_new_project')}
                 </Span>
             </Area>

@@ -24,7 +24,7 @@
   },
   "components": {
     "select_project": "프로젝트를 선택하세요.",
-    "project_no_description": "내용을 기입해주세요.",
+    "project_no_description": "프로젝트 내용을 입력해주세요",
     "add_new_project": "신규 프로젝트 추가",
     "project_name": "프로젝트 이름",
     "project_description": "프로젝트 설명",

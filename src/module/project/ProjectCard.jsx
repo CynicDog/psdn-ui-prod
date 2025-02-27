@@ -113,10 +113,19 @@ const ProjectCard = ({project, order}) => {
             onDrop={handleDrop}
             bg={currentProject === project ? "primary-subtle" : "body"}
             border rounded="2" shadow="sm" my="2"
+            cursor={project.STATUS !== "APPROVED" ? "not-allowed" : "pointer"}
         >
             <Row>
-                <Col width="12" responsive="lg" my="1" flex justifyContent="end">
-                    <Area flex justifyContent="center">
+                <Col width="12" responsive="lg" my="1" flex justifyContent="between">
+                    <Area >
+                        <Span
+                            key={project.ID}
+                            badge={getBadgeClass(project.STATUS)}
+                            mx="2">
+                            {project.STATUS}
+                        </Span>
+                    </Area>
+                    <Area>
                         <Button
                             size="sm"
                             onClick={(e) => {
@@ -140,31 +149,46 @@ const ProjectCard = ({project, order}) => {
                     </Area>
                 </Col>
             </Row>
-            <Row key={project.ID} rounded p="3" m="3">
+            <Row key={project.ID} rounded p="3" >
                 {/* Project name and status */}
-                <Col width="4" responsive="lg" my="1">
+                <Col width="4" responsive="lg" >
                     {/*<Area>*/}
                     <Span>
                         {project.NAME}
-                    </Span>
-                    <Span
-                        key={project.ID}
-                        badge={getBadgeClass(project.STATUS)}
-                        mx="1">
-                        {project.STATUS}
                     </Span>
                     {/*</Area>*/}
                 </Col>
 
                 {/* Project description */}
-                <Col width="4" responsive="lg" my="1">
-                    <Span m="1">
-                        {project.DESCRIPTION || t('components.project_no_description')}
-                    </Span>
+                <Col width="4" responsive="lg">
+                    {project.DESCRIPTION ? (
+                        project.DESCRIPTION
+                    ) : (
+                        <>
+                            <Span variant="secondary">
+                                {t('components.project_no_description')}{' '}(
+                                <Tooltip
+                                    position="top"
+                                    content={
+                                        <Area>
+                                            {t('components.project_detail_title')}
+                                        </Area>
+                                    }
+                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                >
+                                    <Icon name="box-arrow-up-right" mx="1" onClick={(e) => {
+                                        e.stopPropagation();
+                                        setLookedUpProject(project);
+                                        setIsProjectPopupOpen(true);
+                                    }}/>
+                                </Tooltip>).
+                            </Span>
+                        </>
+                    )}
                 </Col>
 
                 {/* Project's working tables */}
-                <Col width="4" responsive="lg" my="1">
+                <Col width="4" responsive="lg">
                     {project.TABLES?.map((table) => (
                         <Span key={table.ID} badge="primary-filled" mx="1">
                             {table.NAME}
@@ -174,7 +198,7 @@ const ProjectCard = ({project, order}) => {
             </Row>
             <Row>
                 {/* Project timestamps */}
-                <Col width="12" responsive="lg" p="3" px="4" flex justifyContent="end">
+                <Col width="12" responsive="lg" p="2" px="4" flex justifyContent="end">
                     <Area flex gap="2">
                         {project.CREATED_AT && (
                             <Area>
@@ -185,7 +209,7 @@ const ProjectCard = ({project, order}) => {
                                             {t('components.project_created_at')}
                                         </Area>
                                     }
-                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                    bg="body" rounded shadow="sm" px="2" gap="3"
                                 >
                                     <Span badge="light">{project.CREATED_AT}</Span>
                                 </Tooltip>
@@ -200,7 +224,7 @@ const ProjectCard = ({project, order}) => {
                                             {t('components.project_approved_at')}
                                         </Area>
                                     }
-                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                    bg="body" rounded shadow="sm" px="2" gap="3"
                                 >
                                     <Span badge="primary">{project.UPDATED_AT}</Span>
                                 </Tooltip>

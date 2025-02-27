@@ -24,7 +24,7 @@
   },
   "components": {
     "select_project": "Select Project.",
-    "project_no_description": "No description.",
+    "project_no_description": "Provide detailed project information at",
     "add_new_project": "Add a new Project",
     "project_name": "Project Name",
     "project_description": "Project Description",
