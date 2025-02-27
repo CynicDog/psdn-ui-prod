@@ -18,7 +18,7 @@ import Tooltip from "../../component/Tooltip";
 const ProjectPopup = () => {
 
     const {t} = useLanguage();
-    const {lookedUpProject, handleProjectTableAdd } = useProject()
+    const {lookedUpProject, handleDeleteProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest } = useProject()
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
     if (!isProjectPopupOpen) return null;
@@ -51,6 +51,7 @@ const ProjectPopup = () => {
                             <Col width="10" responsive="lg">
                                 <InputField
                                     value={lookedUpProject.NAME}
+                                    onChange={(e) => handleProjectInputChange("NAME", e.target.value)}
                                 />
                             </Col>
                         </Row>
@@ -66,6 +67,7 @@ const ProjectPopup = () => {
                                 <TextArea
                                     value={lookedUpProject.DESCRIPTION}
                                     height="150px"
+                                    onChange={(e) => handleProjectInputChange("DESCRIPTION", e.target.value)}
                                 />
                             </Col>
                         </Row>
@@ -99,6 +101,16 @@ const ProjectPopup = () => {
                                 <ProjectPopupTablesArea tables={lookedUpProject.TABLES}/>
                             </Col>
                         </Row>
+                        {lookedUpProject.STATUS === "WRITING" && (
+                            <Area flex justifyContent="end" mt="4">
+                                <Span badge="primary" cursor="pointer" fontSize="6" onClick={() => {
+                                    handleProjectCreateRequest();
+                                    setIsProjectPopupOpen(false);
+                                }}>
+                                    {t('components.request_project_creation')}
+                                </Span>
+                            </Area>
+                        )}
                     </Area>
                 </PopupBody>
             </PopupContent>

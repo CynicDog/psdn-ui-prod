@@ -22,16 +22,13 @@ const ProjectCard = ({project, order}) => {
         currentProject, setCurrentProject,
         sourceProjectDraggable, setSourceProjectDraggable,
         targetProjectDraggable, setTargetProjectDraggable,
-        handleMoveProject,
+        handleMoveProject, handleDeleteProject
     } = useProject();
 
     const {setIsProjectPopupOpen} = usePopup();
 
     const [isDragging, setIsDragging] = useState(false);
     const [isOver, setIsOver] = useState(false);
-    // const [isEditing, setIsEditing] = useState(false);
-    // const [editedName, setEditedName] = useState(project.NAME);
-    // const [editedDescription, setEditedDescription] = useState(project.DESCRIPTION);
 
     const handleDragStart = (e) => {
         setSourceProjectDraggable(order);
@@ -68,21 +65,6 @@ const ProjectCard = ({project, order}) => {
         setTargetProjectDraggable(null);
     };
 
-    // const handleSave = () => {
-    //     setProjects((prevProjects) => {
-    //         const updatedProjects = prevProjects.data.map((p) =>
-    //             p.ID === project.ID ? { ...p, NAME: editedName, DESCRIPTION: editedDescription } : p
-    //         );
-    //
-    //         // Preserve the selected project after the update
-    //         const updatedProject = updatedProjects.find((p) => p.ID === project.ID);
-    //         onSelect(updatedProject);
-    //
-    //         return { ...prevProjects, data: updatedProjects };
-    //     });
-    //     setIsEditing(false);
-    // };
-
     const getBadgeClass = (status) => {
         switch (status) {
             case "APPROVED":
@@ -117,13 +99,21 @@ const ProjectCard = ({project, order}) => {
         >
             <Row>
                 <Col width="12" responsive="lg" my="1" flex justifyContent="between">
-                    <Area >
+                    <Area>
                         <Span
                             key={project.ID}
                             badge={getBadgeClass(project.STATUS)}
                             mx="2">
                             {project.STATUS}
                         </Span>
+                        {project.STATUS === "WRITING" && (
+                            <Span badge="danger" cursor="pointer" onClick={() => {
+                                handleDeleteProject(project.ID);
+                                setIsProjectPopupOpen(false);
+                            }}>
+                                {t('components.delete')}
+                            </Span>
+                        )}
                     </Area>
                     <Area>
                         <Button
@@ -151,7 +141,7 @@ const ProjectCard = ({project, order}) => {
             </Row>
             <Row key={project.ID} rounded p="3" flex alignItems="center">
                 {/* Project name and status */}
-                <Col width="3" responsive="lg" >
+                <Col width="3" responsive="lg">
                     {/*<Area>*/}
                     <Span fontSize="4" fontWeight="lighter">
                         {project.NAME}
@@ -161,31 +151,30 @@ const ProjectCard = ({project, order}) => {
 
                 {/* Project description */}
                 <Col width="5" responsive="lg">
-                    {project.DESCRIPTION ? (
+                    {project.DESCRIPTION && (
                         <Span fontWeight="light">
                             {project.DESCRIPTION}
                         </Span>
-                    ) : (
-                        <>
-                            <Span variant="secondary">
-                                {t('components.project_no_description')}{' '}(
-                                <Tooltip
-                                    position="top"
-                                    content={
-                                        <Area>
-                                            {t('components.project_detail_title')}
-                                        </Area>
-                                    }
-                                    bg="body" rounded shadow="sm" p="1" px="2" gap="3"
-                                >
-                                    <Icon name="box-arrow-up-right" mx="1" onClick={(e) => {
-                                        e.stopPropagation();
-                                        setLookedUpProject(project);
-                                        setIsProjectPopupOpen(true);
-                                    }}/>
-                                </Tooltip>).
-                            </Span>
-                        </>
+                    )}
+                    {project.STATUS === "WRITING" && (
+                        <Span variant="secondary">
+                            {t('components.project_no_description')}{' '}(
+                            <Tooltip
+                                position="top"
+                                content={
+                                    <Area>
+                                        {t('components.project_detail_title')}
+                                    </Area>
+                                }
+                                bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                            >
+                                <Icon name="box-arrow-up-right" mx="1" onClick={(e) => {
+                                    e.stopPropagation();
+                                    setLookedUpProject(project);
+                                    setIsProjectPopupOpen(true);
+                                }}/>
+                            </Tooltip>).
+                        </Span>
                     )}
                 </Col>
 

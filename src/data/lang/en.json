@@ -35,6 +35,7 @@
     "project_table_name": "Name",
     "project_table_purpose_of_use": "Purpose of Use",
     "add_project_table": "Add a Project Table",
+    "request_project_creation": "Submit a Project creation request",
     "pseudonymization_title": "Pseudonymization",
     "reset_filters": "Reset Filter(s)",
     "grid_row_control_check": "Select",

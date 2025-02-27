@@ -21,7 +21,7 @@ const ConfigTableSettingPopup = () => {
     const {t} = useLanguage();
     const {isConfigTablePopupOpen, setIsConfigTablePopupOpen} = usePopup();
     const {auth} = useAuth();
-    const {projects, setProjects, currentProject, setCurrentProject} = useProject();
+    const {currentProject} = useProject();
     const {BaseDB, setCurrentBaseDB} = useBaseDB();
 
     const [availableTables, setAvailableTables] = useState([]);
@@ -34,39 +34,6 @@ const ConfigTableSettingPopup = () => {
     }, [auth.username]);
 
     if (!isConfigTablePopupOpen) return null;
-
-    const handleTableImport = (selectedTableId) => {
-        if (!currentProject || !selectedTableId) return;
-
-        const selectedTable = availableTables.find(table => table.ID === selectedTableId);
-        if (!selectedTable) return;
-
-        const newTable = {
-            ID: "CT1", // TODO: Replace with Hibernate UUID
-            TABLE_ID: selectedTable.ID,
-            NAME: selectedTable.NAME,
-            DESCRIPTION: "",
-            IMPORTED_AT: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
-            ORDER: 0
-        };
-        const updatedTables = [newTable, ...(currentProject.TABLES || [])];
-
-        updatedTables.forEach((table, index) => {
-            table.ORDER = index;
-        });
-
-        const updatedProject = {
-            ...currentProject,
-            TABLES: updatedTables
-        };
-
-        const updatedProjects = projects.data.map((project) =>
-            project.ID === currentProject.ID ? updatedProject : project
-        );
-
-        setProjects({...projects, data: updatedProjects});
-        setCurrentProject(updatedProject);
-    };
 
     return (
         <PopupOverlay setIsPopupOpen={setIsConfigTablePopupOpen}>
@@ -85,48 +52,7 @@ const ConfigTableSettingPopup = () => {
                         </Span>
                     </Area>
 
-                    {/* Add Table Button */}
-                    <Area flex justifyContent="center" alignItems="center" gap="2" cursor="pointer" my="2"
-                          onClick={() => {
-                              setShowSourceTables(!showSourceTables)
-                          }}>
-                        <Span variant="secondary" noSelect>
-                            {t('components.import_new_table')}
-                        </Span>
-                        <Icon name={showSourceTables? "folder-check" : "folder-plus"}/>
-                    </Area>
-                    {showSourceTables && (
-                        <Area rounded shadow fontWeight="lighter" m="3" p="3">
-                            {availableTables?.map(table => (
-                                <Row border rounded mx="3" my="1" p="2">
-                                    <Col width="1" responsive="xl" my="1">
-                                        <Span badge="primary">
-                                            {table.NAME}
-                                        </Span>
-                                    </Col>
-                                    <Col width="4" responsive="xl" flex alignItems="center" my="1">
-                                        {table.DESCRIPTION}
-                                    </Col>
-                                    <Col width="6" responsive="xl" flex justifyContent="end" alignItems="center" my="1">
-                                        <Area>
-                                            <Span>{t("components.source_table_created_at")}:</Span>
-                                            <Span badge="light" me="4">{table.CREATED_AT}</Span>
-                                            <Span>{t("components.source_table_updated_at")}:</Span>
-                                            <Span badge="light" me="4">{table.UPDATED_AT}</Span>
-                                            <Span>{t("components.source_table_expire_at")}:</Span>
-                                            <Span badge="light">{table.EXPIRE_AT}</Span>
-                                        </Area>
-                                    </Col>
-                                    <Col width="1" responsive="xl" flex justifyContent="end" my="1">
-                                        <Button size="sm" variant="light" onClick={() => handleTableImport(table.ID)}>
-                                            {t("components.source_table_import")}
-                                        </Button>
-                                    </Col>
-                                </Row>
-                            ))}
-                        </Area>
-                    )}
-                    {/* Display Added Tables */}
+                    {/* Display Tables */}
                     <Area marginTop="5%" mx="3">
                         {currentProject.TABLES?.length > 0 && (
                             <Span variant="secondary" fontWeight="lighter" fontSize="4">

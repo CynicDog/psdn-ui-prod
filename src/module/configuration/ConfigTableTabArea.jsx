@@ -46,7 +46,7 @@ const ConfigTableTabArea = () => {
                     bg="body" rounded shadow="sm" p="1" px="2" gap="3"
                 >
                     <Span variant="secondary" fontSize="6">
-                        <Icon name="database-fill-add" />
+                        <Icon name="database-fill" />
                     </Span>
                 </Tooltip>
             </Area>

@@ -9,12 +9,12 @@ import {useProject} from "../../context/Project";
 const ProjectPopupTablesArea = ({ tables }) => {
 
     const { t } = useLanguage();
-    const { lookedUpProject, handleProjectTableDelete } = useProject();
+    const { lookedUpProject, handleProjectTableDelete, handleTableInputChange } = useProject();
 
     return (
-        <Area>
-            {tables && tables.map(table => (
-                <Area border rounded shadow="sm" p="3" px="5" mb="3">
+        <>
+            {tables && tables.map((table, index) => (
+                <Area key={index} border rounded shadow="sm" p="3" px="5" mb="3">
                     {lookedUpProject.STATUS === "WRITING" && (
                         <Area flex justifyContent="end" my="1">
                             <Span
@@ -39,6 +39,7 @@ const ProjectPopupTablesArea = ({ tables }) => {
                         <Col width="10" responsive="lg">
                             <InputField
                                 value={table.NAME}
+                                onChange={(e) => handleTableInputChange(table.ID, "NAME", e.target.value)}
                             />
                         </Col>
                     </Row>
@@ -54,12 +55,13 @@ const ProjectPopupTablesArea = ({ tables }) => {
                             <TextArea
                                 value={table.DESCRIPTION}
                                 height="80px"
+                                onChange={(e) => handleTableInputChange(table.ID, "DESCRIPTION", e.target.value)}
                             />
                         </Col>
                     </Row>
                 </Area>
             ))}
-        </Area>
+        </>
     );
 };
 

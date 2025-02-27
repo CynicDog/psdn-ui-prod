@@ -1,14 +1,14 @@
-import { createContext, useState, useEffect, useContext } from "react";
-import { useAuth } from "./Auth";
-import { fetchUserProjects } from "../data/APIs";
+import {createContext, useState, useEffect, useContext} from "react";
+import {useAuth} from "./Auth";
+import {fetchUserProjects} from "../data/APIs";
 import {ROLES} from "./util";
 import {usePopup} from "./Popup";
 
 {/* Project Context */}
 const ProjectContext = createContext();
 
-export const ProjectProvider = ({ children }) => {
-    const { auth } = useAuth();
+export const ProjectProvider = ({children}) => {
+    const {auth} = useAuth();
     const [projects, setProjects] = useState(null);
     const [currentProject, setCurrentProject] = useState(null);
     const [lookedUpProject, setLookedUpProject] = useState(null);
@@ -61,7 +61,7 @@ export const ProjectProvider = ({ children }) => {
                 project.ORDER = index;
             });
 
-            return { ...prevProjects, data: updatedProjects };
+            return {...prevProjects, data: updatedProjects};
         });
     };
 
@@ -85,7 +85,7 @@ export const ProjectProvider = ({ children }) => {
                 table.ORDER = index;
             });
 
-            return { ...prevProjects, data: updatedProjects };
+            return {...prevProjects, data: updatedProjects};
         });
     };
 
@@ -109,10 +109,26 @@ export const ProjectProvider = ({ children }) => {
                 project.ORDER = index;
             });
 
-            return { ...prevProjects, data: updatedProjects };
+            return {...prevProjects, data: updatedProjects};
         });
 
         return newProject;
+    };
+
+    const handleDeleteProject = (projectId) => {
+        setProjects((prevProjects) => {
+            const updatedProjects = prevProjects.data.filter(project => project.ID !== projectId);
+
+            updatedProjects.forEach((project, index) => {
+                project.ORDER = index;
+            });
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+
+        if (lookedUpProject && lookedUpProject.ID === projectId) {
+            setLookedUpProject(null); // or you can set a default project
+        }
     };
 
     const handleProjectTableAdd = (projectId) => {
@@ -138,28 +154,98 @@ export const ProjectProvider = ({ children }) => {
             // Append the new table to the project
             project.TABLES.push(newTable);
 
-            return { ...prevProjects, data: updatedProjects };
+            return {...prevProjects, data: updatedProjects};
         });
     };
+    // Sync between lookedUpProject and projects when the new table added to a project
+    useEffect(() => {
+        if (lookedUpProject) {
+            setProjects((prevProjects) => {
+                const updatedProjects = prevProjects.data.map(project =>
+                    project.ID === lookedUpProject.ID
+                        ? { ...project, TABLES: lookedUpProject.TABLES }
+                        : project
+                );
+                return { ...prevProjects, data: updatedProjects };
+            });
+        }
+    }, [lookedUpProject]);
 
     const handleProjectTableDelete = (projectId, tableId) => {
-        setProjects((prevProjects) => {
-            if (!prevProjects) return prevProjects;
-
-            const updatedProjects = [...prevProjects.data];
-
-            const project = updatedProjects.find(p => p.ID === projectId);
-            if (!project || !project.TABLES) return prevProjects;
-
-            project.TABLES = project.TABLES.filter(table => table.ID !== tableId);
-            project.TABLES.forEach((table, index) => {
-                table.ORDER = index;
+        setProjects(prevProjects => {
+            const updatedProjects = prevProjects.data.map(project => {
+                if (project.ID === projectId) {
+                    // Update the project tables by filtering out the deleted table
+                    const updatedTables = project.TABLES.filter(table => table.ID !== tableId);
+                    return {...project, TABLES: updatedTables};
+                }
+                return project;
             });
+            return {...prevProjects, data: updatedProjects};
+        });
 
-            return { ...prevProjects, data: updatedProjects };
+        setLookedUpProject(prevProject => ({
+            ...prevProject,
+            TABLES: prevProject.TABLES.filter(table => table.ID !== tableId)
+        }));
+    };
+
+    const handleProjectInputChange = (field, value) => {
+
+        if (lookedUpProject.STATUS !== "WRITING") return
+
+        setLookedUpProject(prev => ({...prev, [field]: value}));
+
+        // Sync with projects array
+        setProjects(prevProjects => {
+            const updatedProjects = prevProjects.data.map(p =>
+                p.ID === lookedUpProject.ID ? {...p, [field]: value} : p
+            );
+            return {...prevProjects, data: updatedProjects};
         });
     };
 
+    const handleTableInputChange = (tableId, field, value) => {
+
+        if (lookedUpProject.STATUS !== "WRITING") return
+
+        setLookedUpProject(prev => ({
+            ...prev,
+            TABLES: prev.TABLES.map(table =>
+                table.ID === tableId ? {...table, [field]: value} : table
+            )
+        }));
+
+        // Sync with projects array
+        setProjects(prevProjects => {
+            const updatedProjects = prevProjects.data.map(p =>
+                p.ID === lookedUpProject.ID
+                    ? {
+                        ...p,
+                        TABLES: p.TABLES.map(table =>
+                            table.ID === tableId ? {...table, [field]: value} : table
+                        )
+                    }
+                    : p
+            );
+            return {...prevProjects, data: updatedProjects};
+        });
+    };
+
+    const handleProjectCreateRequest = () => {
+        if (!lookedUpProject || lookedUpProject.STATUS !== "WRITING") {
+            return;
+        }
+
+        setProjects((prevProjects) => {
+            const updatedProjects = prevProjects.data.map((project) =>
+                project.ID === lookedUpProject.ID
+                    ? { ...project, STATUS: "PENDING" } // Change status of the updated project
+                    : project
+            );
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
 
     return (
         <ProjectContext.Provider
@@ -173,9 +259,11 @@ export const ProjectProvider = ({ children }) => {
                 sourceProjectTableDraggable, setSourceProjectTableDraggable,
                 targetProjectTableDraggable, setTargetProjectTableDraggable,
                 handleMoveProjectTable,
-                handleAddProject,
+                handleAddProject, handleDeleteProject,
                 lookedUpProject, setLookedUpProject,
-                handleProjectTableAdd, handleProjectTableDelete
+                handleProjectTableAdd, handleProjectTableDelete,
+                handleProjectInputChange, handleTableInputChange,
+                handleProjectCreateRequest
             }}
         >
             {children}

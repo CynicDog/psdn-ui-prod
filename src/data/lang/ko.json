@@ -35,6 +35,7 @@
     "project_table_name": "이름",
     "project_table_purpose_of_use": "사용 목적",
     "add_project_table": "프로젝트 테이블 추가",
+    "request_project_creation": "프로젝트 생성 요청",
     "pseudonymization_title": "가명화",
     "reset_filters": "필터 초기화",
     "grid_row_control_check": "선택",
