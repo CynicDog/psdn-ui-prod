@@ -74,10 +74,7 @@ const ConfigRuleCard = ({ row, rule, order }) => {
                 <Span fontSize="6">{getLocalizedName(ruleInfo)}</Span>
                 <Area flex alignItems="center">
                     <Span
-                        badge="danger"
-                        size="sm"
-                        outline
-                        variant="danger"
+                        badge="danger" cursor="pointer" noSelect
                         onClick={(e) => {
                             e.stopPropagation();
                             handleDeleteRule(row.COL_NAME, rule.RULE_ID);

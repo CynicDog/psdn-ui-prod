@@ -149,20 +149,22 @@ const ProjectCard = ({project, order}) => {
                     </Area>
                 </Col>
             </Row>
-            <Row key={project.ID} rounded p="3" >
+            <Row key={project.ID} rounded p="3" flex alignItems="center">
                 {/* Project name and status */}
-                <Col width="4" responsive="lg" >
+                <Col width="3" responsive="lg" >
                     {/*<Area>*/}
-                    <Span fontSize="4" fontWeight="lighter" underline>
+                    <Span fontSize="4" fontWeight="lighter">
                         {project.NAME}
                     </Span>
                     {/*</Area>*/}
                 </Col>
 
                 {/* Project description */}
-                <Col width="4" responsive="lg">
+                <Col width="5" responsive="lg">
                     {project.DESCRIPTION ? (
-                        project.DESCRIPTION
+                        <Span fontWeight="light">
+                            {project.DESCRIPTION}
+                        </Span>
                     ) : (
                         <>
                             <Span variant="secondary">

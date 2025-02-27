@@ -115,6 +115,52 @@ export const ProjectProvider = ({ children }) => {
         return newProject;
     };
 
+    const handleProjectTableAdd = (projectId) => {
+        setProjects((prevProjects) => {
+            if (!prevProjects) return prevProjects;
+
+            const updatedProjects = [...prevProjects.data];
+
+            // Find the project by ID
+            const project = updatedProjects.find(p => p.ID === projectId);
+            if (!project) return prevProjects;
+
+            // Create a new empty table entry
+            const newTable = {
+                ID: `CT${Date.now()}`, // TODO: Replace with Hibernate UUID
+                TABLE_ID: "",
+                NAME: "New Table",
+                DESCRIPTION: "Description of the new table",
+                IMPORTED_AT: new Date(Date.now()).toISOString().split("T")[0],
+                ORDER: project.TABLES.length,
+            };
+
+            // Append the new table to the project
+            project.TABLES.push(newTable);
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
+
+    const handleProjectTableDelete = (projectId, tableId) => {
+        setProjects((prevProjects) => {
+            if (!prevProjects) return prevProjects;
+
+            const updatedProjects = [...prevProjects.data];
+
+            const project = updatedProjects.find(p => p.ID === projectId);
+            if (!project || !project.TABLES) return prevProjects;
+
+            project.TABLES = project.TABLES.filter(table => table.ID !== tableId);
+            project.TABLES.forEach((table, index) => {
+                table.ORDER = index;
+            });
+
+            return { ...prevProjects, data: updatedProjects };
+        });
+    };
+
+
     return (
         <ProjectContext.Provider
             value={{
@@ -128,7 +174,8 @@ export const ProjectProvider = ({ children }) => {
                 targetProjectTableDraggable, setTargetProjectTableDraggable,
                 handleMoveProjectTable,
                 handleAddProject,
-                lookedUpProject, setLookedUpProject
+                lookedUpProject, setLookedUpProject,
+                handleProjectTableAdd, handleProjectTableDelete
             }}
         >
             {children}

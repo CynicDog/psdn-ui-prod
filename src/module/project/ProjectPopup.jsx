@@ -11,17 +11,17 @@ import {useLanguage} from "../../context/Language";
 import {Col, Row} from "../../component/Grid";
 import InputField from "../../component/InputField";
 import TextArea from "../../component/TextArea";
-import ProjectTablesArea from "./ProjectTablesArea";
+import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
+import Icon from "../../component/Icon";
+import Tooltip from "../../component/Tooltip";
 
 const ProjectPopup = () => {
 
     const {t} = useLanguage();
-    const {lookedUpProject} = useProject()
+    const {lookedUpProject, handleProjectTableAdd } = useProject()
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
     if (!isProjectPopupOpen) return null;
-
-    console.log(lookedUpProject)
 
     return (
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
@@ -39,10 +39,10 @@ const ProjectPopup = () => {
                     </Area>
                 </PopupHeader>
                 <PopupBody>
-                    <Area p="5">
+                    <Area border rounded shadow="sm" p="5" m="3">
 
                         {/* Project Name */}
-                        <Row my="1">
+                        <Row my="3">
                             <Col width="2" responsive="lg">
                                 <Span fontSize="5" fontWeight="lighter">
                                     {t('components.project_name')}
@@ -56,30 +56,50 @@ const ProjectPopup = () => {
                         </Row>
 
                         {/* Project Description */}
-                        <Row my="1">
+                        <Row my="3">
                             <Col width="2" responsive="lg">
                                 <Span fontSize="5" fontWeight="lighter">
                                     {t('components.project_description')}
                                 </Span>
                             </Col>
                             <Col width="10" responsive="lg">
-                                <TextArea height="150px"/>
+                                <TextArea
+                                    value={lookedUpProject.DESCRIPTION}
+                                    height="150px"
+                                />
                             </Col>
                         </Row>
 
                         {/* Project Tables */}
-                        <Row my="1">
+                        <Row my="3">
                             <Col width="2" responsive="lg">
-                                <Span fontSize="5" fontWeight="lighter">
-                                    {t('components.project_tables')}
-                                </Span>
+                                <Area flex alignItems="center" gap="2">
+                                    <Span fontSize="5" fontWeight="lighter">
+                                        {t('components.project_tables')}
+                                    </Span>
+                                    {lookedUpProject.STATUS === "WRITING" && (
+                                        <Tooltip
+                                            position="top"
+                                            content={
+                                                <Span noSelect>
+                                                    {t('components.add_project_table')}
+                                                </Span>
+                                            }
+                                            bg="body" rounded shadow="sm" p="1" px="2" gap="3"
+                                        >
+                                            <Span variant="secondary" fontSize="4"
+                                                  onClick={() => handleProjectTableAdd(lookedUpProject.ID)}>
+                                                <Icon name="database-fill-add"/>
+                                            </Span>
+                                        </Tooltip>
+                                    )}
+                                </Area>
                             </Col>
                             <Col width="10" responsive="lg">
-                                <ProjectTablesArea tables={lookedUpProject.TABLES} />
+                                <ProjectPopupTablesArea tables={lookedUpProject.TABLES}/>
                             </Col>
                         </Row>
                     </Area>
-
                 </PopupBody>
             </PopupContent>
         </PopupOverlay>
