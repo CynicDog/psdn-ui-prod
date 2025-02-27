@@ -5,7 +5,6 @@ import ConfigurationView from "../view/ConfigurationView";
 import HistoryView from "../view/HistoryView";
 import ProjectView from "../view/ProjectView";
 import {useAuth} from "./Auth";
-import {ROLES} from "./util";
 
 const MenuContext = createContext();
 

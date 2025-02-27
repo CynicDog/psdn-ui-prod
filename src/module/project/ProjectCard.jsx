@@ -18,7 +18,7 @@ const ProjectCard = ({project, order}) => {
     const {t} = useLanguage();
 
     const {
-        setProjects, setLookedUpProject,
+        setLookedUpProject,
         currentProject, setCurrentProject,
         sourceProjectDraggable, setSourceProjectDraggable,
         targetProjectDraggable, setTargetProjectDraggable,
@@ -98,12 +98,12 @@ const ProjectCard = ({project, order}) => {
             cursor={project.STATUS !== "APPROVED" ? "not-allowed" : "pointer"}
         >
             <Row>
-                <Col width="12" responsive="lg" my="1" flex justifyContent="between">
+                <Col width="12" responsive="lg" flex justifyContent="between">
                     <Area>
                         <Span
                             key={project.ID}
                             badge={getBadgeClass(project.STATUS)}
-                            mx="2">
+                            m="2">
                             {project.STATUS}
                         </Span>
                         {project.STATUS === "WRITING" && (

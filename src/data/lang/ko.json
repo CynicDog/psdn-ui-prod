@@ -5,7 +5,7 @@
   "menu": {
     "title": "메뉴",
     "project": "프로젝트",
-    "project_configuration": "설정",
+    "project_management": "관리",
     "definition": "규칙",
     "definition_description": "설명",
     "configuration": "설정",

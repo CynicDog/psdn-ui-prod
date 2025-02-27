@@ -16,7 +16,7 @@
     "CHILDREN": [
       {
         "ID": "M1_1",
-        "NAME": "project_configuration",
+        "NAME": "project_management",
         "SHOWN_TO": ["Role.Application", "Role.Owner"]
       }
     ]

@@ -18,7 +18,7 @@ import Tooltip from "../../component/Tooltip";
 const ProjectPopup = () => {
 
     const {t} = useLanguage();
-    const {lookedUpProject, handleDeleteProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest } = useProject()
+    const { lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest } = useProject()
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
     if (!isProjectPopupOpen) return null;
@@ -103,12 +103,12 @@ const ProjectPopup = () => {
                         </Row>
                         {lookedUpProject.STATUS === "WRITING" && (
                             <Area flex justifyContent="end" mt="4">
-                                <Span badge="primary" cursor="pointer" fontSize="6" onClick={() => {
+                                <Button size="sm" variant="primary" onClick={() => {
                                     handleProjectCreateRequest();
                                     setIsProjectPopupOpen(false);
                                 }}>
                                     {t('components.request_project_creation')}
-                                </Span>
+                                </Button>
                             </Area>
                         )}
                     </Area>

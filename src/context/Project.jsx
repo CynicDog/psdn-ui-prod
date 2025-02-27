@@ -127,7 +127,7 @@ export const ProjectProvider = ({children}) => {
         });
 
         if (lookedUpProject && lookedUpProject.ID === projectId) {
-            setLookedUpProject(null); // or you can set a default project
+            setLookedUpProject(null);
         }
     };
 
@@ -154,22 +154,11 @@ export const ProjectProvider = ({children}) => {
             // Append the new table to the project
             project.TABLES.push(newTable);
 
+            setLookedUpProject(project);
+
             return {...prevProjects, data: updatedProjects};
         });
     };
-    // Sync between lookedUpProject and projects when the new table added to a project
-    useEffect(() => {
-        if (lookedUpProject) {
-            setProjects((prevProjects) => {
-                const updatedProjects = prevProjects.data.map(project =>
-                    project.ID === lookedUpProject.ID
-                        ? { ...project, TABLES: lookedUpProject.TABLES }
-                        : project
-                );
-                return { ...prevProjects, data: updatedProjects };
-            });
-        }
-    }, [lookedUpProject]);
 
     const handleProjectTableDelete = (projectId, tableId) => {
         setProjects(prevProjects => {
