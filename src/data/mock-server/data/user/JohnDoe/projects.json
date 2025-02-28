@@ -7,8 +7,10 @@
       "DESCRIPTION": "Project - 1's description",
       "ORDER": 0,
       "STATUS": "APPROVED",
-      "CREATED_AT": "2025-01-13",
-      "UPDATED_AT": "2025-01-20",
+      "CREATE_AT": "2025-01-13",
+      "APPROVE_AT": "2025-01-20",
+      "START_AT": "2025-02-01",
+      "FINISH_AT": null,
       "TABLES": [
         {
           "ID": "CT1",
@@ -42,8 +44,10 @@
       "DESCRIPTION": "Project - 2's description",
       "ORDER": 1,
       "STATUS": "APPROVED",
-      "CREATED_AT": "2025-01-23",
-      "UPDATED_AT": "2025-01-27",
+      "CREATE_AT": "2025-01-23",
+      "APPROVE_AT": "2025-01-27",
+      "START_AT": "2025-03-01",
+      "FINISH_AT": null,
       "TABLES": [
         {
           "ID": "CT5",
@@ -68,9 +72,11 @@
       "NAME": "Project - 3",
       "DESCRIPTION": "Project - 3's description",
       "ORDER": 2,
-      "STATUS": "APPROVED",
-      "CREATED_AT": "2025-02-01",
-      "UPDATED_AT": "2025-02-10",
+      "STATUS": "FINISHED",
+      "CREATE_AT": "2025-01-01",
+      "APPROVE_AT": "2025-01-10",
+      "START_AT": "2025-01-20",
+      "FINISH_AT": "2025-01-31",
       "TABLES": [
         {
           "ID": "CT7",
@@ -88,8 +94,10 @@
       "DESCRIPTION": "Project - 4's description",
       "ORDER": 3,
       "STATUS": "PENDING",
-      "CREATED_AT": "2025-02-16",
-      "UPDATED_AT": null,
+      "CREATE_AT": "2025-02-16",
+      "APPROVE_AT": null,
+      "START_AT": null,
+      "FINISH_AT": null,
       "TABLES": [
       ]
     },
@@ -99,8 +107,10 @@
       "DESCRIPTION": "Project - 5's description",
       "ORDER": 4,
       "STATUS": "PENDING",
-      "CREATED_AT": "2025-02-20",
-      "UPDATED_AT": null,
+      "CREATE_AT": "2025-02-20",
+      "APPROVE_AT": null,
+      "START_AT": null,
+      "FINISH_AT": null,
       "TABLES": [
       ]
     }

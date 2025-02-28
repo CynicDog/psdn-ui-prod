@@ -85,7 +85,22 @@
     vertical-align: baseline;
     background-color: var(--bs-danger-bg-subtle) !important;
     border: var(--bs-border-width) var(--bs-border-style) var(--bs-danger-border-subtle) !important;
-    border-radius: var(--bs-border-radius-pill) !important;
+    border-radius: var(--bs-border-radius-pill, 50rem);
+}
+
+.badge-success {
+    display: inline-block;
+    padding: var(--bs-badge-padding-y, 0.35em) var(--bs-badge-padding-x, 0.65em);
+    font-size: var(--bs-badge-font-size, 0.65em);
+    font-weight: var(--bs-badge-font-weight, 600);
+    line-height: 1;
+    color: var(--bs-success-text-emphasis) !important;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    background-color: var(--bs-success-bg-subtle)!important;
+    border: var(--bs-border-width) var(--bs-border-style) var(--bs-success-border-subtle) !important;
+    border-radius: var(--bs-border-radius-pill, 50rem);
 }
 
 .badge-secondary {

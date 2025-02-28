@@ -67,12 +67,16 @@ const ProjectCard = ({project, order}) => {
 
     const getBadgeClass = (status) => {
         switch (status) {
-            case "APPROVED":
-                return "primary";
             case "WRITING":
                 return "warning";
+            case "PENDING":
+                return "secondary"
+            case "APPROVED":
+                return "primary";
+            case "FINISHED":
+                return "success"
             default:
-                return "secondary";
+                return "";
         }
     };
 
@@ -190,35 +194,45 @@ const ProjectCard = ({project, order}) => {
             <Row>
                 {/* Project timestamps */}
                 <Col width="12" responsive="lg" p="2" px="4" flex justifyContent="end">
-                    <Area flex gap="2">
-                        {project.CREATED_AT && (
-                            <Area>
-                                <Tooltip
-                                    position="top"
-                                    content={
-                                        <Area>
-                                            {t('components.project_created_at')}
-                                        </Area>
-                                    }
-                                    bg="body" rounded shadow="sm" px="2" gap="3"
-                                >
-                                    <Span badge="light">{project.CREATED_AT}</Span>
-                                </Tooltip>
+                    <Area flex gap="3" fontSize="small" >
+                        {project.CREATE_AT && (
+                            <Area flex alignItems="center" gap="1">
+                                <Span>
+                                    {t('components.project_create_at')}
+                                </Span>
+                                <Span badge="light">
+                                    {project.CREATE_AT}
+                                </Span>
                             </Area>
                         )}
-                        {project.UPDATED_AT && (
-                            <Area>
-                                <Tooltip
-                                    position="top"
-                                    content={
-                                        <Area>
-                                            {t('components.project_approved_at')}
-                                        </Area>
-                                    }
-                                    bg="body" rounded shadow="sm" px="2" gap="3"
-                                >
-                                    <Span badge="primary">{project.UPDATED_AT}</Span>
-                                </Tooltip>
+                        {project.APPROVE_AT && (
+                            <Area flex alignItems="center" gap="1">
+                                <Span>
+                                    {t('components.project_approve_at')}
+                                </Span>
+                                <Span badge="light">
+                                    {project.APPROVE_AT}
+                                </Span>
+                            </Area>
+                        )}
+                        {project.START_AT && (
+                            <Area flex alignItems="center" gap="1">
+                                <Span>
+                                    {t('components.project_start_at')}
+                                </Span>
+                                <Span badge="light">
+                                    {project.START_AT}
+                                </Span>
+                            </Area>
+                        )}
+                        {project.FINISH_AT && (
+                            <Area flex alignItems="center" gap="1">
+                                <Span>
+                                    {t('components.project_finish_at')}
+                                </Span>
+                                <Span badge="light">
+                                    {project.FINISH_AT}
+                                </Span>
                             </Area>
                         )}
                     </Area>
