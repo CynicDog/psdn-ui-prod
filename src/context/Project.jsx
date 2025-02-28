@@ -97,7 +97,10 @@ export const ProjectProvider = ({children}) => {
             TABLES: [],
             ORDER: 0,
             STATUS: "WRITING",
-            CREATED_AT: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
+            CREATE_AT: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
+            APPROVE_AT: null,
+            START_AT: null,
+            FINISH_AT: null
         };
 
         setProjects((prevProjects) => {

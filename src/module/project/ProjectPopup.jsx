@@ -72,6 +72,26 @@ const ProjectPopup = () => {
                             </Col>
                         </Row>
 
+                        {/* Project Start At */}
+                            {lookedUpProject.STATUS === "WRITING" && (
+                            <Row my="3">
+                                <Col width="2" responsive="lg">
+                                    <Area flex alignItems="center" gap="2">
+                                        <Span fontSize="5" fontWeight="lighter">
+                                            {t('components.project_start_at')}
+                                        </Span>
+                                    </Area>
+                                </Col>
+                                <Col width="10" responsive="lg">
+                                    <InputField
+                                        type="date"
+                                        value={lookedUpProject.START_AT}
+                                        onChange={(e) => handleProjectInputChange("START_AT", e.target.value)}
+                                    />
+                                </Col>
+                            </Row>
+                        )}
+
                         {/* Project Tables */}
                         <Row my="3">
                             <Col width="2" responsive="lg">
@@ -80,20 +100,9 @@ const ProjectPopup = () => {
                                         {t('components.project_tables')}
                                     </Span>
                                     {lookedUpProject.STATUS === "WRITING" && (
-                                        <Tooltip
-                                            position="top"
-                                            content={
-                                                <Span noSelect>
-                                                    {t('components.add_project_table')}
-                                                </Span>
-                                            }
-                                            bg="body" rounded shadow="sm" p="1" px="2"
-                                        >
-                                            <Span variant="secondary" fontSize="4"
-                                                  onClick={() => handleProjectTableAdd(lookedUpProject.ID)}>
-                                                <Icon name="database-fill-add"/>
-                                            </Span>
-                                        </Tooltip>
+                                        <Span variant="secondary" fontSize="4" onClick={() => handleProjectTableAdd(lookedUpProject.ID)}>
+                                            <Icon name="database-fill-add"/>
+                                        </Span>
                                     )}
                                 </Area>
                             </Col>
@@ -101,6 +110,7 @@ const ProjectPopup = () => {
                                 <ProjectPopupTablesArea tables={lookedUpProject.TABLES}/>
                             </Col>
                         </Row>
+
                         {lookedUpProject.STATUS === "WRITING" && (
                             <Area flex justifyContent="end" mt="4">
                                 <Button size="sm" variant="primary" onClick={() => {

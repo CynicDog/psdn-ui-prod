@@ -155,12 +155,7 @@ const ProjectCard = ({project, order}) => {
 
                 {/* Project description */}
                 <Col width="5" responsive="lg">
-                    {project.DESCRIPTION && (
-                        <Span fontWeight="light">
-                            {project.DESCRIPTION}
-                        </Span>
-                    )}
-                    {project.STATUS === "WRITING" && (
+                    {project.STATUS === "WRITING" ? (
                         <Span variant="secondary">
                             {t('components.project_no_description')}{' '}(
                             <Tooltip
@@ -178,6 +173,10 @@ const ProjectCard = ({project, order}) => {
                                     setIsProjectPopupOpen(true);
                                 }}/>
                             </Tooltip>).
+                        </Span>
+                    ) : (
+                        <Span fontWeight="light">
+                            {project.DESCRIPTION}
                         </Span>
                     )}
                 </Col>

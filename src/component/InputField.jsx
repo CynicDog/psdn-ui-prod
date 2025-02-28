@@ -1,6 +1,7 @@
 const InputField = ({
                         id,
                         value,
+                        type = 'text',
                         onChange,
                         border = '',
                         width,
@@ -14,7 +15,7 @@ const InputField = ({
     return (
         <input
             id={id}
-            type="text"
+            type={type}
             className={classes}
             value={value || ''}
             onChange={onChange}
