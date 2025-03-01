@@ -6,18 +6,18 @@ import {useMsal} from "@azure/msal-react";
 import UsersArea from "../module/management/UsersArea";
 
 const UserManagementView = () => {
-    const {instance} = useMsal;
+
     const {auth} = useAuth();
 
-    const {data: users, isLoading, error} = useQuery(
+    const {data: users, isUsersLoading} = useQuery(
         ["users", auth.token],
-        () => getAllUsers(auth, instance),
+        () => getAllUsers(auth),
         {
             enabled: !!auth.token,
         }
     );
 
-    if (isLoading) return (<LoadingSpinner/>)
+    if (isUsersLoading) return (<LoadingSpinner/>)
 
     return (
         <>

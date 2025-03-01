@@ -195,7 +195,7 @@ export const greetAsApplication = async (auth) => {
  *
  * @throws {Error} - Throws an error if the token is missing, invalid, or expired.
  */
-export const getAllUsers = async (auth, instance) => {
+export const getAllUsers = async (auth) => {
 
     const token = auth.token;
 
