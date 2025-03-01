@@ -43,7 +43,7 @@ export const BaseDBProvider = ({ children }) => {
                     setIsCurrentBaseDBLoading(false);
                 });
         }
-    }, [currentProject, currentMenu]);
+    }, [currentProject]);
 
     return (
         <BaseDBContext.Provider value={{ BaseDB, isCurrentBaseDBLoading, currentBaseDB, setCurrentBaseDB }}>
