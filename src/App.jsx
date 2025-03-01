@@ -34,7 +34,7 @@ const App = () => {
     const shouldShowProjectTabArea = () => {
         return auth.role &&
             [ROLES.APPLICATION, ROLES.OWNER].includes(auth.role) &&
-            !["M1_1", "M0_1"].includes(currentMenu.CURRENT.ID);  // hides when the current menu is set to first two menus
+            ["M2_1"].includes(currentMenu.CURRENT.ID);
     };
 
     return (

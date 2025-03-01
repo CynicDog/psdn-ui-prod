@@ -25,8 +25,6 @@ export const AuthProvider = ({ children }) => {
                 role: accounts[0].idTokenClaims.roles[0],
                 token: accounts[0].idToken
             });
-
-            console.log(accounts);
         }
     }, [accounts, inProgress]);
 

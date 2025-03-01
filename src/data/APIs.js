@@ -170,7 +170,7 @@ export const greetAsApplication = async (auth) => {
             throw new Error("Session expired. Please log in again.");
         }
 
-        return response.json();
+        return await response.text();
     } catch (error) {
         console.error("Error fetching from Channel API:", error);
         throw error;
