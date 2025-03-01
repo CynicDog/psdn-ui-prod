@@ -11,7 +11,7 @@ jobs:
       ACR_IMAGE_NAME: psdn-ui
       AKS_CLUSTSER_NAME: psdn
       AZURE_RESOURCE_GROUP: MetLife-Project-Research
-      SYSTEM_API_URL:
+      CHANNEL_API_URL:
 
     steps:
       - name: Checkout repository
@@ -31,7 +31,7 @@ jobs:
         run: |
           docker build \
           --build-arg REACT_APP_AZURE_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }} \
-          --build-arg REACT_APP_SYSTEM_API_URL=${{ env.SYSTEM_API_URL }} \
+          --build-arg REACT_APP_CHANNEL_API_URL=${{ env.CHANNEL_API_URL }} \
           -t ${{ env.ACR_URL }}/${{ env.ACR_IMAGE_NAME }} \
           -f ./Dockerfile .
 

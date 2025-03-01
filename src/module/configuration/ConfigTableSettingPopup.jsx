@@ -6,32 +6,18 @@ import {usePopup} from "../../context/Popup";
 import {useProject} from "../../context/Project";
 import {useBaseDB} from "../../context/BaseDB";
 import {useAuth} from "../../context/Auth";
-import {fetchUserPermissionGivenTable} from "../../data/APIs";
-import Dropdown from "../../component/Dropdown";
 import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
 import PopupHeader from "../../component/PopupHeader";
 import PopupBody from "../../component/PopupBody";
 import ConfigTableSettingCard from "./ConfigTableSettingCard";
-import Icon from "../../component/Icon";
-import {Col, Row} from "../../component/Grid";
 
 const ConfigTableSettingPopup = () => {
     const {t} = useLanguage();
     const {isConfigTablePopupOpen, setIsConfigTablePopupOpen} = usePopup();
-    const {auth} = useAuth();
     const {currentProject} = useProject();
     const {BaseDB, setCurrentBaseDB} = useBaseDB();
-
-    const [availableTables, setAvailableTables] = useState([]);
-    const [showSourceTables, setShowSourceTables] = useState(false);
-
-    useEffect(() => {
-        fetchUserPermissionGivenTable(auth.username).then((response) => {
-            setAvailableTables(response.DATA);
-        });
-    }, [auth.username]);
 
     if (!isConfigTablePopupOpen) return null;
 

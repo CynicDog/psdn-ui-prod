@@ -27,7 +27,7 @@ const AuthBadge = () => {
                     const nextUser = getNextUser(auth.username);
                     setAuth(nextUser);
 
-                    // instance.logoutPopup();
+                    instance.logout();
                 }}
                 cursor="pointer">
                 {t('auth.greeting', { name: auth.username })}

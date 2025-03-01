@@ -23,13 +23,13 @@ const App = () => {
     const { isProjectLoading } = useProject();
     const { isProjectPopupOpen } = usePopup();
 
-    // const { instance, accounts, inProgress } = useMsal();
-    // useEffect(() => {
-    //   if (accounts.length === 0 && inProgress === InteractionStatus.None) {
-    //     // Redirect to login only when authentication is idle
-    //     instance.loginRedirect();
-    //   }
-    // }, [accounts, inProgress, instance]);
+    const { instance, accounts, inProgress } = useMsal();
+    useEffect(() => {
+      if (accounts.length === 0 && inProgress === InteractionStatus.None) {
+        // Redirect to login only when authentication is idle
+        instance.loginRedirect();
+      }
+    }, [accounts, inProgress, instance]);
 
     const shouldShowProjectTabArea = () => {
         return auth.role &&

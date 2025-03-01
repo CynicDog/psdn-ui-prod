@@ -1,9 +1,7 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { useMsal } from "@azure/msal-react";
 import { InteractionStatus } from "@azure/msal-browser";
-import {ROLES} from "./util";
 import {useLanguage} from "./Language";
-import {fetchUserPermissionGivenTable} from "../data/APIs";
 
 {/* Authentication Context */}
 const AuthContext = createContext();
@@ -13,20 +11,23 @@ export const AuthProvider = ({ children }) => {
     const { accounts, inProgress } = useMsal();
     const { setLanguage } = useLanguage();
     const [auth, setAuth] = useState({
-        username: "JohnDoe",
-        email: "thecynicdog0328@gmail.com",
-        role: ROLES.APPLICATION
+        // username: "JohnDoe",
+        // email: "thecynicdog0328@gmail.com",
+        // role: ROLES.APPLICATION
     });
 
     useEffect(() => {
+
         if (accounts.length > 0 && inProgress === InteractionStatus.None) {
             setAuth({
-                username: accounts[0].name,
+                username: accounts[0].username.split('@')[0],
                 email: accounts[0].username,
-                role: accounts[0].idTokenClaims.roles[0]
+                role: accounts[0].idTokenClaims.roles[0],
+                token: accounts[0].idToken
             });
+
+            console.log(accounts);
         }
-        // setLanguage based on User's locale information from EntraId
     }, [accounts, inProgress]);
 
     return (

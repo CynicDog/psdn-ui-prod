@@ -8,7 +8,9 @@
  *          - node ./src/data/mock-server/server.js         # starts up a mock server process at `localhost:8888`
  *          - npm run start
  */
-const BACKEND_URL = process.env.REACT_APP_SYSTEM_API_URL || "http://localhost:8888"
+// TODO: merge mock server into Channel API server
+const CHANNEL_API_SERVER_URL = process.env.REACT_APP_CHANNEL_API_SERVER_URL
+const MOCK_SERVER_URL =  "http://localhost:8888"
 
 // /**
 //  * @description Define the backend server port number based on the environment.
@@ -25,7 +27,7 @@ const BACKEND_URL = process.env.REACT_APP_SYSTEM_API_URL || "http://localhost:88
  */
 export const fetchColumnData = async (COL_NAME) => {
 
-    const response = await fetch(`${BACKEND_URL}/raw/${COL_NAME}`);
+    const response = await fetch(`${MOCK_SERVER_URL}/raw/${COL_NAME}`);
 
     if (!response.ok) {
         throw new Error('Failed to fetch column data');
@@ -42,7 +44,7 @@ export const fetchColumnData = async (COL_NAME) => {
  */
 export const fetchPSDNMaster = async () => {
     try {
-        const response = await fetch(`${BACKEND_URL}/meta/business/PSDN-master`);
+        const response = await fetch(`${MOCK_SERVER_URL}/meta/business/PSDN-master`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN master data');
@@ -64,7 +66,7 @@ export const fetchPSDNMaster = async () => {
  */
 export const fetchPSDNCodes = async () => {
     try {
-        const response = await fetch(`${BACKEND_URL}/meta/business/PSDN-code`);
+        const response = await fetch(`${MOCK_SERVER_URL}/meta/business/PSDN-code`);
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN codes data');
         }
@@ -85,7 +87,7 @@ export const fetchPSDNCodes = async () => {
  */
 export const fetchUserProjects = async (username) => {
     try {
-        const response = await fetch(`${BACKEND_URL}/user/${username}/projects`);
+        const response = await fetch(`${MOCK_SERVER_URL}/user/${username}/projects`);
         if (!response.ok) {
             throw new Error("Failed to fetch projects");
         }
@@ -106,7 +108,7 @@ export const fetchUserProjects = async (username) => {
  */
 export const fetchProjectTable = async (tableId) => {
     try {
-        const response = await fetch(`${BACKEND_URL}/configTables/${tableId}`);
+        const response = await fetch(`${MOCK_SERVER_URL}/configTables/${tableId}`);
         if (!response.ok) throw new Error(`Failed to fetch ${tableId} data`);
 
         return await response.json();
@@ -117,20 +119,60 @@ export const fetchProjectTable = async (tableId) => {
 };
 
 
-/**
- * @description Fetches table data that are given permission to a user.
- *
- * @param {string} username - The username of the user whose permission-given tables are being fetched.
- * @returns {Promise<Object>} - A promise resolving to the table data directly.
- */
-export const fetchUserPermissionGivenTable = async (username) => {
-    try {
-        const response = await fetch(`${BACKEND_URL}/user/${username}/grantedTables`);
-        if (!response.ok) throw new Error(`Failed to fetch ${username} data`);
+// /**
+//  * @description Fetches table data that are given permission to a user.
+//  *
+//  * @param {string} username - The username of the user whose permission-given tables are being fetched.
+//  * @returns {Promise<Object>} - A promise resolving to the table data directly.
+//  */
+// export const fetchUserPermissionGivenTable = async (username) => {
+//     try {
+//         const response = await fetch(`${BACKEND_URL}/user/${username}/grantedTables`);
+//         if (!response.ok) throw new Error(`Failed to fetch ${username} data`);
+//
+//         return await response.json();
+//     } catch (error) {
+//         console.error("Error fetching project table:", error);
+//         return null;
+//     }
+// };
 
-        return await response.json();
+
+/**
+ * @description Makes a request to the Channel API with JWT token for authorization.
+ *
+ * @param {string} endpoint - The API endpoint to call (e.g., "/check-admin").
+ *
+ * @returns {Promise<string>} - The response from the Channel API as plain text (e.g., "true" or "false").
+ */
+export const greetAsApplication = async (auth) => {
+    const token = auth.token;
+
+    // Ensure that the token is available
+    if (!token) {
+        throw new Error('Authentication token is missing');
+    }
+
+    // Set the Authorization header with the Bearer token
+    const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/user/greetAsApplication`, {
+            method: "GET",
+            headers: headers
+        });
+
+        if (response.status === 401) {
+            console.warn("Token expired or invalid.");
+            throw new Error("Session expired. Please log in again.");
+        }
+
+        return response.json();
     } catch (error) {
-        console.error("Error fetching project table:", error);
-        return null;
+        console.error("Error fetching from Channel API:", error);
+        throw error;
     }
 };
