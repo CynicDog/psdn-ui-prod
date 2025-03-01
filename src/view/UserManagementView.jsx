@@ -1,33 +1,27 @@
-import { useAuth } from "../context/Auth";
-import Button from "../component/Button";
-import { greetAsApplication } from "../data/APIs";
-import { useState } from "react";
-import Span from "../component/Span";
-import Area from "../component/Area";
+import {useAuth} from "../context/Auth";
+import {getAllUsers} from "../data/APIs";
+import {useQuery} from "react-query";
+import LoadingSpinner from "../component/LoadingSpinner";
+import {useMsal} from "@azure/msal-react";
+import UsersArea from "../module/management/UsersArea";
 
 const UserManagementView = () => {
-    const { auth } = useAuth();
-    const [successMessage, setSuccessMessage] = useState(null);
+    const {instance} = useMsal;
+    const {auth} = useAuth();
 
-    const handleGreetAsApplication = async () => {
-        try {
-            const message = await greetAsApplication(auth);
-            setSuccessMessage(message);
-        } catch (error) {
-            setSuccessMessage(error.message);
+    const {data: users, isLoading, error} = useQuery(
+        ["users", auth.token],
+        () => getAllUsers(auth, instance),
+        {
+            enabled: !!auth.token,
         }
-    };
+    );
+
+    if (isLoading) return (<LoadingSpinner/>)
 
     return (
         <>
-            <Button size="sm" variant="light" onClick={handleGreetAsApplication}>
-                greet as application
-            </Button>
-            {successMessage && (
-                <Area>
-                    <Span badge="light">{successMessage}</Span>
-                </Area>
-            )}
+            <UsersArea users={users} />
         </>
     );
 };

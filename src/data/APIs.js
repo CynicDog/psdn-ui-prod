@@ -139,11 +139,14 @@ export const fetchProjectTable = async (tableId) => {
 
 
 /**
- * @description Makes a request to the Channel API with JWT token for authorization.
+ * @description Sends a request to the Channel API to greet as an application.
  *
- * @param {string} endpoint - The API endpoint to call (e.g., "/check-admin").
+ * @param {Object} auth - The authentication object containing the JWT token.
  *
- * @returns {Promise<string>} - The response from the Channel API as plain text (e.g., "true" or "false").
+ * @returns {Promise<string>} - A promise that resolves to the response from the Channel API
+ *                              as plain text (e.g., "true" or "false").
+ *
+ * @throws {Error} - Throws an error if the token is missing, invalid, or expired.
  */
 export const greetAsApplication = async (auth) => {
     const token = auth.token;
@@ -160,18 +163,69 @@ export const greetAsApplication = async (auth) => {
     };
 
     try {
+        // Send a GET request to the greetAsApplication endpoint
         const response = await fetch(`${CHANNEL_API_SERVER_URL}/user/greetAsApplication`, {
             method: "GET",
             headers: headers
         });
 
+        // Handle invalid token or session expiration
         if (response.status === 401) {
             console.warn("Token expired or invalid.");
             throw new Error("Session expired. Please log in again.");
         }
 
+        // Return the response as plain text
         return await response.text();
     } catch (error) {
+        // Log and rethrow any errors that occur during the fetch
+        console.error("Error fetching from Channel API:", error);
+        throw error;
+    }
+};
+
+
+/**
+ * @description Sends a request to the Channel API to retrieve all users.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ *
+ * @returns {Promise<Object>} - A promise that resolves to the response from the Channel API
+ *                              as json format.
+ *
+ * @throws {Error} - Throws an error if the token is missing, invalid, or expired.
+ */
+export const getAllUsers = async (auth, instance) => {
+
+    const token = auth.token;
+
+    // Ensure that the token is available
+    if (!token) {
+        throw new Error('Authentication token is missing');
+    }
+
+    // Set the Authorization header with the Bearer token
+    const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        // Send a GET request to the getUsers endpoint
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/user/getUsers`, {
+            method: "GET",
+            headers: headers
+        });
+
+        // Handle invalid token or session expiration
+        if (response.status === 401) {
+            console.warn("Token expired or invalid.");
+            throw new Error("Session expired. Please log in again.");
+        }
+
+        return await response.json();
+    } catch (error) {
+        // Log and rethrow any errors that occur during the fetch
         console.error("Error fetching from Channel API:", error);
         throw error;
     }
