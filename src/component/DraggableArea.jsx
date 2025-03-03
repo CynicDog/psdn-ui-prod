@@ -1,5 +1,7 @@
 const DraggableArea = ({
+                           draggable = true,
                            children,
+                           sectionId,
                            order,
                            isDragging = false,
                            isOver = false,
@@ -54,8 +56,9 @@ const DraggableArea = ({
 
     return (
         <div
+            data-section-id={sectionId}
             data-order={order}
-            draggable
+            draggable={draggable}
             className={classes}
             onClick={onClick}
             onDragStart={onDragStart}

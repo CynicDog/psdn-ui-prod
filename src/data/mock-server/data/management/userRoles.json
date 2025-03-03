@@ -1,0 +1,42 @@
+{
+  "data": [
+    {
+      "id": "1f8e8400-66fb-49a9-8ff0-33b5fab7baf2",
+      "displayName": "Application",
+      "users": [
+        {
+          "id": "d444c5e9-07c3-4f6d-a204-74cc1999df4a",
+          "displayName": "이 은상"
+        }
+      ]
+    },
+    {
+      "id": "a1b1db19-fbeb-4dea-97d9-e7844a9d8b46",
+      "displayName": "Admin",
+      "users": [
+        {
+          "id": "0043e5de-bfa8-4c28-bb76-5560218619b1",
+          "displayName": "차 재호"
+        }
+      ]
+    },
+    {
+      "id": "509a413a-ae1b-4b04-971e-f22d30b9d2c1",
+      "displayName": "Verifier",
+      "users": [
+      ]
+    },
+    {
+      "id": "f9e3cc2d-6ee5-486a-9ad9-07b4f2d1b553",
+      "displayName": "Utilizer",
+      "users": [
+      ]
+    },
+    {
+      "id": "ee1d47a5-f31f-425d-8531-f0fefa29cf79",
+      "displayName": "Owner",
+      "users": [
+      ]
+    }
+  ]
+}

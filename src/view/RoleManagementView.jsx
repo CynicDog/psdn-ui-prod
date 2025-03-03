@@ -1,14 +1,14 @@
 import {useQuery} from "react-query";
-import {getAllUsers, getAppRoles} from "../data/APIs";
+import {getAllUsers, getAppRoles, getUserRoles} from "../data/APIs";
 import {useAuth} from "../context/Auth";
 import Area from "../component/Area";
-import {Col, Row} from "../component/Grid";
-import RoleUsersArea from "../module/management/RoleUsersArea";
 import RoleAssignmentArea from "../module/management/RoleAssignmentArea";
 import LoadingSpinner from "../component/LoadingSpinner";
+import {useLanguage} from "../context/Language";
 
 const RoleManagementView = () => {
 
+    const { t } = useLanguage();
     const { auth } = useAuth();
 
     const {data: users, isUsersLoading} = useQuery(
@@ -23,21 +23,23 @@ const RoleManagementView = () => {
         {enabled: !!auth.token}
     );
 
+    const {data: userRoles, isUserRolesLoading} = useQuery(
+        ["userRoles", auth.token],
+        () => getUserRoles(auth),
+        {enabled: !!auth.token}
+    )
+
     if (isAppRolesLoading) return (<LoadingSpinner />);
 
     return (
         <>
-            {appRoles && (
+            {appRoles && users && userRoles && (
                 <Area>
-                    <Row>
-
-                        <Col width="9" responsive="lg">
-                            <RoleAssignmentArea appRoles={appRoles.value?.[0]?.appRoles} />
-                        </Col>
-                        <Col width="3" responsive="lg" sticky>
-                            <RoleUsersArea users={users.value}/>
-                        </Col>
-                    </Row>
+                    <RoleAssignmentArea
+                        users={users.value}
+                        appRoles={appRoles.value?.[0]?.appRoles}
+                        userRoles={userRoles.data}
+                    />
                 </Area>
             )}
         </>

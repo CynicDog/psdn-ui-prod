@@ -240,3 +240,23 @@ export const getAppRoles = async (auth) => {
         throw error;
     }
 }
+
+export const getUserRoles = async (auth) => {
+
+    const token = auth.token;
+    if (!token) {
+        throw new Error('Authentication token is missing');
+    }
+    const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        const response = await fetch(`${MOCK_SERVER_URL}/management/userRoles`);
+
+        return await response.json();
+    } catch (error) {
+        throw error;
+    }
+}
