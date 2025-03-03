@@ -49,7 +49,7 @@ const UserTablePaginationControl = ({ totalUsers, rowsPerPage, setRowsPerPage, c
     };
 
     return (
-        <Area flex justifyContent="start" alignItems="center" m="3">
+        <Area flex justifyContent="start" alignItems="center" mx="3" p="2">
             <Span me="3">{t('components.rows_per_page')}:</Span>
             <Dropdown
                 id="rowsPerPage"

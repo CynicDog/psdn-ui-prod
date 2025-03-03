@@ -60,7 +60,8 @@
     "config_table_imported_at": "Imported at",
     "user_table_name": "Name",
     "user_table_email": "Email",
-    "user_table_id": "UUID"
+    "user_table_id": "UUID",
+    "role_unassigned_users": "Unassigned Users"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

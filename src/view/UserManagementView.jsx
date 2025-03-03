@@ -17,12 +17,6 @@ const UserManagementView = () => {
         {enabled: !!auth.token}
     );
 
-    const {data: appRoles, isAppRolesLoading} = useQuery(
-        ["appRoles", auth.token],
-        () => getAppRoles(auth),
-        {enabled: !!auth.token}
-    );
-
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
 
