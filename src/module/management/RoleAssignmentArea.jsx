@@ -6,11 +6,12 @@ import { Col, Row } from "../../component/Grid";
 import DraggableBadge from "../../component/DraggableBadge";
 import { useLanguage } from "../../context/Language";
 
-const RoleAssignmentArea = ({ users, appRoles, userRoles }) => {
+const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) => {
     const { t } = useLanguage();
 
     const [draggedUser, setDraggedUser] = useState(null);
     const [hoveredRole, setHoveredRole] = useState(null);
+    const [assignedRoles, setAssignedRoles] = useState(initialUserRoles);
 
     const handleUserDragStart = (userId) => {
         setDraggedUser(userId);
@@ -21,21 +22,31 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles }) => {
         setHoveredRole(roleId);
     };
 
+    const handleDragLeave = () => {
+        setHoveredRole(null);
+    };
+
     const handleRoleDrop = (roleId) => {
-        if (draggedUser) {
-            // onAssignUser(draggedUser, roleId);
-        }
+        if (!draggedUser) return;
+
+        setAssignedRoles((prevRoles) => {
+            return prevRoles.map((role) => {
+                if (role.id === roleId) {
+                    // Avoid duplicate users in the same role
+                    if (!role.users.some(user => user.id === draggedUser)) {
+                        return { ...role, users: [...role.users, users.find(user => user.id === draggedUser)] };
+                    }
+                }
+                return role;
+            });
+        });
+
         setDraggedUser(null);
         setHoveredRole(null);
     };
 
-    const roleUserMap = userRoles.reduce((acc, role) => {
-        acc[role.id] = role.users.filter(user => user.id);
-        return acc;
-    }, {});
-
     const assignedUserIds = new Set(
-        userRoles.flatMap(role => role.users.map(user => user.id))
+        assignedRoles.flatMap(role => role.users.map(user => user.id))
     );
     const unassignedUsers = users.filter(user => !assignedUserIds.has(user.id));
 
@@ -44,36 +55,40 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles }) => {
             {/* Role Drop Areas */}
             <Col width="9" responsive="lg">
                 <Area>
-                    {appRoles.map((role) => (
-                        <DraggableArea
-                            key={role.id}
-                            sectionId={role.id}
-                            draggable={false}
-                            isOver={hoveredRole === role.id}
-                            onDragOver={(e) => handleRoleDragOver(e, role.id)}
-                            onDrop={() => handleRoleDrop(role.id)}
-                            border rounded shadow="sm" p="3" my="3"
-                        >
-                            <Span fontSize="3" fontWeight="lighter" underline>
-                                {role.displayName}
-                            </Span>
-                            <Area p="5">
-                                {/* Render users assigned to this role */}
-                                {roleUserMap[role.id]?.map((user) => (
-                                    <DraggableBadge
-                                        key={user.id}
-                                        itemId={user.id}
-                                        onDragStart={() => handleUserDragStart(user.id)}
-                                        badge="primary"
-                                        m="1"
-                                        noSelect
-                                    >
-                                        {user.displayName}
-                                    </DraggableBadge>
-                                ))}
-                            </Area>
-                        </DraggableArea>
-                    ))}
+                    {appRoles.map((role) => {
+                        const assignedUsers = assignedRoles.find(r => r.id === role.id)?.users.filter(user => user.id) || [];
+
+                        return (
+                            <DraggableArea
+                                key={role.id}
+                                sectionId={role.id}
+                                draggable={false}
+                                isOver={hoveredRole === role.id}
+                                onDragOver={(e) => handleRoleDragOver(e, role.id)}
+                                onDrop={() => handleRoleDrop(role.id)}
+                                onDragLeave={handleDragLeave}
+                                border rounded shadow="sm" p="3" my="3"
+                            >
+                                <Span fontSize="3" fontWeight="lighter" underline>
+                                    {role.displayName}
+                                </Span>
+                                <Area p="5">
+                                    {assignedUsers.map((user) => (
+                                        <DraggableBadge
+                                            key={user.id}
+                                            itemId={user.id}
+                                            onDragStart={() => handleUserDragStart(user.id)}
+                                            badge="primary"
+                                            m="1"
+                                            noSelect
+                                        >
+                                            {user.displayName}
+                                        </DraggableBadge>
+                                    ))}
+                                </Area>
+                            </DraggableArea>
+                        );
+                    })}
                 </Area>
             </Col>
 
