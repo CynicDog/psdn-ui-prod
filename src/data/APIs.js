@@ -198,35 +198,45 @@ export const greetAsApplication = async (auth) => {
 export const getAllUsers = async (auth) => {
 
     const token = auth.token;
-
-    // Ensure that the token is available
     if (!token) {
         throw new Error('Authentication token is missing');
     }
-
-    // Set the Authorization header with the Bearer token
     const headers = {
         "Authorization": `Bearer ${token}`,
         "Content-Type": "application/json",
     };
 
     try {
-        // Send a GET request to the getUsers endpoint
         const response = await fetch(`${CHANNEL_API_SERVER_URL}/user/getUsers`, {
             method: "GET",
             headers: headers
         });
 
-        // Handle invalid token or session expiration
-        if (response.status === 401) {
-            console.warn("Token expired or invalid.");
-            throw new Error("Session expired. Please log in again.");
-        }
-
         return await response.json();
     } catch (error) {
-        // Log and rethrow any errors that occur during the fetch
-        console.error("Error fetching from Channel API:", error);
         throw error;
     }
 };
+
+export const getAppRoles = async (auth) => {
+
+    const token = auth.token;
+    if (!token) {
+        throw new Error('Authentication token is missing');
+    }
+    const headers = {
+        "Authorization": `Bearer ${token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/user/getAppRoles`, {
+            method: "GET",
+            headers: headers
+        });
+
+        return await response.json();
+    } catch (error) {
+        throw error;
+    }
+}

@@ -1,8 +1,7 @@
 import {useAuth} from "../context/Auth";
-import {getAllUsers} from "../data/APIs";
+import {getAllUsers, getAppRoles} from "../data/APIs";
 import {useQuery} from "react-query";
 import LoadingSpinner from "../component/LoadingSpinner";
-import {useMsal} from "@azure/msal-react";
 import UsersArea from "../module/management/UsersArea";
 
 const UserManagementView = () => {
@@ -12,6 +11,14 @@ const UserManagementView = () => {
     const {data: users, isUsersLoading} = useQuery(
         ["users", auth.token],
         () => getAllUsers(auth),
+        {
+            enabled: !!auth.token,
+        }
+    );
+
+    const {data: appRoles, isAppRolesLoading} = useQuery(
+        ["appRoles", auth.token],
+        () => getAppRoles(auth),
         {
             enabled: !!auth.token,
         }
