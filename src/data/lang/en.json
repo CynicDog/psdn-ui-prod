@@ -71,7 +71,8 @@
   "messages": {
     "found_no_record_matching_filters": "Found no record matching filter(s).",
     "request_table_designation": "Designate a table.",
-    "tooltip_logout": "Click to log out."
+    "tooltip_logout": "Click to log out.",
+    "role_unassigned_users_help": "Click on users to select them, then drag and drop to assign roles."
   },
   "action": {
     "set_APPT": "Set Apply",

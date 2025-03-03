@@ -72,7 +72,8 @@
   "messages": {
     "found_no_record_matching_filters": "조건에 맞는 데이터가 존재하지 않습니다.",
     "request_table_designation": "테이블을 지정해주세요.",
-    "tooltip_logout": "클릭 시 로그아웃"
+    "tooltip_logout": "클릭 시 로그아웃",
+    "role_unassigned_users_help": "여러 사용자를 클릭하여 선택한 후, 역할 영역에 드롭하여 역할을 할당하세요."
   },
   "action": {
     "set_APPT": "적용",
