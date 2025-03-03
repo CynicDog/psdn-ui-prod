@@ -34,7 +34,7 @@ export const MenuProvider = ({ children }) => {
         "M0_1": <DefinitionView />,
         "M1_1": <ProjectView />,
         "M2_1": <ConfigurationView />,
-        "M4_2": <UserManagementView />,
+        "M4_1": <UserManagementView />,
         "M4_4": <HistoryView />,
     };
 

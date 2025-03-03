@@ -38,8 +38,8 @@ const initializeMSAL = async () => {
         <MsalProvider instance={publicClientApplication}>
             <LanguageProvider>
                 <ThemeProvider>
-                    <AuthProvider>
-                        <QueryClientProvider client={queryClient}>
+                    <QueryClientProvider client={queryClient}>
+                        <AuthProvider>
                             <ProjectProvider>
                                 <PopupProvider>
                                     <MetaProvider>
@@ -53,8 +53,8 @@ const initializeMSAL = async () => {
                                     </MetaProvider>
                                 </PopupProvider>
                             </ProjectProvider>
-                        </QueryClientProvider>
-                    </AuthProvider>
+                        </AuthProvider>
+                    </QueryClientProvider>
                 </ThemeProvider>
             </LanguageProvider>
         </MsalProvider>

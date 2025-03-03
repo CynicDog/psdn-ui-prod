@@ -17,8 +17,8 @@
     "re_identification_history": "이력",
     "re_identification_approval": "승인",
     "system_management": "시스템 관리",
-    "system_management_roles": "역할",
     "system_management_users": "사용자",
+    "system_management_roles": "역할",
     "system_management_project": "프로젝트",
     "system_management_history": "이력"
   },
@@ -58,7 +58,10 @@
     "select_project_table": "프로젝트 테이블 선택",
     "select_table": "테이블 선택",
     "source_table_import": "불러오기",
-    "config_table_imported_at": "불러온 일자"
+    "config_table_imported_at": "불러온 일자",
+    "user_table_name": "이름",
+    "user_table_email": "이메일",
+    "user_table_id": "UUID"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

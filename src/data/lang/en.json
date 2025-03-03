@@ -17,8 +17,8 @@
     "re_identification_history": "History",
     "re_identification_approval": "Approval",
     "system_management": "System Management",
-    "system_management_roles": "Roles",
     "system_management_users": "Users",
+    "system_management_roles": "Roles",
     "system_management_project": "Projects",
     "system_management_history": "History"
   },
@@ -57,7 +57,10 @@
     "configure_project_tables": "Configure Project Tables",
     "select_project_table": "Select Project Table",
     "source_table_import": "Import",
-    "config_table_imported_at": "Imported at"
+    "config_table_imported_at": "Imported at",
+    "user_table_name": "Name",
+    "user_table_email": "Email",
+    "user_table_id": "UUID"
   },
   "chart": {
     "using_parameters": "uses the parameters of",
