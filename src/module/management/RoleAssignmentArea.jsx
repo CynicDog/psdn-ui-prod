@@ -12,44 +12,77 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
     const [draggedUser, setDraggedUser] = useState(null);
     const [hoveredRole, setHoveredRole] = useState(null);
     const [assignedRoles, setAssignedRoles] = useState(initialUserRoles);
+    const [selectedUsers, setSelectedUsers] = useState([]);
+    const [lastSelectedUser, setLastSelectedUser] = useState(null);
 
+    // Handle drag start for a single user
     const handleUserDragStart = (userId) => {
-        setDraggedUser(userId);
+        if (selectedUsers.length === 0) {
+            setDraggedUser(userId);
+        }
     };
 
-    const handleRoleDragOver = (e, roleId) => {
-        e.preventDefault(); // Allow dropping
-        setHoveredRole(roleId);
+    // Handle multi-select with Shift / Ctrl key
+    const handleUserClick = (userId, e) => {
+        if (e.shiftKey && lastSelectedUser) {
+            // Shift for range selection
+            const startIdx = users.findIndex(user => user.id === lastSelectedUser);
+            const endIdx = users.findIndex(user => user.id === userId);
+            const range = users.slice(Math.min(startIdx, endIdx), Math.max(startIdx, endIdx) + 1);
+            setSelectedUsers(range.map(user => user.id));
+        } else if (e.ctrlKey || e.metaKey) {
+            // Ctrl for non-contiguous selection (dotted selection)
+            setSelectedUsers((prevSelectedUsers) => {
+                if (prevSelectedUsers.includes(userId)) {
+                    // If user is already selected, deselect them
+                    return prevSelectedUsers.filter(id => id !== userId);
+                } else {
+                    // Otherwise, add the user to the selection
+                    return [...prevSelectedUsers, userId];
+                }
+            });
+        } else {
+            // Single select without Shift or Ctrl
+            setSelectedUsers([userId]);
+        }
+        setLastSelectedUser(userId);
     };
 
-    const handleDragLeave = () => {
-        setHoveredRole(null);
-    };
-
+    // Handle role drop (assigning selected users to a role)
     const handleRoleDrop = (roleId) => {
-        if (!draggedUser) return;
+        if (selectedUsers.length === 0) return;
 
         setAssignedRoles((prevRoles) => {
             return prevRoles.map((role) => {
-                // Remove the user from any role they were in
-                const filteredUsers = role.users.filter(user => user.id !== draggedUser);
+                const filteredUsers = role.users.filter(user => !selectedUsers.includes(user.id));
 
                 if (role.id === roleId) {
-                    // Add user to the new role
-                    return {
-                        ...role,
-                        users: [...filteredUsers, users.find(user => user.id === draggedUser)]
-                    };
+                    // Add the selected users to the new role
+                    const newUsers = [...filteredUsers, ...users.filter(user => selectedUsers.includes(user.id))];
+                    return { ...role, users: newUsers };
                 }
 
                 return { ...role, users: filteredUsers };
             });
         });
 
-        setDraggedUser(null);
+        setSelectedUsers([]);
+        setLastSelectedUser(null);
         setHoveredRole(null);
     };
 
+    // Handle dragging over a role
+    const handleRoleDragOver = (e, roleId) => {
+        e.preventDefault(); // Allow dropping
+        setHoveredRole(roleId);
+    };
+
+    // Handle drag leave event
+    const handleDragLeave = () => {
+        setHoveredRole(null);
+    };
+
+    // Get the unassigned users
     const assignedUserIds = new Set(
         assignedRoles.flatMap(role => role.users.map(user => user.id))
     );
@@ -113,8 +146,9 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
                             <DraggableBadge
                                 key={user.id}
                                 itemId={user.id}
+                                onClick={(e) => handleUserClick(user.id, e)} // Handle click for multi-select
                                 onDragStart={() => handleUserDragStart(user.id)}
-                                badge="light"
+                                badge={selectedUsers.includes(user.id) ? "primary" : "light"} // Highlight selected users
                                 m="1"
                                 noSelect
                             >
