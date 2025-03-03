@@ -1,7 +1,6 @@
 import {useQuery} from "react-query";
 import {getAllUsers, getAppRoles, getUserRoles} from "../data/APIs";
 import {useAuth} from "../context/Auth";
-import Area from "../component/Area";
 import RoleAssignmentArea from "../module/management/RoleAssignmentArea";
 import LoadingSpinner from "../component/LoadingSpinner";
 import {useLanguage} from "../context/Language";
@@ -29,18 +28,16 @@ const RoleManagementView = () => {
         {enabled: !!auth.token}
     )
 
-    if (isAppRolesLoading) return (<LoadingSpinner />);
+    if (isAppRolesLoading || isAppRolesLoading || isUserRolesLoading) return (<LoadingSpinner />);
 
     return (
         <>
             {appRoles && users && userRoles && (
-                <Area>
-                    <RoleAssignmentArea
-                        users={users.value}
-                        appRoles={appRoles.value?.[0]?.appRoles}
-                        userRoles={userRoles.data}
-                    />
-                </Area>
+                <RoleAssignmentArea
+                    users={users.value}
+                    appRoles={appRoles.value?.[0]?.appRoles}
+                    userRoles={userRoles.data}
+                />
             )}
         </>
     )

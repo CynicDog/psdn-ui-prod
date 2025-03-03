@@ -24,6 +24,7 @@ const Area = ({
                   fontSize = '',
                   fontWeight = '',
                   cursor = '',
+                  noSelect = '',
                   transition = '',
                   className = '',
                   style = {},
@@ -72,6 +73,7 @@ const Area = ({
         borderRadius,
         fontSize,
         fontWeight,
+        userSelect: noSelect ? "none" : "",
         ...style,
     };
 

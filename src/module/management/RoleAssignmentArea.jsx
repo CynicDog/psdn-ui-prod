@@ -31,13 +31,18 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
 
         setAssignedRoles((prevRoles) => {
             return prevRoles.map((role) => {
+                // Remove the user from any role they were in
+                const filteredUsers = role.users.filter(user => user.id !== draggedUser);
+
                 if (role.id === roleId) {
-                    // Avoid duplicate users in the same role
-                    if (!role.users.some(user => user.id === draggedUser)) {
-                        return { ...role, users: [...role.users, users.find(user => user.id === draggedUser)] };
-                    }
+                    // Add user to the new role
+                    return {
+                        ...role,
+                        users: [...filteredUsers, users.find(user => user.id === draggedUser)]
+                    };
                 }
-                return role;
+
+                return { ...role, users: filteredUsers };
             });
         });
 
@@ -54,10 +59,9 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
         <Row>
             {/* Role Drop Areas */}
             <Col width="9" responsive="lg">
-                <Area>
+                <Area noSelect fontSize="large">
                     {appRoles.map((role) => {
                         const assignedUsers = assignedRoles.find(r => r.id === role.id)?.users.filter(user => user.id) || [];
-
                         return (
                             <DraggableArea
                                 key={role.id}
@@ -69,18 +73,22 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
                                 onDragLeave={handleDragLeave}
                                 border rounded shadow="sm" p="3" my="3"
                             >
-                                <Span fontSize="3" fontWeight="lighter" underline>
-                                    {role.displayName}
-                                </Span>
-                                <Area p="5">
+                                <Area flex justifyContent="between" alignItems="center">
+                                    <Span fontSize="3" fontWeight="lighter" underline>
+                                        {role.displayName}
+                                    </Span>
+                                    <Span badge="warning" mx="2">
+                                        {assignedUsers.length}
+                                    </Span>
+                                </Area>
+
+                                <Area p="3">
                                     {assignedUsers.map((user) => (
                                         <DraggableBadge
                                             key={user.id}
                                             itemId={user.id}
                                             onDragStart={() => handleUserDragStart(user.id)}
-                                            badge="primary"
-                                            m="1"
-                                            noSelect
+                                            badge="primary" m="1" noSelect
                                         >
                                             {user.displayName}
                                         </DraggableBadge>
@@ -94,7 +102,7 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
 
             {/* Users to Drag (Unassigned Users) */}
             <Col width="3" responsive="lg" sticky>
-                <Area border rounded shadow="sm" p="3" my="3">
+                <Area border rounded shadow="sm" noSelect fontSize="large" p="3" my="3">
                     <Area mb="3">
                         <Span fontSize="3" fontWeight="lighter" underline>
                             {t("components.role_unassigned_users")}
