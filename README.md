@@ -12,7 +12,7 @@ psdn-ui-prod % node ./src/data/mock-server/server.js
 ```
 
 ```bash
-psdn-ui-prod % npm run start  
+psdn-ui-prod % REACT_APP_AZURE_CLIENT_ID=28be6ea0-a7ff-4927-9e17-a46998b33c6b REACT_APP_CHANNEL_API_SERVER_URL=http://localhost:9090  npm run start
 ```
 
 ## Pseudonymizaition UI 앱 권한 처리를 위한 EntraID 앱 등록 (App Registration) 절차 및 내용 
