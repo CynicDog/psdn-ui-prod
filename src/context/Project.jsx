@@ -28,7 +28,7 @@ export const ProjectProvider = ({children}) => {
         setError(null);
 
         // Load project data only for users with OWNER role
-        if (auth.role && (auth.role === ROLES.APPLICATION || auth.role === ROLES.OWNER)) {
+        if (auth.role && auth.role.some(role => role === ROLES.APPLICATION || role === ROLES.OWNER)) {
             fetchUserProjects(auth.username)
                 .then((projects) => {
                     setProjects(projects);

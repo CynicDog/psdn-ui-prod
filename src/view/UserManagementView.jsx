@@ -1,6 +1,6 @@
 import {useState} from "react";
 import {useAuth} from "../context/Auth";
-import {getAllUsers, getAppRoles} from "../data/APIs";
+import {getAllUsers} from "../data/APIs";
 import {useQuery} from "react-query";
 import LoadingSpinner from "../component/LoadingSpinner";
 import Area from "../component/Area";

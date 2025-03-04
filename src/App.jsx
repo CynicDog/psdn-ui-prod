@@ -33,7 +33,7 @@ const App = () => {
 
     const shouldShowProjectTabArea = () => {
         return auth.role &&
-            [ROLES.APPLICATION, ROLES.OWNER].includes(auth.role) &&
+            auth.role.some(role => [ROLES.APPLICATION, ROLES.OWNER].includes(role)) &&
             ["M2_1"].includes(currentMenu.CURRENT.ID);
     };
 

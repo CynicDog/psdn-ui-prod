@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
             setAuth({
                 username: accounts[0].username.split('@')[0],
                 email: accounts[0].username,
-                role: accounts[0].idTokenClaims.roles[0],
+                role: accounts[0].idTokenClaims.roles || [],
                 token: accounts[0].idToken
             });
         }

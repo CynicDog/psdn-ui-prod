@@ -5,14 +5,14 @@ import { useLanguage } from "../context/Language";
 import { useAuth } from "../context/Auth";
 import { useMenu } from "../context/Menu";
 
-const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRole }) => {
+const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRoles }) => {
     const { t } = useLanguage();
     const { setCurrentMenu } = useMenu();
     const [isOpen, setIsOpen] = useState(true);
 
     // Filter children based on user's role
     const visibleChildren = itemData.CHILDREN?.filter(child =>
-        child.SHOWN_TO.includes(userRole)
+        userRoles.some(role => child.SHOWN_TO.includes(role))
     );
 
     const handleClick = () => {
@@ -52,7 +52,7 @@ const MenuItem = ({ index, itemID, itemData, level, parentID, parentName, userRo
                             itemData={child}
                             parentID={itemID}
                             parentName={itemData.NAME}
-                            userRole={userRole}
+                            userRoles={userRoles}
                         />
                     ))}
                 </Area>
@@ -67,7 +67,9 @@ const MenuTree = () => {
 
     // Filter top-level menu items based on user's role
     const visibleMenuItems = menu.filter(item =>
-        item.CHILDREN.some(child => child.SHOWN_TO.includes(auth.role))
+        item.CHILDREN.some(child =>
+            auth.role.some(userRole => child.SHOWN_TO.includes(userRole))
+        )
     );
 
     return (
@@ -81,7 +83,7 @@ const MenuTree = () => {
                     level={0}
                     parentID={null}
                     parentName={""}
-                    userRole={auth.role}
+                    userRoles={auth.role}
                 />
             ))}
         </Area>
