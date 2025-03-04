@@ -6,7 +6,7 @@ import { Col, Row } from "../../component/Grid";
 import DraggableBadge from "../../component/DraggableBadge";
 import { useLanguage } from "../../context/Language";
 
-const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) => {
+const RoleAssignmentGrid = ({ users, appRoles, userRoles: initialUserRoles }) => {
     const { t } = useLanguage();
 
     const [draggedUser, setDraggedUser] = useState(null);
@@ -166,4 +166,4 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
     );
 };
 
-export default RoleAssignmentArea;
+export default RoleAssignmentGrid;

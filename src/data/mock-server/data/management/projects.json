@@ -42,9 +42,9 @@
       "NAME": "Project - 2",
       "USERNAME": "JohnDoe",
       "DESCRIPTION": "Project - 2's description",
-      "STATUS": "APPROVED",
+      "STATUS": "PENDING",
       "CREATE_AT": "2025-01-23",
-      "APPROVE_AT": "2025-01-27",
+      "APPROVE_AT": null,
       "START_AT": "2025-03-01",
       "FINISH_AT": null,
       "TABLES": [
@@ -94,7 +94,7 @@
       "USERNAME": "JohnDoe",
       "DESCRIPTION": "Project - 4's description",
       "ORDER": 3,
-      "STATUS": "PENDING",
+      "STATUS": "WRITING",
       "CREATE_AT": "2025-02-16",
       "APPROVE_AT": null,
       "START_AT": null,
@@ -108,7 +108,7 @@
       "USERNAME": "JohnDoe",
       "DESCRIPTION": "Project - 5's description",
       "ORDER": 4,
-      "STATUS": "PENDING",
+      "STATUS": "WRITING",
       "CREATE_AT": "2025-02-20",
       "APPROVE_AT": null,
       "START_AT": null,
@@ -152,6 +152,19 @@
           "ORDER": 2
         }
       ]
+    },
+    {
+      "ID": "J1741074223181",
+      "NAME": "New Project",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "",
+      "TABLES": [],
+      "ORDER": 0,
+      "STATUS": "WRITING",
+      "CREATE_AT": "2025-03-04",
+      "APPROVE_AT": null,
+      "START_AT": null,
+      "FINISH_AT": null
     }
   ]
 }

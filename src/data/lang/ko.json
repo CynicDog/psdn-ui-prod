@@ -65,6 +65,7 @@
     "manage_user_id": "UUID",
     "manage_project_name": "이름",
     "manage_project_username": "사용자",
+    "manage_project_tables": "테이블",
     "manage_project_status": "상태",
     "approve_project": "승인"
   },

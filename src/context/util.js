@@ -66,27 +66,27 @@ export const DEV_USERS = Object.freeze({
     JohnDoe: {
         username: "JohnDoe",
         email: "JohnDoe@gmail.com",
-        role: ROLES.APPLICATION
+        role: [ROLES.APPLICATION]
     },
     JaneSmith: {
         username: "JaneSmith",
         email: "JaneSmith@gmail.com",
-        role: ROLES.OWNER
+        role: [ROLES.OWNER]
     },
     AlexBrown: {
         username: "AlexBrown",
         email: "AlexBrown@gmail.com",
-        role: ROLES.UTILIZER
+        role: [ROLES.UTILIZER]
     },
     EmmaWilson: {
         username: "EmmaWilson",
         email: "EmmaWilson@gmail.com",
-        role: ROLES.ADMIN
+        role: [ROLES.ADMIN]
     },
     MaxDavis: {
         username: "MaxDavis",
         email: "MaxDavis@gmail.com",
-        role: ROLES.VERIFIER
+        role: [ROLES.VERIFIER]
     }
 });
 

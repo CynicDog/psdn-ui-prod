@@ -64,6 +64,7 @@
     "manage_user_id": "UUID",
     "manage_project_name": "Name",
     "manage_project_username": "Username",
+    "manage_project_tables": "Tables",
     "manage_project_status": "Status",
     "approve_project": "Approve"
   },

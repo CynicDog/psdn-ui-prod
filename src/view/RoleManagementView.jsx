@@ -1,7 +1,7 @@
 import {useQuery} from "react-query";
 import {getAllUsers, getAppRoles, getUserRoles} from "../data/APIs";
 import {useAuth} from "../context/Auth";
-import RoleAssignmentArea from "../module/management/RoleAssignmentArea";
+import RoleAssignmentGrid from "../module/management/RoleAssignmentGrid";
 import LoadingSpinner from "../component/LoadingSpinner";
 import {useLanguage} from "../context/Language";
 
@@ -33,7 +33,7 @@ const RoleManagementView = () => {
     return (
         <>
             {appRoles && users && userRoles && (
-                <RoleAssignmentArea
+                <RoleAssignmentGrid
                     users={users.value}
                     appRoles={appRoles.value?.[0]?.appRoles}
                     userRoles={userRoles.data}

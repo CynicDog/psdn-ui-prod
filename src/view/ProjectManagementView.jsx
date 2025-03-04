@@ -5,17 +5,19 @@ import { getAllProjects } from "../data/APIs";
 import LoadingSpinner from "../component/LoadingSpinner";
 import Area from "../component/Area";
 import ProjectTable from "../module/management/ProjectTable";
-import ManageItemsPaginationControl from "../module/management/ManageItemsPaginationControl";
+import ManagePaginationControl from "../module/management/ManagePaginationControl";
 import Button from "../component/Button";
 import { useLanguage } from "../context/Language";
+import ProjectManagePopup from "../module/management/ProjectManagePopup";
 
 const ProjectManagementView = () => {
     const { t } = useLanguage();
     const { auth } = useAuth();
 
-    const [internalProjects, setInternalProjects] = useState([]);
     const [rowsPerPage, setRowsPerPage] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const [manageProjects, setManageProjects] = useState([]);
     const [selectedProjects, setSelectedProjects] = useState(new Set());
 
     const { data: projects, isLoading } = useQuery(
@@ -27,17 +29,17 @@ const ProjectManagementView = () => {
     // Sync internal state with fetched data
     useEffect(() => {
         if (projects?.data) {
-            setInternalProjects(projects.data);
+            setManageProjects(projects.data);
         }
     }, [projects]);
 
     if (isLoading) return <LoadingSpinner />;
 
     const handleApproveProjects = () => {
-        setInternalProjects((prevProjects) =>
+        setManageProjects((prevProjects) =>
             prevProjects.map((project) =>
                 selectedProjects.has(project.ID) && project.STATUS === "PENDING"
-                    ? { ...project, STATUS: "APPROVED", APPROVE_AT: new Date().toISOString() }
+                    ? { ...project, STATUS: "APPROVED", APPROVE_AT: new Date(Date.now()).toISOString().split("T")[0] }
                     : project
             )
         );
@@ -48,12 +50,12 @@ const ProjectManagementView = () => {
 
     return (
         <>
-            {internalProjects.length > 0 && (
+            {manageProjects.length > 0 && (
                 <Area rounded shadow="sm" fontSize="smaller">
                     <Area className="control-panel" bg="body" flex justifyContent="between" alignItems="center" borderBottom>
                         {/* Project Pagination Control */}
-                        <ManageItemsPaginationControl
-                            totalItems={internalProjects.length}
+                        <ManagePaginationControl
+                            totalItems={manageProjects.length}
                             rowsPerPage={rowsPerPage}
                             setRowsPerPage={setRowsPerPage}
                             currentPage={currentPage}
@@ -68,7 +70,7 @@ const ProjectManagementView = () => {
 
                     {/* Project Table with pagination props */}
                     <ProjectTable
-                        projects={internalProjects}
+                        projects={manageProjects}
                         rowsPerPage={rowsPerPage}
                         currentPage={currentPage}
                         selectedProjects={selectedProjects}
@@ -76,6 +78,7 @@ const ProjectManagementView = () => {
                     />
                 </Area>
             )}
+            <ProjectManagePopup />
         </>
     );
 };

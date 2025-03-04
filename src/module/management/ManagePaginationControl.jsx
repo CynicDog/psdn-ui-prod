@@ -5,7 +5,7 @@ import Dropdown from "../../component/Dropdown";
 import { useLanguage } from "../../context/Language";
 import React from "react";
 
-const ManageItemsPaginationControl = ({ totalItems, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage }) => {
+const ManagePaginationControl = ({ totalItems, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage }) => {
     const { t } = useLanguage();
     const totalPages = Math.ceil(totalItems / rowsPerPage);
 
@@ -67,7 +67,7 @@ const ManageItemsPaginationControl = ({ totalItems, rowsPerPage, setRowsPerPage,
                     { value: totalItems, label: t('components.select_option_all') }
                 ]}
                 border="1"
-                width="8%"
+                width="100px"
             />
             <Button variant="light" size="sm" className="mx-3" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
                 {t('components.pagination_button_previous')}
@@ -82,4 +82,4 @@ const ManageItemsPaginationControl = ({ totalItems, rowsPerPage, setRowsPerPage,
     );
 };
 
-export default ManageItemsPaginationControl;
+export default ManagePaginationControl;

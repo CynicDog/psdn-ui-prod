@@ -13,7 +13,6 @@ import InputField from "../../component/InputField";
 import TextArea from "../../component/TextArea";
 import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
 import Icon from "../../component/Icon";
-import Tooltip from "../../component/Tooltip";
 
 const ProjectPopup = () => {
 

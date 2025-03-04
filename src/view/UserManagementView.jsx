@@ -5,7 +5,7 @@ import {useQuery} from "react-query";
 import LoadingSpinner from "../component/LoadingSpinner";
 import Area from "../component/Area";
 import UserTable from "../module/management/UserTable";
-import ManageItemsPaginationControl from "../module/management/ManageItemsPaginationControl";
+import ManagePaginationControl from "../module/management/ManagePaginationControl";
 
 const UserManagementView = () => {
 
@@ -28,7 +28,7 @@ const UserManagementView = () => {
                 <Area rounded shadow="sm" fontSize="smaller">
                     <Area className="control-panel" bg="body" borderBottom>
                         {/* User Pagination Control */}
-                        <ManageItemsPaginationControl
+                        <ManagePaginationControl
                             totalItems={users.value.length}
                             rowsPerPage={rowsPerPage}
                             setRowsPerPage={setRowsPerPage}
