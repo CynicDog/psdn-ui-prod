@@ -134,7 +134,7 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
             </Col>
 
             {/* All Users Area */}
-            <Col width="3" responsive="lg" sticky>
+            <Col width="3" responsive="lg">
                 <Area border rounded shadow="sm" noSelect fontSize="large" p="3" my="3">
                     <Area>
                         <Span fontSize="3" fontWeight="lighter" underline>

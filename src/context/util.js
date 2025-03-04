@@ -96,3 +96,18 @@ export const getNextUser = (currentUsername) => {
     const nextIndex = (currentIndex + 1) % users.length;
     return users[nextIndex];
 };
+
+export const getProjectStatusBadgeClass = (status) => {
+    switch (status) {
+        case "WRITING":
+            return "warning";
+        case "PENDING":
+            return "secondary"
+        case "APPROVED":
+            return "primary";
+        case "FINISHED":
+            return "success"
+        default:
+            return "";
+    }
+};

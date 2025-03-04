@@ -62,9 +62,9 @@ const UserTable = ({ users, rowsPerPage, currentPage }) => {
                             <CheckBox checked={allSelected} onChange={handleSelectAll} />
                         </Area>
                     </TableHeaderCell>
-                    <TableHeaderCell>{t('components.user_table_name')}</TableHeaderCell>
-                    <TableHeaderCell>{t('components.user_table_email')}</TableHeaderCell>
-                    <TableHeaderCell>{t('components.user_table_id')}</TableHeaderCell>
+                    <TableHeaderCell>{t('components.manage_user_name')}</TableHeaderCell>
+                    <TableHeaderCell>{t('components.manage_user_email')}</TableHeaderCell>
+                    <TableHeaderCell>{t('components.manage_user_id')}</TableHeaderCell>
                 </TableRow>
             </TableHeader>
 
@@ -73,7 +73,9 @@ const UserTable = ({ users, rowsPerPage, currentPage }) => {
                     <TableRow key={user.id} selected={selectedUsers.has(user.id)} onClick={() => handleUserSelect(user.id)}>
                         <TableRowCell width="5%">
                             <Area flex justifyContent="center">
-                                <CheckBox checked={selectedUsers.has(user.id)} onChange={() => handleUserSelect(user.id)} />
+                                <CheckBox checked={selectedUsers.has(user.id)} onChange={(e) => {
+                                    e.stopPropagation();
+                                }} />
                             </Area>
                         </TableRowCell>
                         <TableRowCell>{user.displayName}</TableRowCell>

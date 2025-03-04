@@ -1,17 +1,15 @@
+import {useState} from "react";
 import {Col, Row} from "../../component/Grid";
 import Span from "../../component/Span";
 import DraggableArea from "../../component/DraggableArea";
-import {useState} from "react";
-import {useProject} from "../../context/Project";
-import Icon from "../../component/Icon";
-import InputField from "../../component/InputField";
-import {useLanguage} from "../../context/Language";
 import Tooltip from "../../component/Tooltip";
-import {PROJECT_COLORS} from "../../context/util";
+import Icon from "../../component/Icon";
 import Area from "../../component/Area";
-import TextArea from "../../component/TextArea";
 import Button from "../../component/Button";
 import {usePopup} from "../../context/Popup";
+import {useProject} from "../../context/Project";
+import {useLanguage} from "../../context/Language";
+import {getProjectStatusBadgeClass} from "../../context/util";
 
 const ProjectCard = ({project, order}) => {
 
@@ -65,21 +63,6 @@ const ProjectCard = ({project, order}) => {
         setTargetProjectDraggable(null);
     };
 
-    const getBadgeClass = (status) => {
-        switch (status) {
-            case "WRITING":
-                return "warning";
-            case "PENDING":
-                return "secondary"
-            case "APPROVED":
-                return "primary";
-            case "FINISHED":
-                return "success"
-            default:
-                return "";
-        }
-    };
-
     return (
         <DraggableArea
             order={order}
@@ -106,7 +89,7 @@ const ProjectCard = ({project, order}) => {
                     <Area>
                         <Span
                             key={project.ID}
-                            badge={getBadgeClass(project.STATUS)}
+                            badge={getProjectStatusBadgeClass(project.STATUS)}
                             m="2">
                             {project.STATUS}
                         </Span>

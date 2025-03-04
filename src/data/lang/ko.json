@@ -59,10 +59,14 @@
     "select_table": "테이블 선택",
     "source_table_import": "불러오기",
     "config_table_imported_at": "불러온 일자",
-    "user_table_name": "이름",
-    "user_table_email": "이메일",
-    "user_table_id": "UUID",
-    "role_all_users": "전체 사용자"
+    "role_all_users": "전체 사용자",
+    "manage_user_name": "이름",
+    "manage_user_email": "이메일",
+    "manage_user_id": "UUID",
+    "manage_project_name": "이름",
+    "manage_project_username": "사용자",
+    "manage_project_status": "상태",
+    "approve_project": "승인"
   },
   "chart": {
     "using_parameters": "데이터를 파라미터",

@@ -1,0 +1,157 @@
+{
+  "data": [
+    {
+      "ID": "J1",
+      "NAME": "Project - 1",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "Project - 1's description",
+      "STATUS": "APPROVED",
+      "CREATE_AT": "2025-01-13",
+      "APPROVE_AT": "2025-01-20",
+      "START_AT": "2025-02-01",
+      "FINISH_AT": null,
+      "TABLES": [
+        {
+          "ID": "CT1",
+          "TABLE_ID": "T1",
+          "NAME": "LBF",
+          "DESCRIPTION": "Some description on [Project - 1 LBF] configuration table",
+          "IMPORTED_AT": "2025-02-26",
+          "ORDER": 0
+        },
+        {
+          "ID": "CT3",
+          "TABLE_ID": "T3",
+          "NAME": "HLT",
+          "DESCRIPTION": "Some description on [Project - 1 HLT] configuration table",
+          "IMPORTED_AT": "2025-02-23",
+          "ORDER": 1
+        },
+        {
+          "ID": "CT4",
+          "TABLE_ID": "T4",
+          "NAME": "KBW",
+          "DESCRIPTION": "Some description on [Project - 1 KBW] configuration table",
+          "IMPORTED_AT": "2025-02-22",
+          "ORDER": 2
+        }
+      ]
+    },
+    {
+      "ID": "J2",
+      "NAME": "Project - 2",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "Project - 2's description",
+      "STATUS": "APPROVED",
+      "CREATE_AT": "2025-01-23",
+      "APPROVE_AT": "2025-01-27",
+      "START_AT": "2025-03-01",
+      "FINISH_AT": null,
+      "TABLES": [
+        {
+          "ID": "CT5",
+          "TABLE_ID": "T3",
+          "NAME": "HLT",
+          "DESCRIPTION": "Some description on [Project - 2 HLT] configuration table",
+          "IMPORTED_AT": "2025-02-26",
+          "ORDER": 0
+        },
+        {
+          "ID": "CT6",
+          "TABLE_ID": "T4",
+          "NAME": "KBW",
+          "DESCRIPTION": "Some description on [Project - 2 KBW] configuration table",
+          "IMPORTED_AT": "2025-02-25",
+          "ORDER": 1
+        }
+      ]
+    },
+    {
+      "ID": "J3",
+      "NAME": "Project - 3",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "Project - 3's description",
+      "ORDER": 2,
+      "STATUS": "FINISHED",
+      "CREATE_AT": "2025-01-01",
+      "APPROVE_AT": "2025-01-10",
+      "START_AT": "2025-01-20",
+      "FINISH_AT": "2025-01-31",
+      "TABLES": [
+        {
+          "ID": "CT7",
+          "TABLE_ID": "T1",
+          "NAME": "LBF",
+          "DESCRIPTION": "Some description on [Project - 3 LBF] configuration table",
+          "IMPORTED_AT": "2025-02-23",
+          "ORDER": 0
+        }
+      ]
+    },
+    {
+      "ID": "J4",
+      "NAME": "Project - 4",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "Project - 4's description",
+      "ORDER": 3,
+      "STATUS": "PENDING",
+      "CREATE_AT": "2025-02-16",
+      "APPROVE_AT": null,
+      "START_AT": null,
+      "FINISH_AT": null,
+      "TABLES": [
+      ]
+    },
+    {
+      "ID": "J5",
+      "NAME": "Project - 5",
+      "USERNAME": "JohnDoe",
+      "DESCRIPTION": "Project - 5's description",
+      "ORDER": 4,
+      "STATUS": "PENDING",
+      "CREATE_AT": "2025-02-20",
+      "APPROVE_AT": null,
+      "START_AT": null,
+      "FINISH_AT": null,
+      "TABLES": [
+      ]
+    },
+    {
+      "ID": "J8001",
+      "NAME": "Project - 1",
+      "USERNAME": "kyrsang0801",
+      "DESCRIPTION": "Project - 1's description",
+      "STATUS": "APPROVED",
+      "CREATE_AT": "2025-01-13",
+      "APPROVE_AT": "2025-01-20",
+      "START_AT": "2025-02-01",
+      "FINISH_AT": null,
+      "TABLES": [
+        {
+          "ID": "CT8001",
+          "TABLE_ID": "T1",
+          "NAME": "LBF",
+          "DESCRIPTION": "Some description on [Project - 1 LBF] configuration table",
+          "IMPORTED_AT": "2025-02-26",
+          "ORDER": 0
+        },
+        {
+          "ID": "CT8002",
+          "TABLE_ID": "T3",
+          "NAME": "HLT",
+          "DESCRIPTION": "Some description on [Project - 1 HLT] configuration table",
+          "IMPORTED_AT": "2025-02-23",
+          "ORDER": 1
+        },
+        {
+          "ID": "CT8003",
+          "TABLE_ID": "T4",
+          "NAME": "KBW",
+          "DESCRIPTION": "Some description on [Project - 1 KBW] configuration table",
+          "IMPORTED_AT": "2025-02-22",
+          "ORDER": 2
+        }
+      ]
+    }
+  ]
+}

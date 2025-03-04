@@ -58,10 +58,14 @@
     "select_project_table": "Select Project Table",
     "source_table_import": "Import",
     "config_table_imported_at": "Imported at",
-    "user_table_name": "Name",
-    "user_table_email": "Email",
-    "user_table_id": "UUID",
-    "role_all_users": "All Users"
+    "role_all_users": "All Users",
+    "manage_user_name": "Name",
+    "manage_user_email": "Email",
+    "manage_user_id": "UUID",
+    "manage_project_name": "Name",
+    "manage_project_username": "Username",
+    "manage_project_status": "Status",
+    "approve_project": "Approve"
   },
   "chart": {
     "using_parameters": "uses the parameters of",

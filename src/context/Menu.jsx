@@ -7,6 +7,7 @@ import ProjectView from "../view/ProjectView";
 import {useAuth} from "./Auth";
 import UserManagementView from "../view/UserManagementView";
 import RoleManagementView from "../view/RoleManagementView";
+import ProjectManagementView from "../view/ProjectManagementView";
 
 const MenuContext = createContext();
 
@@ -37,6 +38,7 @@ export const MenuProvider = ({ children }) => {
         "M2_1": <ConfigurationView />,
         "M4_1": <UserManagementView />,
         "M4_2": <RoleManagementView />,
+        "M4_3": <ProjectManagementView />,
         "M4_4": <HistoryView />,
     };
 

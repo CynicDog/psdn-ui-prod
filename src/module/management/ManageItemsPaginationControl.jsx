@@ -2,13 +2,12 @@ import Area from "../../component/Area";
 import Span from "../../component/Span";
 import Button from "../../component/Button";
 import Dropdown from "../../component/Dropdown";
-import {useLanguage} from "../../context/Language";
+import { useLanguage } from "../../context/Language";
 import React from "react";
 
-const UserTablePaginationControl = ({ totalUsers, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage }) => {
-
+const ManageItemsPaginationControl = ({ totalItems, rowsPerPage, setRowsPerPage, currentPage, setCurrentPage }) => {
     const { t } = useLanguage();
-    const totalPages = Math.ceil(totalUsers / rowsPerPage);
+    const totalPages = Math.ceil(totalItems / rowsPerPage);
 
     const renderPageNumbers = () => {
         const pageNumbers = [];
@@ -49,7 +48,7 @@ const UserTablePaginationControl = ({ totalUsers, rowsPerPage, setRowsPerPage, c
     };
 
     return (
-        <Area flex justifyContent="start" alignItems="center" mx="3" p="2">
+        <Area flex justifyContent="start" alignItems="center" mx="3" px="1" py="2">
             <Span me="3">{t('components.rows_per_page')}:</Span>
             <Dropdown
                 id="rowsPerPage"
@@ -65,10 +64,10 @@ const UserTablePaginationControl = ({ totalUsers, rowsPerPage, setRowsPerPage, c
                     { value: 50, label: "50" },
                     { value: 100, label: "100" },
                     { value: 300, label: "300" },
-                    { value: totalUsers, label: t('components.select_option_all') }
+                    { value: totalItems, label: t('components.select_option_all') }
                 ]}
                 border="1"
-                width="10%"
+                width="8%"
             />
             <Button variant="light" size="sm" className="mx-3" onClick={() => setCurrentPage(currentPage - 1)} disabled={currentPage === 1}>
                 {t('components.pagination_button_previous')}
@@ -83,4 +82,4 @@ const UserTablePaginationControl = ({ totalUsers, rowsPerPage, setRowsPerPage, c
     );
 };
 
-export default UserTablePaginationControl;
+export default ManageItemsPaginationControl;
