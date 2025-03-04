@@ -136,7 +136,7 @@ const RoleAssignmentArea = ({ users, appRoles, userRoles: initialUserRoles }) =>
                             {t("components.role_unassigned_users")}
                         </Span>
                     </Area>
-                    <Area fontSize="smaller" mb="3">
+                    <Area fontSize="small" mb="3">
                         <Span variant="secondary">
                             {t("messages.role_unassigned_users_help")}
                         </Span>
