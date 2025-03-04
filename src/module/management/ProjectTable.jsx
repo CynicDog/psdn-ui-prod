@@ -9,11 +9,10 @@ import Area from "../../component/Area";
 import CheckBox from "../../component/CheckBox";
 import Span from "../../component/Span";
 import { useLanguage } from "../../context/Language";
-import {getProjectStatusBadgeClass} from "../../context/util";
+import { getProjectStatusBadgeClass } from "../../context/util";
 
-const ProjectTable = ({ projects, rowsPerPage, currentPage }) => {
+const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, setSelectedProjects }) => {
     const { t } = useLanguage();
-    const [selectedProjects, setSelectedProjects] = useState(new Set());
 
     const paginatedProjects = projects.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
     const allSelected = paginatedProjects.every(project => selectedProjects.has(project.ID));
