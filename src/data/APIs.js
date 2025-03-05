@@ -1,85 +1,20 @@
+import {fetchAuthorizedData, fetchData} from "./util";
+
 /**
  * @description Define the backend server URL based on the environment. Default to the local mock server url.
  * @example
  *      For Production, run:
- *          REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
+ *          REACT_APP_CHANNEL_API_SERVER_URL=https://pseudo-backend-server npm run start
  *
  *      For Development, run the below commands in separate terminals:
  *          - node ./src/data/mock-server/server.js         # starts up a mock server process at `localhost:8888`
  *          - npm run start
  */
-// TODO: merge mock server into Channel API server
+// TODO: merge mock server into Channel API server. Delete after merge.
 const CHANNEL_API_SERVER_URL = process.env.REACT_APP_CHANNEL_API_SERVER_URL || "http://localhost:7999/v1/tenants/KOREA/KUDP/channel"
 const MOCK_SERVER_URL =  "http://localhost:8888"
 
-// /**
-//  * @description Define the backend server port number based on the environment.
-//  * @example REACT_APP_BACKEND_SERVER_URL=https://pseudo-backend-server npm run start
-//  */
-// const BACKEND_PORT = process.env.REACT_APP_BACKEND_SERVER_PORT || "8080"
-
-/**
- * @description Fetches column data.
- *
- * @param {string} COL_NAME - The name of the column to fetch data for.
- * @returns {Promise<Object>} - The column data in JSON format.
- * @throws {Error} - Throws an error if the fetch request fails.
- */
-export const fetchColumnData = async (COL_NAME) => {
-
-    const response = await fetch(`${MOCK_SERVER_URL}/raw/${COL_NAME}`);
-
-    if (!response.ok) {
-        throw new Error('Failed to fetch column data');
-    }
-
-    return response.json();
-};
-
-/**
- * @description Fetch Pseudonymization Rule data
- *
- * @returns {Promise<Object>} - The Pseudonymization Rule data  in JSON format.
- * @throws {Error} - Throws an error if the fetch request fails.
- */
-export const fetchMetaRules = async () => {
-    try {
-        const response = await fetch(`${CHANNEL_API_SERVER_URL}/meta/rules`);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch PSDN master data');
-        }
-
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching PSDN master data:', error);
-        throw error;
-    }
-};
-
-/**
- * @description Fetch Pseudonymization Rule data
- *
- * @returns {Promise<Object>} - The Pseudonymization Rule data  in JSON format.
- * @throws {Error} - Throws an error if the fetch request fails.
- */
-export const fetchMetaParameters = async () => {
-    try {
-        const response = await fetch(`${CHANNEL_API_SERVER_URL}/meta/parameters`);
-
-        if (!response.ok) {
-            throw new Error('Failed to fetch PSDN master data');
-        }
-
-        return response.json();
-    } catch (error) {
-        console.error('Error fetching PSDN master data:', error);
-        throw error;
-    }
-};
-
-
-
+// TODO: code type propagation
 /**
  * @description Fetches PSDN codes data.
  *
@@ -102,24 +37,28 @@ export const fetchPSDNCodes = async () => {
 
 
 /**
- * @description Fetches project data for a specific user. Simulates retrieving user project data from a local JSON file.
+ * @description Fetch Pseudonymization Rule data.
  *
- * @param {string} username - The username of the user whose projects are being fetched.
+ * @returns {Promise<Object>} - The Pseudonymization Rule data in JSON format.
+ */
+export const fetchMetaRules = () => fetchData("meta/rules");
+
+
+/**
+ * @description Fetch Pseudonymization Parameter data.
+ *
+ * @returns {Promise<Object>} - The Pseudonymization Parameter data in JSON format.
+ */
+export const fetchMetaParameters = () => fetchData("meta/parameters");
+
+
+/**
+ * @description Fetches project data for the authenticated user.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token and username.
  * @returns {Promise<Object|null>} - The user's project data or null if an error occurs.
  */
-export const fetchUserProjects = async (username) => {
-    try {
-        const response = await fetch(`${MOCK_SERVER_URL}/user/${username}/projects`);
-        if (!response.ok) {
-            throw new Error("Failed to fetch projects");
-        }
-
-        return await response.json();
-    } catch (error) {
-        console.error("Error fetching projects:", error);
-        return null;
-    }
-};
+export const fetchUserProjects = (auth) => fetchAuthorizedData(`user/${auth.username}/projects`, auth);
 
 
 /**
@@ -302,3 +241,21 @@ export const getAllProjects = async (auth) => {
         throw error;
     }
 }
+
+/**
+ * @description Fetches column data.
+ *
+ * @param {string} COL_NAME - The name of the column to fetch data for.
+ * @returns {Promise<Object>} - The column data in JSON format.
+ * @throws {Error} - Throws an error if the fetch request fails.
+ */
+export const fetchColumnData = async (COL_NAME) => {
+
+    const response = await fetch(`${MOCK_SERVER_URL}/raw/${COL_NAME}`);
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch column data');
+    }
+
+    return response.json();
+};

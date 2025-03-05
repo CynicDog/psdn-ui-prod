@@ -12,7 +12,7 @@ const DefinitionParametersTooltip = ({ parameter, codeInfo, typeDisplay }) => {
             {typeDisplay ? (
                 <Span>{typeDisplay}</Span>
             ) : (
-                /* TODO */
+                /* TODO: code type propagation */
                 codeInfo && codeInfo.length > 0 && (
                     <Area mt="2">
                         {codeInfo.map((codeItem, index) => (
