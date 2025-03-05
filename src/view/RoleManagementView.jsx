@@ -10,25 +10,27 @@ const RoleManagementView = () => {
     const { t } = useLanguage();
     const { auth } = useAuth();
 
-    const {data: users, isUsersLoading} = useQuery(
+    const {data: users} = useQuery(
         ["users", auth.token],
         () => getAllUsers(auth),
         {enabled: !!auth.token}
     );
 
-    const {data: appRoles, isAppRolesLoading} = useQuery(
+    const {data: appRoles} = useQuery(
         ["appRoles", auth.token],
         () => getAppRoles(auth),
         {enabled: !!auth.token}
     );
 
-    const {data: userRoles, isUserRolesLoading} = useQuery(
+    const {data: userRoles} = useQuery(
         ["userRoles", auth.token],
         () => getUserRoles(auth),
         {enabled: !!auth.token}
     )
 
-    if (isAppRolesLoading || isAppRolesLoading || isUserRolesLoading) return (<LoadingSpinner />);
+    if (!users || !appRoles || !userRoles) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <>

@@ -11,16 +11,18 @@ const UserManagementView = () => {
 
     const {auth} = useAuth();
 
-    const {data: users, isUsersLoading} = useQuery(
+    const {data: users} = useQuery(
         ["users", auth.token],
         () => getAllUsers(auth),
         {enabled: !!auth.token}
     );
 
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rowsPerPage, setRowsPerPage] = useState(20);
     const [currentPage, setCurrentPage] = useState(1);
 
-    if (isUsersLoading) return <LoadingSpinner/>;
+    if (!users) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <>

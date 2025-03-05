@@ -47,6 +47,7 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
         });
     };
 
+    {/*TODO: filtering / sorting */}
     return (
         <Table>
             <TableHeader>

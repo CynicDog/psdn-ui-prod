@@ -14,7 +14,7 @@ const ProjectManagementView = () => {
     const { t } = useLanguage();
     const { auth } = useAuth();
 
-    const [rowsPerPage, setRowsPerPage] = useState(10);
+    const [rowsPerPage, setRowsPerPage] = useState(20);
     const [currentPage, setCurrentPage] = useState(1);
 
     const [manageProjects, setManageProjects] = useState([]);
@@ -78,7 +78,7 @@ const ProjectManagementView = () => {
                     />
                 </Area>
             )}
-            <ProjectManagePopup />
+            <ProjectManagePopup setManageProjects={setManageProjects}/>
         </>
     );
 };
