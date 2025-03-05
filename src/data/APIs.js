@@ -9,7 +9,7 @@
  *          - npm run start
  */
 // TODO: merge mock server into Channel API server
-const CHANNEL_API_SERVER_URL = process.env.REACT_APP_CHANNEL_API_SERVER_URL
+const CHANNEL_API_SERVER_URL = process.env.REACT_APP_CHANNEL_API_SERVER_URL || "http://localhost:7999/v1/tenants/KOREA/KUDP/channel"
 const MOCK_SERVER_URL =  "http://localhost:8888"
 
 // /**
@@ -37,14 +37,14 @@ export const fetchColumnData = async (COL_NAME) => {
 };
 
 /**
- * @description Fetches PSDN master data from the mock API.
+ * @description Fetch Pseudonymization Rule data
  *
- * @returns {Promise<Object>} - The PSDN master data in JSON format.
+ * @returns {Promise<Object>} - The Pseudonymization Rule data  in JSON format.
  * @throws {Error} - Throws an error if the fetch request fails.
  */
-export const fetchPSDNMaster = async () => {
+export const fetchMetaRules = async () => {
     try {
-        const response = await fetch(`${MOCK_SERVER_URL}/meta/business/PSDN-master`);
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/meta/rules`);
 
         if (!response.ok) {
             throw new Error('Failed to fetch PSDN master data');
@@ -56,6 +56,28 @@ export const fetchPSDNMaster = async () => {
         throw error;
     }
 };
+
+/**
+ * @description Fetch Pseudonymization Rule data
+ *
+ * @returns {Promise<Object>} - The Pseudonymization Rule data  in JSON format.
+ * @throws {Error} - Throws an error if the fetch request fails.
+ */
+export const fetchMetaParameters = async () => {
+    try {
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/meta/parameters`);
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch PSDN master data');
+        }
+
+        return response.json();
+    } catch (error) {
+        console.error('Error fetching PSDN master data:', error);
+        throw error;
+    }
+};
+
 
 
 /**

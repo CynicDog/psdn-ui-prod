@@ -39,7 +39,7 @@ export const LanguageProvider = ({ children }) => {
 
     // Returns the item's name from database based on the selected language
     const getLocalizedName = (item) => {
-        return language === "ko" ? item.NAME_KO : item.NAME_EN;
+        return language === "ko" ? item.nameKorean : item.nameEnglish;
     }
 
     return (

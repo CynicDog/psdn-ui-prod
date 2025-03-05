@@ -17,20 +17,20 @@ const DefinitionView = () => {
                     </Button>
                 </Area>
                 <Area>
-                    <RuleDefinitionEntry ruleId="R1"/>
-                    <RuleDefinitionEntry ruleId="R2"/>
-                    <RuleDefinitionEntry ruleId="R3"/>
-                    <RuleDefinitionEntry ruleId="R4"/>
-                    <RuleDefinitionEntry ruleId="R5"/>
-                    <RuleDefinitionEntry ruleId="R6"/>
-                    <RuleDefinitionEntry ruleId="R7"/>
-                    <RuleDefinitionEntry ruleId="R8"/>
-                    <RuleDefinitionEntry ruleId="R9"/>
-                    <RuleDefinitionEntry ruleId="R10"/>
-                    <RuleDefinitionEntry ruleId="R11"/>
-                    <RuleDefinitionEntry ruleId="R12"/>
-                    <RuleDefinitionEntry ruleId="R13"/>
-                    <RuleDefinitionEntry ruleId="R14"/>
+                    <RuleDefinitionEntry name="suppression"/>
+                    <RuleDefinitionEntry name="masking"/>
+                    <RuleDefinitionEntry name="outlier_generalization"/>
+                    <RuleDefinitionEntry name="data_range"/>
+                    <RuleDefinitionEntry name="top_down_coding"/>
+                    <RuleDefinitionEntry name="partial_suppression"/>
+                    <RuleDefinitionEntry name="top_down_nullification"/>
+                    <RuleDefinitionEntry name="group_aggregation"/>
+                    <RuleDefinitionEntry name="rounding"/>
+                    <RuleDefinitionEntry name="random_rounding"/>
+                    <RuleDefinitionEntry name="noise_addition"/>
+                    <RuleDefinitionEntry name="permutation"/>
+                    <RuleDefinitionEntry name="mapping"/>
+                    <RuleDefinitionEntry name="random_selection_replacement"/>
                 </Area>
             </Area>
         </>

@@ -1,142 +1,142 @@
 {
-  "R1": {
+  "suppression": {
     "ko": {
       "main_description": "식별정보를 포함하는 칼럼을 단순 삭제하는 기법.",
-      "detailed_description": "{P1}(이)가 `true`로 설정된다면, 해당 칼럼은 결과 테이블에서 삭제될 뿐만 아니라 별도의 암호화를 거쳐 재식별키로서 분리보관되는 재식별 프로세스에 사용됨."
+      "detailed_description": "{re_identification_yn}(이)가 `true`로 설정된다면, 해당 칼럼은 결과 테이블에서 삭제될 뿐만 아니라 별도의 암호화를 거쳐 재식별키로서 분리보관되는 재식별 프로세스에 사용됨."
     },
     "en": {
       "main_description": "Deletes a column that contains identifiable information.",
-      "detailed_description": "If {P1} is set to `true`, the column will not only be removed from the resulting table but also be separately stored as a re-identification key through an encryption process."
+      "detailed_description": "If {re_identification_yn} is set to `true`, the column will not only be removed from the resulting table but also be separately stored as a re-identification key through an encryption process."
     }
   },
-  "R2": {
+  "masking": {
     "ko": {
       "main_description": "대상 칼럼 각 데이터의 일부를 특정 문자로 대체하는 기법.",
-      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 별표('*')로 대체하고자 할 때, {P7}(을)를 `-2`, {P8}(을)를 `*`로 설정."
+      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 별표('*')로 대체하고자 할 때, {mask_range}(을)를 `-2`, {mask_char}(을)를 `*`로 설정."
     },
     "en": {
       "main_description": "Replaces part of each data value in the target column with a character (e.g., '*', '_').",
-      "detailed_description": "To replace the last two characters of each record in the target column with an asterisk ('*'), set {P7} to `-2` and {P8} to `*`."
+      "detailed_description": "To replace the last two characters of each record in the target column with an asterisk ('*'), set {mask_range} to `-2` and {mask_char} to `*`."
     }
   },
-  "R3": {
+  "data_range": {
     "ko": {
       "main_description": "수치 데이터 개별 데이터 값을 특정 수의 배수로 반올림하는 기법.",
-      "detailed_description": "소수점 기준으로 숫자를 조정하는 라운딩과는 달리, {P12}(으)로 반올림하는 범위방법을 사용하게 되면 더욱 세분화된 그룹화가 가능."
+      "detailed_description": "소수점 기준으로 숫자를 조정하는 라운딩과는 달리, {rounding_size}(으)로 반올림하는 범위방법을 사용하게 되면 더욱 세분화된 그룹화가 가능."
     },
     "en": {
       "main_description": "Rounds numerical data values to the nearest multiple of a specified number.",
-      "detailed_description": "Unlike rounding based on decimal places, using {P12} as the rounding base allows for more granular grouping of values."
+      "detailed_description": "Unlike rounding based on decimal places, using {rounding_size} as the rounding base allows for more granular grouping of values."
     }
   },
-  "R4": {
+  "outlier_generalization": {
     "ko": {
       "main_description": "분포 상 특이성으로 인해 식별가능한 레코드 수치에 대하여 일반화를 적용하는 기법.",
-      "detailed_description": "출현 빈도가 현저히 낮아 식별 가능한 수치를 가지는 레코드에 대하여, {P9}(와)과 {P10}(을)를 설정하여 특이 레코드를 식별하고, 이를 유의미한 통계값으로 대체함으로써 분포 상 특이성을 해소. \n\n 연속성 데이터에 대하여는 {P13}로 설정되는 값을 기준으로 이산화(Discretization)가 수행됨."
+      "detailed_description": "출현 빈도가 현저히 낮아 식별 가능한 수치를 가지는 레코드에 대하여, {threshold_criterion}(와)과 {threshold_value}(을)를 설정하여 특이 레코드를 식별하고, 이를 유의미한 통계값으로 대체함으로써 분포 상 특이성을 해소. \n\n 연속성 데이터에 대하여는 {rounding_size}로 설정되는 값을 기준으로 이산화(Discretization)가 수행됨."
     },
     "en": {
       "main_description": "Applies generalization to records with identifiable numerical values due to distribution anomalies.",
-      "detailed_description": "For records with identifiable values due to extremely low frequency, set {P9} and {P10} to detect outlier records and replace them with meaningful statistical values to eliminate distribution anomalies. \n\n For continuous data, discretization is performed based on the value set by {P13}."
+      "detailed_description": "For records with identifiable values due to extremely low frequency, set {threshold_criterion} and {threshold_value} to detect outlier records and replace them with meaningful statistical values to eliminate distribution anomalies. \n\n For continuous data, discretization is performed based on the value set by {rounding_size}."
     }
   },
-  "R5": {
+  "top_down_coding": {
     "ko": {
       "main_description": "금액, 나이 등 수치형 데이터에서 나타나는 극단값을 가지는 레코드 수치를 유의미한 통계값으로 대체하는 기법.",
-      "detailed_description": "{P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로, {P2}이 `경계값`으로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 분위 경계값으로 일괄 대체됨."
+      "detailed_description": "{alternative}(이)가 `상위`로, {threshold_criterion}(이)가 `비율`로, {threshold_value}(이)가 `5`로, {replacement_statistic}이 `경계값`으로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 분위 경계값으로 일괄 대체됨."
     },
     "en": {
       "main_description": "Replaces extreme values in numerical data (e.g., amounts, ages) with meaningful statistical values.",
-      "detailed_description": "If {P16} is set to `greater`, {P17} to `ratio`, {P18} to `5`, and {P2} to `border`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
+      "detailed_description": "If {alternative} is set to `greater`, {threshold_criterion} to `ratio`, {threshold_value} to `5`, and {replacement_statistic} to `border`, then records falling within the top 5% verification range are uniformly replaced with quantile threshold values."
     }
   },
-  "R6": {
+  "partial_suppression": {
     "ko": {
       "main_description": "대상 칼럼 각 데이터의 일부를 삭제하는 기법.",
-      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 삭제하고자 할 때, {P7}(을)를 `-2`로 설정."
+      "detailed_description": "대상 칼럼의 각 레코드 마지막 두 자리를 삭제하고자 할 때, {mask_range}(을)를 `-2`로 설정."
     },
     "en": {
       "main_description": "Deletes part of each data value in the target column.",
-      "detailed_description": "To delete the last two characters of each record in the target column, set {P7} to `-2`."
+      "detailed_description": "To delete the last two characters of each record in the target column, set {mask_range} to `-2`."
     }
   },
-  "R7": {
+  "top_down_nullification": {
     "ko": {
       "main_description": "금액, 나이 등 수치형 데이터에서 나타나는 극단값을 가지는 레코드 수치를 무효화(Null 처리)하거나, 해당 레코드를 데이터셋에서 삭제하는 기법.",
-      "detailed_description": "{P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 그 값이 삭제(Null)됨. 만일 {P19}(이)가 `true`로 설정된 경우, 검증 영역에 해당되는 레코드는 데이터 셋에서 삭제됨."
+      "detailed_description": "{alternative}(이)가 `상위`로, {threshold_criterion}(이)가 `비율`로, {threshold_value}(이)가 `5`로 설정된다면, 상위 5% 검증 영역에 해당되는 레코드는 그 값이 삭제(Null)됨. 만일 {record_deletion}(이)가 `true`로 설정된 경우, 검증 영역에 해당되는 레코드는 데이터 셋에서 삭제됨."
     },
     "en": {
       "main_description": "Nullifies (sets to Null) or removes records with extreme values in numerical data (e.g., amounts, ages).",
-      "detailed_description": "If {P16} is set to `greater`, {P17} to `ratio`, and {P18} to `5`, then records falling within the top 5% verification range are set to Null. If {P19} is set to `true`, the records within the verification range are removed from the dataset."
+      "detailed_description": "If {alternative} is set to `greater`, {threshold_criterion} to `ratio`, and {threshold_value} to `5`, then records falling within the top 5% verification range are set to Null. If {record_deletion} is set to `true`, the records within the verification range are removed from the dataset."
     }
   },
-  "R8": {
+  "group_aggregation": {
     "ko": {
       "main_description": "대상 칼럼을 연관 칼럼으로 그룹화한 뒤 각 그룹 내 나타나는 대상 칼럼의 극단치 데이터를 유의미한 통계값으로 대체하는 기법.",
-      "detailed_description": "대상 칼럼을 {P3}(으)로 그룹화한 뒤, 대상 칼럼의 레코드 수치에 대해 {P16}(이)가 `상위`로, {P17}(이)가 `비율`로, {P18}(이)가 `5`로 설정된다면, 각 그룹 내 상위 5% 검증 영역에 해당되는 레코드는 그 값이 {P2}(으)로 대체됨."
+      "detailed_description": "대상 칼럼을 {grouping_columns}(으)로 그룹화한 뒤, 대상 칼럼의 레코드 수치에 대해 {alternative}(이)가 `상위`로, {threshold_criterion}(이)가 `비율`로, {threshold_value}(이)가 `5`로 설정된다면, 각 그룹 내 상위 5% 검증 영역에 해당되는 레코드는 그 값이 {replacement_statistic}(으)로 대체됨."
     },
     "en": {
       "main_description": "Groups the target column based on a related column and replaces extreme values within each group with meaningful statistical values.",
-      "detailed_description": "After grouping the target column using {P3}, if {P16} is set to `greater`, {P17} to `ratio`, and {P18} to `5`, then records falling within the top 5% verification range in each group  are replaced with {P2}."
+      "detailed_description": "After grouping the target column using {grouping_columns}, if {alternative} is set to `greater`, {threshold_criterion} to `ratio`, and {threshold_value} to `5`, then records falling within the top 5% verification range in each group  are replaced with {replacement_statistic}."
     }
   },
-  "R9": {
+  "rounding": {
     "ko": {
       "main_description": "대상 칼럼의 각 데이터를 특정 단위에서 변환(반올림, 올림 또는 내림)하는 기법.",
-      "detailed_description": "{P4}(을)를 `2`로, {P5}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 백(10^2)의 자리에서 올림 처리됨."
+      "detailed_description": "{rounding_position}(을)를 `2`로, {rounding_mode}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 백(10^2)의 자리에서 올림 처리됨."
     },
     "en": {
       "main_description": "Rounds each data value in the target column to a specific unit (nearest, up, or down).",
-      "detailed_description": "If {P4} is set to `2` and {P5} to `up`, then each record in the target column is rounded up to the nearest hundred (10^2)."
+      "detailed_description": "If {rounding_position} is set to `2` and {rounding_mode} to `up`, then each record in the target column is rounded up to the nearest hundred (10^2)."
     }
   },
-  "R10": {
+  "random_rounding": {
     "ko": {
       "main_description": "대상 칼럼의 각 데이터를 임의의 유효 단위에서 변환(반올림, 올림 또는 내림)하는 기법.",
-      "detailed_description": "{P5}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 임의의 자리수에서 올림 처리됨."
+      "detailed_description": "{rounding_mode}(을)를 `올림`으로 설정한다면 대상 칼럼의 각 레코드 수치는 임의의 자리수에서 올림 처리됨."
     },
     "en": {
       "main_description": "Rounds each data value in the target column to a valid arbitrary unit (nearest, up, or down).",
-      "detailed_description": "If {P5} is set to `up`, each record in the target column is rounded up at an arbitrary digit."
+      "detailed_description": "If {rounding_mode} is set to `up`, each record in the target column is rounded up at an arbitrary digit."
     }
   },
-  "R11": {
+  "noise_addition": {
     "ko": {
       "main_description": "개인정보에 임의의 숫자 등 잡음(Noise)를 추가하는 기법.",
-      "detailed_description": "{P6}(을)를 `2`로 설정하면 백 단위(10^2, 100~999)로 무작위 잡음이 추가됨."
+      "detailed_description": "{chaos_level}(을)를 `2`로 설정하면 백 단위(10^2, 100~999)로 무작위 잡음이 추가됨."
     },
     "en": {
       "main_description": "Adds random noise (e.g., arbitrary numbers) to data.",
-      "detailed_description": "If {P6} is set to `2`, random noise is added at the hundred level (10^2, 100–999)."
+      "detailed_description": "If {chaos_level} is set to `2`, random noise is added at the hundred level (10^2, 100–999)."
     }
   },
-  "R12": {
+  "permutation": {
     "ko": {
       "main_description": "대상 칼럼의 레코드 수치를 다른 레코드 수치와 무작위로 변경하여 특정 정보가 특정 개인과 연결되지 않도록 하는 기법.",
-      "detailed_description": "대상 칼럼의 레코드 순서 변경 범위를 세분화 하기 위해, {P3} 기준으로 대상 칼럼 그룹화가 수행됨."
+      "detailed_description": "대상 칼럼의 레코드 순서 변경 범위를 세분화 하기 위해, {grouping_columns} 기준으로 대상 칼럼 그룹화가 수행됨."
     },
     "en": {
       "main_description": "Randomly shuffles the values in the target column to prevent association with specific individuals.",
-      "detailed_description": "To refine the scope of value order changes, grouping is performed based on {P3}."
+      "detailed_description": "To refine the scope of value order changes, grouping is performed based on {grouping_columns}."
     }
   },
-  "R13": {
+  "mapping": {
     "ko": {
       "main_description": "대상 칼럼의 각 레코드 값을 사전에 정의된 문자로 대체하는 기법.",
-      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {P14}에 기반하여 그 값이 일대일로 교체됨."
+      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {mapping_definition}에 기반하여 그 값이 일대일로 교체됨."
     },
     "en": {
       "main_description": "Replaces each record value in the target column with a predefined character.",
-      "detailed_description": "Each record in the target column is replaced one-to-one based on the predefined {P14}."
+      "detailed_description": "Each record in the target column is replaced one-to-one based on the predefined {mapping_definition}."
     }
   },
-  "R14": {
+  "random_selection_replacement": {
     "ko": {
       "main_description": "대상 칼럼의 각 레코드 값을 사전에 정의된 단어사전에서 무작위로 추출된 문자로 대체하는 기법.",
-      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {P15}에서 무작위로 추출된 값으로 교체됨."
+      "detailed_description": "대상 칼럼의 각 레코드가 사전에 정의된 {selection_list}에서 무작위로 추출된 값으로 교체됨."
     },
     "en": {
       "main_description": "Replaces each record value in the target column with a randomly selected character from a predefined dictionary.",
-      "detailed_description": "Each record in the target column is replaced with a randomly selected value from the predefined {P15}."
+      "detailed_description": "Each record in the target column is replaced with a randomly selected value from the predefined {selection_list}."
     }
   }
 }

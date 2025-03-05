@@ -12,7 +12,7 @@ psdn-ui-prod % node ./src/data/mock-server/server.js
 ```
 
 ```bash
-psdn-ui-prod % REACT_APP_AZURE_CLIENT_ID=28be6ea0-a7ff-4927-9e17-a46998b33c6b REACT_APP_CHANNEL_API_SERVER_URL=http://localhost:9090  npm run start
+psdn-ui-prod % REACT_APP_AZURE_CLIENT_ID=28be6ea0-a7ff-4927-9e17-a46998b33c6b REACT_APP_CHANNEL_API_SERVER_URL=http://localhost:7999/v1/tenants/KOREA/KUDP/channel npm run start 
 ```
 
 ```powershell

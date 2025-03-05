@@ -12,12 +12,13 @@ const DefinitionParametersTooltip = ({ parameter, codeInfo, typeDisplay }) => {
             {typeDisplay ? (
                 <Span>{typeDisplay}</Span>
             ) : (
+                /* TODO */
                 codeInfo && codeInfo.length > 0 && (
                     <Area mt="2">
                         {codeInfo.map((codeItem, index) => (
                             <Area key={index}>
                                 <Span badge="primary" mb="1">
-                                    {getLocalizedName({ NAME_EN: codeItem.en, NAME_KO: codeItem.ko })}
+                                    {getLocalizedName({ nameEnglish: codeItem.en, nameKorean: codeItem.ko })}
                                 </Span>
                             </Area>
                         ))}

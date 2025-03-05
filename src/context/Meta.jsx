@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetchPSDNMaster, fetchPSDNCodes } from "../data/APIs";
+import { fetchPSDNCodes, fetchMetaRules, fetchMetaParameters} from "../data/APIs";
 import  ruleParameterDefinition from '../data/config/RuleParameterDefinitions.json';
 
 // Meta Context
@@ -7,19 +7,24 @@ const MetaContext = createContext();
 
 export const MetaProvider = ({ children }) => {
 
-    const [pseudoMaster, setPseudoMaster] = useState({});
+    const [pseudoRules, setPseudoRules] = useState(null);
+    const [pseudoParameters, setPseudoParameters] = useState(null);
     const [pseudoCode, setPseudoCode] = useState({});
-    const ruleDefinitions = ruleParameterDefinition;
+
     const [isMetaLoading, setIsMetaLoading] = useState(true);
 
-    useEffect(() => {
-        async function fetchBusinessMetaData() {
-            try {
-                const pseudoMasterData = await fetchPSDNMaster();
-                const pseudoCodeData = await fetchPSDNCodes();
+    const ruleDefinitions = ruleParameterDefinition;
 
-                // Set each state variable individually
-                setPseudoMaster(pseudoMasterData || {});
+    useEffect(() => {
+        async function fetchPseudonymizationMeta() {
+            try {
+                const pseudoRuleData = await fetchMetaRules();
+                const pseudoParameterData = await fetchMetaParameters();
+
+                setPseudoRules(pseudoRuleData || null);
+                setPseudoParameters(pseudoParameterData || null)
+
+                const pseudoCodeData = await fetchPSDNCodes();
                 setPseudoCode(pseudoCodeData || {});
 
                 setIsMetaLoading(false);
@@ -28,11 +33,14 @@ export const MetaProvider = ({ children }) => {
             }
         }
 
-        fetchBusinessMetaData();
+        fetchPseudonymizationMeta();
     }, []);
 
     return (
-        <MetaContext.Provider value={{ pseudoMaster, pseudoCode, ruleDefinitions, isMetaLoading }}>
+        <MetaContext.Provider value={{
+            pseudoRules, pseudoParameters, pseudoCode, isMetaLoading,
+            ruleDefinitions
+        }}>
             {children}
         </MetaContext.Provider>
     );

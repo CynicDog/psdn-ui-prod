@@ -5,12 +5,12 @@ import {useLanguage} from "../../context/Language";
 import {Col, Row} from "../../component/Grid";
 import {useMeta} from "../../context/Meta";
 
-const RuleDefinitionEntry = ({ ruleId }) => {
+const RuleDefinitionEntry = ({ name }) => {
 
     const { getLocalizedName } = useLanguage();
-    const { pseudoMaster } = useMeta();
+    const { pseudoRules } = useMeta();
 
-    const rule = pseudoMaster.rules.find(r => r.ID === ruleId)
+    const rule = pseudoRules.item.find(r => r.attributeName === name)
 
     return (
         <Area m="4" p="3">

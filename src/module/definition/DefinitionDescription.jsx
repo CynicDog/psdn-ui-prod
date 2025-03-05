@@ -10,27 +10,27 @@ import {useMeta} from "../../context/Meta";
 const DefinitionDescription = ({ rule }) => {
     const { getLocalizedName } = useLanguage();
     const { language } = useLanguage();
-    const { pseudoMaster, pseudoCode } = useMeta();
+    const { pseudoRules, pseudoParameters, pseudoCode } = useMeta();
 
     const parseDescription = (text) => {
         if (!text) return null;
 
         // Split at {P1}, {P2}, and backtick-wrapped values
-        const parts = text.split(/({P\d+})|(`[^`]+`)/g);
+        const parts = text.split(/({\w+})|(`[^`]+`)/g);
 
         return parts.map((part, index) => {
             if (!part) return null;
 
             // Extract the localized name of parameter
-            if (part.match(/{P\d+}/)) {
-                const paramId = part.replace(/[{}]/g, "");
-                const param = pseudoMaster.parameters.find(p => p.ID === paramId);
+            if (part.match(/{\w+}/)) {
+                const paramAttributeName = part.replace(/[{}]/g, ""); // Extract attributeName
+                const param = pseudoParameters.item.find(p => p.attributeName === paramAttributeName);
 
                 // Check if the parameter is of CODE_ type and has related pseudoCodeInfo
                 let codeInfo = null;
                 let typeDisplay = null;
-                if (param?.TYPE && pseudoCode[param.TYPE]) {
-                    const codeKey = param.TYPE;
+                if (param?.type && pseudoCode[param.type]) {
+                    const codeKey = param.type;
 
                     codeInfo = pseudoCode[codeKey]?.map(codeItem => ({
                         en: codeItem.NAME_EN,
@@ -38,7 +38,7 @@ const DefinitionDescription = ({ rule }) => {
                     })) || [];
                 } else {
                     // Handle native types (e.g., string, boolean, float)
-                    typeDisplay = param?.TYPE;
+                    typeDisplay = param?.type;
                 }
 
                 return (
@@ -73,7 +73,7 @@ const DefinitionDescription = ({ rule }) => {
         });
     };
 
-    const ruleData = RuleDescription[rule.ID]?.[language];
+    const ruleData = RuleDescription[rule.attributeName]?.[language];
 
     return (
         <Area my="1">
