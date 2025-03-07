@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect, useContext} from "react";
 import {useAuth} from "./Auth";
-import {fetchUserProjects} from "../data/APIs";
+import {fetchUserProjects, saveProject} from "../data/APIs";
 import {ROLES} from "./util";
 
 {/* Project Context */}
@@ -29,7 +29,7 @@ export const ProjectProvider = ({children}) => {
 
         // Load project data only for users with OWNER role
         if (auth.role && auth.role.some(role => role === ROLES.APPLICATION || role === ROLES.OWNER)) {
-            fetchUserProjects(auth)
+             fetchUserProjects(auth)
                 .then((projects) => {
                     setProjects(projects);
 
@@ -89,24 +89,25 @@ export const ProjectProvider = ({children}) => {
         });
     };
 
-    // TODO: persist systematically
-    const handleAddProject = () => {
-        const newProject = {
-            id: Date.now().toString(), // TODO: Replace with Hibernate UUID
+    const handleAddProject = async () => {
+        let newProject = {
+            id: null,
             name: "New Project",
+            username: auth.username,
             explanation: "",
             configTables: [],
             sequence: 0,
             status: "WRITING",
-            createTimestamp: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
+            createTimestamp: null,
             approveTimestamp: null,
             startTimestamp: null,
             finishTimestamp: null
         };
+        newProject = await saveProject(auth, newProject);
 
         setProjects((prevProjects) => {
             const prevData = prevProjects?.item ?? [];
-            const updatedProjects = [newProject, ...prevData];
+            const updatedProjects = [newProject.item, ...prevData];
 
             // Recalculate `sequence` for all projects
             updatedProjects.forEach((project, index) => {

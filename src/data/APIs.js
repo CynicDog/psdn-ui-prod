@@ -1,4 +1,4 @@
-import {fetchAuthorizedData, fetchData} from "./util";
+import {getAuthorizedData, getData, postAuthorizedData} from "./util";
 
 /**
  * @description Define the backend server URL based on the environment. Default to the local mock server url.
@@ -41,7 +41,7 @@ export const fetchPSDNCodes = async () => {
  *
  * @returns {Promise<Object>} - The Pseudonymization Rule data in JSON format.
  */
-export const fetchMetaRules = () => fetchData("meta/rules");
+export const fetchMetaRules = () => getData("meta/rules");
 
 
 /**
@@ -49,7 +49,7 @@ export const fetchMetaRules = () => fetchData("meta/rules");
  *
  * @returns {Promise<Object>} - The Pseudonymization Parameter data in JSON format.
  */
-export const fetchMetaParameters = () => fetchData("meta/parameters");
+export const fetchMetaParameters = () => getData("meta/parameters");
 
 
 /**
@@ -58,7 +58,18 @@ export const fetchMetaParameters = () => fetchData("meta/parameters");
  * @param {Object} auth - The authentication object containing the JWT token and username.
  * @returns {Promise<Object|null>} - The user's project data or null if an error occurs.
  */
-export const fetchUserProjects = (auth) => fetchAuthorizedData(`users/${auth.username}/projects`, auth);
+export const fetchUserProjects = (auth) => getAuthorizedData(`users/${auth.username}/projects`, auth);
+
+
+/**
+ * @description Saves a project by sending a POST request to the backend.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectData - The project data to be saved.
+ * @returns {Promise<Object>} - A promise that resolves to the saved project data.
+ */
+export const saveProject = (auth, projectData) => postAuthorizedData("projects/save", auth, projectData);
+
 
 
 /**

@@ -15,7 +15,6 @@ const ProjectView = () => {
 
     return (
         <>
-
             <Area textPosition="center" mb="3">
                 <Span fontSize="3" fontWeight="lighter">
                     {t('components.select_project')}

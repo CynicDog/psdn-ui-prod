@@ -22,8 +22,6 @@ const ProjectPopup = () => {
 
     if (!isProjectPopupOpen) return null;
 
-    console.log(lookedUpProject);
-
     return (
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
             <PopupContent>

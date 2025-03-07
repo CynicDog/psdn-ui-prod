@@ -20,7 +20,7 @@ const MOCK_SERVER_URL =  "http://localhost:8888"
  * @returns {Promise<Object>} - The data in JSON format.
  * @throws {Error} - Throws an error if the fetch request fails.
  */
-export const fetchData = async (endpoint) => {
+export const getData = async (endpoint) => {
     try {
         const response = await fetch(`${CHANNEL_API_SERVER_URL}/${endpoint}`);
 
@@ -28,7 +28,7 @@ export const fetchData = async (endpoint) => {
             throw new Error(`Failed to fetch ${endpoint} data`);
         }
 
-        return response.json();
+        return await response.json();
     } catch (error) {
         console.error(`Error fetching ${endpoint} data:`, error);
         throw error;
@@ -46,7 +46,7 @@ export const fetchData = async (endpoint) => {
  *
  * @throws {Error} - Throws an error if the token is missing, invalid, or expired.
  */
-export const fetchAuthorizedData = async (endpoint, auth) => {
+export const getAuthorizedData = async (endpoint, auth) => {
     if (!auth?.token) {
         throw new Error("Authentication token is missing");
     }
@@ -69,6 +69,46 @@ export const fetchAuthorizedData = async (endpoint, auth) => {
         return await response.json();
     } catch (error) {
         console.error(`Error fetching ${endpoint} data:`, error);
+        throw error;
+    }
+};
+
+
+/**
+ * @description Sends an authorized POST request to the specified endpoint.
+ *
+ * @param {string} endpoint - The API endpoint to send data to.
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} data - The payload to be sent in the request body.
+ *
+ * @returns {Promise<Object>} - A promise that resolves to the JSON response.
+ *
+ * @throws {Error} - Throws an error if the token is missing, invalid, or if the request fails.
+ */
+export const postAuthorizedData = async (endpoint, auth, data) => {
+    if (!auth?.token) {
+        throw new Error("Authentication token is missing");
+    }
+
+    const headers = {
+        "Authorization": `Bearer ${auth.token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/${endpoint}`, {
+            method: "POST",
+            headers: headers,
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to post data to ${endpoint}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(`Error posting data to ${endpoint}:`, error);
         throw error;
     }
 };
