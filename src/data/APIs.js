@@ -65,10 +65,11 @@ export const getUserProjects = (auth) => getAuthorizedData(`users/${auth.usernam
  * @description Saves a project by sending a POST request to the backend.
  *
  * @param {Object} auth - The authentication object containing the JWT token.
- * @param {Object} projectData - The project data to be saved.
+ * @param {Object} projectData - The project data saved.
  * @returns {Promise<Object>} - A promise that resolves to the saved project data.
  */
 export const saveProject = (auth, projectData) => postAuthorizedData("projects/save", auth, projectData);
+
 
 /**
  * @description Fetches source table data for the authenticated user.
@@ -78,6 +79,16 @@ export const saveProject = (auth, projectData) => postAuthorizedData("projects/s
  * @returns {Promise<Object>} - A promise that resolves to the saved project data.
  */
 export const getMetaSourceTables = (auth) => getAuthorizedData("meta/tables", auth);
+
+
+/**
+ * @description Saves a project table by sending a POST request to the backend.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectTableData - The project table data saved.
+ * @returns {Promise<Object>} - A promise that resolves to the saved project data.
+ */
+export const saveProjectTable = (auth, projectTableData) => postAuthorizedData(`projects/${projectTableData.projectId}/configTable/save`, auth, projectTableData);
 
 
 /**

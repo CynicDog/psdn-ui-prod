@@ -139,7 +139,7 @@ const ProjectCard = ({project, order}) => {
                 </Col>
 
                 {/* Project explanation */}
-                <Col width="5" responsive="lg">
+                <Col width="4" responsive="lg">
                     {project.status === "WRITING" ? (
                         <Span variant="secondary">
                             {t('components.project_no_explanation')}{' '}(
@@ -167,7 +167,7 @@ const ProjectCard = ({project, order}) => {
                 </Col>
 
                 {/* Project's working tables */}
-                <Col width="4" responsive="lg">
+                <Col width="5" responsive="lg">
                     {project.configTables?.map((table) => (
                         <Span key={table.id} badge="primary-filled" mx="1" dflexInline alignItems="center" gap="1">
                             <Span badge="primary">

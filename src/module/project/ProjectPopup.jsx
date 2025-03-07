@@ -17,10 +17,9 @@ import Icon from "../../component/Icon";
 
 const ProjectPopup = () => {
     const {t} = useLanguage();
-    const {lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest} = useProject();
+    const {lookedUpProject, handleProjectTableAdd, isProjectTableAdding, handleProjectInputChange, handleProjectCreateRequest} = useProject();
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
-    // TODO: select source tables for projects whose status are not WRITING
     // Store selected source tables for validation
     const [selectedSourceTables, setSelectedSourceTables] = useState({});
 
@@ -87,7 +86,7 @@ const ProjectPopup = () => {
                                     </Span>
                                     {lookedUpProject.status === "WRITING" && (
                                         <Span variant="secondary" fontSize="4"
-                                              onClick={() => handleProjectTableAdd(lookedUpProject.id)}>
+                                              onClick={() => !isProjectTableAdding && handleProjectTableAdd(lookedUpProject.id)}>
                                             <Icon name="database-fill-add"/>
                                         </Span>
                                     )}

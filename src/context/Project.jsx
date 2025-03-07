@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect, useContext} from "react";
 import {useAuth} from "./Auth";
-import {getUserProjects, saveProject} from "../data/APIs";
+import {getUserProjects, saveProject, saveProjectTable} from "../data/APIs";
 import {ROLES} from "./util";
 
 {/* Project Context */}
@@ -20,6 +20,7 @@ export const ProjectProvider = ({children}) => {
     const [sourceProjectTableDraggable, setSourceProjectTableDraggable] = useState(null);
     const [targetProjectTableDraggable, setTargetProjectTableDraggable] = useState(null);
 
+    const [isProjectTableAdding, setIsProjectTableAdding] = useState(false);
 
     useEffect(() => {
         if (!auth?.username) return;
@@ -137,8 +138,10 @@ export const ProjectProvider = ({children}) => {
         }
     };
 
-    // TODO: persist systematically
-    const handleProjectTableAdd = (projectId) => {
+    const handleProjectTableAdd = async (projectId) => {
+        let newTable;
+        setIsProjectTableAdding(false);
+
         setProjects((prevProjects) => {
             if (!prevProjects) return prevProjects;
 
@@ -149,23 +152,30 @@ export const ProjectProvider = ({children}) => {
             if (!project) return prevProjects;
 
             // Create a new empty table entry
-            const newTable = {
-                id: `CT${Date.now()}`,
-                tableId: "",
-                projectId: "",
+            newTable = {
+                id: null,
+                tableId: null,
                 name: null,
+                projectId: projectId,
                 logicalName: "New Table",
                 explanation: "Description of the new table",
                 sequence: project.configTables.length,
+                iteration: 0
             };
 
             // Append the new table to the project
             project.configTables.push(newTable);
-
             setLookedUpProject(project);
 
-            return {...prevProjects, item: updatedProjects};
+            return { ...prevProjects, item: updatedProjects };
         });
+
+        try {
+            await saveProjectTable(auth, newTable);
+        } finally {
+            setIsProjectTableAdding(false);
+        }
+
     };
 
     const handleProjectTableDelete = (projectId, tableId) => {
@@ -259,7 +269,7 @@ export const ProjectProvider = ({children}) => {
                 handleMoveProjectTable,
                 handleAddProject, handleDeleteProject,
                 lookedUpProject, setLookedUpProject,
-                handleProjectTableAdd, handleProjectTableDelete,
+                handleProjectTableAdd, isProjectTableAdding , handleProjectTableDelete,
                 handleProjectInputChange, handleTableInputChange,
                 handleProjectCreateRequest
             }}

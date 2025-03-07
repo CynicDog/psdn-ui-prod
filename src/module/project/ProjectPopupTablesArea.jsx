@@ -108,7 +108,6 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
                             </Row>
                         )}
 
-
                         {/* Project Table Name */}
                         <Row my="1">
                             <Col width="2" responsive="lg">
