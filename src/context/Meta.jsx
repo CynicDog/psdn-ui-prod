@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { fetchPSDNCodes, fetchMetaRules, fetchMetaParameters} from "../data/APIs";
+import { fetchPSDNCodes, getMetaRules, getMetaParameters} from "../data/APIs";
 import  ruleParameterDefinition from '../data/config/RuleParameterDefinitions.json';
 
 // Meta Context
@@ -18,8 +18,8 @@ export const MetaProvider = ({ children }) => {
     useEffect(() => {
         async function fetchPseudonymizationMeta() {
             try {
-                const pseudoRuleData = await fetchMetaRules();
-                const pseudoParameterData = await fetchMetaParameters();
+                const pseudoRuleData = await getMetaRules();
+                const pseudoParameterData = await getMetaParameters();
 
                 setPseudoRules(pseudoRuleData || null);
                 setPseudoParameters(pseudoParameterData || null)

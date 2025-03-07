@@ -1,3 +1,4 @@
+import {useState} from "react";
 import {usePopup} from "../../context/Popup";
 import PopupContent from "../../component/PopupContent";
 import PopupHeader from "../../component/PopupHeader";
@@ -15,10 +16,19 @@ import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
 import Icon from "../../component/Icon";
 
 const ProjectPopup = () => {
-
     const {t} = useLanguage();
-    const {lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest} = useProject()
+    const {lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest} = useProject();
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
+
+    // TODO: select source tables for projects whose status are not WRITING
+    // Store selected source tables for validation
+    const [selectedSourceTables, setSelectedSourceTables] = useState({});
+
+    // Check if all tables have a selected source table and at least one configTable exists
+    const isFormValid = () => {
+        return lookedUpProject.configTables.length > 0 &&
+            lookedUpProject.configTables.every(table => selectedSourceTables[table.id]);
+    };
 
     if (!isProjectPopupOpen) return null;
 
@@ -26,15 +36,13 @@ const ProjectPopup = () => {
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
             <PopupContent>
                 <PopupHeader>
-                    <Area>
-                        <Area flex justifyContent="between">
-                            <Span fontSize="4" fontWeight="lighter">
-                                {t('components.project_detail_title')}
-                            </Span>
-                            <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
-                                {t('components.close')}
-                            </Button>
-                        </Area>
+                    <Area flex justifyContent="between">
+                        <Span fontSize="4" fontWeight="lighter">
+                            {t('components.project_detail_title')}
+                        </Span>
+                        <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
+                            {t('components.close')}
+                        </Button>
                     </Area>
                 </PopupHeader>
                 <PopupBody>
@@ -70,26 +78,6 @@ const ProjectPopup = () => {
                             </Col>
                         </Row>
 
-                        {/* Project Start At */}
-                        {lookedUpProject.status === "WRITING" && (
-                            <Row my="3">
-                                <Col width="2" responsive="lg">
-                                    <Area flex alignItems="center" gap="2">
-                                        <Span fontSize="5" fontWeight="lighter">
-                                            {t('components.project_start_at')}
-                                        </Span>
-                                    </Area>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    <InputField
-                                        type="date"
-                                        value={lookedUpProject.createTimestamp}
-                                        onChange={(e) => handleProjectInputChange("createTimestamp", e.target.value)}
-                                    />
-                                </Col>
-                            </Row>
-                        )}
-
                         {/* Project Tables */}
                         <Row my="3">
                             <Col width="2" responsive="lg">
@@ -106,16 +94,26 @@ const ProjectPopup = () => {
                                 </Area>
                             </Col>
                             <Col width="10" responsive="lg">
-                                <ProjectPopupTablesArea tables={lookedUpProject.configTables}/>
+                                <ProjectPopupTablesArea
+                                    tables={lookedUpProject.configTables}
+                                    selectedSourceTables={selectedSourceTables}
+                                    setSelectedSourceTables={setSelectedSourceTables}
+                                />
                             </Col>
                         </Row>
 
+                        {/* Submit Button with Validation */}
                         {lookedUpProject.status === "WRITING" && (
                             <Area flex justifyContent="end" mt="4">
-                                <Button size="sm" variant="primary" onClick={() => {
-                                    handleProjectCreateRequest();
-                                    setIsProjectPopupOpen(false);
-                                }}>
+                                <Button
+                                    size="sm"
+                                    variant="primary"
+                                    onClick={() => {
+                                        handleProjectCreateRequest();
+                                        setIsProjectPopupOpen(false);
+                                    }}
+                                    disabled={!isFormValid()}
+                                >
                                     {t('components.request_project_creation')}
                                 </Button>
                             </Area>
@@ -124,6 +122,6 @@ const ProjectPopup = () => {
                 </PopupBody>
             </PopupContent>
         </PopupOverlay>
-    )
-}
+    );
+};
 export default ProjectPopup;

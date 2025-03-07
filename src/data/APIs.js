@@ -41,7 +41,7 @@ export const fetchPSDNCodes = async () => {
  *
  * @returns {Promise<Object>} - The Pseudonymization Rule data in JSON format.
  */
-export const fetchMetaRules = () => getData("meta/rules");
+export const getMetaRules = () => getData("meta/rules");
 
 
 /**
@@ -49,7 +49,7 @@ export const fetchMetaRules = () => getData("meta/rules");
  *
  * @returns {Promise<Object>} - The Pseudonymization Parameter data in JSON format.
  */
-export const fetchMetaParameters = () => getData("meta/parameters");
+export const getMetaParameters = () => getData("meta/parameters");
 
 
 /**
@@ -58,7 +58,7 @@ export const fetchMetaParameters = () => getData("meta/parameters");
  * @param {Object} auth - The authentication object containing the JWT token and username.
  * @returns {Promise<Object|null>} - The user's project data or null if an error occurs.
  */
-export const fetchUserProjects = (auth) => getAuthorizedData(`users/${auth.username}/projects`, auth);
+export const getUserProjects = (auth) => getAuthorizedData(`users/${auth.username}/projects`, auth);
 
 
 /**
@@ -70,6 +70,14 @@ export const fetchUserProjects = (auth) => getAuthorizedData(`users/${auth.usern
  */
 export const saveProject = (auth, projectData) => postAuthorizedData("projects/save", auth, projectData);
 
+/**
+ * @description Fetches source table data for the authenticated user.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectData - The source table data to be imported to projects.
+ * @returns {Promise<Object>} - A promise that resolves to the saved project data.
+ */
+export const getMetaSourceTables = (auth) => getAuthorizedData("meta/tables", auth);
 
 
 /**

@@ -185,7 +185,7 @@ const ProjectCard = ({project, order}) => {
                                     {t('components.project_create_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.createTimestamp}
+                                    {project.createTimestamp.split("T")[0]}
                                 </Span>
                             </Area>
                         )}
@@ -195,7 +195,7 @@ const ProjectCard = ({project, order}) => {
                                     {t('components.project_approve_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.approveTimestamp}
+                                    {project.approveTimestamp.split("T")[0]}
                                 </Span>
                             </Area>
                         )}
@@ -205,7 +205,7 @@ const ProjectCard = ({project, order}) => {
                                     {t('components.project_start_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.startTimestamp}
+                                    {project.startTimestamp.split("T")[0]}
                                 </Span>
                             </Area>
                         )}
@@ -215,7 +215,7 @@ const ProjectCard = ({project, order}) => {
                                     {t('components.project_finish_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.finishTimestamp}
+                                    {project.finishTimestamp.split("T")[0]}
                                 </Span>
                             </Area>
                         )}
