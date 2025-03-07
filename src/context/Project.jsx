@@ -153,7 +153,8 @@ export const ProjectProvider = ({children}) => {
                 id: `CT${Date.now()}`,
                 tableId: "",
                 projectId: "",
-                name: "New Table",
+                name: null,
+                logicalName: "New Table",
                 explanation: "Description of the new table",
                 sequence: project.configTables.length,
             };

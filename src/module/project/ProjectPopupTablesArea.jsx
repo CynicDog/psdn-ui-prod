@@ -30,8 +30,6 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
         }
     };
 
-    console.log(tables);
-
     return (
         <>
             {tables?.map((table) => {
@@ -120,8 +118,8 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
                             </Col>
                             <Col width="10" responsive="lg">
                                 <InputField
-                                    value={table.name}
-                                    onChange={(e) => handleTableInputChange(table.id, "name", e.target.value)}
+                                    value={table.logicalName}
+                                    onChange={(e) => handleTableInputChange(table.id, "logicalName", e.target.value)}
                                 />
                             </Col>
                         </Row>
