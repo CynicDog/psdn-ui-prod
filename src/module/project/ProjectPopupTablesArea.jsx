@@ -30,6 +30,8 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
         }
     };
 
+    console.log(tables);
+
     return (
         <>
             {tables?.map((table) => {
@@ -54,53 +56,60 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
                         )}
 
                         {/* Source Table Selection */}
-                        <Row my="1">
-                            <Col width="2" responsive="lg">
-                                <Span fontSize="5" fontWeight="lighter">
-                                    {t('components.source_table')}
-                                </Span>
-                            </Col>
-                            <Col width="10" responsive="lg">
-                                {isSourceTableLoading ? (
-                                    <LoadingSpinner />
-                                ) : (
-                                    <Area border rounded p="3" mb="2">
-                                        {sourceTables?.item.map(sourceTable => (
-                                            <Area
-                                                key={sourceTable.id}
-                                                onClick={() => handleSourceTableSelect(table.id, sourceTable)}
-                                                bg={selectedSourceTable?.id === sourceTable.id ? "primary-subtle" : "body"}
-                                                border rounded="2" shadow="sm" my="2" p="2" cursor="pointer"
-                                            >
-                                                <Row>
-                                                    <Col width="4" responsive="lg" flex alignItems="center">
-                                                        <Span badge={selectedSourceTable?.id === sourceTable.id ? "primary-filled" : "secondary"}>
-                                                            {sourceTable.name}
-                                                        </Span>
-                                                    </Col>
-                                                    <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
-                                                        <Span fontWeight="lighter">
-                                                            {t('components.source_table_create_at')}
-                                                        </Span>
-                                                        <Span badge="light">
-                                                            {sourceTable?.inputTimestamp?.split("T")[0]}
-                                                        </Span>
-                                                    </Col>
-                                                    <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
-                                                        <Span fontWeight="lighter">
-                                                            {t('components.source_table_update_at')}
-                                                        </Span>
-                                                        <Span badge="light">
-                                                            {sourceTable?.updateTimestamp?.split("T")[0]}
-                                                        </Span>
-                                                    </Col>
-                                                </Row>
-                                            </Area>
-                                        ))}
-                                    </Area>
-                                )}
-                            </Col>
-                        </Row>
+                        {isSourceTableLoading ? (
+                            <LoadingSpinner />
+                        ) : (
+                            <Row my="1">
+                                <Col width="2" responsive="lg">
+                                    <Span fontSize="5" fontWeight="lighter">
+                                        {t('components.source_table')}
+                                    </Span>
+                                </Col>
+                                <Col width="10" responsive="lg">
+                                    {lookedUpProject.status === "WRITING" ? (
+                                        <Area border rounded p="3" mb="2">
+                                            {sourceTables?.item.map(sourceTable => (
+                                                <Area
+                                                    key={sourceTable.id}
+                                                    onClick={() => handleSourceTableSelect(table.id, sourceTable)}
+                                                    bg={selectedSourceTable?.id === sourceTable.id ? "primary-subtle" : "body"}
+                                                    border rounded="2" shadow="sm" my="2" p="2" cursor="pointer"
+                                                >
+                                                    <Row>
+                                                        <Col width="4" responsive="lg" flex alignItems="center">
+                                                            <Span badge={selectedSourceTable?.id === sourceTable.id ? "primary-filled" : "secondary"}>
+                                                                {sourceTable.name}
+                                                            </Span>
+                                                        </Col>
+                                                        <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
+                                                            <Span fontWeight="lighter">
+                                                                {t('components.source_table_create_at')}
+                                                            </Span>
+                                                            <Span badge="light">
+                                                                {sourceTable?.inputTimestamp?.split("T")[0]}
+                                                            </Span>
+                                                        </Col>
+                                                        <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
+                                                            <Span fontWeight="lighter">
+                                                                {t('components.source_table_update_at')}
+                                                            </Span>
+                                                            <Span badge="light">
+                                                                {sourceTable?.updateTimestamp?.split("T")[0]}
+                                                            </Span>
+                                                        </Col>
+                                                    </Row>
+                                                </Area>
+                                            ))}
+                                        </Area>
+                                    ) : (
+                                        <Span badge="primary-filled">
+                                            {table.name}
+                                        </Span>
+                                    )}
+                                </Col>
+                            </Row>
+                        )}
+
 
                         {/* Project Table Name */}
                         <Row my="1">

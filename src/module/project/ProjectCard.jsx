@@ -170,6 +170,9 @@ const ProjectCard = ({project, order}) => {
                 <Col width="4" responsive="lg">
                     {project.configTables?.map((table) => (
                         <Span key={table.id} badge="primary-filled" mx="1">
+                            {/*<Span badge="light">*/}
+                            {/*    {table.name}*/}
+                            {/*</Span>*/}
                             {table.name}
                         </Span>
                     ))}
