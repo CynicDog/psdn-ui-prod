@@ -7,7 +7,6 @@ import Icon from "../component/Icon";
 import ProjectPopup from "../module/project/ProjectPopup";
 import {usePopup} from "../context/Popup";
 
-{/* TODO: modularize */}
 const ProjectView = () => {
     const { t } = useLanguage();
     const { isProjectPopupOpen, setIsProjectPopupOpen } = usePopup();
@@ -35,11 +34,11 @@ const ProjectView = () => {
             </Area>
             {/* Project Cards Area */}
             <Area marginTop="5%" mx="3">
-                {projects?.data?.map((project) => (
+                {projects?.item?.map((project) => (
                     <ProjectCard
-                        key={project.ID}
+                        key={project.id}
                         project={project}
-                        order={project.ORDER}
+                        order={project.sequence}
                     />
                 ))}
             </Area>

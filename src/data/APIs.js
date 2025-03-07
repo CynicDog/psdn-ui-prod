@@ -58,7 +58,7 @@ export const fetchMetaParameters = () => fetchData("meta/parameters");
  * @param {Object} auth - The authentication object containing the JWT token and username.
  * @returns {Promise<Object|null>} - The user's project data or null if an error occurs.
  */
-export const fetchUserProjects = (auth) => fetchAuthorizedData(`user/${auth.username}/projects`, auth);
+export const fetchUserProjects = (auth) => fetchAuthorizedData(`users/${auth.username}/projects`, auth);
 
 
 /**

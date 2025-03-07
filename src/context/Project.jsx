@@ -2,7 +2,6 @@ import {createContext, useState, useEffect, useContext} from "react";
 import {useAuth} from "./Auth";
 import {fetchUserProjects} from "../data/APIs";
 import {ROLES} from "./util";
-import {usePopup} from "./Popup";
 
 {/* Project Context */}
 const ProjectContext = createContext();
@@ -49,7 +48,7 @@ export const ProjectProvider = ({children}) => {
     // Handle Drag-and-Drop Reordering of Projects
     const handleMoveProject = (sourceIndex, targetIndex) => {
         setProjects((prevProjects) => {
-            const updatedProjects = [...prevProjects.data];
+            const updatedProjects = [...prevProjects.item];
 
             // Remove the dragged project from its original position
             const [movedProject] = updatedProjects.splice(sourceIndex, 1);
@@ -57,12 +56,12 @@ export const ProjectProvider = ({children}) => {
             // Insert it at the target position
             updatedProjects.splice(targetIndex, 0, movedProject);
 
-            // Update the ORDER property to reflect the new position
+            // Update the `sequence` property to reflect the new position
             updatedProjects.forEach((project, index) => {
-                project.ORDER = index;
+                project.sequence = index;
             });
 
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
     };
 
@@ -90,30 +89,31 @@ export const ProjectProvider = ({children}) => {
         });
     };
 
+    // TODO: persist systematically
     const handleAddProject = () => {
         const newProject = {
-            ID: Date.now().toString(), // TODO: Replace with Hibernate UUID
-            NAME: "New Project",
-            DESCRIPTION: "",
-            TABLES: [],
-            ORDER: 0,
-            STATUS: "WRITING",
-            CREATE_AT: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
-            APPROVE_AT: null,
-            START_AT: null,
-            FINISH_AT: null
+            id: Date.now().toString(), // TODO: Replace with Hibernate UUID
+            name: "New Project",
+            explanation: "",
+            configTables: [],
+            sequence: 0,
+            status: "WRITING",
+            createTimestamp: new Date(Date.now()).toISOString().split("T")[0], // "YYYY-MM-DD"
+            approveTimestamp: null,
+            startTimestamp: null,
+            finishTimestamp: null
         };
 
         setProjects((prevProjects) => {
-            const prevData = prevProjects?.data ?? [];
+            const prevData = prevProjects?.item ?? [];
             const updatedProjects = [newProject, ...prevData];
 
-            // Recalculate ORDER for all projects
+            // Recalculate `sequence` for all projects
             updatedProjects.forEach((project, index) => {
-                project.ORDER = index;
+                project.sequence = index;
             });
 
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
 
         return newProject;
@@ -135,108 +135,110 @@ export const ProjectProvider = ({children}) => {
         }
     };
 
+    // TODO: persist systematically
     const handleProjectTableAdd = (projectId) => {
         setProjects((prevProjects) => {
             if (!prevProjects) return prevProjects;
 
-            const updatedProjects = [...prevProjects.data];
+            const updatedProjects = [...prevProjects.item];
 
-            // Find the project by ID
-            const project = updatedProjects.find(p => p.ID === projectId);
+            // Find the project by id
+            const project = updatedProjects.find(p => p.id === projectId);
             if (!project) return prevProjects;
 
             // Create a new empty table entry
             const newTable = {
-                ID: `CT${Date.now()}`, // TODO: Replace with Hibernate UUID
-                TABLE_ID: "",
-                NAME: "New Table",
-                DESCRIPTION: "Description of the new table",
-                IMPORTED_AT: new Date(Date.now()).toISOString().split("T")[0],
-                ORDER: project.TABLES.length,
+                id: `CT${Date.now()}`,
+                tableId: "",
+                projectId: "",
+                name: "New Table",
+                explanation: "Description of the new table",
+                sequence: project.configTables.length,
             };
 
             // Append the new table to the project
-            project.TABLES.push(newTable);
+            project.configTables.push(newTable);
 
             setLookedUpProject(project);
 
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
     };
 
     const handleProjectTableDelete = (projectId, tableId) => {
         setProjects(prevProjects => {
-            const updatedProjects = prevProjects.data.map(project => {
-                if (project.ID === projectId) {
+            const updatedProjects = prevProjects.item.map(project => {
+                if (project.id === projectId) {
                     // Update the project tables by filtering out the deleted table
-                    const updatedTables = project.TABLES.filter(table => table.ID !== tableId);
-                    return {...project, TABLES: updatedTables};
+                    const updatedTables = project.configTables.filter(table => table.id !== tableId);
+                    return {...project, configTables: updatedTables};
                 }
                 return project;
             });
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
 
         setLookedUpProject(prevProject => ({
             ...prevProject,
-            TABLES: prevProject.TABLES.filter(table => table.ID !== tableId)
+            configTables: prevProject.configTables.filter(table => table.id !== tableId)
         }));
     };
 
     const handleProjectInputChange = (field, value) => {
 
-        if (lookedUpProject.STATUS !== "WRITING") return
+        if (lookedUpProject.status !== "WRITING") return
 
         setLookedUpProject(prev => ({...prev, [field]: value}));
 
         // Sync with projects array
         setProjects(prevProjects => {
-            const updatedProjects = prevProjects.data.map(p =>
-                p.ID === lookedUpProject.ID ? {...p, [field]: value} : p
+            const updatedProjects = prevProjects.item.map(p =>
+                p.id === lookedUpProject.id ? {...p, [field]: value} : p
             );
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
     };
 
+    // TODO: persist systematically
     const handleTableInputChange = (tableId, field, value) => {
 
-        if (lookedUpProject.STATUS !== "WRITING") return
+        if (lookedUpProject.status !== "WRITING") return
 
         setLookedUpProject(prev => ({
             ...prev,
-            TABLES: prev.TABLES.map(table =>
-                table.ID === tableId ? {...table, [field]: value} : table
+            configTables: prev.configTables.map(table =>
+                table.id === tableId ? {...table, [field]: value} : table
             )
         }));
 
         // Sync with projects array
         setProjects(prevProjects => {
-            const updatedProjects = prevProjects.data.map(p =>
-                p.ID === lookedUpProject.ID
+            const updatedProjects = prevProjects.item.map(p =>
+                p.id === lookedUpProject.id
                     ? {
                         ...p,
-                        TABLES: p.TABLES.map(table =>
-                            table.ID === tableId ? {...table, [field]: value} : table
+                        configTables: p.configTables.map(table =>
+                            table.id === tableId ? {...table, [field]: value} : table
                         )
                     }
                     : p
             );
-            return {...prevProjects, data: updatedProjects};
+            return {...prevProjects, item: updatedProjects};
         });
     };
 
     const handleProjectCreateRequest = () => {
-        if (!lookedUpProject || lookedUpProject.STATUS !== "WRITING") {
+        if (!lookedUpProject || lookedUpProject.status !== "WRITING") {
             return;
         }
 
         setProjects((prevProjects) => {
-            const updatedProjects = prevProjects.data.map((project) =>
-                project.ID === lookedUpProject.ID
-                    ? { ...project, STATUS: "PENDING" } // Change status of the updated project
+            const updatedProjects = prevProjects.item.map((project) =>
+                project.id === lookedUpProject.id
+                    ? { ...project, status: "PENDING" } // Change status of the updated project
                     : project
             );
-            return { ...prevProjects, data: updatedProjects };
+            return { ...prevProjects, item: updatedProjects };
         });
     };
 

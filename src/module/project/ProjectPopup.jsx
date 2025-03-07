@@ -17,10 +17,12 @@ import Icon from "../../component/Icon";
 const ProjectPopup = () => {
 
     const {t} = useLanguage();
-    const { lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest } = useProject()
+    const {lookedUpProject, handleProjectTableAdd, handleProjectInputChange, handleProjectCreateRequest} = useProject()
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
     if (!isProjectPopupOpen) return null;
+
+    console.log(lookedUpProject);
 
     return (
         <PopupOverlay setIsPopupOpen={setIsProjectPopupOpen}>
@@ -39,7 +41,6 @@ const ProjectPopup = () => {
                 </PopupHeader>
                 <PopupBody>
                     <Area border rounded shadow="sm" p="5" m="3">
-
                         {/* Project Name */}
                         <Row my="3">
                             <Col width="2" responsive="lg">
@@ -49,30 +50,30 @@ const ProjectPopup = () => {
                             </Col>
                             <Col width="10" responsive="lg">
                                 <InputField
-                                    value={lookedUpProject.NAME}
-                                    onChange={(e) => handleProjectInputChange("NAME", e.target.value)}
+                                    value={lookedUpProject.name}
+                                    onChange={(e) => handleProjectInputChange("name", e.target.value)}
                                 />
                             </Col>
                         </Row>
 
-                        {/* Project Description */}
+                        {/* Project Explanation */}
                         <Row my="3">
                             <Col width="2" responsive="lg">
                                 <Span fontSize="5" fontWeight="lighter">
-                                    {t('components.project_description')}
+                                    {t('components.project_explanation')}
                                 </Span>
                             </Col>
                             <Col width="10" responsive="lg">
                                 <TextArea
-                                    value={lookedUpProject.DESCRIPTION}
+                                    value={lookedUpProject.explanation}
                                     height="150px"
-                                    onChange={(e) => handleProjectInputChange("DESCRIPTION", e.target.value)}
+                                    onChange={(e) => handleProjectInputChange("explanation", e.target.value)}
                                 />
                             </Col>
                         </Row>
 
                         {/* Project Start At */}
-                            {lookedUpProject.STATUS === "WRITING" && (
+                        {lookedUpProject.status === "WRITING" && (
                             <Row my="3">
                                 <Col width="2" responsive="lg">
                                     <Area flex alignItems="center" gap="2">
@@ -84,8 +85,8 @@ const ProjectPopup = () => {
                                 <Col width="10" responsive="lg">
                                     <InputField
                                         type="date"
-                                        value={lookedUpProject.START_AT}
-                                        onChange={(e) => handleProjectInputChange("START_AT", e.target.value)}
+                                        value={lookedUpProject.createTimestamp}
+                                        onChange={(e) => handleProjectInputChange("createTimestamp", e.target.value)}
                                     />
                                 </Col>
                             </Row>
@@ -98,19 +99,20 @@ const ProjectPopup = () => {
                                     <Span fontSize="5" fontWeight="lighter">
                                         {t('components.project_tables')}
                                     </Span>
-                                    {lookedUpProject.STATUS === "WRITING" && (
-                                        <Span variant="secondary" fontSize="4" onClick={() => handleProjectTableAdd(lookedUpProject.ID)}>
+                                    {lookedUpProject.status === "WRITING" && (
+                                        <Span variant="secondary" fontSize="4"
+                                              onClick={() => handleProjectTableAdd(lookedUpProject.id)}>
                                             <Icon name="database-fill-add"/>
                                         </Span>
                                     )}
                                 </Area>
                             </Col>
                             <Col width="10" responsive="lg">
-                                <ProjectPopupTablesArea tables={lookedUpProject.TABLES}/>
+                                <ProjectPopupTablesArea tables={lookedUpProject.configTables}/>
                             </Col>
                         </Row>
 
-                        {lookedUpProject.STATUS === "WRITING" && (
+                        {lookedUpProject.status === "WRITING" && (
                             <Area flex justifyContent="end" mt="4">
                                 <Button size="sm" variant="primary" onClick={() => {
                                     handleProjectCreateRequest();

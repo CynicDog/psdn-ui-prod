@@ -24,7 +24,7 @@
   },
   "components": {
     "select_project": "Select Project.",
-    "project_no_description": "Provide detailed project information at",
+    "project_no_explanation": "Provide detailed project information at",
     "add_new_project": "Add a new Project",
     "project_create_at": "Create At",
     "project_approve_at": "Approve At",
@@ -32,7 +32,7 @@
     "project_finish_at": "Finish At",
     "project_detail_title": "Project Details",
     "project_name": "Name",
-    "project_description": "Description",
+    "project_explanation": "Description",
     "project_table_name": "Name",
     "project_tables": "Tables",
     "project_table_purpose_of_use": "Purpose of Use",

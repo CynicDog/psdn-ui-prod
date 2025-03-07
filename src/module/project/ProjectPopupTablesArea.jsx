@@ -15,13 +15,13 @@ const ProjectPopupTablesArea = ({ tables }) => {
         <>
             {tables && tables.map((table, index) => (
                 <Area key={index} border rounded shadow="sm" p="3" px="5" mb="3">
-                    {lookedUpProject.STATUS === "WRITING" && (
+                    {lookedUpProject.status === "WRITING" && (
                         <Area flex justifyContent="end" my="1">
                             <Span
                                 badge="danger" cursor="pointer" noSelect
                                 onClick={(e) => {
                                     e.stopPropagation();
-                                    handleProjectTableDelete(lookedUpProject.ID, table.ID)
+                                    handleProjectTableDelete(lookedUpProject.id, table.id)
                                 }}
                             >
                                 {t('components.delete')}
@@ -38,8 +38,8 @@ const ProjectPopupTablesArea = ({ tables }) => {
                         </Col>
                         <Col width="10" responsive="lg">
                             <InputField
-                                value={table.NAME}
-                                onChange={(e) => handleTableInputChange(table.ID, "NAME", e.target.value)}
+                                value={table.name}
+                                onChange={(e) => handleTableInputChange(table.id, "name", e.target.value)}
                             />
                         </Col>
                     </Row>
@@ -53,9 +53,9 @@ const ProjectPopupTablesArea = ({ tables }) => {
                         </Col>
                         <Col width="10" responsive="lg">
                             <TextArea
-                                value={table.DESCRIPTION}
+                                value={table.explanation}
                                 height="80px"
-                                onChange={(e) => handleTableInputChange(table.ID, "DESCRIPTION", e.target.value)}
+                                onChange={(e) => handleTableInputChange(table.id, "explanation", e.target.value)}
                             />
                         </Col>
                     </Row>

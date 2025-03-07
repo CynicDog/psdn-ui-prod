@@ -65,11 +65,12 @@ const ProjectCard = ({project, order}) => {
 
     return (
         <DraggableArea
+            key={order}
             order={order}
             onClick={(e) => {
                 e.stopPropagation();
 
-                if (project.STATUS === "APPROVED") {
+                if (project.status === "APPROVED") {
                     setCurrentProject(project);
                 }
             }}
@@ -82,26 +83,29 @@ const ProjectCard = ({project, order}) => {
             onDrop={handleDrop}
             bg={currentProject === project ? "primary-subtle" : "body"}
             border rounded="2" shadow="sm" my="2"
-            cursor={project.STATUS !== "APPROVED" ? "not-allowed" : "pointer"}
+            cursor={project.status !== "APPROVED" ? "not-allowed" : "pointer"}
         >
             <Row>
                 <Col width="12" responsive="lg" flex justifyContent="between">
+                    {/* Delete button for the projects with WRITING status  */}
                     <Area>
                         <Span
-                            key={project.ID}
-                            badge={getProjectStatusBadgeClass(project.STATUS)}
+                            key={project.id}
+                            badge={getProjectStatusBadgeClass(project.status)}
                             m="2">
-                            {project.STATUS}
+                            {project.status}
                         </Span>
-                        {project.STATUS === "WRITING" && (
+                        {project.status === "WRITING" && (
                             <Span badge="danger" cursor="pointer" onClick={() => {
-                                handleDeleteProject(project.ID);
+                                handleDeleteProject(project.id);
                                 setIsProjectPopupOpen(false);
                             }}>
                                 {t('components.delete')}
                             </Span>
                         )}
                     </Area>
+
+                    {/* Project detail popup click icon */}
                     <Area>
                         <Button
                             size="sm"
@@ -126,21 +130,19 @@ const ProjectCard = ({project, order}) => {
                     </Area>
                 </Col>
             </Row>
-            <Row key={project.ID} rounded p="3" flex alignItems="center">
+            <Row key={project.id} rounded p="3" flex alignItems="center">
                 {/* Project name and status */}
                 <Col width="3" responsive="lg">
-                    {/*<Area>*/}
                     <Span fontSize="4" fontWeight="lighter">
-                        {project.NAME}
+                        {project.name}
                     </Span>
-                    {/*</Area>*/}
                 </Col>
 
-                {/* Project description */}
+                {/* Project explanation */}
                 <Col width="5" responsive="lg">
-                    {project.STATUS === "WRITING" ? (
+                    {project.status === "WRITING" ? (
                         <Span variant="secondary">
-                            {t('components.project_no_description')}{' '}(
+                            {t('components.project_no_explanation')}{' '}(
                             <Tooltip
                                 position="top"
                                 content={
@@ -159,16 +161,16 @@ const ProjectCard = ({project, order}) => {
                         </Span>
                     ) : (
                         <Span fontWeight="light">
-                            {project.DESCRIPTION}
+                            {project.explanation}
                         </Span>
                     )}
                 </Col>
 
                 {/* Project's working tables */}
                 <Col width="4" responsive="lg">
-                    {project.TABLES?.map((table) => (
-                        <Span key={table.ID} badge="primary-filled" mx="1">
-                            {table.NAME}
+                    {project.configTables?.map((table) => (
+                        <Span key={table.id} badge="primary-filled" mx="1">
+                            {table.name}
                         </Span>
                     ))}
                 </Col>
@@ -177,43 +179,43 @@ const ProjectCard = ({project, order}) => {
                 {/* Project timestamps */}
                 <Col width="12" responsive="lg" p="2" px="4" flex justifyContent="end">
                     <Area flex gap="3" fontSize="small" >
-                        {project.CREATE_AT && (
+                        {project.createTimestamp && (
                             <Area flex alignItems="center" gap="1">
                                 <Span>
                                     {t('components.project_create_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.CREATE_AT}
+                                    {project.createTimestamp}
                                 </Span>
                             </Area>
                         )}
-                        {project.APPROVE_AT && (
+                        {project.approveTimestamp && (
                             <Area flex alignItems="center" gap="1">
                                 <Span>
                                     {t('components.project_approve_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.APPROVE_AT}
+                                    {project.approveTimestamp}
                                 </Span>
                             </Area>
                         )}
-                        {project.START_AT && (
+                        {project.startTimestamp && (
                             <Area flex alignItems="center" gap="1">
                                 <Span>
                                     {t('components.project_start_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.START_AT}
+                                    {project.startTimestamp}
                                 </Span>
                             </Area>
                         )}
-                        {project.FINISH_AT && (
+                        {project.finishTimestamp && (
                             <Area flex alignItems="center" gap="1">
                                 <Span>
                                     {t('components.project_finish_at')}
                                 </Span>
                                 <Span badge="light">
-                                    {project.FINISH_AT}
+                                    {project.finishTimestamp}
                                 </Span>
                             </Area>
                         )}
