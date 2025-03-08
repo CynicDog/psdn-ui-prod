@@ -1,6 +1,6 @@
 import {createContext, useState, useEffect, useContext} from "react";
 import {useAuth} from "./Auth";
-import {getUserProjects, saveProject, saveProjectTable} from "../data/APIs";
+import {deleteProject, deleteProjectTable, getUserProjects, saveProject, saveProjectTable} from "../data/APIs";
 import {ROLES} from "./util";
 
 {/* Project Context */}
@@ -126,20 +126,22 @@ export const ProjectProvider = ({children}) => {
         return newProject;
     };
 
-    const handleDeleteProject = (projectId) => {
+    const handleDeleteProject = async (projectId) => {
         setProjects((prevProjects) => {
-            const updatedProjects = prevProjects.data.filter(project => project.ID !== projectId);
+            const updatedProjects = prevProjects.item.filter(project => project.id !== projectId);
 
             updatedProjects.forEach((project, index) => {
-                project.ORDER = index;
+                project.sequence = index;
             });
 
-            return { ...prevProjects, data: updatedProjects };
+            return {...prevProjects, item: updatedProjects};
         });
 
-        if (lookedUpProject && lookedUpProject.ID === projectId) {
+        if (lookedUpProject && lookedUpProject.id === projectId) {
             setLookedUpProject(null);
         }
+
+        await deleteProject(auth, projectId);
     };
 
     const handleProjectTableAdd = async (projectId) => {
@@ -212,7 +214,7 @@ export const ProjectProvider = ({children}) => {
         await saveProjectTable(auth, projectTable);
     };
 
-    const handleProjectTableDelete = (projectId, tableId) => {
+    const handleProjectTableDelete = async (projectId, tableId) => {
         setProjects(prevProjects => {
             const updatedProjects = prevProjects.item.map(project => {
                 if (project.id === projectId) {
@@ -229,6 +231,11 @@ export const ProjectProvider = ({children}) => {
             ...prevProject,
             configTables: prevProject.configTables.filter(table => table.id !== tableId)
         }));
+
+        await deleteProjectTable(auth, {
+            id: tableId,
+            projectId: projectId
+        })
     };
 
     const handleProjectInputChange = (field, value) => {

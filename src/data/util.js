@@ -112,3 +112,42 @@ export const postAuthorizedData = async (endpoint, auth, data) => {
         throw error;
     }
 };
+
+/**
+ * @description Sends an authorized DELETE request to the specified endpoint.
+ *
+ * @param {string} endpoint - The API endpoint to send data to.
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} data - The payload to be sent in the request body.
+ *
+ * @returns {Promise<Object>} - A promise that resolves to the JSON response.
+ *
+ * @throws {Error} - Throws an error if the token is missing, invalid, or if the request fails.
+ */
+export const deleteAuthorizedData = async (endpoint, auth) => {
+    if (!auth?.token) {
+        throw new Error("Authentication token is missing");
+    }
+
+    const headers = {
+        "Authorization": `Bearer ${auth.token}`,
+        "Content-Type": "application/json",
+    };
+
+    try {
+        const response = await fetch(`${CHANNEL_API_SERVER_URL}/${endpoint}`, {
+            method: "DELETE",
+            headers: headers
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to post data to ${endpoint}`);
+        }
+
+        return await response.json();
+    } catch (error) {
+        console.error(`Error posting data to ${endpoint}:`, error);
+        throw error;
+    }
+};
+

@@ -1,4 +1,4 @@
-import {getAuthorizedData, getData, postAuthorizedData} from "./util";
+import {deleteAuthorizedData, getAuthorizedData, getData, postAuthorizedData} from "./util";
 
 /**
  * @description Define the backend server URL based on the environment. Default to the local mock server url.
@@ -86,9 +86,29 @@ export const getMetaSourceTables = (auth) => getAuthorizedData("meta/tables", au
  *
  * @param {Object} auth - The authentication object containing the JWT token.
  * @param {Object} projectTableData - The project table data saved.
- * @returns {Promise<Object>} - A promise that resolves to the saved project data.
+ * @returns {Promise<Object>} - A promise that resolves to the saved project table data.
  */
 export const saveProjectTable = (auth, projectTableData) => postAuthorizedData(`projects/${projectTableData.projectId}/configTable/save`, auth, projectTableData);
+
+
+/**
+ * @description Deletes a project table by sending a DELETE request to the backend.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectTableData - The project table data deleted.
+ * @returns {Promise<Object>} - A promise that resolves to the response of deletion.
+ */
+export const deleteProjectTable = (auth, projectTableData) => deleteAuthorizedData(`projects/${projectTableData.projectId}/configTables/${projectTableData.id}/delete`, auth);
+
+
+/**
+ * @description Deletes a project by sending a DELETE request to the backend.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectId - The project data deleted.
+ * @returns {Promise<Object>} - A promise that resolves to the response of deletion.
+ */
+export const deleteProject = (auth, projectId) => deleteAuthorizedData(`projects/${projectId}/delete`, auth);
 
 
 /**
