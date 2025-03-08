@@ -169,8 +169,8 @@ const ProjectCard = ({project, order}) => {
                 {/* Project's working tables */}
                 <Col width="5" responsive="lg">
                     {project.configTables?.map((table) => (
-                        <Span key={table.id} badge="primary-filled" mx="1" dflexInline alignItems="center" gap="1">
-                            <Span badge="primary">
+                        <Span key={table.id} badge="primary" mx="1" dflexInline alignItems="center" gap="1">
+                            <Span badge="primary-filled">
                                 {table.name}
                             </Span>
                             {table.logicalName}

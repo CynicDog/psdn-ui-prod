@@ -17,11 +17,8 @@ import Icon from "../../component/Icon";
 
 const ProjectPopup = () => {
     const {t} = useLanguage();
-    const {lookedUpProject, handleProjectTableAdd, isProjectTableAdding, handleProjectInputChange, handleProjectCreateRequest} = useProject();
+    const {lookedUpProject, handleProjectTableAdd, isProjectTableSaving, selectedSourceTables, setSelectedSourceTables, handleProjectInputChange, handleProjectCreateRequest} = useProject();
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
-
-    // Store selected source tables for validation
-    const [selectedSourceTables, setSelectedSourceTables] = useState({});
 
     // Check if all tables have a selected source table and at least one configTable exists
     const isFormValid = () => {
@@ -86,7 +83,7 @@ const ProjectPopup = () => {
                                     </Span>
                                     {lookedUpProject.status === "WRITING" && (
                                         <Span variant="secondary" fontSize="4"
-                                              onClick={() => !isProjectTableAdding && handleProjectTableAdd(lookedUpProject.id)}>
+                                              onClick={() => !isProjectTableSaving && handleProjectTableAdd(lookedUpProject.id)}>
                                             <Icon name="database-fill-add"/>
                                         </Span>
                                     )}

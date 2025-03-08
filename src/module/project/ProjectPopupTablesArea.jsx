@@ -9,11 +9,12 @@ import { useQuery } from "react-query";
 import { useAuth } from "../../context/Auth";
 import { getMetaSourceTables } from "../../data/APIs";
 import LoadingSpinner from "../../component/LoadingSpinner";
+import {useEffect} from "react";
 
-const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourceTables }) => {
+const ProjectPopupTablesArea = ({ tables }) => {
     const { t } = useLanguage();
     const { auth } = useAuth();
-    const { lookedUpProject, handleProjectTableDelete, handleTableInputChange } = useProject();
+    const { lookedUpProject, selectedSourceTables, setSelectedSourceTables, handleSourceTableSelect, isProjectTableSaving, handleProjectTableDelete, handleTableInputChange } = useProject();
 
     const { data: sourceTables, isLoading: isSourceTableLoading } = useQuery(
         ["sourceTables", lookedUpProject.id],
@@ -21,14 +22,20 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
         { enabled: !!auth.token }
     );
 
-    const handleSourceTableSelect = (projectTableId, sourceTable) => {
-        if (lookedUpProject.status === "WRITING") {
-            setSelectedSourceTables(prev => ({
-                ...prev,
-                [projectTableId]: sourceTable
-            }));
+    // Set selected source tables for projects with WRITING status to visually highlight the selected table
+    useEffect(() => {
+        if (lookedUpProject?.status === "WRITING" && tables?.length > 0) {
+            const selectedTablesMap = tables.reduce((acc, table) => {
+                acc[table.id] = {
+                    id: table.tableId,
+                    name: table.name
+                };
+                return acc;
+            }, {});
+
+            setSelectedSourceTables(selectedTablesMap);
         }
-    };
+    }, [lookedUpProject?.status, tables]);
 
     return (
         <>
@@ -69,7 +76,7 @@ const ProjectPopupTablesArea = ({ tables, selectedSourceTables, setSelectedSourc
                                             {sourceTables?.item.map(sourceTable => (
                                                 <Area
                                                     key={sourceTable.id}
-                                                    onClick={() => handleSourceTableSelect(table.id, sourceTable)}
+                                                    onClick={() => !isProjectTableSaving && handleSourceTableSelect(table.id, sourceTable)}
                                                     bg={selectedSourceTable?.id === sourceTable.id ? "primary-subtle" : "body"}
                                                     border rounded="2" shadow="sm" my="2" p="2" cursor="pointer"
                                                 >

@@ -13,8 +13,6 @@ const ProjectView = () => {
 
     const { projects, setLookedUpProject, handleAddProject } = useProject();
 
-    console.log(projects);
-
     return (
         <>
             <Area textPosition="center" mb="3">
