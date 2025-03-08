@@ -14,6 +14,7 @@ import InputField from "../../component/InputField";
 import TextArea from "../../component/TextArea";
 import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
 import Icon from "../../component/Icon";
+import ProjectTimestamps from "./ProjectTimestamps";
 
 const ProjectPopup = () => {
     const {t} = useLanguage();
@@ -22,7 +23,8 @@ const ProjectPopup = () => {
 
     // Check if all tables have a selected source table and at least one configTable exists
     const isFormValid = () => {
-        return lookedUpProject.configTables.length > 0 &&
+        return lookedUpProject.startTimestamp &&
+            lookedUpProject.configTables.length > 0 &&
             lookedUpProject.configTables.every(table => selectedSourceTables[table.id]);
     };
 
@@ -43,6 +45,10 @@ const ProjectPopup = () => {
                 </PopupHeader>
                 <PopupBody>
                     <Area border rounded shadow="sm" p="5" m="3">
+                        {/* Project Timestamps */}
+                        <ProjectTimestamps project={lookedUpProject} />
+
+
                         {/* Project Name */}
                         <Row my="3">
                             <Col width="2" responsive="lg">
@@ -73,6 +79,26 @@ const ProjectPopup = () => {
                                 />
                             </Col>
                         </Row>
+
+                        {/* Project Start At */}
+                        {lookedUpProject.status === "WRITING" && (
+                            <Row my="3">
+                                <Col width="2" responsive="lg">
+                                    <Area flex alignItems="center" gap="2">
+                                        <Span fontSize="5" fontWeight="lighter">
+                                            {t('components.project_start_at')}
+                                        </Span>
+                                    </Area>
+                                </Col>
+                                <Col width="10" responsive="lg">
+                                    <InputField
+                                        type="date"
+                                        value={lookedUpProject.startTimestamp}
+                                        onChange={(e) => handleProjectInputChange("startTimestamp", e.target.value)}
+                                    />
+                                </Col>
+                            </Row>
+                        )}
 
                         {/* Project Tables */}
                         <Row my="3">

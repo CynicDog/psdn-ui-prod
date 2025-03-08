@@ -10,6 +10,7 @@ import {usePopup} from "../../context/Popup";
 import {useProject} from "../../context/Project";
 import {useLanguage} from "../../context/Language";
 import {getProjectStatusBadgeClass} from "../../context/util";
+import ProjectTimestamps from "./ProjectTimestamps";
 
 const ProjectCard = ({project, order}) => {
 
@@ -178,53 +179,10 @@ const ProjectCard = ({project, order}) => {
                     ))}
                 </Col>
             </Row>
-            <Row>
-                {/* Project timestamps */}
-                <Col width="12" responsive="lg" p="2" px="4" flex justifyContent="end">
-                    <Area flex gap="3" fontSize="small" >
-                        {project.createTimestamp && (
-                            <Area flex alignItems="center" gap="1">
-                                <Span>
-                                    {t('components.project_create_at')}
-                                </Span>
-                                <Span badge="light">
-                                    {project.createTimestamp.split("T")[0]}
-                                </Span>
-                            </Area>
-                        )}
-                        {project.approveTimestamp && (
-                            <Area flex alignItems="center" gap="1">
-                                <Span>
-                                    {t('components.project_approve_at')}
-                                </Span>
-                                <Span badge="light">
-                                    {project.approveTimestamp.split("T")[0]}
-                                </Span>
-                            </Area>
-                        )}
-                        {project.startTimestamp && (
-                            <Area flex alignItems="center" gap="1">
-                                <Span>
-                                    {t('components.project_start_at')}
-                                </Span>
-                                <Span badge="light">
-                                    {project.startTimestamp.split("T")[0]}
-                                </Span>
-                            </Area>
-                        )}
-                        {project.finishTimestamp && (
-                            <Area flex alignItems="center" gap="1">
-                                <Span>
-                                    {t('components.project_finish_at')}
-                                </Span>
-                                <Span badge="light">
-                                    {project.finishTimestamp.split("T")[0]}
-                                </Span>
-                            </Area>
-                        )}
-                    </Area>
-                </Col>
-            </Row>
+
+            {/* Project Timestamps */}
+            <ProjectTimestamps project={project} />
+
         </DraggableArea>
     );
 };

@@ -191,9 +191,6 @@ export const ProjectProvider = ({children}) => {
 
     const handleSourceTableSelect = async (projectTableId, sourceTable) => {
 
-
-        console.log(lookedUpProject.configTables)
-
         if (lookedUpProject.status === "WRITING") {
             setSelectedSourceTables(prev => ({
                 ...prev,
@@ -277,18 +274,23 @@ export const ProjectProvider = ({children}) => {
         });
     };
 
-    const handleProjectCreateRequest = () => {
-        if (!lookedUpProject || lookedUpProject.status !== "WRITING") {
-            return;
-        }
+    const handleProjectCreateRequest = async () => {
+        if (!lookedUpProject?.id || lookedUpProject.status !== "WRITING") return;
 
-        setProjects((prevProjects) => {
-            const updatedProjects = prevProjects.item.map((project) =>
-                project.id === lookedUpProject.id
-                    ? { ...project, status: "PENDING" } // Change status of the updated project
-                    : project
-            );
-            return { ...prevProjects, item: updatedProjects };
+        setProjects((prevProjects) => ({
+            ...prevProjects,
+            item: prevProjects.item.map((project) =>
+                project.id === lookedUpProject.id ? { ...project, status: "PENDING" } : project
+            ),
+        }));
+
+        await saveProject(auth, {
+            id: lookedUpProject.id,
+            username: auth.username,
+            name: lookedUpProject.name,
+            explanation: lookedUpProject.explanation,
+            startTimestamp: `${lookedUpProject.startTimestamp}T00:00:00`,
+            status: "PENDING"
         });
     };
 
