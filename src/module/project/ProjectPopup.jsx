@@ -15,10 +15,21 @@ import TextArea from "../../component/TextArea";
 import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
 import Icon from "../../component/Icon";
 import ProjectTimestamps from "./ProjectTimestamps";
+import LoadingSpinner from "../../component/LoadingSpinner";
 
 const ProjectPopup = () => {
     const {t} = useLanguage();
-    const {lookedUpProject, handleProjectTableAdd, isProjectTableSaving, selectedSourceTables, setSelectedSourceTables, handleProjectInputChange, handleProjectCreateRequest} = useProject();
+    const {
+        lookedUpProject,
+        saveLookedUpProject,
+        isLookedUpProjectSaving,
+        handleProjectTableAdd,
+        isProjectTableSaving,
+        selectedSourceTables,
+        setSelectedSourceTables,
+        handleProjectInputChange,
+        handleProjectCreateRequest
+    } = useProject();
     const {isProjectPopupOpen, setIsProjectPopupOpen} = usePopup();
 
     // Check if all tables have a selected source table and at least one configTable exists
@@ -38,16 +49,31 @@ const ProjectPopup = () => {
                         <Span fontSize="4" fontWeight="lighter">
                             {t('components.project_detail_title')}
                         </Span>
-                        <Button size="sm" variant="light" onClick={() => setIsProjectPopupOpen(false)}>
-                            {t('components.close')}
-                        </Button>
+                        <Area flex alignItems="center" gap="2">
+                            {lookedUpProject.status === "WRITING" && (
+                                <Button size="sm" variant="light" onClick={() => {
+                                    if (!isLookedUpProjectSaving) saveLookedUpProject();
+                                    setIsProjectPopupOpen(false);
+                                }}>
+                                    <Span>
+                                        {t('components.save')}
+                                    </Span>
+                                </Button>
+                            )}
+                            <Button size="sm" variant="light" onClick={() => {
+                                setIsProjectPopupOpen(false);
+                            }}>
+                                <Span>
+                                    {t('components.close')}
+                                </Span>
+                            </Button>
+                        </Area>
                     </Area>
                 </PopupHeader>
                 <PopupBody>
                     <Area border rounded shadow="sm" p="5" m="3">
                         {/* Project Timestamps */}
-                        <ProjectTimestamps project={lookedUpProject} />
-
+                        <ProjectTimestamps project={lookedUpProject}/>
 
                         {/* Project Name */}
                         <Row my="3">

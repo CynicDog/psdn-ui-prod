@@ -27,7 +27,9 @@ export const ProjectProvider = ({children}) => {
     const [sourceProjectTableDraggable, setSourceProjectTableDraggable] = useState(null);
     const [targetProjectTableDraggable, setTargetProjectTableDraggable] = useState(null);
 
+    // Save states
     const [isProjectTableSaving, setIsProjectTableSaving] = useState(false);
+    const [isLookedUpProjectSaving, setIsLookedUpProjectSaving] = useState(false);
 
     // Store selected source tables for validation
     const [selectedSourceTables, setSelectedSourceTables] = useState({});
@@ -104,7 +106,6 @@ export const ProjectProvider = ({children}) => {
     };
 
     const handleAddProject = async () => {
-
         let newProject = {
             id: null,
             name: "New Project",
@@ -285,6 +286,21 @@ export const ProjectProvider = ({children}) => {
         });
     };
 
+    const saveLookedUpProject = async () => {
+        if (!lookedUpProject || lookedUpProject.status !== "WRITING") {
+            return;
+        }
+
+        try {
+            setIsLookedUpProjectSaving(true);
+            await saveProject(auth, lookedUpProject);
+        } catch (error) {
+            console.error("Failed to save project:", error);
+        } finally {
+            setIsLookedUpProjectSaving(false);
+        }
+    };
+
     const handleProjectCreateRequest = async () => {
         if (!lookedUpProject?.id || lookedUpProject.status !== "WRITING") return;
 
@@ -318,7 +334,7 @@ export const ProjectProvider = ({children}) => {
                 targetProjectDraggable, setTargetProjectDraggable,
 
                 /* Writing Project methods */
-                lookedUpProject, setLookedUpProject,
+                lookedUpProject, setLookedUpProject, saveLookedUpProject, isLookedUpProjectSaving,
                 handleAddProject,
                 selectedSourceTables, setSelectedSourceTables, handleSourceTableSelect,
                 handleDeleteProject,

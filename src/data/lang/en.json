@@ -46,6 +46,7 @@
     "grid_row_control_check": "Select",
     "record_detail_title": "Record Details",
     "close": "close",
+    "save": "save",
     "delete": "delete",
     "pagination_button_previous": "previous",
     "pagination_button_next": "next",

@@ -9,21 +9,21 @@ const PopupOverlay = ({ children, setIsPopupOpen }) => {
         setIsPopupOpen(false);
     };
 
-    // Handle Escape key press to close popup
-    const handleEscKey = useCallback((event) => {
-        if (event.key === 'Escape') {
-            closePopup();
-        }
-    }, []);
+    // // Handle Escape key press to close popup
+    // const handleEscKey = useCallback((event) => {
+    //     if (event.key === 'Escape') {
+    //         closePopup();
+    //     }
+    // }, []);
 
     useEffect(() => {
         // Lock body scroll when popup is open
         document.body.style.overflow = 'hidden';
-        document.addEventListener('keydown', handleEscKey);
+        // document.addEventListener('keydown', handleEscKey);
 
         return () => {
             document.body.style.overflow = '';
-            document.removeEventListener('keydown', handleEscKey);
+            // document.removeEventListener('keydown', handleEscKey);
         };
     }, []);
 
