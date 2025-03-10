@@ -18,22 +18,22 @@ const ProjectManagePopup = ({ setManageProjects }) => {
     const {lookedUpProject, setLookedUpProject} = useProject();
 
     const handleApproveProject = async () => {
-        if (lookedUpProject.STATUS !== "PENDING") return;
+        if (lookedUpProject.status !== "PENDING") return;
 
-        const approvedDate = new Date().toISOString().split("T")[0];
+        const approvedDate = new Date().toISOString();
 
         // Update lookedUpProject state
         setLookedUpProject((prevProject) => ({
             ...prevProject,
-            STATUS: "APPROVED",
-            APPROVE_AT: approvedDate,
+            status: "APPROVED",
+            approveTimestamp: approvedDate,
         }));
 
         // Update manageProjects state
         setManageProjects((prevProjects) =>
             prevProjects.map((project) =>
-                project.ID === lookedUpProject.ID
-                    ? {...project, STATUS: "APPROVED", APPROVE_AT: approvedDate}
+                project.id === lookedUpProject.id
+                    ? {...project, status: "APPROVED", approveTimestamp: approvedDate}
                     : project
             )
         );
@@ -70,7 +70,21 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                             </Col>
                             <Col width="10" responsive="lg">
                                 <Span>
-                                    {lookedUpProject.NAME}
+                                    {lookedUpProject.name}
+                                </Span>
+                            </Col>
+                        </Row>
+
+                        {/* Project Username */}
+                        <Row my="3">
+                            <Col width="2" responsive="lg">
+                                <Span fontSize="5" fontWeight="lighter">
+                                    {t('components.project_username')}
+                                </Span>
+                            </Col>
+                            <Col width="10" responsive="lg">
+                                <Span>
+                                    {lookedUpProject.username}
                                 </Span>
                             </Col>
                         </Row>
@@ -79,12 +93,12 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                         <Row my="3">
                             <Col width="2" responsive="lg">
                                 <Span fontSize="5" fontWeight="lighter">
-                                    {t('components.project_description')}
+                                    {t('components.project_explanation')}
                                 </Span>
                             </Col>
                             <Col width="10" responsive="lg">
                                 <Span>
-                                    {lookedUpProject.DESCRIPTION}
+                                    {lookedUpProject.description}
                                 </Span>
                             </Col>
                         </Row>
@@ -99,7 +113,7 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 </Area>
                             </Col>
                             <Col width="10" responsive="lg">
-                                {lookedUpProject.TABLES.map((table, index) => (
+                                {lookedUpProject.configTables.map((table, index) => (
                                     <Area key={index} border rounded shadow="sm" p="3" px="5" mb="3">
                                         {/* Project Table Name */}
                                         <Row my="1">
@@ -110,7 +124,7 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                             </Col>
                                             <Col width="10" responsive="lg">
                                                 <Span>
-                                                    {table.NAME}
+                                                    {table.name}
                                                 </Span>
                                             </Col>
                                         </Row>
@@ -124,7 +138,7 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                             </Col>
                                             <Col width="10" responsive="lg">
                                                 <Span>
-                                                    {table.DESCRIPTION}
+                                                    {table.description}
                                                 </Span>
                                             </Col>
                                         </Row>
@@ -132,7 +146,7 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 ))}
                             </Col>
                         </Row>
-                        {lookedUpProject.CREATE_AT && (
+                        {lookedUpProject.createTimestamp && (
                             <Row my="3">
                                 <Col width="2" responsive="lg">
                                     <Area flex alignItems="center" gap="2">
@@ -143,12 +157,12 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 </Col>
                                 <Col width="10" responsive="lg">
                                     <Span>
-                                        {lookedUpProject.CREATE_AT}
+                                        {lookedUpProject.createTimestamp.split("T")[0]}
                                     </Span>
                                 </Col>
                             </Row>
                         )}
-                        {lookedUpProject.APPROVE_AT && (
+                        {lookedUpProject.approveTimestamp && (
                             <Row my="3">
                                 <Col width="2" responsive="lg">
                                     <Area flex alignItems="center" gap="2">
@@ -159,12 +173,12 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 </Col>
                                 <Col width="10" responsive="lg">
                                     <Span>
-                                        {lookedUpProject.APPROVE_AT}
+                                        {lookedUpProject.approveTimestamp.split("T")[0]}
                                     </Span>
                                 </Col>
                             </Row>
                         )}
-                        {lookedUpProject.START_AT && (
+                        {lookedUpProject.startTimestamp && (
                             <Row my="3">
                                 <Col width="2" responsive="lg">
                                     <Area flex alignItems="center" gap="2">
@@ -175,12 +189,12 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 </Col>
                                 <Col width="10" responsive="lg">
                                     <Span>
-                                        {lookedUpProject.START_AT}
+                                        {lookedUpProject.startTimestamp.split("T")[0]}
                                     </Span>
                                 </Col>
                             </Row>
                         )}
-                        {lookedUpProject.FINISH_AT && (
+                        {lookedUpProject.finishTimestamp && (
                             <Row my="3">
                                 <Col width="2" responsive="lg">
                                     <Area flex alignItems="center" gap="2">
@@ -191,12 +205,12 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 </Col>
                                 <Col width="10" responsive="lg">
                                     <Span>
-                                        {lookedUpProject.FINISH_AT}
+                                        {lookedUpProject.finishTimestamp.split("T")[0]}
                                     </Span>
                                 </Col>
                             </Row>
                         )}
-                        {lookedUpProject.STATUS === "PENDING" && (
+                        {lookedUpProject.status === "PENDING" && (
                             <Area flex justifyContent="end">
                                 <Button
                                     size="sm"

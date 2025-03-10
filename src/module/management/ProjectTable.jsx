@@ -21,15 +21,15 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
     const { setLookedUpProject } = useProject();
 
     const paginatedProjects = projects.slice((currentPage - 1) * rowsPerPage, currentPage * rowsPerPage);
-    const allSelected = paginatedProjects.every(project => selectedProjects.has(project.ID));
+    const allSelected = paginatedProjects.every(project => selectedProjects.has(project.id));
 
     const handleSelectAll = () => {
         setSelectedProjects(prevSelected => {
             const newSelected = new Set(prevSelected);
             if (allSelected) {
-                paginatedProjects.forEach(project => newSelected.delete(project.ID));
+                paginatedProjects.forEach(project => newSelected.delete(project.id));
             } else {
-                paginatedProjects.forEach(project => newSelected.add(project.ID));
+                paginatedProjects.forEach(project => newSelected.add(project.id));
             }
             return newSelected;
         });
@@ -73,32 +73,32 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
             </TableHeader>
             <TableBody>
                 {paginatedProjects.map(project => (
-                    <TableRow key={project.ID} selected={selectedProjects.has(project.ID)} onClick={() => handleProjectSelect(project.ID)}>
+                    <TableRow key={project.id} selected={selectedProjects.has(project.id)} onClick={() => handleProjectSelect(project.id)}>
                         <TableRowCell width="5%">
                             <Area flex justifyContent="center">
-                                <CheckBox checked={selectedProjects.has(project.ID)} onChange={(e) => {
+                                <CheckBox checked={selectedProjects.has(project.id)} onChange={(e) => {
                                     e.stopPropagation();
                                 }} />
                             </Area>
                         </TableRowCell>
-                        <TableRowCell>{project.NAME}</TableRowCell>
-                        <TableRowCell>{project.USERNAME}</TableRowCell>
+                        <TableRowCell>{project.name}</TableRowCell>
+                        <TableRowCell>{project.username}</TableRowCell>
                         <TableRowCell>
-                            {project.TABLES.map((table, index) => (
+                            {project.configTables.map((table, index) => (
                                 <Span key={index} badge="primary-filled" mx="1">
-                                    {table.NAME}
+                                    {table.name}
                                 </Span>
                             ))}
                         </TableRowCell>
                         <TableRowCell>
-                            <Span badge={getProjectStatusBadgeClass(project.STATUS)}>
-                                {project.STATUS}
+                            <Span badge={getProjectStatusBadgeClass(project.status)}>
+                                {project.status}
                             </Span>
                         </TableRowCell>
                         <TableRowCell>
-                            {project.CREATE_AT ? (
+                            {project.createTimestamp ? (
                                 <Span>
-                                    {project.CREATE_AT}
+                                    {project.createTimestamp.split("T")[0]}
                                 </Span>
                             ) : (
                                 <Span variant="secondary">
@@ -107,9 +107,9 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
                             )}
                         </TableRowCell>
                         <TableRowCell>
-                            {project.APPROVE_AT ? (
+                            {project.approveTimestamp ? (
                                 <Span>
-                                    {project.APPROVE_AT}
+                                    {project.approveTimestamp.split("T")[0]}
                                 </Span>
                             ) : (
                                 <Span variant="secondary">
@@ -118,9 +118,9 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
                             )}
                         </TableRowCell>
                         <TableRowCell>
-                            {project.START_AT ? (
+                            {project.startTimestamp ? (
                                 <Span>
-                                    {project.START_AT}
+                                    {project.startTimestamp.split("T")[0]}
                                 </Span>
                             ) : (
                                 <Span variant="secondary">
@@ -129,9 +129,9 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
                             )}
                         </TableRowCell>
                         <TableRowCell>
-                            {project.FINISH_AT ? (
+                            {project.finishTimestamp ? (
                                 <Span>
-                                    {project.FINISH_AT}
+                                    {project.finishTimestamp.split("T")[0]}
                                 </Span>
                             ) : (
                                 <Span variant="secondary">

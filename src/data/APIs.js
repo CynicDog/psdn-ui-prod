@@ -53,6 +53,15 @@ export const getMetaParameters = () => getData("meta/parameters");
 
 
 /**
+ * @description Fetches project data for the all user.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token and username.
+ * @returns {Promise<Object|null>} - The all projects data or null if an error occurs.
+ */
+export const getAllProjects = (auth) => getAuthorizedData(`projects`, auth);
+
+
+/**
  * @description Fetches project data for the authenticated user.
  *
  * @param {Object} auth - The authentication object containing the JWT token and username.
@@ -281,25 +290,25 @@ export const getUserRoles = async (auth) => {
     }
 }
 
-export const getAllProjects = async (auth) => {
-
-    const token = auth.token;
-    if (!token) {
-        throw new Error('Authentication token is missing');
-    }
-    const headers = {
-        "Authorization": `Bearer ${token}`,
-        "Content-Type": "application/json",
-    };
-
-    try {
-        const response = await fetch(`${MOCK_SERVER_URL}/management/projects`);
-
-        return await response.json();
-    } catch (error) {
-        throw error;
-    }
-}
+// export const getAllProjects = async (auth) => {
+//
+//     const token = auth.token;
+//     if (!token) {
+//         throw new Error('Authentication token is missing');
+//     }
+//     const headers = {
+//         "Authorization": `Bearer ${token}`,
+//         "Content-Type": "application/json",
+//     };
+//
+//     try {
+//         const response = await fetch(`${MOCK_SERVER_URL}/management/projects`);
+//
+//         return await response.json();
+//     } catch (error) {
+//         throw error;
+//     }
+// }
 
 /**
  * @description Fetches column data.

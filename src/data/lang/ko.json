@@ -32,6 +32,7 @@
     "project_finish_at": "종료일자",
     "project_detail_title": "프로젝트 상세",
     "project_name": "이름",
+    "project_username": "사용자",
     "project_explanation": "설명",
     "source_table": "원본 테이블",
     "project_table_name": "이름",

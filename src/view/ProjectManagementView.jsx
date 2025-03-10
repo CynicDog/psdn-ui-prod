@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
-import { useAuth } from "../context/Auth";
-import { useQuery } from "react-query";
-import { getAllProjects } from "../data/APIs";
+import {useEffect, useState} from "react";
+import {useAuth} from "../context/Auth";
+import {useQuery} from "react-query";
+import {getAllProjects, saveProjects} from "../data/APIs";
 import LoadingSpinner from "../component/LoadingSpinner";
 import Area from "../component/Area";
 import ProjectTable from "../module/management/ProjectTable";
 import ManagePaginationControl from "../module/management/ManagePaginationControl";
 import Button from "../component/Button";
-import { useLanguage } from "../context/Language";
+import {useLanguage} from "../context/Language";
 import ProjectManagePopup from "../module/management/ProjectManagePopup";
 
 const ProjectManagementView = () => {
@@ -28,23 +28,33 @@ const ProjectManagementView = () => {
 
     // Sync internal state with fetched data
     useEffect(() => {
-        if (projects?.data) {
-            setManageProjects(projects.data);
+        if (projects?.item) {
+            setManageProjects(projects.item);
         }
     }, [projects]);
 
     if (isLoading) return <LoadingSpinner />;
 
-    const handleApproveProjects = () => {
+    const handleApproveProjects = async () => {
+        const projectsToApprove = manageProjects
+            .filter((project) => selectedProjects.has(project.id) && project.status === "PENDING")
+            .map((project) => ({
+                ...project,
+                status: "APPROVED",
+                approveTimestamp: new Date().toISOString()
+            }));
+
+        if (projectsToApprove.length > 0) {
+            await saveProjects(auth, { item: projectsToApprove });
+        }
+
         setManageProjects((prevProjects) =>
             prevProjects.map((project) =>
-                selectedProjects.has(project.ID) && project.STATUS === "PENDING"
-                    ? { ...project, STATUS: "APPROVED", APPROVE_AT: new Date(Date.now()).toISOString().split("T")[0] }
+                selectedProjects.has(project.id) && project.status === "PENDING"
+                    ? { ...project, status: "APPROVED", approveTimestamp: new Date().toISOString() }
                     : project
             )
         );
-
-        // Clear selection after approval
         setSelectedProjects(new Set());
     };
 
