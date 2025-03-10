@@ -32,7 +32,7 @@ const ProjectCard = ({project, order}) => {
     const handleDragStart = (e) => {
         setSourceProjectDraggable(order);
         setIsDragging(true);
-        e.dataTransfer.setData("text/plain", project.ID);
+        e.dataTransfer.setData("text/plain", project.id);
     };
 
     const handleDragOver = (e) => {

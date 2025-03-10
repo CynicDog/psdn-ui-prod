@@ -72,6 +72,15 @@ export const saveProject = (auth, projectData) => postAuthorizedData("projects/s
 
 
 /**
+ * @description Saves projects by sending a POST request to the backend.
+ *
+ * @param {Object} auth - The authentication object containing the JWT token.
+ * @param {Object} projectData - The projects data saved.
+ * @returns {Promise<Object>} - A promise that resolves to the saved projects data.
+ */
+export const saveProjects = (auth, projectsData) => postAuthorizedData("projects/saveAll", auth, projectsData.item);
+
+/**
  * @description Fetches source table data for the authenticated user.
  *
  * @param {Object} auth - The authentication object containing the JWT token.

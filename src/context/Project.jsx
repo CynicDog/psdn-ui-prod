@@ -1,6 +1,13 @@
 import {createContext, useState, useEffect, useContext} from "react";
 import {useAuth} from "./Auth";
-import {deleteProject, deleteProjectTable, getUserProjects, saveProject, saveProjectTable} from "../data/APIs";
+import {
+    deleteProject,
+    deleteProjectTable,
+    getUserProjects,
+    saveProject,
+    saveProjects,
+    saveProjectTable
+} from "../data/APIs";
 import {ROLES} from "./util";
 
 {/* Project Context */}
@@ -50,24 +57,27 @@ export const ProjectProvider = ({children}) => {
     }, [auth]);
 
     // Handle Drag-and-Drop Reordering of Projects
-    const handleMoveProject = (sourceIndex, targetIndex) => {
+    const handleMoveProject = async (sourceIndex, targetIndex) => {
         setProjects((prevProjects) => {
             const updatedProjects = [...prevProjects.item];
 
-            // Remove the dragged project from its original position
+            // Remove dragged project from original position
             const [movedProject] = updatedProjects.splice(sourceIndex, 1);
 
             // Insert it at the target position
             updatedProjects.splice(targetIndex, 0, movedProject);
 
-            // Update the `sequence` property to reflect the new position
+            // Recalculate sequences (highest at the top)
             updatedProjects.forEach((project, index) => {
                 project.sequence = index;
             });
 
             return {...prevProjects, item: updatedProjects};
         });
+
+        await saveProjects(auth, projects);
     };
+
 
     // Handle Drag-and-Drop Reordering of Project Tables
     const handleMoveProjectTable = (projectId, sourceIndex, targetIndex) => {
@@ -101,7 +111,7 @@ export const ProjectProvider = ({children}) => {
             username: auth.username,
             explanation: "",
             configTables: [],
-            sequence: projects.item.length + 1,
+            sequence: projects.item.length,
             status: "WRITING",
             createTimestamp: null,
             approveTimestamp: null,
@@ -112,12 +122,7 @@ export const ProjectProvider = ({children}) => {
 
         setProjects((prevProjects) => {
             const prevData = prevProjects?.item ?? [];
-            const updatedProjects = [newProject.item, ...prevData];
-
-            // Recalculate `sequence` for all projects
-            updatedProjects.forEach((project, index) => {
-                project.sequence = index;
-            });
+            const updatedProjects = [...prevData, newProject.item];
 
             return {...prevProjects, item: updatedProjects};
         });
@@ -129,7 +134,6 @@ export const ProjectProvider = ({children}) => {
     const handleDeleteProject = async (projectId) => {
         setProjects((prevProjects) => {
             const updatedProjects = prevProjects.item.filter(project => project.id !== projectId);
-
             updatedProjects.forEach((project, index) => {
                 project.sequence = index;
             });
