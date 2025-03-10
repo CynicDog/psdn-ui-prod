@@ -31,9 +31,6 @@ export const ProjectProvider = ({children}) => {
     const [isProjectTableSaving, setIsProjectTableSaving] = useState(false);
     const [isLookedUpProjectSaving, setIsLookedUpProjectSaving] = useState(false);
 
-    // Store selected source tables for validation
-    const [selectedSourceTables, setSelectedSourceTables] = useState({});
-
     useEffect(() => {
         if (!auth?.username) return;
 
@@ -80,31 +77,6 @@ export const ProjectProvider = ({children}) => {
         await saveProjects(auth, projects);
     };
 
-
-    // Handle Drag-and-Drop Reordering of Project Tables
-    const handleMoveProjectTable = (projectId, sourceIndex, targetIndex) => {
-        setProjects((prevProjects) => {
-            const updatedProjects = [...prevProjects.data];
-
-            // Find the project by ID
-            const project = updatedProjects.find(p => p.ID === projectId);
-            if (!project || !project.TABLES) return prevProjects; // Safety check
-
-            // Remove the dragged table from its original position
-            const [movedTable] = project.TABLES.splice(sourceIndex, 1);
-
-            // Insert it at the target position
-            project.TABLES.splice(targetIndex, 0, movedTable);
-
-            // Update the ORDER property to reflect the new position
-            project.TABLES.forEach((table, index) => {
-                table.ORDER = index;
-            });
-
-            return {...prevProjects, data: updatedProjects};
-        });
-    };
-
     const handleAddProject = async () => {
         let newProject = {
             id: null,
@@ -149,16 +121,16 @@ export const ProjectProvider = ({children}) => {
         await deleteProject(auth, projectId);
     };
 
-    const handleProjectTableAdd = async (projectId) => {
+    const handleProjectTableAdd = async (projectId, sourceTable) => {
         setIsProjectTableSaving(true);
 
         let newTable = {
             id: null,
-            tableId: null,
-            name: null,
+            tableId: sourceTable.id,
+            name: sourceTable.name,
             projectId: projectId,
-            logicalName: "New Table",
-            explanation: "Description of the new table",
+            logicalName: `${sourceTable.name} in this project.`,
+            explanation: null,
             sequence: 0,
             iteration: 0
         };
@@ -198,12 +170,8 @@ export const ProjectProvider = ({children}) => {
 
     const handleSourceTableSelect = async (projectTableId, sourceTable) => {
 
-        if (lookedUpProject.status === "WRITING") {
-            setSelectedSourceTables(prev => ({
-                ...prev,
-                [projectTableId]: sourceTable
-            }));
-        }
+        if (lookedUpProject.status !== "WRITING") return;
+
         const projectTable = lookedUpProject.configTables.find(table => table.id === projectTableId);
         if (!projectTable) {
             console.error(`Project table with ID ${projectTableId} not found.`);
@@ -246,7 +214,6 @@ export const ProjectProvider = ({children}) => {
     const handleProjectInputChange = (field, value) => {
 
         if (lookedUpProject.status !== "WRITING") return
-
         setLookedUpProject(prev => ({...prev, [field]: value}));
 
         // Sync with projects array
@@ -258,11 +225,9 @@ export const ProjectProvider = ({children}) => {
         });
     };
 
-    // TODO: persist systematically
     const handleTableInputChange = (tableId, field, value) => {
 
         if (lookedUpProject.status !== "WRITING") return
-
         setLookedUpProject(prev => ({
             ...prev,
             configTables: prev.configTables.map(table =>
@@ -293,7 +258,15 @@ export const ProjectProvider = ({children}) => {
 
         try {
             setIsLookedUpProjectSaving(true);
-            await saveProject(auth, lookedUpProject);
+            await saveProject(auth, {
+                id: lookedUpProject.id,
+                username: auth.username,
+                name: lookedUpProject.name,
+                sequence: lookedUpProject.sequence,
+                explanation: lookedUpProject.explanation,
+                startTimestamp: lookedUpProject.startTimestamp,
+                finishTimestamp: lookedUpProject.finishTimestamp
+            });
         } catch (error) {
             console.error("Failed to save project:", error);
         } finally {
@@ -316,7 +289,8 @@ export const ProjectProvider = ({children}) => {
             username: auth.username,
             name: lookedUpProject.name,
             explanation: lookedUpProject.explanation,
-            startTimestamp: `${lookedUpProject.startTimestamp}T00:00:00`,
+            startTimestamp: lookedUpProject.startTimestamp,
+            finishTimestamp: lookedUpProject.finishTimestamp,
             status: "PENDING"
         });
     };
@@ -336,14 +310,13 @@ export const ProjectProvider = ({children}) => {
                 /* Writing Project methods */
                 lookedUpProject, setLookedUpProject, saveLookedUpProject, isLookedUpProjectSaving,
                 handleAddProject,
-                selectedSourceTables, setSelectedSourceTables, handleSourceTableSelect,
+                handleSourceTableSelect,
                 handleDeleteProject,
 
                 handleProjectTableAdd, isProjectTableSaving, handleProjectTableDelete,
                 handleProjectInputChange, handleTableInputChange,
                 handleProjectCreateRequest,
 
-                handleMoveProjectTable,
                 sourceProjectTableDraggable, setSourceProjectTableDraggable,
                 targetProjectTableDraggable, setTargetProjectTableDraggable
             }}

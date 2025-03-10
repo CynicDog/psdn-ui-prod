@@ -5,45 +5,16 @@ import { useLanguage } from "../../context/Language";
 import InputField from "../../component/InputField";
 import TextArea from "../../component/TextArea";
 import { useProject } from "../../context/Project";
-import { useQuery } from "react-query";
-import { useAuth } from "../../context/Auth";
-import { getMetaSourceTables } from "../../data/APIs";
-import LoadingSpinner from "../../component/LoadingSpinner";
-import {useEffect} from "react";
 
 const ProjectPopupTablesArea = ({ tables }) => {
     const { t } = useLanguage();
-    const { auth } = useAuth();
-    const { lookedUpProject, selectedSourceTables, setSelectedSourceTables, handleSourceTableSelect, isProjectTableSaving, handleProjectTableDelete, handleTableInputChange } = useProject();
-
-    const { data: sourceTables, isLoading: isSourceTableLoading } = useQuery(
-        ["sourceTables", lookedUpProject.id],
-        () => getMetaSourceTables(auth),
-        { enabled: !!auth.token }
-    );
-
-    // Set selected source tables for projects with WRITING status to visually highlight the selected table
-    useEffect(() => {
-        if (lookedUpProject?.status === "WRITING" && tables?.length > 0) {
-            const selectedTablesMap = tables.reduce((acc, table) => {
-                acc[table.id] = {
-                    id: table.tableId,
-                    name: table.name
-                };
-                return acc;
-            }, {});
-
-            setSelectedSourceTables(selectedTablesMap);
-        }
-    }, [lookedUpProject?.status, tables]);
+    const { lookedUpProject, handleProjectTableDelete, handleTableInputChange } = useProject();
 
     return (
         <>
             {tables?.map((table) => {
-                const selectedSourceTable = selectedSourceTables[table.id] || null;
-
                 return (
-                    <Area key={table.id} rounded="4" shadow p="3" px="5" mb="5">
+                    <Area key={table.id} border rounded shadow="sm" p="3" px="5" my="3">
                         {lookedUpProject.status === "WRITING" && (
                             <Area flex justifyContent="end" my="2">
                                 <Span
@@ -60,60 +31,19 @@ const ProjectPopupTablesArea = ({ tables }) => {
                             </Area>
                         )}
 
-                        {/* Source Table Selection */}
-                        {isSourceTableLoading ? (
-                            <LoadingSpinner />
-                        ) : (
-                            <Row my="1">
-                                <Col width="2" responsive="lg">
-                                    <Span fontSize="5" fontWeight="lighter">
-                                        {t('components.source_table')}
-                                    </Span>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    {lookedUpProject.status === "WRITING" ? (
-                                        <Area border rounded p="3" mb="2">
-                                            {sourceTables?.item.map(sourceTable => (
-                                                <Area
-                                                    key={sourceTable.id}
-                                                    onClick={() => !isProjectTableSaving && handleSourceTableSelect(table.id, sourceTable)}
-                                                    bg={selectedSourceTable?.id === sourceTable.id ? "primary-subtle" : "body"}
-                                                    border rounded="2" shadow="sm" my="2" p="2" cursor="pointer"
-                                                >
-                                                    <Row>
-                                                        <Col width="4" responsive="lg" flex alignItems="center">
-                                                            <Span badge={selectedSourceTable?.id === sourceTable.id ? "primary-filled" : "secondary"}>
-                                                                {sourceTable.name}
-                                                            </Span>
-                                                        </Col>
-                                                        <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
-                                                            <Span fontWeight="lighter">
-                                                                {t('components.source_table_create_at')}
-                                                            </Span>
-                                                            <Span badge="light">
-                                                                {sourceTable?.inputTimestamp?.split("T")[0]}
-                                                            </Span>
-                                                        </Col>
-                                                        <Col width="4" responsive="lg" flex justifyContent="end" alignItems="center" gap="2">
-                                                            <Span fontWeight="lighter">
-                                                                {t('components.source_table_update_at')}
-                                                            </Span>
-                                                            <Span badge="light">
-                                                                {sourceTable?.updateTimestamp?.split("T")[0]}
-                                                            </Span>
-                                                        </Col>
-                                                    </Row>
-                                                </Area>
-                                            ))}
-                                        </Area>
-                                    ) : (
-                                        <Span badge="primary-filled">
-                                            {table.name}
-                                        </Span>
-                                    )}
-                                </Col>
-                            </Row>
-                        )}
+                        {/* Selected Source Table Name */}
+                        <Row my="1">
+                            <Col width="2" responsive="lg">
+                                <Span fontSize="5" fontWeight="lighter">
+                                    {t('components.source_table')}
+                                </Span>
+                            </Col>
+                            <Col width="10" responsive="lg">
+                                <Span badge="primary-filled">
+                                    {table.name}
+                                </Span>
+                            </Col>
+                        </Row>
 
                         {/* Project Table Name */}
                         <Row my="1">

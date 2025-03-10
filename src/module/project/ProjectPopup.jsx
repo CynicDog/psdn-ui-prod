@@ -13,20 +13,20 @@ import {Col, Row} from "../../component/Grid";
 import InputField from "../../component/InputField";
 import TextArea from "../../component/TextArea";
 import ProjectPopupTablesArea from "./ProjectPopupTablesArea";
-import Icon from "../../component/Icon";
 import ProjectTimestamps from "./ProjectTimestamps";
-import LoadingSpinner from "../../component/LoadingSpinner";
+import {useQuery} from "react-query";
+import {useAuth} from "../../context/Auth";
+import {getMetaSourceTables} from "../../data/APIs";
 
 const ProjectPopup = () => {
     const {t} = useLanguage();
+    const {auth} = useAuth();
     const {
         lookedUpProject,
         saveLookedUpProject,
         isLookedUpProjectSaving,
         handleProjectTableAdd,
         isProjectTableSaving,
-        selectedSourceTables,
-        setSelectedSourceTables,
         handleProjectInputChange,
         handleProjectCreateRequest
     } = useProject();
@@ -35,9 +35,15 @@ const ProjectPopup = () => {
     // Check if all tables have a selected source table and at least one configTable exists
     const isFormValid = () => {
         return lookedUpProject.startTimestamp &&
-            lookedUpProject.configTables.length > 0 &&
-            lookedUpProject.configTables.every(table => selectedSourceTables[table.id]);
+            lookedUpProject.finishTimestamp &&
+            lookedUpProject.configTables.length > 0
     };
+
+    const {data: sourceTables, isLoading: isSourceTableLoading} = useQuery(
+        ["sourceTables", lookedUpProject.id],
+        () => getMetaSourceTables(auth),
+        {enabled: !!auth.token}
+    );
 
     if (!isProjectPopupOpen) return null;
 
@@ -50,6 +56,19 @@ const ProjectPopup = () => {
                             {t('components.project_detail_title')}
                         </Span>
                         <Area flex alignItems="center" gap="2">
+                            {/* Project Request Submit Button with Validation */}
+                            {lookedUpProject.status === "WRITING" && (
+                                <Button size="sm" variant="primary" onClick={() => {
+                                        handleProjectCreateRequest();
+                                        setIsProjectPopupOpen(false);
+                                    }}
+                                    disabled={!isFormValid()}
+                                >
+                                    {t('components.request_project_creation')}
+                                </Button>
+                            )}
+
+                            {/* Project Details Save Button */}
                             {lookedUpProject.status === "WRITING" && (
                                 <Button size="sm" variant="light" onClick={() => {
                                     if (!isLookedUpProjectSaving) saveLookedUpProject();
@@ -60,6 +79,8 @@ const ProjectPopup = () => {
                                     </Span>
                                 </Button>
                             )}
+
+                            {/* Project Details Popup Close Button */}
                             <Button size="sm" variant="light" onClick={() => {
                                 setIsProjectPopupOpen(false);
                             }}>
@@ -118,9 +139,29 @@ const ProjectPopup = () => {
                                 </Col>
                                 <Col width="10" responsive="lg">
                                     <InputField
-                                        type="date"
+                                        type="datetime-local"
                                         value={lookedUpProject.startTimestamp}
                                         onChange={(e) => handleProjectInputChange("startTimestamp", e.target.value)}
+                                    />
+                                </Col>
+                            </Row>
+                        )}
+
+                        {/* Project Finish At */}
+                        {lookedUpProject.status === "WRITING" && (
+                            <Row my="3">
+                                <Col width="2" responsive="lg">
+                                    <Area flex alignItems="center" gap="2">
+                                        <Span fontSize="5" fontWeight="lighter">
+                                            {t('components.project_finish_at')}
+                                        </Span>
+                                    </Area>
+                                </Col>
+                                <Col width="10" responsive="lg">
+                                    <InputField
+                                        type="datetime-local"
+                                        value={lookedUpProject.finishTimestamp}
+                                        onChange={(e) => handleProjectInputChange("finishTimestamp", e.target.value)}
                                     />
                                 </Col>
                             </Row>
@@ -133,39 +174,55 @@ const ProjectPopup = () => {
                                     <Span fontSize="5" fontWeight="lighter">
                                         {t('components.project_tables')}
                                     </Span>
-                                    {lookedUpProject.status === "WRITING" && (
-                                        <Span variant="secondary" fontSize="4"
-                                              onClick={() => !isProjectTableSaving && handleProjectTableAdd(lookedUpProject.id)}>
-                                            <Icon name="database-fill-add"/>
-                                        </Span>
-                                    )}
                                 </Area>
                             </Col>
                             <Col width="10" responsive="lg">
-                                <ProjectPopupTablesArea
-                                    tables={lookedUpProject.configTables}
-                                    selectedSourceTables={selectedSourceTables}
-                                    setSelectedSourceTables={setSelectedSourceTables}
-                                />
+                                <Area border rounded p="3">
+                                    {lookedUpProject.status === "WRITING" && (
+                                        <Area rounded="4" shadow p="3" mb="2">
+                                            <Span variant="secondary" fontSize="5" fontWeight="lighter">
+                                                {t('components.source_table_list')}
+                                            </Span>
+                                            {sourceTables?.item.map(sourceTable => (
+                                                <Area key={sourceTable.id} border rounded="2" shadow="sm" my="2" p="2">
+                                                    <Row>
+                                                        <Col width="4" responsive="lg" flex alignItems="center">
+                                                            <Span badge="secondary-filled">
+                                                                {sourceTable.name}
+                                                            </Span>
+                                                        </Col>
+                                                        <Col width="6" responsive="lg" flex justifyContent="end"
+                                                             alignItems="center" gap="2">
+                                                            <Span fontWeight="lighter">
+                                                                {t('components.source_table_create_at')}
+                                                            </Span>
+                                                            <Span badge="light">
+                                                                {sourceTable?.inputTimestamp?.split("T")[0]}
+                                                            </Span>
+                                                            <Span fontWeight="lighter">
+                                                                {t('components.source_table_update_at')}
+                                                            </Span>
+                                                            <Span badge="light">
+                                                                {sourceTable?.updateTimestamp?.split("T")[0]}
+                                                            </Span>
+                                                        </Col>
+                                                        <Col width="2" responsive="lg" flex justifyContent="end">
+                                                            <Span variant="secondary" fontSize="4"
+                                                                  onClick={() => !isProjectTableSaving && handleProjectTableAdd(lookedUpProject.id, sourceTable)}>
+                                                                <Button size="sm" variant="light">
+                                                                    {t('components.source_table_add')}
+                                                                </Button>
+                                                            </Span>
+                                                        </Col>
+                                                    </Row>
+                                                </Area>
+                                            ))}
+                                        </Area>
+                                    )}
+                                    <ProjectPopupTablesArea tables={lookedUpProject.configTables} />
+                                </Area>
                             </Col>
                         </Row>
-
-                        {/* Submit Button with Validation */}
-                        {lookedUpProject.status === "WRITING" && (
-                            <Area flex justifyContent="end" mt="4">
-                                <Button
-                                    size="sm"
-                                    variant="primary"
-                                    onClick={() => {
-                                        handleProjectCreateRequest();
-                                        setIsProjectPopupOpen(false);
-                                    }}
-                                    disabled={!isFormValid()}
-                                >
-                                    {t('components.request_project_creation')}
-                                </Button>
-                            </Area>
-                        )}
                     </Area>
                 </PopupBody>
             </PopupContent>
