@@ -83,7 +83,7 @@ const ProjectTable = ({ projects, rowsPerPage, currentPage, selectedProjects, se
                         </TableRowCell>
                         <TableRowCell>{project.name}</TableRowCell>
                         <TableRowCell>{project.username}</TableRowCell>
-                        <TableRowCell>
+                        <TableRowCell maxWidth="300px">
                             {project.configTables.map((table, index) => (
                                 <Span key={index} badge="primary-filled" mx="1">
                                     {table.name}

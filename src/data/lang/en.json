@@ -39,6 +39,7 @@
     "project_tables": "Tables",
     "project_table_purpose_of_use": "Purpose of Use",
     "add_project_table": "Add a Project Table",
+    "project_terminate": "Terminate Project",
     "source_table_create_at": "create at",
     "source_table_update_at": "update at",
     "request_project_creation": "Submit",

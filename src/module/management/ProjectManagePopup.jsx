@@ -9,6 +9,7 @@ import {useLanguage} from "../../context/Language";
 import PopupOverlay from "../../component/PopupOverlay";
 import {useProject} from "../../context/Project";
 import {Col, Row} from "../../component/Grid";
+import ProjectTimestamps from "../project/ProjectTimestamps";
 
 const ProjectManagePopup = ({ setManageProjects }) => {
 
@@ -60,6 +61,8 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                 </PopupHeader>
                 <PopupBody>
                     <Area border rounded shadow="sm" p="5" m="3">
+                        {/* Project Timestamps */}
+                        <ProjectTimestamps project={lookedUpProject} />
 
                         {/* Project Name */}
                         <Row my="3">
@@ -146,81 +149,6 @@ const ProjectManagePopup = ({ setManageProjects }) => {
                                 ))}
                             </Col>
                         </Row>
-                        {lookedUpProject.createTimestamp && (
-                            <Row my="3">
-                                <Col width="2" responsive="lg">
-                                    <Area flex alignItems="center" gap="2">
-                                        <Span fontSize="5" fontWeight="lighter">
-                                            {t('components.project_create_at')}
-                                        </Span>
-                                    </Area>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    <Span>
-                                        {lookedUpProject.createTimestamp.split("T")[0]}
-                                    </Span>
-                                </Col>
-                            </Row>
-                        )}
-                        {lookedUpProject.approveTimestamp && (
-                            <Row my="3">
-                                <Col width="2" responsive="lg">
-                                    <Area flex alignItems="center" gap="2">
-                                        <Span fontSize="5" fontWeight="lighter">
-                                            {t('components.project_approve_at')}
-                                        </Span>
-                                    </Area>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    <Span>
-                                        {lookedUpProject.approveTimestamp.split("T")[0]}
-                                    </Span>
-                                </Col>
-                            </Row>
-                        )}
-                        {lookedUpProject.startTimestamp && (
-                            <Row my="3">
-                                <Col width="2" responsive="lg">
-                                    <Area flex alignItems="center" gap="2">
-                                        <Span fontSize="5" fontWeight="lighter">
-                                            {t('components.project_start_at')}
-                                        </Span>
-                                    </Area>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    <Span>
-                                        {lookedUpProject.startTimestamp.split("T")[0]}
-                                    </Span>
-                                </Col>
-                            </Row>
-                        )}
-                        {lookedUpProject.finishTimestamp && (
-                            <Row my="3">
-                                <Col width="2" responsive="lg">
-                                    <Area flex alignItems="center" gap="2">
-                                        <Span fontSize="5" fontWeight="lighter">
-                                            {t('components.project_finish_at')}
-                                        </Span>
-                                    </Area>
-                                </Col>
-                                <Col width="10" responsive="lg">
-                                    <Span>
-                                        {lookedUpProject.finishTimestamp.split("T")[0]}
-                                    </Span>
-                                </Col>
-                            </Row>
-                        )}
-                        {lookedUpProject.status === "PENDING" && (
-                            <Area flex justifyContent="end">
-                                <Button
-                                    size="sm"
-                                    variant="primary"
-                                    onClick={handleApproveProject}
-                                >
-                                    {t('components.approve_project')}
-                                </Button>
-                            </Area>
-                        )}
                     </Area>
                 </PopupBody>
             </PopupContent>

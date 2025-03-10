@@ -1,8 +1,10 @@
-const TableRowCell = ({ children, className = "", colSpan }) => {
+const TableRowCell = ({ children, className = "", colSpan, maxWidth }) => {
     return (
         <td
             className={className}
-            colSpan={colSpan}>
+            colSpan={colSpan}
+            style={maxWidth ? { maxWidth } : {}}
+        >
             {children}
         </td>
     );

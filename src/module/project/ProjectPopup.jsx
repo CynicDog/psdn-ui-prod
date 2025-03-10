@@ -147,6 +147,7 @@ const ProjectPopup = () => {
                             </Row>
                         )}
 
+                        {/* TODO: 논의 필요. 종료일자 지났으나 상태가 바뀌지 않는 경우 존재. */}
                         {/* Project Finish At */}
                         {lookedUpProject.status === "WRITING" && (
                             <Row my="3">
@@ -223,6 +224,22 @@ const ProjectPopup = () => {
                                 </Area>
                             </Col>
                         </Row>
+                        {lookedUpProject.status === "APPROVED" && (
+                            <Area flex justifyContent="end" pt="3">
+                                <Button size="sm" variant="success" outline>
+                                    {t('components.project_terminate')}
+                                </Button>
+                                {/*TODO: handleProjectCreateRequest -> handleProjectStatusChange("APPROVED" / "FINISHED") */}
+                                {/*{lookedUpProject.status === "" && (
+                                    <Button size="sm" variant="primary" onClick={() => {
+                                        handleProjectCreateRequest();
+                                        setIsProjectPopupOpen(false);
+                                    }}>
+                                        {t('components.project_terminate')}
+                                    </Button>
+                                )}*/}
+                            </Area>
+                        )}
                     </Area>
                 </PopupBody>
             </PopupContent>
